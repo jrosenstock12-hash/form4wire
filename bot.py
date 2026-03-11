@@ -363,6 +363,7 @@ def main():
         log.info(f"  Startup: {len(recently_posted)} ticker/insider combos posted in last 24h — will skip reposts")
 
     last_post_time = 0  # Unix timestamp of last tweet posted
+    first_poll = True  # On first poll, mark all existing filings as seen without processing
 
     while True:
         now_str = datetime.now(timezone.utc).strftime("%H:%M:%S UTC")
@@ -371,6 +372,14 @@ def main():
         try:
             filings = fetch_form4_feed()
             new     = [f for f in filings if f["id"] not in seen]
+
+            if first_poll:
+                log.info(f"  First poll — seeding {len(new)} existing filings as seen (restart guard)")
+                for filing in new:
+                    seen.add(filing["id"])
+                save_seen(seen)
+                first_poll = False
+                new = []
 
             if new:
                 log.info(f"  {len(new)} new filing(s) found")
