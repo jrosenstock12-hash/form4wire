@@ -356,6 +356,19 @@ def main():
     log.info(f"   Min between posts: {config.MIN_SECONDS_BETWEEN_POSTS//60} min")
 
     seen = load_seen()
+
+    # On startup, build a set of "ticker:insider" keys from trades posted
+    # in the last 24 hours. Used to prevent reposts after Railway restarts.
+    recent_trades = get_last_24h_trades()
+    recently_posted = set()
+    for t in recent_trades:
+        ticker  = t.get("ticker", "")
+        name    = t.get("name", "") or t.get("insider_name", "")
+        if ticker:
+            recently_posted.add(f"{ticker}:{name}".lower())
+    if recently_posted:
+        log.info(f"  Startup: {len(recently_posted)} ticker/insider combos posted in last 24h — will skip reposts")
+
     last_post_time = 0  # Unix timestamp of last tweet posted
 
     while True:
@@ -369,6 +382,17 @@ def main():
             if new:
                 log.info(f"  {len(new)} new filing(s) found")
                 for filing in new:
+                    # Skip if this ticker was already posted in last 24h (restart dedup guard)
+                    title_lower = filing.get("title", "").lower()
+                    skip_repost = any(
+                        rp.split(":")[0] in title_lower
+                        for rp in recently_posted
+                        if rp.split(":")[0]
+                    )
+                    if skip_repost:
+                        log.info(f"  → SKIP: Recently posted ticker found in filing — restart dedup")
+                        seen.add(filing["id"])
+                        continue
                     posted = process_filing(filing, last_post_time)
                     seen.add(filing["id"])
                     increment_daily_scan(1)
