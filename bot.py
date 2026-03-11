@@ -105,13 +105,6 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     Full pipeline for one Form 4 filing.
     Returns True if a tweet was posted.
     """
-    # Enforce minimum gap between posts
-    elapsed = time.time() - last_post_time
-    if last_post_time > 0 and elapsed < config.MIN_SECONDS_BETWEEN_POSTS:
-        wait = int(config.MIN_SECONDS_BETWEEN_POSTS - elapsed)
-        log.info(f"  → Cooldown active — {wait}s until next post allowed, skipping")
-        return False
-
     log.info(f"Processing: {filing['title']}")
 
     # 1. Fetch XML detail
@@ -391,6 +384,13 @@ def main():
                     )
                     if skip_repost:
                         log.info(f"  → SKIP: Recently posted ticker found in filing — restart dedup")
+                        seen.add(filing["id"])
+                        continue
+                    # Check cooldown before processing
+                    elapsed = time.time() - last_post_time
+                    if last_post_time > 0 and elapsed < config.MIN_SECONDS_BETWEEN_POSTS:
+                        wait = int(config.MIN_SECONDS_BETWEEN_POSTS - elapsed)
+                        log.info(f"  → Cooldown active — {wait}s remaining, pausing filing loop")
                         seen.add(filing["id"])
                         continue
                     posted = process_filing(filing, last_post_time)
