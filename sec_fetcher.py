@@ -18,7 +18,7 @@ def get_feed_url(offset=0):
     from datetime import datetime, timedelta
     today = datetime.utcnow().date()
     # Look back 5 days to catch any filings we may have missed
-    start = today - timedelta(days=5)
+    start = today - timedelta(days=2)
     return (
         f"https://efts.sec.gov/LATEST/search-index?q=%22%22&forms=4"
         f"&dateRange=custom&startdt={start}&enddt={today}"
@@ -30,7 +30,7 @@ COMPANY_FACTS_URL = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
 
 # How many pages of 100 filings to fetch per run
 # 4 pages = up to 400 filings, good coverage without hammering SEC
-MAX_PAGES = 4
+MAX_PAGES = 2
 
 
 def fetch_form4_feed() -> list[dict]:
@@ -291,6 +291,7 @@ def parse_transactions_from_xml(xml: str) -> dict:
         total_value  = sum(r["shares"] * r["price"] for r in rows)
         avg_price    = total_value / total_shares if total_shares else 0
         first_date   = rows[0]["date"]
+        last_date    = rows[-1]["date"]
 
         # For shares_owned_after: sum the LAST row of each ownership bucket
         # Handles Direct + Trust + Managed Account etc. correctly
@@ -303,12 +304,13 @@ def parse_transactions_from_xml(xml: str) -> dict:
                         else total_owned_after + total_shares)
 
         result = {
-            "transaction_code":   dominant_code,
-            "shares_traded":      int(total_shares),
-            "price_per_share":    round(avg_price, 4),
-            "total_value":        round(total_value, 2),
-            "transaction_date":   first_date,
-            "shares_owned_after": int(total_owned_after),
+            "transaction_code":    dominant_code,
+            "shares_traded":       int(total_shares),
+            "price_per_share":     round(avg_price, 4),
+            "total_value":         round(total_value, 2),
+            "transaction_date":    first_date,
+            "transaction_date_end": last_date if last_date != first_date else "",
+            "shares_owned_after":  int(total_owned_after),
             "shares_owned_before": int(owned_before),
         }
 

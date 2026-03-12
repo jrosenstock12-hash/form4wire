@@ -132,7 +132,7 @@ def parse_filing(title: str, content: str, company: dict, xml_content: str = "")
     prompt = PARSE_PROMPT.format(
         title=title,
         company=json.dumps(company),
-        content=content[:5000],
+        content=content[:10000],
     )
     try:
         msg = claude.messages.create(
@@ -497,8 +497,14 @@ def build_tweet(
             return d
 
     tx_date_fmt    = fmt_date_short(tx_date)
+    tx_date_end    = trade.get("transaction_date_end", "")
+    tx_date_end_fmt = fmt_date_short(tx_date_end) if tx_date_end else ""
     filed_date_fmt = fmt_date_short(filed_date) if filed_date else tx_date_fmt
-    date_str = f"Trade: {tx_date_fmt} | Filed: {filed_date_fmt}"
+    # Show date range if multi-day trade (e.g. "Mar 10-11")
+    if tx_date_end_fmt and tx_date_end_fmt != tx_date_fmt:
+        date_str = f"Trade: {tx_date_fmt}–{tx_date_end_fmt} | Filed: {filed_date_fmt}"
+    else:
+        date_str = f"Trade: {tx_date_fmt} | Filed: {filed_date_fmt}"
 
     # Position change — only show if we have both before and after
     position_str = ""

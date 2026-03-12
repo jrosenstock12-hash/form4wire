@@ -14,6 +14,7 @@ import config
 from sec_fetcher  import (
     fetch_form4_feed, fetch_filing_xml, fetch_company_data,
     fetch_stock_price, fetch_short_interest, fetch_next_earnings,
+    parse_transactions_from_xml,
 )
 from ai_parser    import (
     classify_insider_tier, parse_filing, score_signal,
@@ -113,11 +114,28 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     # 2. Fetch company metadata
     company = fetch_company_data(filing.get("cik", ""))
 
-    # 3. Parse with Claude (xml_content also passed for reliable shares data)
+    # 3. Parse with Claude
     trade = parse_filing(filing["title"], xml_content, company, xml_content=xml_content)
     if not trade:
         log.info("  → SKIP: could not parse")
         return False
+
+    # 3b. Override shares data with direct XML parse — aggregates ALL rows including
+    # multi-date transactions (e.g. insider buys over Mar 10 + Mar 11, files once)
+    xml_data = parse_transactions_from_xml(xml_content)
+    if xml_data:
+        log.info(f"  XML override: {xml_data.get('shares_traded')} shares, ${xml_data.get('total_value'):,.0f} value")
+        trade["shares_traded"]       = xml_data.get("shares_traded",       trade.get("shares_traded", 0))
+        trade["price_per_share"]     = xml_data.get("price_per_share",     trade.get("price_per_share", 0))
+        trade["total_value"]         = xml_data.get("total_value",         trade.get("total_value", 0))
+        trade["shares_owned_after"]  = xml_data.get("shares_owned_after",  trade.get("shares_owned_after", 0))
+        trade["shares_owned_before"] = xml_data.get("shares_owned_before", trade.get("shares_owned_before", 0))
+        trade["transaction_code"]    = xml_data.get("transaction_code",    trade.get("transaction_code", ""))
+        # Store date range for tweet (e.g. "Mar 10-11" if multi-day)
+        if xml_data.get("transaction_date"):
+            trade["transaction_date"] = xml_data["transaction_date"]
+        if xml_data.get("transaction_date_end"):
+            trade["transaction_date_end"] = xml_data["transaction_date_end"]
 
     # Fill in company data gaps
     if not trade.get("ticker") and company.get("ticker"):
