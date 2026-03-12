@@ -447,9 +447,9 @@ def main():
         from datetime import datetime, timezone, timedelta
         def get_poll_interval():
             # Convert UTC to ET — auto-detects daylight saving time
-            import zoneinfo
+            from zoneinfo import ZoneInfo
             now_utc = datetime.now(timezone.utc)
-            now_et = now_utc.astimezone(zoneinfo.ZoneInfo("America/New_York"))
+            now_et = now_utc.astimezone(ZoneInfo("America/New_York"))
             hour = now_et.hour
             weekday = now_et.weekday()  # 0=Mon, 6=Sun
 
