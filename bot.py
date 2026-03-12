@@ -443,7 +443,30 @@ def main():
         except Exception as e:
             log.error(f"Unexpected error: {e}", exc_info=True)
 
-        time.sleep(config.POLL_INTERVAL_SECONDS)
+        # Adaptive polling — faster during peak filing hours, slower overnight/weekends
+        from datetime import datetime, timezone, timedelta
+        def get_poll_interval():
+            # Convert UTC to ET (UTC-5 standard, UTC-4 daylight)
+            now_utc = datetime.now(timezone.utc)
+            et_offset = -4  # EDT (Mar-Nov); change to -5 for EST (Nov-Mar)
+            now_et = now_utc + timedelta(hours=et_offset)
+            hour = now_et.hour
+            weekday = now_et.weekday()  # 0=Mon, 6=Sun
+
+            if weekday >= 5:                        # Weekend
+                return 900                          # 15 min
+            elif 0 <= hour < 9:                     # Weekday midnight–9 AM ET
+                return 600                          # 10 min
+            elif 9 <= hour < 16:                    # Weekday market hours 9 AM–4 PM ET
+                return 90                           # 90 sec
+            elif 16 <= hour < 21:                   # Weekday peak 4 PM–9 PM ET
+                return 60                           # 60 sec (fastest)
+            else:                                   # Weekday 9 PM–midnight ET
+                return 180                          # 3 min
+
+        interval = get_poll_interval()
+        log.info(f"  Next poll in {interval}s")
+        time.sleep(interval)
 
 
 if __name__ == "__main__":
