@@ -101,18 +101,6 @@ def check_analyst_divergence(trade: dict, stock: dict) -> str:
 
 # ── PROCESS A SINGLE FILING ───────────────────────────────────────────────────
 
-def _get_poll_interval() -> int:
-    from zoneinfo import ZoneInfo
-    now_et = datetime.now(timezone.utc).astimezone(ZoneInfo("America/New_York"))
-    hour    = now_et.hour
-    weekday = now_et.weekday()
-    if weekday >= 5:    return 900
-    elif hour < 9:      return 600
-    elif hour < 16:     return 90
-    elif hour < 21:     return 60
-    else:               return 180
-
-
 def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     """
     Full pipeline for one Form 4 filing.
@@ -478,7 +466,7 @@ def main():
 
         interval = get_poll_interval()
         log.info(f"  Next poll in {interval}s")
-        time.sleep(interval)
+        time.sleep(config.POLL_INTERVAL_SECONDS)
 
 
 if __name__ == "__main__":
