@@ -446,10 +446,10 @@ def main():
         # Adaptive polling — faster during peak filing hours, slower overnight/weekends
         from datetime import datetime, timezone, timedelta
         def get_poll_interval():
-            # Convert UTC to ET (UTC-5 standard, UTC-4 daylight)
+            # Convert UTC to ET — auto-detects daylight saving time
+            import zoneinfo
             now_utc = datetime.now(timezone.utc)
-            et_offset = -4  # EDT (Mar-Nov); change to -5 for EST (Nov-Mar)
-            now_et = now_utc + timedelta(hours=et_offset)
+            now_et = now_utc.astimezone(zoneinfo.ZoneInfo("America/New_York"))
             hour = now_et.hour
             weekday = now_et.weekday()  # 0=Mon, 6=Sun
 
