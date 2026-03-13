@@ -229,7 +229,12 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         cluster_flag     = cluster_flag,
     )
 
-    # 12. Score gate — different thresholds for buys vs sells
+    # 12. Save to history NOW — before score gate, so all valid buys are tracked
+    # This ensures consecutive_buys and unusual bonuses work correctly over time
+    if code == "P":
+        save_trade(trade)
+
+    # Score gate — different thresholds for buys vs sells
     is_sell = code == "S"
     min_score = config.MIN_SCORE_SELL if is_sell else config.MIN_SCORE_BUY
     if score < min_score:
@@ -269,8 +274,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         if cluster_tweet:
             post_tweet(cluster_tweet, reply_to_id=tweet_id)
 
-    # 14. Save to history and queue followups
-    save_trade(trade)
+    # 14. Queue followups (history already saved above)
     add_to_followup_queue(trade)
     log_daily_trade(trade, score)
 
