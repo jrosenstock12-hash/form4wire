@@ -64,6 +64,8 @@ def format_value(v: float) -> str:
         return f"${v/1_000_000_000:.1f}B"
     if v >= 1_000_000:
         return f"${v/1_000_000:.1f}M"
+    if v >= 100_000:
+        return f"${v/1_000_000:.1f}M"
     if v >= 1_000:
         return f"${v/1_000:.0f}K"
     return f"${v:,.0f}"
@@ -112,27 +114,19 @@ Extract ALL of the following fields. Return ONLY valid JSON, no markdown, no exp
 }}
 
 Rules:
-- If the filing contains MULTIPLE transaction rows with the same transaction_code (e.g. two P rows), aggregate them into ONE:
-  * shares_traded = sum of all rows
-  * total_value = sum of all rows (or sum of shares × price per row)
-  * price_per_share = total_value / shares_traded (weighted average)
-  * transaction_date = date of the FIRST transaction
-  * shares_owned_after = the FINAL "amount owned after" from the last row
-  * shares_owned_before = shares_owned_after - shares_traded (for buys) or shares_owned_after + shares_traded (for sells)
-- If insider_title says "See Remarks", look in the Remarks section at the bottom of the filing for the actual title
 - If total_value is not stated, calculate: shares_traded × price_per_share
-- If shares_owned_before is missing, estimate: shares_owned_after - shares_traded (for buys) or shares_owned_after + shares_traded (for sells)
+- If shares_owned_before is missing, estimate: shares_owned_after + shares_traded (for sells) or shares_owned_after - shares_traded (for buys)
 - If ANY critical field (insider_name, shares_traded, transaction_code) is missing, set ticker to "SKIP"
 - For transaction_type, use the full human-readable description, not the code letter
 """
 
 
-def parse_filing(title: str, content: str, company: dict, xml_content: str = ""):  # -> Optional[dict]
+def parse_filing(title: str, content: str, company: dict):  # -> Optional[dict]
     """Use Claude Haiku to extract structured data from a Form 4 filing."""
     prompt = PARSE_PROMPT.format(
         title=title,
         company=json.dumps(company),
-        content=content[:10000],
+        content=content[:5000],
     )
     try:
         msg = claude.messages.create(
@@ -194,6 +188,7 @@ Your job is to adjust this by -1, 0, or +1 based on context the formula cannot c
 
 Trade data: {trade_data}
 Stock data: {stock_data}
+Historical context: {history}
 Base score breakdown: {breakdown}
 
 ADJUST +1 if you see any of:
@@ -212,7 +207,8 @@ ADJUST 0 if no strong reason to move it either way.
 Return ONLY a JSON object with no other text:
 {{
   "adjustment": 0,
-  "final_score": {base_score}
+  "final_score": {base_score},
+  "reasoning": "One punchy sentence a finance follower would find interesting"
 }}
 """
 
@@ -305,91 +301,28 @@ def score_signal(trade: dict, stock: dict, history: dict) -> tuple[int, str]:
     # Step 1 — deterministic base score
     base_score, breakdown = calculate_base_score(trade, stock, history)
 
-    # Step 2 — Claude adjusts by -1, 0, or +1 (no reasoning from Claude)
+    # Step 2 — Claude adjusts by -1, 0, or +1
     prompt = SCORE_ADJUST_PROMPT.format(
         base_score=base_score,
         trade_data=json.dumps(trade),
         stock_data=json.dumps(stock),
+        history=json.dumps(history),
         breakdown=json.dumps(breakdown),
     )
     try:
         msg = claude.messages.create(
             model=FAST_MODEL,
-            max_tokens=60,
+            max_tokens=150,
             messages=[{"role": "user", "content": prompt}],
         )
         raw  = msg.content[0].text.strip().replace("```json","").replace("```","").strip()
         data = json.loads(raw)
-        adjustment  = max(-1, min(1, int(data.get("adjustment", 0))))
-        final_score = max(1, min(10, base_score + adjustment))
+        adjustment  = max(-1, min(1, int(data.get("adjustment", 0))))  # clamp to -1/0/+1
+        final_score = max(1, min(10, base_score + adjustment))          # clamp to 1-10
+        reasoning   = data.get("reasoning", "")
+        return final_score, reasoning
     except Exception:
-        final_score = max(1, min(10, base_score))
-
-    # Build reasoning from verified data only
-    reasoning = _build_reasoning(trade, stock, final_score, breakdown, history)
-    return final_score, reasoning
-
-
-def _build_reasoning(trade: dict, stock: dict, score: int, breakdown: dict = None, history: dict = None) -> str:
-    """Build a short signal phrase — prioritise what actually scored bonus points."""
-    breakdown = breakdown or {}
-    history   = history or {}
-
-    tx_type = trade.get("transaction_type", "")
-    code    = trade.get("transaction_code", "")
-    is_buy  = code == "P" or "purchase" in tx_type.lower()
-    action  = "buying" if is_buy else "selling"
-    short_title = shorten_title(trade.get("insider_title", "Insider"))
-
-    high  = stock.get("52w_high", 0)
-    price = stock.get("price", 0)
-    total = trade.get("total_value", 0)
-
-    before = trade.get("shares_owned_before", 0)
-    shares = trade.get("shares_traded", 0)
-    after  = trade.get("shares_owned_after", 0)
-    if before == 0 and after > 0 and shares > 0:
-        before = after - shares if is_buy else after + shares
-
-    parts = []
-
-    # 1. HISTORY SIGNALS — these are invisible in the tweet bullets above, so show them first
-    months_since  = history.get("months_since_last", 999)
-    consec_buys   = history.get("consecutive_buys", 0)
-    short_int     = stock.get("short_interest", 0)
-
-    if breakdown.get("unusual", "").startswith("+1") and months_since < 999:
-        parts.append(f"first buy in {months_since}+ months")
-
-    if breakdown.get("consecutive", "").startswith("+1") and consec_buys >= 2:
-        parts.append(f"{consec_buys + 1} consecutive buys")
-
-    if breakdown.get("short_interest", "").startswith("+1") and short_int > 0:
-        parts.append(f"{short_int:.0f}% short interest — buying against the crowd")
-
-    # 2. POSITION % — unique context not shown elsewhere if no history signal fired
-    if not parts and before > 0 and shares > 0:
-        pct = (shares / before) * 100
-        if pct >= 10:
-            direction_word = "+" if is_buy else "-"
-            parts.append(f"position {direction_word}{pct:.0f}%")
-
-    # 3. 52W context — secondary color
-    if high and price and is_buy:
-        pct_from_high = ((price - high) / high) * 100
-        if pct_from_high <= -10:
-            if not parts:
-                parts.append(f"stock down {abs(pct_from_high):.0f}% from 52W high")
-            elif len(", ".join(parts)) < 35:
-                parts.append("near 52W low")
-
-    # 4. Fallbacks
-    if not parts and total:
-        parts.append(f"{format_value(total)} {action}")
-    if not parts:
-        parts.append(f"{short_title} {action}")
-
-    return ", ".join(parts)[:60]
+        return max(1, min(10, base_score)), "Signal score unavailable"
 
 
 def score_emoji(score: int) -> str:
@@ -399,57 +332,6 @@ def score_emoji(score: int) -> str:
 # ─────────────────────────────────────────────────────────────────────────────
 # TWEET FORMATTER
 # ─────────────────────────────────────────────────────────────────────────────
-
-# Junk values Claude sometimes returns for insider_title
-_JUNK_TITLES = {
-    "see remarks", "see attached", "n/a", "none", "other", "unknown",
-    "not applicable", "see exhibit", "officer", "see form",
-}
-
-def shorten_title(title: str) -> str:
-    """Convert long insider titles to short readable labels."""
-    t = title.lower().strip()
-    if not t or t in _JUNK_TITLES:
-        return "Insider"
-    if "chief executive" in t or t == "ceo":
-        return "CEO"
-    if "chief financial" in t or t == "cfo":
-        return "CFO"
-    if "chief operating" in t or t == "coo":
-        return "COO"
-    if "chief technology" in t or t == "cto":
-        return "CTO"
-    if "chief legal" in t or "general counsel" in t or t == "clo":
-        return "CLO"
-    if "chief accounting" in t or t == "cao":
-        return "CAO"
-    if "chief marketing" in t or t == "cmo":
-        return "CMO"
-    if "chief people" in t or "chief hr" in t or "chief human" in t:
-        return "CPO"
-    if "chief revenue" in t or t == "cro":
-        return "CRO"
-    if "chief administrative" in t:
-        return "CAO"
-    if "chairman" in t:
-        return "Chairman"
-    if "president" in t and "vice" not in t:
-        return "President"
-    if "executive vice president" in t or t == "evp":
-        return "EVP"
-    if "senior vice president" in t or t == "svp":
-        return "SVP"
-    if "vice president" in t or t == "vp":
-        return "VP"
-    if "10%" in t or "10 percent" in t or "beneficial owner" in t:
-        return "10% Owner"
-    if "director" in t:
-        return "Director"
-    # Fallback: truncate if too long
-    if len(title) > 20:
-        return title[:20].strip()
-    return title
-
 
 def build_tweet(
     trade: dict,
@@ -472,99 +354,148 @@ def build_tweet(
     title      = trade.get("insider_title", "Insider")
     tx_type    = trade.get("transaction_type", "")
     code       = trade.get("transaction_code", "")
+    is_10b51   = trade.get("is_10b51_plan", False)
     shares     = int(trade.get("shares_traded", 0))
     price      = trade.get("price_per_share", 0)
     total      = trade.get("total_value", 0)
-    after      = int(trade.get("shares_owned_after", 0))
-    before     = int(trade.get("shares_owned_before", 0))
+    after      = trade.get("shares_owned_after", 0)
+    before     = trade.get("shares_owned_before", 0)
+    is_deriv   = trade.get("is_derivative", False)
+    deriv_type = trade.get("derivative_type", "")
+    held_after = trade.get("held_after_exercise", False)
     tx_date    = trade.get("transaction_date", "")
     filed_date = trade.get("filed_date", "")
+
+    # Format dates nicely
+    def fmt_date(d):
+        try:
+            from datetime import datetime
+            return datetime.strptime(d, "%Y-%m-%d").strftime("%b %d, %Y")
+        except Exception:
+            return d
+
+    tx_date_fmt    = fmt_date(tx_date)
+    filed_date_fmt = fmt_date(filed_date) if filed_date else ""
+    date_str = f"Trade: {tx_date_fmt} | Filed: {filed_date_fmt if filed_date_fmt else tx_date_fmt}"
+
+    # Late filing flag
+    late_flag = ""
+    try:
+        from datetime import datetime
+        t = datetime.strptime(tx_date, "%Y-%m-%d")
+        f = datetime.strptime(filed_date, "%Y-%m-%d") if filed_date else t
+        days_late = (f - t).days
+        if days_late > 5:
+            late_flag = f"\n⚠️ Late filing — trade was {days_late} days ago"
+    except Exception:
+        pass
+
+    # Current price vs trade price
+    current_price_str = ""
+    current_price = stock.get("price", 0)
+    if current_price and price:
+        pct_change = ((current_price - price) / price) * 100
+        arrow = "📈" if pct_change >= 0 else "📉"
+        sign = "+" if pct_change >= 0 else ""
+        current_price_str = f"{arrow} Current: ${current_price:.2f} ({sign}{pct_change:.1f}% since trade)\n"
 
     # Direction
     is_buy = code in ("P", "M") or "purchase" in tx_type.lower() or "exercise" in tx_type.lower()
     direction_emoji = "🟢" if is_buy else "🔴"
     direction_label = "BUY" if is_buy else "SELL"
 
-    # Shortened title for first line
-    short_title = shorten_title(title)
-
-    # Format dates as "Mar 9"
-    def fmt_date_short(d):
-        try:
-            from datetime import datetime
-            return datetime.strptime(d, "%Y-%m-%d").strftime("%b %-d")
-        except Exception:
-            return d
-
-    tx_date_fmt    = fmt_date_short(tx_date)
-    tx_date_end    = trade.get("transaction_date_end", "")
-    tx_date_end_fmt = fmt_date_short(tx_date_end) if tx_date_end else ""
-    filed_date_fmt = fmt_date_short(filed_date) if filed_date else tx_date_fmt
-    # Show date range if multi-day trade (e.g. "Mar 10-11")
-    if tx_date_end_fmt and tx_date_end_fmt != tx_date_fmt:
-        date_str = f"Trade: {tx_date_fmt}–{tx_date_end_fmt} | Filed: {filed_date_fmt}"
-    else:
-        date_str = f"Trade: {tx_date_fmt} | Filed: {filed_date_fmt}"
-
-    # Position change — only show if we have both before and after
-    position_str = ""
-    if before > 0 and after > 0 and shares > 0:
+    # Stake change
+    stake_pct = ""
+    if before > 0 and shares > 0:
         pct = (shares / before) * 100
-        direction_word = "+" if is_buy else "-"
-        if round(pct) > 0:
-            position_str = f"• Position {direction_word}{pct:.0f}% | Now owns {after:,} shares\n"
+        stake_pct = f"📊 {pct:.1f}% of holdings | {after:,} shares remain\n"
+
+    # 52-week position
+    week52 = ""
+    if stock.get("52w_high") and stock.get("52w_low") and stock.get("price"):
+        week52 = f"📉 52w: ${stock['52w_low']:.2f} — ${stock['52w_high']:.2f}\n"
+
+    # Short interest
+    short_str = ""
+    if short_interest > 0.10:
+        short_str = f"⚡ Short interest: {short_interest*100:.1f}%"
+        if is_buy and short_interest > 0.20:
+            short_str += " 🔥 HIGH SHORT + INSIDER BUY"
+
+    # Earnings proximity
+    earnings_str = ""
+    if next_earnings:
+        earnings_str = f"📅 Next earnings: {next_earnings}\n"
+
+    # 10b5-1 flag
+    plan_str = "📋 Pre-planned 10b5-1 sale\n" if is_10b51 else ("✅ NOT a planned sale\n" if not is_buy else "")
+
+    # Unusual activity
+    unusual_str = "🚨 UNUSUAL — No trades in 12 months\n" if unusual_flag else ""
+
+    # Consecutive buys
+    streak_str = f"🔁 {consecutive_buys}rd consecutive buy — showing conviction\n" if consecutive_buys >= 3 else ""
+
+    # Analyst divergence
+    analyst_str = f"🤔 {analyst_divergence}\n" if analyst_divergence else ""
+
+    # Cluster flag
+    cluster_str = "👥 CLUSTER ALERT — Multiple insiders trading\n" if cluster_flag else ""
+
+    # Derivative details
+    deriv_str = ""
+    if is_deriv and deriv_type:
+        deriv_str = f"🔧 {deriv_type}\n"
+        if held_after:
+            deriv_str += " — shares HELD after exercise (bullish)"
+        else:
+            deriv_str += " — shares sold after exercise"
 
     # Market cap
-    market_cap = stock.get("market_cap", 0)
-    cap_str = f"• Market Cap: {format_value(market_cap)}\n" if market_cap else ""
+    cap_str = f"{cap_label(stock.get('market_cap', 0))}\n" if stock.get("market_cap") else ""
 
-    # % from 52W high
-    week52_str = ""
-    high = stock.get("52w_high", 0)
-    current_price = stock.get("price", 0)
-    if high and current_price:
-        pct_from_high = ((current_price - high) / high) * 100
-        if pct_from_high >= 0:
-            week52_str = f"• 📈 Stock +{pct_from_high:.0f}% from 52W high\n"
-        else:
-            week52_str = f"• 📉 Stock {pct_from_high:.0f}% from 52W high\n"
+    # Signal label — more meaningful than a raw number
+    def signal_label(score: int) -> str:
+        if score >= 9: return "MAX CONVICTION"
+        if score >= 7: return "HIGH CONVICTION"
+        if score >= 5: return "MODERATE"
+        return "LOW"
 
-    # Signal reasoning — always include, truncate at word boundary
-    reason = signal_reason.strip() if signal_reason else "Notable insider activity"
-    if len(reason) > 60:
-        reason = reason[:60].rsplit(" ", 1)[0]
-    score_str = f"💡 Signal: {signal_score}/10 — {reason}"
+    score_str = f"💡 Signal: {signal_score}/10 — {signal_reason}\n"
 
-    # Build tweet
     tweet = (
-        f"{direction_emoji} {short_title} {direction_label} — ${ticker}\n"
-        f"\n"
-        f"{name} buys {format_value(total)}\n"
-        f"\n"
-        f"• {shares:,} shares @ ${price:.2f}\n"
-        f"{position_str}"
-        f"{cap_str}"
-        f"{week52_str}"
-        f"• {date_str}\n"
-        f"\n"
-        f"{score_str}\n"
-        f"\n"
-        f"#InsiderTrading #{ticker}"
+        f"{direction_emoji} INSIDER {direction_label} — ${ticker}\n"
+        f"👤 {name}\n"
+        f"💼 {title}\n"
+        f"📦 {shares:,} shares @ ${price:.2f}\n"
+        f"💰 {format_value(total)}\n"
+        f"📅 {date_str}{late_flag}\n"
+        f"{current_price_str}"
+        f"{stake_pct}"
+        f"{unusual_str}"
+        f"{streak_str}"
+        f"{cluster_str}"
+        f"{short_str}"
+        f"{week52}"
+        f"{earnings_str}"
+        f"{analyst_str}"
+        f"{deriv_str}"
+        f"{score_str}"f"#InsiderTrading #{ticker}"
     )
 
-    # If over 280, trim position and cap lines
+    # Trim to 280 chars if needed (keep most important lines)
     if len(tweet) > 280:
+        # Build a compact version
         tweet = (
-            f"{direction_emoji} {short_title} {direction_label} — ${ticker}\n"
-            f"\n"
-            f"{name} buys {format_value(total)}\n"
-            f"\n"
-            f"• {shares:,} shares @ ${price:.2f}\n"
-            f"{week52_str}"
-            f"• {date_str}\n"
-            f"\n"
-            f"💡 Signal: {signal_score}/10 — {reason[:80]}\n"
-            f"\n"
+            f"{direction_emoji} INSIDER {direction_label} — ${ticker}\n"
+            f"👤 {name} | 💼 {title}\n"
+            f"📦 {shares:,} shares @ ${price:.2f}\n"
+            f"💰 {format_value(total)}\n"
+            f"📅 {date_str}{late_flag}\n"
+            f"{current_price_str}"
+            f"{unusual_str}"
+            f"{short_str}"
+            f"💡 Signal: {signal_score}/10\n"
             f"#InsiderTrading #{ticker}"
         )
 
@@ -576,48 +507,47 @@ def build_tweet(
 # ─────────────────────────────────────────────────────────────────────────────
 
 def generate_daily_digest(trades: list[dict], total_scanned: int = 0) -> str:
-    """Generate daily summary tweet — deterministic ranked list, no AI call."""
+    """Generate daily summary tweet using Claude Sonnet."""
     if not trades:
         return ""
 
-    # Separate buys and sells, sort each by total value descending
-    def _val(t): return t.get("total_value") or t.get("value") or 0
+    significant = len(trades)
+    scan_note = f"{significant} signals from {total_scanned:,} filings reviewed" if total_scanned else f"{significant} signals today"
 
-    buys = sorted(
-        [t for t in trades if t.get("is_buy", True)],
-        key=_val,
-        reverse=True,
-    )
-    sells = sorted(
-        [t for t in trades if not t.get("is_buy", True)],
-        key=_val,
-        reverse=True,
-    )
+    prompt = f"""
+You are writing a daily insider trading summary tweet for the account @Form4Wire.
 
-    def rank_line(t):
-        ticker      = t.get("ticker", "???")
-        raw_title   = t.get("insider_title") or t.get("title") or "Insider"
-        short_title = shorten_title(raw_title)
-        total       = t.get("total_value") or t.get("value") or 0
-        verb        = "buys" if t.get("is_buy", True) else "sells"
-        return f"${ticker} — {short_title} {verb} {format_value(total)}"
+Today's significant trades ({scan_note}):
+{json.dumps(trades, indent=2)[:3000]}
 
-    buy_lines  = [rank_line(t) for t in buys[:3]]
-    sell_lines = [rank_line(t) for t in sells[:2]]
+Write a concise, engaging daily digest tweet. Include:
+- How many significant trades were flagged vs total reviewed (use the note: "{scan_note}"))
+- Biggest buy (name, ticker, value)
+- Biggest sell if any — if no sells were flagged as significant today, say "No notable sells" NOT "None — all buys today"
+- Most significant signal (highest score)
+- Any notable patterns (cluster activity, unusual trades)
 
-    sections = []
-    if buy_lines:
-        sections.append("🟢 TOP BUYS\n" + "\n".join(buy_lines))
-    if sell_lines:
-        sections.append("🔴 TOP SELLS\n" + "\n".join(sell_lines))
+Format:
+📊 INSIDER DAILY DIGEST
 
-    tweet = (
-        "🚨 TOP INSIDER TRADES TODAY\n\n"
-        + "\n\n".join(sections)
-        + "\n\n#InsiderTrading #Stocks"
-    )
+🟢 Top Buy: [details]
+🔴 Top Sell: [details or "No notable sells"]
+🚨 Top Signal: [details]
+📈 [X] signals from [Y] filings reviewed
 
-    return tweet.strip()
+#InsiderTrading #Stocks #Finance
+
+Keep it under 280 characters. Be punchy and informative.
+"""
+    try:
+        msg = claude.messages.create(
+            model=ANALYSIS_MODEL,
+            max_tokens=300,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return msg.content[0].text.strip()
+    except Exception as e:
+        return ""
 
 
 def generate_weekly_digest(trades: list[dict]) -> str:
