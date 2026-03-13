@@ -57,6 +57,7 @@ SKIP_TRANSACTION_CODES = {
     "A",   # Award/grant — company giving shares, not insider's choice
     "G",   # Gift — no market signal
     "D",   # Disposition to company — no market signal
+    "S",   # Open market sale — not tracking sells
 }
 
 # ── SIGNAL STRENGTH WEIGHTS ──────────────────────────────────────────────
