@@ -6,7 +6,7 @@ Ties together SEC fetching, AI parsing, data storage, and X posting.
 import os
 import time
 import logging
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date, timedelta
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -169,13 +169,13 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     filed_date_str = trade.get("filed_date", "") or filing.get("filed_date", "")
     if tx_date_str and filed_date_str:
         try:
-            import datetime as _dt
-            tx_dt    = _dt.date.fromisoformat(tx_date_str[:10])
-            filed_dt = _dt.date.fromisoformat(filed_date_str[:10])
+
+            tx_dt    = date.fromisoformat(tx_date_str[:10])
+            filed_dt = date.fromisoformat(filed_date_str[:10])
             bdays = 0
             cur = tx_dt
             while cur < filed_dt:
-                cur += _dt.timedelta(days=1)
+                cur += timedelta(days=1)
                 if cur.weekday() < 5:
                     bdays += 1
             if bdays > config.MAX_FILING_LAG_BDAYS:
