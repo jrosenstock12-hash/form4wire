@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form4Wire — Real-Time Insider Trading Alerts</title>
+  <meta name="description" content="Real-time SEC insider trading alerts. Tracking when executives buy their own stock." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --surface: #0f0f0f;
+      --surface2: #161616;
+      --border: #2f2f2f;
+      --border-hover: #4f4f4f;
+      --text: #e7e9ea;
+      --text-dim: #71767b;
+      --text-dimmer: #3f3f3f;
+      --accent: #1d9bf0;
+      --accent-dim: #1d9bf015;
+      --green: #00ba7c;
+      --green-dim: #00ba7c15;
+      --red: #f4212e;
+      --yellow: #ffd400;
+      --strong: #ff6b35;
+      --strong-dim: #ff6b3515;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .layout {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 16px;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left { display: flex; align-items: center; gap: 12px; }
+
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 600;
+      font-size: 14px;
+      color: #000;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+
+    .header-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-top: 1px;
+    }
+
+    .x-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--text);
+      color: #000;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 9999px;
+      transition: background 0.15s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .x-link:hover { background: #d0d0d0; }
+
+    .x-link svg { width: 14px; height: 14px; fill: #000; }
+
+    /* ── FEED HEADER ── */
+    .feed-header {
+      padding: 14px 16px 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .feed-title {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .live-dot {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-dim);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .live-dot::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── TRADE CARDS ── */
+    .card {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+      cursor: default;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    .card:hover { background: var(--surface2); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Strong signal card */
+    .card.strong {
+      border-left: 3px solid var(--strong);
+      background: var(--strong-dim);
+    }
+
+    .card.strong:hover { background: #ff6b3520; }
+
+    /* ── CARD HEADER ── */
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.2px;
+    }
+
+    .card-badge.buy { color: var(--green); }
+    .card-badge.strong-signal { color: var(--strong); }
+
+    .card-date {
+      font-size: 13px;
+      color: var(--text-dim);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── CARD BODY ── */
+    .card-main {
+      margin-bottom: 10px;
+    }
+
+    .card-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .card-role {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* ── METRICS ROW ── */
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .card.strong .metric {
+      background: #0f0f0f;
+      border-color: #2a2a2a;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .metric-value.positive { color: var(--green); }
+    .metric-value.negative { color: var(--red); }
+    .metric-value.accent { color: var(--accent); }
+
+    /* ── TICKER CHIP ── */
+    .ticker-chip {
+      display: inline-block;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid #1d9bf030;
+    }
+
+    /* ── SIGNAL SCORE ── */
+    .signal-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .signal-label {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .signal-bar-wrap {
+      flex: 1;
+      height: 4px;
+      background: var(--border);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .signal-bar {
+      height: 100%;
+      border-radius: 9999px;
+      transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .signal-score {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* ── CLUSTER LINE ── */
+    .cluster-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--yellow);
+      font-family: 'IBM Plex Mono', monospace;
+      background: #ffd40015;
+      border: 1px solid #ffd40030;
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      padding: 60px 16px;
+      text-align: center;
+    }
+
+    .empty-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .empty-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .empty-sub {
+      font-size: 15px;
+      color: var(--text-dim);
+    }
+
+    /* ── LOADING ── */
+    .loading {
+      padding: 40px 16px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 24px; height: 24px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 24px 16px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .layout { border: none; }
+      .metrics { gap: 6px; }
+      .metric { min-width: 85px; padding: 7px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo-mark">F4</div>
+        <div>
+          <div class="header-title">Form4Wire</div>
+          <div class="header-sub">Real-time insider trading alerts</div>
+        </div>
+      </div>
+      <a class="x-link" href="https://x.com/Form4Wire" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.265 5.638L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        @Form4Wire
+      </a>
+    </header>
+
+    <!-- FEED HEADER -->
+    <div class="feed-header">
+      <span class="feed-title">Latest Signals</span>
+      <span class="live-dot">Live</span>
+    </div>
+
+    <!-- FEED -->
+    <div id="feed">
+      <div class="loading">
+        <div class="spinner"></div>
+        <div style="font-size:14px; color:var(--text-dim);">Loading trades...</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div>Tracking SEC Form 4 filings in real time.</div>
+      <div style="margin-top:6px;">
+        Follow <a href="https://x.com/Form4Wire" target="_blank">@Form4Wire</a> on X for live alerts.
+      </div>
+      <div style="margin-top:12px; font-size:12px; color:var(--text-dimmer);">
+        Not financial advice. Data sourced from SEC EDGAR.
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function scoreColor(score) {
+      if (score >= 9) return '#ff6b35';
+      if (score >= 7) return '#1d9bf0';
+      if (score >= 5) return '#00ba7c';
+      return '#71767b';
+    }
+
+    function renderCard(trade, index) {
+      const isStrong = trade.signal_score >= 9;
+      const badgeText = isStrong
+        ? '🚨 STRONG INSIDER SIGNAL'
+        : `🟢 ${(trade.role_header || 'INSIDER')} BUY`;
+
+      const pctFromHigh = trade.pct_from_52w_high;
+      const posChange = trade.position_change_pct;
+      const cluster = trade.cluster_count;
+
+      const barWidth = Math.round((trade.signal_score / 10) * 100);
+      const color = scoreColor(trade.signal_score);
+
+      const clusterHtml = cluster >= 2
+        ? `<div class="cluster-line">⚡ ${cluster} insiders buying this week</div>`
+        : '';
+
+      const highHtml = pctFromHigh && pctFromHigh > 5
+        ? `<div class="metric">
+            <span class="metric-label">52W High</span>
+            <span class="metric-value negative">−${Math.round(pctFromHigh)}%</span>
+           </div>`
+        : '';
+
+      const posHtml = posChange
+        ? `<div class="metric">
+            <span class="metric-label">Position</span>
+            <span class="metric-value positive">+${Math.round(posChange)}%</span>
+           </div>`
+        : '';
+
+      return `
+        <div class="card ${isStrong ? 'strong' : ''}" style="animation-delay:${index * 40}ms">
+          <div class="card-header">
+            <span class="card-badge ${isStrong ? 'strong-signal' : 'buy'}">${badgeText}</span>
+            <span class="card-date">${formatDate(trade.transaction_date)}</span>
+          </div>
+
+          <div class="card-main">
+            <div class="card-name">
+              ${trade.insider_name}
+              <span class="ticker-chip">$${trade.ticker}</span>
+            </div>
+            <div class="card-role">${trade.insider_title || ''}</div>
+          </div>
+
+          ${clusterHtml}
+
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-label">Value</span>
+              <span class="metric-value accent">${trade.total_value_fmt || '$' + (trade.total_value || 0).toLocaleString()}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Shares</span>
+              <span class="metric-value">${(trade.shares_traded || 0).toLocaleString()}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Price</span>
+              <span class="metric-value">$${(trade.price_per_share || 0).toFixed(2)}</span>
+            </div>
+            ${posHtml}
+            ${highHtml}
+          </div>
+
+          <div class="signal-row">
+            <span class="signal-label">💡 Signal</span>
+            <div class="signal-bar-wrap">
+              <div class="signal-bar" style="width:${barWidth}%; background:${color}"></div>
+            </div>
+            <span class="signal-score" style="color:${color}">${trade.signal_score}/10</span>
+          </div>
+        </div>
+      `;
+    }
+
+    async function loadFeed() {
+      const feed = document.getElementById('feed');
+      try {
+        const res = await fetch('trades.json?v=' + Date.now());
+        if (!res.ok) throw new Error('not found');
+        const trades = await res.json();
+
+        if (!trades || trades.length === 0) {
+          feed.innerHTML = `
+            <div class="empty">
+              <div class="empty-icon">📡</div>
+              <div class="empty-title">Monitoring SEC EDGAR</div>
+              <div class="empty-sub">No signals posted yet today. Check back soon.</div>
+            </div>`;
+          return;
+        }
+
+        // Most recent first
+        const sorted = [...trades].reverse();
+        feed.innerHTML = sorted.map((t, i) => renderCard(t, i)).join('');
+
+        // Animate signal bars after render
+        setTimeout(() => {
+          document.querySelectorAll('.signal-bar').forEach(bar => {
+            const w = bar.style.width;
+            bar.style.width = '0%';
+            requestAnimationFrame(() => { bar.style.width = w; });
+          });
+        }, 100);
+
+      } catch (e) {
+        feed.innerHTML = `
+          <div class="empty">
+            <div class="empty-icon">📡</div>
+            <div class="empty-title">Monitoring SEC EDGAR</div>
+            <div class="empty-sub">No signals posted yet. Follow <a href="https://x.com/Form4Wire" style="color:var(--accent)">@Form4Wire</a> on X for live alerts.</div>
+          </div>`;
+      }
+    }
+
+    loadFeed();
+    // Refresh every 5 minutes
+    setInterval(loadFeed, 5 * 60 * 1000);
+  </script>
+</body>
+</html>

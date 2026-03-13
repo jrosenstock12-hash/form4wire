@@ -30,6 +30,7 @@ from data_store   import (
     increment_daily_scan, get_daily_scan_count,
 )
 from x_poster import post_tweet
+from web_feed import save_to_web_feed
 
 # ── LOGGING ──────────────────────────────────────────────────────────────────
 os.makedirs("logs", exist_ok=True)
@@ -282,6 +283,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     # 14. Queue followups (history already saved above)
     add_to_followup_queue(trade)
     log_daily_trade(trade, score)
+    save_to_web_feed(trade, score, cluster_count)
 
     log.info(f"  → {'[DRY RUN] ' if config.DRY_RUN else ''}POSTED: ${ticker} | {trade.get('insider_name')} | Signal {score}/10")
     return True
