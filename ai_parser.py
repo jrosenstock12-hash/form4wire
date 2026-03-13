@@ -98,19 +98,19 @@ Extract ALL of the following fields. Return ONLY valid JSON, no markdown, no exp
   "company_name": "",
   "ticker": "",
   "transaction_date": "",
-  "transaction_type": "",       // Full description: "Open Market Purchase", "Open Market Sale", "Option Exercise", "Gift", "Tax Withholding Sale", "Award/Grant", "Disposition to Company"
-  "transaction_code": "",       // Single letter: P, S, A, D, F, M, G, etc.
-  "is_10b51_plan": false,       // true if filing explicitly mentions 10b5-1 plan
+  "transaction_type": "",
+  "transaction_code": "",
+  "is_10b51_plan": false,
   "shares_traded": 0,
   "price_per_share": 0.0,
   "total_value": 0.0,
   "shares_owned_after": 0,
   "shares_owned_before": 0,
-  "is_derivative": false,       // true if options/warrants/convertible
-  "derivative_type": "",        // "Stock Option", "RSU", "Warrant", etc. if applicable
-  "exercise_price": 0.0,        // for options
-  "expiration_date": "",        // for options
-  "held_after_exercise": false  // for options: did they keep shares or immediately sell?
+  "is_derivative": false,
+  "derivative_type": "",
+  "exercise_price": 0.0,
+  "expiration_date": "",
+  "held_after_exercise": false
 }}
 
 Rules:
@@ -121,7 +121,7 @@ Rules:
 """
 
 
-def parse_filing(title: str, content: str, company: dict):  # -> Optional[dict]
+def parse_filing(title: str, content: str, company: dict, xml_content: str = ""):  # -> Optional[dict]
     """Use Claude Haiku to extract structured data from a Form 4 filing."""
     prompt = PARSE_PROMPT.format(
         title=title,
@@ -131,7 +131,7 @@ def parse_filing(title: str, content: str, company: dict):  # -> Optional[dict]
     try:
         msg = claude.messages.create(
             model=FAST_MODEL,
-            max_tokens=1000,
+            max_tokens=1500,
             messages=[{"role": "user", "content": prompt}],
         )
         raw = msg.content[0].text.strip()
