@@ -207,12 +207,17 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     # Inject short interest into stock dict so scorer can access it
     stock["short_interest"] = short_int
 
-    # 9. Score signal
-    score, reason = score_signal(trade, stock, history)
+    # 10. Check cluster BEFORE scoring so cluster_count feeds into score
+    cluster_data  = record_trade_for_cluster(trade)
+    cluster_flag  = cluster_data is not None
+    cluster_count = 0
+    if cluster_data:
+        trades_in_window = cluster_data.get("trades", [])
+        cluster_count = len(set(t.get("insider", "") for t in trades_in_window))
+    history["cluster_count"] = cluster_count
 
-    # 10. Check cluster
-    cluster_data = record_trade_for_cluster(trade)
-    cluster_flag = cluster_data is not None
+    # 9. Score signal (now includes cluster_count via history)
+    score, reason = score_signal(trade, stock, history)
 
     # 11. Build tweet
     tweet = build_tweet(
@@ -226,7 +231,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         unusual_flag     = unusual,
         consecutive_buys = consec_buys,
         analyst_divergence = analyst_div,
-        cluster_flag     = cluster_flag,
+        cluster_flag     = cluster_count if cluster_count >= 2 else cluster_flag,
     )
 
     # 12. Save to history NOW — before score gate, so all valid buys are tracked

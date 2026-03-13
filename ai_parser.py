@@ -64,8 +64,6 @@ def format_value(v: float) -> str:
         return f"${v/1_000_000_000:.1f}B"
     if v >= 1_000_000:
         return f"${v/1_000_000:.1f}M"
-    if v >= 100_000:
-        return f"${v/1_000_000:.1f}M"
     if v >= 1_000:
         return f"${v/1_000:.0f}K"
     return f"${v:,.0f}"
@@ -164,10 +162,13 @@ def parse_filing(title: str, content: str, company: dict, xml_content: str = "")
                     return None
 
         if not isinstance(data, dict):
+            print(f"[AI] Parse failed: response not a dict")
             return None
         if data.get("ticker") == "SKIP":
+            print(f"[AI] Parse returned SKIP")
             return None
         if not data.get("ticker") and not data.get("insider_name"):
+            print(f"[AI] Parse failed: no ticker or insider_name")
             return None
         return data
 
@@ -183,146 +184,170 @@ def parse_filing(title: str, content: str, company: dict, xml_content: str = "")
 SCORE_ADJUST_PROMPT = """
 You are a financial analyst reviewing an insider trade for Form4Wire.
 
-A rules-based system has already calculated a base score of {base_score}/10 using hard facts.
-Your job is to adjust this by -1, 0, or +1 based on context the formula cannot capture.
+A rules-based system scored this {base_score}/10 using:
+role (+1-3), purchase size (+1-3), position % increase (+1-3),
+cluster buying (+2-3), stock down >40% from 52W high (+1), no buys in 12mo (+1).
 
-Trade data: {trade_data}
-Stock data: {stock_data}
-Historical context: {history}
-Base score breakdown: {breakdown}
+Your job: adjust by -1, 0, or +1 based on context the formula cannot capture.
 
-ADJUST +1 if you see any of:
-- Trade is within 30 days of earnings — insider has most current info
-- Insider is buying while stock is near 52-week low — strong contrarian conviction
-- Insider is selling 50%+ of their entire personal holdings — major bearish signal
-- Context strongly suggests this is a highly unusual or notable trade
+Trade: {trade_data}
+Stock: {stock_data}
+History: {history}
+Breakdown: {breakdown}
 
-ADJUST -1 if you see any of:
-- Trade is tiny relative to insider's total wealth/holdings (under 2% of their stake)
-- Sell but insider retains over 90% of holdings — routine diversification
-- Any other context that makes this trade less significant than the formula suggests
+ADJUST +1 if:
+- Buying within 30 days of earnings (insider has freshest info)
+- Buying near 52-week low (maximum contrarian conviction)
+- Unusually large relative to what this insider normally does
 
-ADJUST 0 if no strong reason to move it either way.
+ADJUST -1 if:
+- Trade is trivially small vs total stake (under 1% of holdings)
+- Clear non-signal context (matching a company stock purchase plan)
+
+ADJUST 0 if no clear reason to move it.
 
 Return ONLY a JSON object with no other text:
 {{
   "adjustment": 0,
   "final_score": {base_score},
-  "reasoning": "One punchy sentence a finance follower would find interesting"
+  "reasoning": "One punchy phrase under 35 chars — e.g. 'First buy in 2 years at 52W low'"
 }}
 """
 
 
+def _role_score(title: str) -> tuple[int, str]:
+    """Map insider title to role points under hedge-fund scoring model."""
+    t = title.lower().strip()
+    if any(x in t for x in ["chief executive", "chairman", "founder", "co-founder"]):
+        return 3, "+3 (CEO/Chairman/Founder)"
+    if t == "ceo" or t.startswith("ceo ") or t.endswith(" ceo"):
+        return 3, "+3 (CEO)"
+    if "president" in t and "vice" not in t:
+        return 3, "+3 (President)"
+    csuite_terms = [
+        "chief financial", "chief operating", "general counsel", "chief legal",
+        "chief technology", "chief revenue", "chief marketing", "chief information",
+        "chief accounting", "chief medical", "chief scientific", "chief compliance",
+        "chief human", "chief people", "chief strategy", "chief data",
+    ]
+    if any(x in t for x in csuite_terms):
+        return 2, "+2 (C-Suite officer)"
+    if any(t == x or t.startswith(x + " ") or t.endswith(" " + x)
+           for x in ["cfo", "coo", "cto", "cro", "cmo", "cio", "cao", "cco", "chro", "cso"]):
+        return 2, "+2 (C-Suite officer)"
+    if any(x in t for x in ["executive vice", "senior vice", "vice president",
+                              "evp", "svp", "treasurer", "secretary",
+                              "controller", "director", "board", " vp"]):
+        return 1, "+1 (VP/Director/Board)"
+    return 1, "+1 (Other insider)"
+
+
+def _role_header(title: str) -> str:
+    """Return short clean label for tweet header."""
+    t = title.lower()
+    role_pts, _ = _role_score(title)
+    if role_pts == 3:
+        if any(x in t for x in ["chief executive", "ceo"]): return "CEO"
+        if "chairman" in t: return "CHAIRMAN"
+        if "founder" in t: return "FOUNDER"
+        if "president" in t: return "PRESIDENT"
+        return "EXEC"
+    if role_pts == 2:
+        if any(x in t for x in ["chief financial", "cfo"]): return "CFO"
+        if any(x in t for x in ["chief operating", "coo"]): return "COO"
+        if any(x in t for x in ["chief technology", "cto"]): return "CTO"
+        if "general counsel" in t: return "GEN COUNSEL"
+        return "OFFICER"
+    return "DIRECTOR" if "director" in t else "INSIDER"
+
+
 def calculate_base_score(trade: dict, stock: dict, history: dict) -> tuple[int, dict]:
     """
-    Deterministic rules-based base score. Consistent and explainable.
+    Hedge-fund style weighted scoring model.
 
-    SCORING PHILOSOPHY:
-    Any trade that passes all filters is already noteworthy — it's a Tier 1/2/3
-    insider making a real open-market decision with their own money. Base floor
-    reflects that. Bonus points reward extra conviction signals.
-
-    BASE FLOOR:
-    +4  Open market BUY  — intentional, directional, personal money
-    +2  Open market SELL — less signal (many reasons to sell), but still notable
-
-    BONUS POINTS (stacked on top of floor):
-    +2  Trade > 0.1% of company market cap   (highly significant relative size)
-    +1  Trade > 0.01% of market cap          (moderate relative size)
-    +1  First trade in 12+ months            (unusual — broke a long silence)
-    +1  Consecutive buys 2+ in a row         (conviction pattern)
-    +1  High short interest > 15% on a buy   (contrarian bet)
-
-    Claude then adjusts -1, 0, or +1 for context it can see that rules cannot.
-    Final score is clamped 1-10.
-
-    TYPICAL SCORES:
-    Clean CEO open-market buy, normal size  → 4 base + 0-1 bonus + Claude = 5-6
-    CEO buy > 0.1% market cap              → 4 + 2 + Claude = 7-8
-    CEO buy, 12mo silence, high conviction  → 4 + 1 + 1 + Claude = 7-8
-    Routine insider sell, no signals        → 2 base + Claude adj = 2-3 (filtered)
+    ROLE:        CEO/Chairman/Founder +3 | CFO/COO/CTO +2 | VP/Director +1
+    VALUE:       >$1M +3 | $500K-$1M +2 | $100K-$500K +1
+    POSITION %:  >50% +3 | 25-50% +2 | 10-25% +1
+    CLUSTER:     3+ insiders +3 | 2 insiders +2 (7-day window)
+    CONTEXT:     Stock down >40% from 52W high +1 | No buys in 12mo +1
+    Claude:      -1/0/+1 adjustment. Final clamped 1-10.
     """
-    points     = 0
-    breakdown  = {}
-    code       = trade.get("transaction_code", "")
-    total      = trade.get("total_value", 0)
-    market_cap = stock.get("market_cap", 0)
-    unusual    = history.get("unusual", False)
-    consec     = history.get("consecutive_buys", 0)
-    short_int  = stock.get("short_interest", 0)
+    points    = 0
+    breakdown = {}
+    code      = trade.get("transaction_code", "")
+    total     = trade.get("total_value", 0)
+    title     = trade.get("insider_title", "")
+    before    = trade.get("shares_owned_before", 0)
+    traded    = trade.get("shares_traded", 0)
+    unusual   = history.get("unusual", False)
+    cluster_n = history.get("cluster_count", 0)
+    price     = stock.get("price", 0)
+    high_52w  = stock.get("52w_high", 0)
 
-    # Base floor by direction
-    if code == "P":
-        points += 4
-        breakdown["direction"] = "+4 (open market buy — personal money, directional)"
-    else:
+    role_pts, role_label = _role_score(title)
+    points += role_pts
+    breakdown["role"] = role_label
+
+    if total >= 1_000_000:
+        points += 3
+        breakdown["value"] = f"+3 (>${total/1e6:.1f}M purchase)"
+    elif total >= 500_000:
         points += 2
-        breakdown["direction"] = "+2 (open market sell)"
-
-    # Bonus: size relative to market cap
-    if market_cap and total:
-        ratio_pct = (total / market_cap) * 100
-        if ratio_pct >= 0.1:
-            points += 2
-            breakdown["relative_size"] = f"+2 ({ratio_pct:.3f}% of market cap — highly significant)"
-        elif ratio_pct >= 0.01:
-            points += 1
-            breakdown["relative_size"] = f"+1 ({ratio_pct:.3f}% of market cap — moderate)"
-        else:
-            breakdown["relative_size"] = f"+0 ({ratio_pct:.4f}% of market cap — small relative to company)"
+        breakdown["value"] = f"+2 (${total/1e3:.0f}K purchase)"
+    elif total >= 100_000:
+        points += 1
+        breakdown["value"] = f"+1 (${total/1e3:.0f}K purchase)"
     else:
-        breakdown["relative_size"] = "+0 (market cap unavailable)"
+        breakdown["value"] = f"+0 (${total/1e3:.0f}K — under $100K)"
 
-    # Bonus: first trade in 12+ months
+    if before > 0 and traded > 0 and code == "P":
+        pct = (traded / before) * 100
+        if pct > 50:
+            points += 3
+            breakdown["position"] = f"+3 (position +{pct:.0f}% — very high conviction)"
+        elif pct > 25:
+            points += 2
+            breakdown["position"] = f"+2 (position +{pct:.0f}%)"
+        elif pct > 10:
+            points += 1
+            breakdown["position"] = f"+1 (position +{pct:.0f}%)"
+        else:
+            breakdown["position"] = f"+0 (position +{pct:.0f}%)"
+    else:
+        breakdown["position"] = "+0 (position data unavailable)"
+
+    if cluster_n >= 3:
+        points += 3
+        breakdown["cluster"] = f"+3 ({cluster_n} insiders buying same ticker in 7 days)"
+    elif cluster_n >= 2:
+        points += 2
+        breakdown["cluster"] = f"+2 ({cluster_n} insiders buying same ticker in 7 days)"
+    else:
+        breakdown["cluster"] = "+0 (no cluster)"
+
+    if price and high_52w and code == "P":
+        pct_from_high = (high_52w - price) / high_52w
+        if pct_from_high > 0.40:
+            points += 1
+            breakdown["52w_high"] = f"+1 (stock −{pct_from_high*100:.0f}% from 52W high)"
+        else:
+            breakdown["52w_high"] = f"+0 (stock −{pct_from_high*100:.0f}% from 52W high)"
+    else:
+        breakdown["52w_high"] = "+0"
+
     if unusual:
         points += 1
-        breakdown["unusual"] = "+1 (no trades in 12+ months — broke silence)"
+        breakdown["unusual"] = "+1 (no insider buys in 12+ months)"
     else:
         breakdown["unusual"] = "+0"
-
-    # Bonus: consecutive buys
-    if consec >= 2:
-        points += 1
-        breakdown["consecutive"] = f"+1 ({consec} consecutive buys — conviction pattern)"
-    else:
-        breakdown["consecutive"] = "+0"
-
-    # Bonus: high short interest contrarian buy
-    if short_int and short_int >= 15 and code == "P":
-        points += 1
-        breakdown["short_interest"] = f"+1 (high short interest {short_int:.1f}% — contrarian buy)"
-    else:
-        breakdown["short_interest"] = "+0"
 
     return points, breakdown
 
 
 def score_signal(trade: dict, stock: dict, history: dict) -> tuple[int, str]:
-    # Step 1 — deterministic base score
-    base_score, breakdown = calculate_base_score(trade, stock, history)
-
-    # Step 2 — Claude adjusts by -1, 0, or +1
-    prompt = SCORE_ADJUST_PROMPT.format(
-        base_score=base_score,
-        trade_data=json.dumps(trade),
-        stock_data=json.dumps(stock),
-        history=json.dumps(history),
-        breakdown=json.dumps(breakdown),
-    )
-    try:
-        msg = claude.messages.create(
-            model=FAST_MODEL,
-            max_tokens=150,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw  = msg.content[0].text.strip().replace("```json","").replace("```","").strip()
-        data = json.loads(raw)
-        adjustment  = max(-1, min(1, int(data.get("adjustment", 0))))  # clamp to -1/0/+1
-        final_score = max(1, min(10, base_score + adjustment))          # clamp to 1-10
-        reasoning   = data.get("reasoning", "")
-        return final_score, reasoning
-    except Exception:
-        return max(1, min(10, base_score)), "Signal score unavailable"
+    """Pure rules-based score — no Claude API call needed."""
+    base_score, _ = calculate_base_score(trade, stock, history)
+    return max(1, min(10, base_score)), ""
 
 
 def score_emoji(score: int) -> str:
@@ -461,41 +486,101 @@ def build_tweet(
         if score >= 5: return "MODERATE"
         return "LOW"
 
-    score_str = f"💡 Signal: {signal_score}/10 — {signal_reason}\n"
+    # ── Role header ────────────────────────────────────────────────────────
+    rh = _role_header(title)
 
-    tweet = (
-        f"{direction_emoji} INSIDER {direction_label} — ${ticker}\n"
-        f"👤 {name}\n"
-        f"💼 {title}\n"
-        f"📦 {shares:,} shares @ ${price:.2f}\n"
-        f"💰 {format_value(total)}\n"
-        f"📅 {date_str}{late_flag}\n"
-        f"{current_price_str}"
-        f"{stake_pct}"
-        f"{unusual_str}"
-        f"{streak_str}"
-        f"{cluster_str}"
-        f"{short_str}"
-        f"{week52}"
-        f"{earnings_str}"
-        f"{analyst_str}"
-        f"{deriv_str}"
-        f"{score_str}"f"#InsiderTrading #{ticker}"
-    )
+    # ── Score line (reasoning capped at 80 chars) ───────────────────────────
+    # Strong signal format is longer so needs shorter reasoning
+    score_line = f"💡 Signal: {signal_score}/10"
 
-    # Trim to 280 chars if needed (keep most important lines)
-    if len(tweet) > 280:
-        # Build a compact version
+    # ── Position line ───────────────────────────────────────────────────────
+    pos_line = ""
+    if before > 0 and shares > 0 and is_buy:
+        pct = (shares / before) * 100
+        pos_line = f"• Position +{pct:.0f}% | Now owns {after:,} shares\n"
+    elif after > 0:
+        pos_line = f"• Now owns {after:,} shares\n"
+
+    # ── 52W high line ───────────────────────────────────────────────────────
+    high_line = ""
+    if is_buy and stock.get("52w_high") and stock.get("price"):
+        pct_from_high = (stock["52w_high"] - stock["price"]) / stock["52w_high"] * 100
+        if pct_from_high > 5:
+            high_line = f"• Stock −{pct_from_high:.0f}% from 52W high\n"
+
+    # ── Cluster line ────────────────────────────────────────────────────────
+    cluster_line = ""
+    if isinstance(cluster_flag, int) and cluster_flag >= 2:
+        cluster_line = f"• {cluster_flag} insiders buying this week\n"
+    elif cluster_flag and not isinstance(cluster_flag, int):
+        cluster_line = "• Multiple insiders buying this week\n"
+
+    # ── Extra signals ───────────────────────────────────────────────────────
+    extra = ""
+    if unusual_flag:
+        extra += "• First insider buy in 12+ months\n"
+    if consecutive_buys >= 3:
+        extra += f"• 🔁 {consecutive_buys} consecutive buys\n"
+    if short_interest > 0.15 and is_buy:
+        extra += f"• ⚡ Short interest {short_interest*100:.0f}% — contrarian bet\n"
+
+    # ── STRONG SIGNAL (score >= 9) ──────────────────────────────────────────
+    if signal_score >= 9:
         tweet = (
-            f"{direction_emoji} INSIDER {direction_label} — ${ticker}\n"
-            f"👤 {name} | 💼 {title}\n"
-            f"📦 {shares:,} shares @ ${price:.2f}\n"
-            f"💰 {format_value(total)}\n"
-            f"📅 {date_str}{late_flag}\n"
-            f"{current_price_str}"
-            f"{unusual_str}"
-            f"{short_str}"
+            f"🚨 STRONG INSIDER SIGNAL — ${ticker}\n"
+            f"\n"
+            f"{name} ({rh}) buys {format_value(total)}\n"
+            f"\n"
+            f"• {shares:,} shares @ ${price:.2f}\n"
+            f"{pos_line}"
+            f"{high_line}"
+            f"{cluster_line}"
+            f"{extra}"
+            f"• {date_str}\n"
+            f"\n"
+            f"{score_line}\n"
+            f"\n"
+            f"#InsiderTrading #{ticker}"
+        )
+    else:
+        # ── STANDARD format ────────────────────────────────────────────────
+        tweet = (
+            f"{direction_emoji} {rh} {direction_label} — ${ticker}\n"
+            f"\n"
+            f"{name} buys {format_value(total)}\n"
+            f"• {shares:,} shares @ ${price:.2f}\n"
+            f"{pos_line}"
+            f"{high_line}"
+            f"{cluster_line}"
+            f"{extra}"
+            f"• {date_str}\n"
+            f"\n"
+            f"{score_line}\n"
+            f"\n"
+            f"#InsiderTrading #{ticker}"
+        )
+
+    # ── Compact fallback if over 280 chars — drop extra signals ──────────────
+    if len(tweet) > 280:
+        header_line = (f"🚨 STRONG INSIDER SIGNAL — ${ticker}"
+                       if signal_score >= 9 else
+                       f"{direction_emoji} {rh} {direction_label} — ${ticker}")
+        name_line = (f"{name} ({rh}) buys {format_value(total)}"
+                     if signal_score >= 9 else
+                     f"{name} buys {format_value(total)}")
+        tweet = (
+            f"{header_line}\n"
+            f"\n"
+            f"{name_line}\n"
+            f"\n"
+            f"• {shares:,} shares @ ${price:.2f}\n"
+            f"{pos_line}"
+            f"{high_line}"
+            f"{cluster_line}"
+            f"• {date_str}\n"
+            f"\n"
             f"💡 Signal: {signal_score}/10\n"
+            f"\n"
             f"#InsiderTrading #{ticker}"
         )
 
