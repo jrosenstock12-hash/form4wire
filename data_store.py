@@ -59,11 +59,13 @@ def save_trade(trade: dict):
         "total_value":     trade.get("total_value", 0),
         "price_per_share": trade.get("price_per_share", 0),
         "shares":          trade.get("shares_traded", 0),
+        "shares_owned":    trade.get("shares_owned_after", 0),
+        "title":           trade.get("insider_title", ""),
         "saved_at":        datetime.now(timezone.utc).isoformat(),
     })
 
-    # Keep only last 20 trades per insider
-    history[key] = history[key][-20:]
+    # Keep only last 50 trades per insider
+    history[key] = history[key][-50:]
     _save(TRADE_HISTORY_FILE, history)
 
 
