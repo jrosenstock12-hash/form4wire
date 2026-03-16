@@ -1,18 +1,24 @@
 """
-web_feed.py — writes posted trades to docs/trades.json for the Form4Wire website.
+web_feed.py — writes posted trades to docs/trades.json and pushes to GitHub.
 Called after every successful post to X.
 """
 
 import json
 import logging
 import os
+import base64
+import requests
 from datetime import datetime, timezone
 from pathlib import Path
 
 log = logging.getLogger(__name__)
 
 WEB_FEED_PATH = Path(__file__).parent / "docs" / "trades.json"
-MAX_TRADES = 100  # Keep last 100 trades on the site
+
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_REPO  = "jrosenstock12-hash/form4wire"
+GITHUB_FILE  = "docs/trades.json"
+GITHUB_API   = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_FILE}"
 
 
 def _format_value(v: float) -> str:
@@ -26,7 +32,6 @@ def _format_value(v: float) -> str:
 
 
 def _role_header(title: str) -> str:
-    """Return short role label for display."""
     if not title:
         return "INSIDER"
     t = title.upper()
@@ -63,10 +68,47 @@ def _role_header(title: str) -> str:
     return "INSIDER"
 
 
-def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
-    """Append a posted trade to docs/trades.json."""
+def _push_to_github(trades: list):
+    """Push trades.json to GitHub so GitHub Pages serves the latest data."""
+    if not GITHUB_TOKEN:
+        log.warning("  → Web feed: GITHUB_TOKEN not set, skipping GitHub push")
+        return
+
     try:
-        # Load existing
+        content = json.dumps(trades, indent=2)
+        encoded = base64.b64encode(content.encode()).decode()
+
+        headers = {
+            "Authorization": f"token {GITHUB_TOKEN}",
+            "Accept": "application/vnd.github.v3+json",
+        }
+
+        # Get current file SHA (needed for update)
+        r = requests.get(GITHUB_API, headers=headers, timeout=10)
+        sha = r.json().get("sha", "") if r.status_code == 200 else ""
+
+        payload = {
+            "message": "Update trades feed",
+            "content": encoded,
+            "branch": "main",
+        }
+        if sha:
+            payload["sha"] = sha
+
+        r = requests.put(GITHUB_API, headers=headers, json=payload, timeout=15)
+        if r.status_code in (200, 201):
+            log.info(f"  → Web feed pushed to GitHub ({len(trades)} trades)")
+        else:
+            log.warning(f"  → Web feed GitHub push failed: {r.status_code} {r.text[:100]}")
+
+    except Exception as e:
+        log.warning(f"  → Web feed GitHub push error: {e}")
+
+
+def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
+    """Append a posted trade to docs/trades.json and push to GitHub."""
+    try:
+        # Load existing from local file
         trades = []
         if WEB_FEED_PATH.exists():
             try:
@@ -77,46 +119,45 @@ def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
 
         # Calculate pct from 52w high
         price = trade.get("price_per_share", 0)
-        high = trade.get("stock_52w_high", 0) or trade.get("52w_high", 0)
+        high  = trade.get("stock_52w_high", 0) or trade.get("52w_high", 0)
         pct_from_high = round(((high - price) / high) * 100, 1) if high and high > price else None
 
         # Calculate position change %
         before = trade.get("shares_owned_before", 0) or 0
-        after = trade.get("shares_owned_after", 0) or 0
+        after  = trade.get("shares_owned_after", 0) or 0
         pos_change = round(((after - before) / before) * 100, 1) if before > 0 else None
 
         entry = {
-            "ticker": trade.get("ticker", ""),
-            "company_name": trade.get("company_name", ""),
-            "insider_name": trade.get("insider_name", ""),
-            "insider_title": trade.get("insider_title", ""),
-            "role_header": _role_header(trade.get("insider_title", "")),
-            "transaction_date": trade.get("transaction_date", ""),
-            "filed_date": trade.get("filed_date", ""),
-            "shares_traded": trade.get("shares_traded", 0),
-            "price_per_share": trade.get("price_per_share", 0),
-            "total_value": trade.get("total_value", 0),
-            "total_value_fmt": _format_value(trade.get("total_value", 0)),
+            "ticker":            trade.get("ticker", ""),
+            "company_name":      trade.get("company_name", ""),
+            "insider_name":      trade.get("insider_name", ""),
+            "insider_title":     trade.get("insider_title", ""),
+            "role_header":       _role_header(trade.get("insider_title", "")),
+            "transaction_date":  trade.get("transaction_date", ""),
+            "filed_date":        trade.get("filed_date", ""),
+            "shares_traded":     trade.get("shares_traded", 0),
+            "price_per_share":   trade.get("price_per_share", 0),
+            "total_value":       trade.get("total_value", 0),
+            "total_value_fmt":   _format_value(trade.get("total_value", 0)),
             "shares_owned_after": after,
             "position_change_pct": pos_change,
             "pct_from_52w_high": pct_from_high,
-            "signal_score": score,
-            "cluster_count": cluster_count,
-            "posted_at": datetime.now(timezone.utc).isoformat(),
+            "signal_score":      score,
+            "cluster_count":     cluster_count,
+            "posted_at":         datetime.now(timezone.utc).isoformat(),
         }
 
         trades.append(entry)
 
-        # Keep last MAX_TRADES
-        if len(trades) > MAX_TRADES:
-            trades = trades[-MAX_TRADES:]
-
-        # Write
+        # Write locally
         WEB_FEED_PATH.parent.mkdir(parents=True, exist_ok=True)
         with open(WEB_FEED_PATH, "w") as f:
             json.dump(trades, f, indent=2)
 
-        log.info(f"  → Web feed updated ({len(trades)} trades)")
+        log.info(f"  → Web feed updated locally ({len(trades)} trades)")
+
+        # Push to GitHub so website updates
+        _push_to_github(trades)
 
     except Exception as e:
         log.warning(f"  → Web feed update failed: {e}")
