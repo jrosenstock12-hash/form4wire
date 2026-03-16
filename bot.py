@@ -360,9 +360,7 @@ def maybe_post_digests():
 # ── MAIN LOOP ────────────────────────────────────────────────────────────────
 
 def _seed_volume_data():
-    """No-op — volume is mounted directly at data/ so no copy needed."""
     log.info("  → Volume mounted at data/ — persistent storage active")
-
 
 def main():
     log.info("🚀 Form4Wire starting...")
