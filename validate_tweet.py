@@ -11,6 +11,7 @@ Examples:
 """
 
 import json
+import requests
 import sys
 import os
 from datetime import datetime, timezone
@@ -69,7 +70,73 @@ def check_history(ticker, insider_name):
     return months
 
 
-def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, months):
+
+def check_cluster(ticker):
+    if not os.path.exists("data/cluster_tracker.json"):
+        print("
+" + "="*60)
+        print("CLUSTER CHECK: " + ticker)
+        print("="*60)
+        print("  No cluster tracker file found")
+        return 0
+    with open("data/cluster_tracker.json") as f:
+        clusters = json.load(f)
+    data = clusters.get(ticker, {})
+    trades = data.get("trades", [])
+    print("
+" + "="*60)
+    print("CLUSTER CHECK: " + ticker)
+    print("="*60)
+    if not trades:
+        print("  No cluster data → +0")
+        return 0
+    now = __import__("datetime").datetime.now(__import__("datetime").timezone.utc)
+    cutoff = now.timestamp() - 7 * 86400
+    recent = []
+    for t in trades:
+        try:
+            from datetime import datetime, timezone
+            dt = datetime.fromisoformat(t.get("saved_at","").replace("Z","+00:00"))
+            if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)
+            if dt.timestamp() >= cutoff: recent.append(t)
+        except: pass
+    unique = len(set(t.get("insider","") for t in recent))
+    pts = 3 if unique >= 3 else (2 if unique >= 2 else 0)
+    if pts:
+        print(f"  CLUSTER: {unique} insiders in last 7 days → +{pts}")
+        for t in recent: print(f"    {t.get('insider','')} | {t.get('date','')}")
+    else:
+        print(f"  No cluster ({unique} insider) → +0")
+    return pts
+
+
+def check_stock(ticker, trade_price):
+    print("
+" + "="*60)
+    print("STOCK CHECK: " + ticker)
+    print("="*60)
+    try:
+        url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?interval=1d&range=1y"
+        r = requests.get(url, headers={"User-Agent":"Mozilla/5.0"}, timeout=10)
+        meta = r.json()["chart"]["result"][0]["meta"]
+        high = meta.get("fiftyTwoWeekHigh", 0)
+        low  = meta.get("fiftyTwoWeekLow", 0)
+        curr = meta.get("regularMarketPrice", 0)
+        print(f"  Current: ${curr:.2f} | 52W High: ${high:.2f} | 52W Low: ${low:.2f}")
+        if high > 0:
+            pct = (high - trade_price) / high * 100
+            print(f"  At trade price ${trade_price:.2f}: -{pct:.1f}% from 52W high")
+            if pct > 40:
+                print(f"  Stock down >40% → +1")
+                return 1
+            else:
+                print(f"  Not down >40% → +0")
+        return 0
+    except Exception as e:
+        print(f"  Could not fetch: {e}")
+        return 0
+
+def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts, high_pts):
     print(f"\n{'='*60}")
     print(f"SCORE VALIDATION: {ticker}")
     print(f"{'='*60}")
@@ -126,8 +193,8 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
     print(f"  Value:    {val_label}")
     print(f"  Position: {pos_label}")
     print(f"  History:  {unusual_label}")
-    print(f"  Cluster:  (not checked — needs live cluster data)")
-    print(f"  52W High: (not checked — needs live stock data)")
+    print(f"  Cluster:  +{cluster_pts}")
+    print(f"  52W High: +{high_pts}")
     print(f"  ─────────────────────────────────────────")
     print(f"  Raw total: {raw} → Final score: {final}/10")
 
@@ -161,10 +228,12 @@ def main():
     before       = get_arg("--before")
     title        = get_str_arg("--title")
 
-    months = check_history(ticker, insider)
+    days        = check_history(ticker, insider)
+    cluster_pts = check_cluster(ticker)
+    high_pts    = check_stock(ticker, price) if price else 0
 
     if title:
-        check_score(ticker, insider, total_value, shares, price, before, title, months)
+        check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts)
 
     print(f"\n{'='*60}\n")
 
