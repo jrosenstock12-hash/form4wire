@@ -144,6 +144,7 @@ def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
             "pct_from_52w_high": pct_from_high,
             "signal_score":      score,
             "cluster_count":     cluster_count,
+            "unusual_flag":      trade.get("unusual_flag", False),
             "posted_at":         datetime.now(timezone.utc).isoformat(),
         }
 

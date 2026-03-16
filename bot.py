@@ -283,6 +283,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     # 14. Queue followups (history already saved above)
     add_to_followup_queue(trade)
     log_daily_trade(trade, score)
+    trade["unusual_flag"] = unusual
     save_to_web_feed(trade, score, cluster_count)
 
     log.info(f"  → {'[DRY RUN] ' if config.DRY_RUN else ''}POSTED: ${ticker} | {trade.get('insider_name')} | Signal {score}/10")
@@ -360,7 +361,9 @@ def maybe_post_digests():
 # ── MAIN LOOP ────────────────────────────────────────────────────────────────
 
 def _seed_volume_data():
+    """No-op — volume is mounted directly at data/ so no copy needed."""
     log.info("  → Volume mounted at data/ — persistent storage active")
+
 
 def main():
     log.info("🚀 Form4Wire starting...")
