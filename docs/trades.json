@@ -18,5 +18,25 @@
     "cluster_count": 0,
     "unusual_flag": true,
     "posted_at": "2026-03-16T19:38:49.326517+00:00"
+  },
+  {
+    "ticker": "MX",
+    "company_name": "MAGNACHIP SEMICONDUCTOR Corp",
+    "insider_name": "NATHAN GILBERT E",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-12",
+    "filed_date": "2026-03-16",
+    "shares_traded": 38006,
+    "price_per_share": 2.7607,
+    "total_value": 104924.02,
+    "total_value_fmt": "$105K",
+    "shares_owned_after": 136206,
+    "position_change_pct": 38.7,
+    "pct_from_52w_high": 37.3,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": true,
+    "posted_at": "2026-03-16T20:32:09.456653+00:00"
   }
 ]
