@@ -126,9 +126,9 @@ def check_stock(ticker, trade_price):
         low  = meta.get("fiftyTwoWeekLow", 0)
         curr = meta.get("regularMarketPrice", 0)
         print("  Current: $" + str(round(curr,2)) + " | 52W High: $" + str(round(high,2)) + " | 52W Low: $" + str(round(low,2)))
-        if high > 0 and trade_price > 0:
-            pct = (high - trade_price) / high * 100
-            print("  At trade price $" + str(trade_price) + ": -" + str(round(pct,1)) + "% from 52W high")
+        if high > 0 and curr > 0:
+            pct = (high - curr) / high * 100
+            print("  At current price $" + str(round(curr,2)) + ": -" + str(round(pct,1)) + "% from 52W high")
             if pct > 40:
                 print("  Stock down >40% -> +1")
                 return 1
