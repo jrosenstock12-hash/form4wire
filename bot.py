@@ -156,6 +156,11 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         log.info(f"  → SKIP: Transaction type {code} filtered")
         return False
 
+    # Skip derivatives — swaps, options not held, synthetic positions
+    if trade.get("is_derivative", False):
+        log.info(f"  → SKIP: Derivative transaction (is_derivative=True)")
+        return False
+
     if code == "M" and not trade.get("held_after_exercise", False):
         log.info(f"  → SKIP: Option exercise, shares not held")
         return False

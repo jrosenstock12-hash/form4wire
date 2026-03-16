@@ -58,6 +58,8 @@ SKIP_TRANSACTION_CODES = {
     "G",   # Gift — no market signal
     "D",   # Disposition to company — no market signal
     "S",   # Open market sale — not tracking sells
+    "J",   # Other acquisition — often derivative/synthetic
+    "K",   # Equity swap or similar derivative
 }
 
 # ── SIGNAL STRENGTH WEIGHTS ──────────────────────────────────────────────
