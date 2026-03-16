@@ -91,8 +91,12 @@ FAST_MODEL     = "claude-haiku-4-5-20251001"  # Real-time parsing (cheap + fast)
 ANALYSIS_MODEL = "claude-sonnet-4-6"          # Weekly digests + deep analysis
 
 # ── FILES ────────────────────────────────────────────────────────────────
-SEEN_FILINGS_FILE    = "data/seen_filings.json"
-TRADE_HISTORY_FILE   = "data/trade_history.json"
-FOLLOWUP_QUEUE_FILE  = "data/followup_queue.json"
-CLUSTER_TRACKER_FILE = "data/cluster_tracker.json"
+# Use Railway volume if mounted, otherwise fall back to local data/
+import os as _os
+_DATA_DIR = "/app/data" if _os.path.exists("/app/data") else "data"
+
+SEEN_FILINGS_FILE    = f"{_DATA_DIR}/seen_filings.json"
+TRADE_HISTORY_FILE   = f"{_DATA_DIR}/trade_history.json"
+FOLLOWUP_QUEUE_FILE  = f"{_DATA_DIR}/followup_queue.json"
+CLUSTER_TRACKER_FILE = f"{_DATA_DIR}/cluster_tracker.json"
 LOG_FILE             = "logs/bot.log"

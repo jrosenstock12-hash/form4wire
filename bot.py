@@ -359,8 +359,33 @@ def maybe_post_digests():
 
 # ── MAIN LOOP ────────────────────────────────────────────────────────────────
 
+def _seed_volume_data():
+    """On startup, copy repo data files to volume if volume copy is missing or smaller."""
+    import shutil
+    volume_path = "/app/data"
+    repo_path   = "data"
+    files = ["trade_history.json", "seen_filings.json", "cluster_tracker.json"]
+
+    if not os.path.exists(volume_path):
+        return  # No volume mounted, skip
+
+    for fname in files:
+        src  = os.path.join(repo_path, fname)
+        dest = os.path.join(volume_path, fname)
+        if not os.path.exists(src):
+            continue
+        src_size  = os.path.getsize(src)
+        dest_size = os.path.getsize(dest) if os.path.exists(dest) else 0
+        if src_size > dest_size:
+            shutil.copy2(src, dest)
+            log.info(f"  → Volume seeded: {fname} ({src_size:,} bytes)")
+        else:
+            log.info(f"  → Volume ok: {fname} ({dest_size:,} bytes)")
+
+
 def main():
     log.info("🚀 Form4Wire starting...")
+    _seed_volume_data()
     if config.DRY_RUN:
         log.info("⚠️  DRY RUN MODE — tweets will NOT be posted to X")
         log.info("   Pending tweets saved to: data/pending_tweets.txt")
