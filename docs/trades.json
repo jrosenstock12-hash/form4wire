@@ -78,5 +78,25 @@
     "cluster_count": 0,
     "unusual_flag": true,
     "posted_at": "2026-03-16T20:52:50.183531+00:00"
+  },
+  {
+    "ticker": "VRTS",
+    "company_name": "VIRTUS INVESTMENT PARTNERS, INC.",
+    "insider_name": "MORRIS W HOWARD",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-12",
+    "filed_date": "2026-03-16",
+    "shares_traded": 4050,
+    "price_per_share": 129.4722,
+    "total_value": 524362.5,
+    "total_value_fmt": "$524K",
+    "shares_owned_after": 6457,
+    "position_change_pct": 168.3,
+    "pct_from_52w_high": 39.5,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": true,
+    "posted_at": "2026-03-16T20:58:10.076813+00:00"
   }
 ]
