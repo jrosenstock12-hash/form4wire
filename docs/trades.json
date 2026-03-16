@@ -69,7 +69,7 @@
     "filed_date": "2026-03-16",
     "shares_traded": 30000,
     "price_per_share": 25.55,
-    "total_value": 766500.0,
+    "total_value": 766500,
     "total_value_fmt": "$766K",
     "shares_owned_after": 215000,
     "position_change_pct": 16.2,
@@ -98,25 +98,5 @@
     "cluster_count": 0,
     "unusual_flag": true,
     "posted_at": "2026-03-16T20:58:10.076813+00:00"
-  },
-  {
-    "ticker": "FLUT",
-    "company_name": "Flutter Entertainment plc",
-    "insider_name": "DART KENNETH BRYAN",
-    "insider_title": "10% Owner",
-    "role_header": "INSIDER",
-    "transaction_date": "2026-03-12",
-    "filed_date": "2026-03-16",
-    "shares_traded": 1214188,
-    "price_per_share": 109.8715,
-    "total_value": 133335844.67,
-    "total_value_fmt": "$133.3M",
-    "shares_owned_after": 6254378,
-    "position_change_pct": 24.1,
-    "pct_from_52w_high": 64.4,
-    "signal_score": 7,
-    "cluster_count": 0,
-    "unusual_flag": true,
-    "posted_at": "2026-03-16T21:25:33.770134+00:00"
   }
 ]
