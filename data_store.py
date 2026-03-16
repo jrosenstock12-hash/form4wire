@@ -47,6 +47,8 @@ def save_trade(trade: dict):
     history = load_history()
     ticker  = trade.get("ticker", "UNKNOWN")
     insider = trade.get("insider_name", "Unknown")
+    # Normalize name to title case for consistent key matching
+    insider = " ".join(w.capitalize() for w in insider.split())
     key     = f"{ticker}:{insider}"
 
     if key not in history:
@@ -70,7 +72,9 @@ def save_trade(trade: dict):
 def get_insider_history(ticker: str, insider_name: str) -> dict:
     """Return history and derived signals for an insider."""
     history = load_history()
-    key     = f"{ticker}:{insider_name}"
+    # Normalize name to title case to match backfill format
+    normalized = " ".join(w.capitalize() for w in insider_name.split())
+    key = f"{ticker}:{normalized}"
     trades  = history.get(key, [])
 
     if not trades:
