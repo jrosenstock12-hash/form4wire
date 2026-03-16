@@ -76,17 +76,13 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
 
     t = title.lower()
 
-    # Role
-    if any(x in t for x in ["chief executive", "ceo", "chairman", "founder"]) or ("president" in t and "vice" not in t):
-        role_pts, role_label = 3, "CEO/Chairman/Founder/President (+3)"
-    elif any(x in t for x in ["chief financial", "cfo", "chief operating", "coo",
-                                "chief tech", "cto", "general counsel", "chief legal",
-                                "chief revenue", "chief marketing", "chief information",
-                                "chief accounting", "chief medical", "chief scientific"]):
-        role_pts, role_label = 2, "C-Suite officer (+2)"
-    elif any(x in t for x in ["executive vice", "senior vice", "vice president",
-                                "evp", "svp", "director", "board", "treasurer", " vp"]):
+    # Role — check VP/Director FIRST
+    if any(x in t for x in ["executive vice", "senior vice", "vice president", "evp", "svp", " vp", "director", "board", "treasurer"]):
         role_pts, role_label = 1, "VP/Director/Board (+1)"
+    elif any(x in t for x in ["chief executive", "ceo", "chairman", "founder"]) or ("president" in t and "vice" not in t):
+        role_pts, role_label = 3, "CEO/Chairman/Founder/President (+3)"
+    elif any(x in t for x in ["chief financial", "cfo", "chief operating", "coo", "chief tech", "cto", "general counsel"]):
+        role_pts, role_label = 2, "C-Suite officer (+2)"
     else:
         role_pts, role_label = 1, "Other insider (+1)"
 
