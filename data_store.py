@@ -59,13 +59,11 @@ def save_trade(trade: dict):
         "total_value":     trade.get("total_value", 0),
         "price_per_share": trade.get("price_per_share", 0),
         "shares":          trade.get("shares_traded", 0),
-        "shares_owned":    trade.get("shares_owned_after", 0),
-        "title":           trade.get("insider_title", ""),
         "saved_at":        datetime.now(timezone.utc).isoformat(),
     })
 
-    # Keep only last 50 trades per insider
-    history[key] = history[key][-50:]
+    # Keep only last 20 trades per insider
+    history[key] = history[key][-20:]
     _save(TRADE_HISTORY_FILE, history)
 
 
@@ -84,10 +82,14 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
     # Months since last trade
     last_date_str = trades_sorted[0].get("date", "")
     months_since  = 999
+    days_since = 9999
     if last_date_str:
         try:
-            last_dt      = datetime.fromisoformat(last_date_str.replace("Z", "+00:00"))
-            months_since = (datetime.now(timezone.utc) - last_dt).days // 30
+            last_dt = datetime.fromisoformat(last_date_str.replace("Z", "+00:00"))
+            if last_dt.tzinfo is None:
+                last_dt = last_dt.replace(tzinfo=timezone.utc)
+            days_since   = (datetime.now(timezone.utc) - last_dt).days
+            months_since = days_since // 30
         except Exception:
             pass
 
@@ -99,7 +101,7 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
         else:
             break
 
-    unusual = months_since >= 12
+    unusual = days_since >= 365
 
     return {
         "trades":           trades_sorted[:5],
