@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "ticker": "AMRZ",
+    "company_name": "Amrize Ltd",
+    "insider_name": "Brouwer Roald",
+    "insider_title": "Chief Technology Officer",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-13",
+    "filed_date": "2026-03-16",
+    "shares_traded": 2000,
+    "price_per_share": 54.88,
+    "total_value": 109760.0,
+    "total_value_fmt": "$110K",
+    "shares_owned_after": 18257,
+    "position_change_pct": 12.3,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "posted_at": "2026-03-16T17:55:02.604722+00:00"
+  }
+]
