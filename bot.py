@@ -284,6 +284,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     add_to_followup_queue(trade)
     log_daily_trade(trade, score)
     trade["unusual_flag"] = unusual
+    trade["unusual_flag"] = unusual
     save_to_web_feed(trade, score, cluster_count)
 
     log.info(f"  → {'[DRY RUN] ' if config.DRY_RUN else ''}POSTED: ${ticker} | {trade.get('insider_name')} | Signal {score}/10")
