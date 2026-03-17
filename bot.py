@@ -375,7 +375,7 @@ def _seed_volume_data():
     import config as _cfg
     log.info(f"  → Data directory: {_cfg._DATA_DIR}")
     import os
-    log.info(f"  → /app/data exists: {os.path.exists("/app/data")}")
+    app_data_exists = os.path.exists("/app/data"); log.info(f"  → /app/data exists: {app_data_exists}")
     log.info(f"  → trade_history.json path: {_cfg.TRADE_HISTORY_FILE}")
 
 
