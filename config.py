@@ -93,9 +93,13 @@ FAST_MODEL     = "claude-haiku-4-5-20251001"  # Real-time parsing (cheap + fast)
 ANALYSIS_MODEL = "claude-sonnet-4-6"          # Weekly digests + deep analysis
 
 # ── FILES ────────────────────────────────────────────────────────────────
-# Use Railway volume if mounted, otherwise fall back to local data/
+# Use Railway volume path, fall back to local data/ for development
 import os as _os
-_DATA_DIR = "/app/data" if _os.path.exists("/app/data") else "data"
+_DATA_DIR = "/app/data" if _os.path.isdir("/app/data") else (
+    "/app/data" if _os.path.exists("/app") else "data"
+)
+# Ensure data directory exists
+_os.makedirs(_DATA_DIR, exist_ok=True)
 
 SEEN_FILINGS_FILE    = f"{_DATA_DIR}/seen_filings.json"
 TRADE_HISTORY_FILE   = f"{_DATA_DIR}/trade_history.json"

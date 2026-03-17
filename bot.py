@@ -371,8 +371,12 @@ def maybe_post_digests():
 # ── MAIN LOOP ────────────────────────────────────────────────────────────────
 
 def _seed_volume_data():
-    """No-op — volume is mounted directly at data/ so no copy needed."""
-    log.info("  → Volume mounted at data/ — persistent storage active")
+    """Log the actual data directory being used."""
+    import config as _cfg
+    log.info(f"  → Data directory: {_cfg._DATA_DIR}")
+    import os
+    log.info(f"  → /app/data exists: {os.path.exists("/app/data")}")
+    log.info(f"  → trade_history.json path: {_cfg.TRADE_HISTORY_FILE}")
 
 
 def main():
