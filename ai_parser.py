@@ -497,9 +497,9 @@ def build_tweet(
     pos_line = ""
     if before > 0 and shares > 0 and is_buy:
         pct = (shares / before) * 100
-        pos_line = f"• Position +{pct:.0f}% | Now owns {after:,} shares\n"
+        pos_line = f"• Position +{pct:.0f}%\n"
     elif after > 0:
-        pos_line = f"• Now owns {after:,} shares\n"
+        pos_line = ""
 
     # ── 52W high line ───────────────────────────────────────────────────────
     high_line = ""
