@@ -227,8 +227,8 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     history["cluster_count"] = cluster_count
 
     # 9. Score signal (now includes cluster_count via history)
-    score, reason, breakdown = score_signal(trade, stock, history)
-    log.info(f"  Score breakdown: " + " | ".join(f"{k}={v}" for k,v in breakdown.items()) + f" → {score}/10")
+    score, reason = score_signal(trade, stock, history)
+    log.info(f"  Score: {score}/10")
 
     # 11. Build tweet
     tweet = build_tweet(
