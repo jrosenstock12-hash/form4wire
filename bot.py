@@ -291,7 +291,6 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     add_to_followup_queue(trade)
     log_daily_trade(trade, score)
     trade["unusual_flag"] = unusual
-    trade["unusual_flag"] = unusual
     trade["stock_52w_high"] = stock.get("52w_high", 0)
     trade["stock_52w_low"] = stock.get("52w_low", 0)
     trade["stock_price"] = stock.get("price", 0)
