@@ -426,6 +426,7 @@ def main():
             if first_poll:
                 log.info(f"  First poll — {len(new)} new filings to process (volume persists seen_filings)")
                 first_poll = False
+                save_seen(seen)
 
             if new:
                 log.info(f"  {len(new)} new filing(s) found")
@@ -458,6 +459,7 @@ def main():
                 save_seen(seen)
             else:
                 log.info("  No new filings.")
+                save_seen(seen)
 
             # Check followups
             process_followups()
