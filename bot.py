@@ -198,6 +198,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     # Save ALL non-derivative code P purchases to history before threshold filter
     if code == "P":
         save_trade(trade)
+        log.info(f"  → History saved: {trade.get('insider_name','?')} | ${trade.get('total_value',0):,.0f}")
 
     # 5b. Size-based dollar threshold
     market_cap = stock.get("market_cap", 0)
