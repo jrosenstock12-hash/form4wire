@@ -425,12 +425,8 @@ def main():
             new     = [f for f in filings if f["id"] not in seen]
 
             if first_poll:
-                log.info(f"  First poll — seeding {len(new)} existing filings as seen (restart guard)")
-                for filing in new:
-                    seen.add(filing["id"])
-                save_seen(seen)
+                log.info(f"  First poll — {len(new)} new filings to process (volume persists seen_filings)")
                 first_poll = False
-                new = []
 
             if new:
                 log.info(f"  {len(new)} new filing(s) found")
