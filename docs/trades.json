@@ -118,5 +118,25 @@
     "cluster_count": 0,
     "unusual_flag": true,
     "posted_at": "2026-03-16T22:42:24.268369+00:00"
+  },
+  {
+    "ticker": "LOGC",
+    "company_name": "ContextLogic Holdings Inc.",
+    "insider_name": "Bobbili Raja",
+    "insider_title": "Director, Ten Percent Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-12",
+    "filed_date": "2026-03-16",
+    "shares_traded": 71000,
+    "price_per_share": 8.2403,
+    "total_value": 585058.97,
+    "total_value_fmt": "$585K",
+    "shares_owned_after": 321000,
+    "position_change_pct": 28.4,
+    "pct_from_52w_high": 2.8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": true,
+    "posted_at": "2026-03-17T01:18:50.401472+00:00"
   }
 ]
