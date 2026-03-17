@@ -344,10 +344,10 @@ def calculate_base_score(trade: dict, stock: dict, history: dict) -> tuple[int, 
     return points, breakdown
 
 
-def score_signal(trade: dict, stock: dict, history: dict) -> tuple[int, str, dict]:
+def score_signal(trade: dict, stock: dict, history: dict) -> tuple[int, str]:
     """Pure rules-based score — no Claude API call needed."""
-    base_score, breakdown = calculate_base_score(trade, stock, history)
-    return max(1, min(10, base_score)), "", breakdown
+    base_score, _ = calculate_base_score(trade, stock, history)
+    return max(1, min(10, base_score)), ""
 
 
 def score_emoji(score: int) -> str:
@@ -596,33 +596,32 @@ def generate_daily_digest(trades: list[dict], total_scanned: int = 0) -> str:
     if not trades:
         return ""
 
-    significant = len(trades)
-    scan_note = f"{significant} signals from {total_scanned:,} filings reviewed" if total_scanned else f"{significant} signals today"
-
     prompt = f"""
 You are writing a daily insider trading summary tweet for the account @Form4Wire.
 
-Today's significant trades ({scan_note}):
+Today's significant trades:
 {json.dumps(trades, indent=2)[:3000]}
 
-Write a concise, engaging daily digest tweet. Include:
-- How many significant trades were flagged vs total reviewed (use the note: "{scan_note}"))
-- Biggest buy (name, ticker, value)
-- Biggest sell if any — if no sells were flagged as significant today, say "No notable sells" NOT "None — all buys today"
-- Most significant signal (highest score)
-- Any notable patterns (cluster activity, unusual trades)
+Write a concise daily digest tweet using EXACTLY this format:
 
-Format:
 📊 INSIDER DAILY DIGEST
 
-🟢 Top Buy: [details]
-🔴 Top Sell: [details or "No notable sells"]
-🚨 Top Signal: [details]
-📈 [X] signals from [Y] filings reviewed
+🟢 Top Buys:
+• [Insider/TICKER] — [$value]
+• [Insider/TICKER] — [$value]
+• [Insider/TICKER] — [$value]
+
+🚨 Top Signals (8+):
+• [TICKER] — [score]/10
+• [TICKER] — [score]/10
 
 #InsiderTrading #Stocks #Finance
 
-Keep it under 280 characters. Be punchy and informative.
+Rules:
+- Top Buys: show up to 3 biggest buys by dollar value, bullet points only
+- Top Signals: show up to 3 trades with score 8 or above only. If none scored 8+, omit this section entirely
+- No other lines, no sell section, no filing counts
+- Keep entire tweet under 280 characters
 """
     try:
         msg = claude.messages.create(
@@ -645,29 +644,26 @@ You are writing a weekly insider trading summary tweet for @Form4Wire.
 This week's trades:
 {json.dumps(trades, indent=2)[:4000]}
 
-Write an engaging weekly digest. Include:
-- Biggest single buy of the week
-- Biggest single sell of the week  
-- Best signal trade of the week
-- Any sector rotation patterns (e.g. insiders selling tech, buying energy)
-- Total $ value of all buys vs sells
-- Most active company (most insider trades)
-- Any cluster activity
-
-Format as a thread-style tweet (single tweet, punchy):
+Write a weekly digest tweet using EXACTLY this format:
 
 📊 INSIDER WEEK IN REVIEW
-Week of [dates]
 
-🟢 Biggest Buy: ...
-🔴 Biggest Sell: ...
-🚨 Best Signal: ...
-💡 Sector Watch: ...
-👥 Most Active: ...
+🟢 Top Buys This Week:
+• [Insider/TICKER] — [$value]
+• [Insider/TICKER] — [$value]
+• [Insider/TICKER] — [$value]
 
-#InsiderTrading #WeeklyWrap #Stocks
+🚨 Top Signals This Week (8+):
+• [TICKER] — [score]/10
+• [TICKER] — [score]/10
 
-Keep under 280 chars. Make it shareable.
+#InsiderTrading #Stocks #Finance
+
+Rules:
+- Top Buys: show up to 3 biggest buys by dollar value for the week, bullet points only
+- Top Signals: show up to 3 trades with score 8 or above only. If none scored 8+, omit this section entirely
+- No other lines, no sell section, no filing counts
+- Keep entire tweet under 280 characters
 """
     try:
         msg = claude.messages.create(
