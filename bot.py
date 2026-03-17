@@ -195,6 +195,10 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
     short_int   = fetch_short_interest(ticker)
     next_earn   = fetch_next_earnings(ticker)
 
+    # Save ALL non-derivative code P purchases to history before threshold filter
+    if code == "P":
+        save_trade(trade)
+
     # 5b. Size-based dollar threshold
     market_cap = stock.get("market_cap", 0)
     passes, skip_reason = meets_threshold(trade, tier, market_cap)
@@ -241,10 +245,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         cluster_flag     = cluster_count if cluster_count >= 2 else cluster_flag,
     )
 
-    # 12. Save to history NOW — before score gate, so all valid buys are tracked
-    # This ensures consecutive_buys and unusual bonuses work correctly over time
-    if code == "P":
-        save_trade(trade)
+    # (history already saved before threshold check above)
 
     # Score gate — different thresholds for buys vs sells
     is_sell = code == "S"
