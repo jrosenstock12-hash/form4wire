@@ -218,5 +218,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-17T20:28:12.334181+00:00"
+  },
+  {
+    "ticker": "ARQ",
+    "company_name": "Arq, Inc.",
+    "insider_name": "EICHER CAROL S",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-13",
+    "filed_date": "2026-03-17",
+    "shares_traded": 77500,
+    "price_per_share": 1.9485,
+    "total_value": 151008.75,
+    "total_value_fmt": "$151K",
+    "shares_owned_after": 174010,
+    "position_change_pct": 80.3,
+    "pct_from_52w_high": 74.8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-17T20:37:14.762456+00:00"
   }
 ]
