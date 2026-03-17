@@ -30,7 +30,7 @@ COMPANY_FACTS_URL = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
 
 # How many pages of 100 filings to fetch per run
 # 4 pages = up to 400 filings, good coverage without hammering SEC
-MAX_PAGES = 2
+MAX_PAGES = 5
 
 
 def fetch_form4_feed() -> list[dict]:
