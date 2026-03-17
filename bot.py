@@ -209,6 +209,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
 
     # 7. Get insider history
     history     = get_insider_history(ticker, trade.get("insider_name", ""))
+    log.info(f"  → History: {len(history.get('trades',[]))} prior trades | unusual={history.get('unusual',False)} | days={history.get('months_since_last',999)}")
     unusual     = history.get("unusual", False)
     consec_buys = history.get("consecutive_buys", 0)
 
