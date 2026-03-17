@@ -138,5 +138,25 @@
     "cluster_count": 0,
     "unusual_flag": true,
     "posted_at": "2026-03-17T01:18:50.401472+00:00"
+  },
+  {
+    "ticker": "SOFI",
+    "company_name": "SoFi Technologies, Inc.",
+    "insider_name": "Noto Anthony",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-17",
+    "filed_date": "2026-03-17",
+    "shares_traded": 28900,
+    "price_per_share": 17.3189,
+    "total_value": 500516.21,
+    "total_value_fmt": "$501K",
+    "shares_owned_after": 11704352,
+    "position_change_pct": 0.2,
+    "pct_from_52w_high": 46.2,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-17T20:10:32.595393+00:00"
   }
 ]
