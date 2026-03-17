@@ -62,8 +62,8 @@ def save_trade(trade: dict):
         "saved_at":        datetime.now(timezone.utc).isoformat(),
     })
 
-    # Keep only last 20 trades per insider
-    history[key] = history[key][-20:]
+    # Keep only last 50 trades per insider
+    history[key] = history[key][-50:]
     _save(TRADE_HISTORY_FILE, history)
 
 
