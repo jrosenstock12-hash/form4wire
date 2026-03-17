@@ -344,10 +344,10 @@ def calculate_base_score(trade: dict, stock: dict, history: dict) -> tuple[int, 
     return points, breakdown
 
 
-def score_signal(trade: dict, stock: dict, history: dict) -> tuple[int, str]:
+def score_signal(trade: dict, stock: dict, history: dict) -> tuple[int, str, dict]:
     """Pure rules-based score — no Claude API call needed."""
-    base_score, _ = calculate_base_score(trade, stock, history)
-    return max(1, min(10, base_score)), ""
+    base_score, breakdown = calculate_base_score(trade, stock, history)
+    return max(1, min(10, base_score)), "", breakdown
 
 
 def score_emoji(score: int) -> str:
@@ -497,9 +497,9 @@ def build_tweet(
     pos_line = ""
     if before > 0 and shares > 0 and is_buy:
         pct = (shares / before) * 100
-        pos_line = f"• Position +{pct:.0f}%\n"
+        pos_line = f"• Position +{pct:.0f}% | Now owns {after:,} shares\n"
     elif after > 0:
-        pos_line = ""
+        pos_line = f"• Now owns {after:,} shares\n"
 
     # ── 52W high line ───────────────────────────────────────────────────────
     high_line = ""

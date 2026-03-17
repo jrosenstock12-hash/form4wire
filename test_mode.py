@@ -222,7 +222,7 @@ def run_test(max_filings: int = 10):
 
         # 9. Signal score
         print("      → Scoring signal with Claude AI...")
-        score, reason = score_signal(trade, stock, history)
+        score, reason, breakdown = score_signal(trade, stock, history)
 
         # 10. Cluster check
         cluster_data = record_trade_for_cluster(trade)
