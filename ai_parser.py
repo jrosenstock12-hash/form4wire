@@ -683,7 +683,7 @@ Write a concise daily digest tweet using EXACTLY this format:
 • [Insider/TICKER] — [$value]
 • [Insider/TICKER] — [$value]
 
-🚨 Top Signals (8+):
+🚨 Top Signals:
 • [TICKER] — [score]/10
 • [TICKER] — [score]/10
 
@@ -725,7 +725,7 @@ Write a weekly digest tweet using EXACTLY this format:
 • [Insider/TICKER] — [$value]
 • [Insider/TICKER] — [$value]
 
-🚨 Top Signals This Week (8+):
+🚨 Top Signals This Week:
 • [TICKER] — [score]/10
 • [TICKER] — [score]/10
 
