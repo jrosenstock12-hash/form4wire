@@ -156,6 +156,7 @@ def _push_seo_index_to_github(trades: list):
 
 
 
+def _push_to_github(trades: list):
     """Push trades.json to GitHub so GitHub Pages serves the latest data."""
     if not GITHUB_TOKEN:
         log.warning("  → Web feed: GITHUB_TOKEN not set, skipping GitHub push")
@@ -212,7 +213,7 @@ def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
         # Calculate position change %
         before = trade.get("shares_owned_before", 0) or 0
         after  = trade.get("shares_owned_after", 0) or 0
-        pos_change = round(((after - before) / before) * 100, 1) if before > 0 else None
+        pos_change = round(((after - before) / before) * 100, 1) if before >= 100 else None
 
         entry = {
             "ticker":            trade.get("ticker", ""),

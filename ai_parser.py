@@ -348,7 +348,7 @@ def calculate_base_score(trade: dict, stock: dict, history: dict, next_earnings:
     else:
         breakdown["value"] = f"+0 (${total/1e3:.0f}K — under $100K)"
 
-    if before > 0 and traded > 0 and code == "P":
+    if before >= 100 and traded > 0 and code == "P":
         pct = (traded / before) * 100
         if pct > 50:
             points += 3
@@ -558,7 +558,7 @@ def build_tweet(
 
     # ── Position line ───────────────────────────────────────────────────────
     pos_line = ""
-    if before > 0 and shares > 0 and is_buy:
+    if before >= 100 and shares > 0 and is_buy:
         pct = (shares / before) * 100
         if pct < 1:
             pos_line = f"• Position +{pct:.2f}%\n"
