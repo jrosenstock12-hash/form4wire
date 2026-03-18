@@ -30,7 +30,7 @@ from data_store   import (
     increment_daily_scan, get_daily_scan_count,
 )
 from x_poster import post_tweet
-from web_feed import save_to_web_feed
+from web_feed import save_to_web_feed, seed_web_feed_volume
 
 # ── LOGGING ──────────────────────────────────────────────────────────────────
 os.makedirs("logs", exist_ok=True)
@@ -413,6 +413,7 @@ def _seed_volume_data():
 def main():
     log.info("🚀 Form4Wire starting...")
     _seed_volume_data()
+    seed_web_feed_volume()
     if config.DRY_RUN:
         log.info("⚠️  DRY RUN MODE — tweets will NOT be posted to X")
         log.info("   Pending tweets saved to: data/pending_tweets.txt")

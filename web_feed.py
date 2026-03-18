@@ -13,6 +13,13 @@ from pathlib import Path
 
 log = logging.getLogger(__name__)
 
+# Primary storage on Railway volume — persists across redeploys
+# Falls back to docs/ for local development
+import os as _os
+_DATA_DIR = "/app/data" if _os.path.isdir("/app/data") else "data"
+WEB_FEED_VOLUME_PATH = Path(_DATA_DIR) / "trades.json"
+
+# GitHub Pages still reads from docs/trades.json — we push from volume to there
 WEB_FEED_PATH = Path(__file__).parent / "docs" / "trades.json"
 
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
@@ -193,15 +200,40 @@ def _push_to_github(trades: list):
         log.warning(f"  → Web feed GitHub push error: {e}")
 
 
-def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
-    """Append a posted trade to docs/trades.json and push to GitHub."""
+def seed_web_feed_volume():
+    """On first startup, migrate docs/trades.json to Railway volume if volume is empty."""
+    if WEB_FEED_VOLUME_PATH.exists():
+        return  # Already seeded
+    if not WEB_FEED_PATH.exists():
+        return  # Nothing to seed
     try:
-        # Load existing from local file
+        with open(WEB_FEED_PATH) as f:
+            trades = json.load(f)
+        WEB_FEED_VOLUME_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(WEB_FEED_VOLUME_PATH, "w") as f:
+            json.dump(trades, f, indent=2)
+        log.info(f"  → Web feed: migrated {len(trades)} trades from docs/ to Railway volume")
+    except Exception as e:
+        log.warning(f"  → Web feed seed error: {e}")
+
+
+def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
+    """Append a posted trade to Railway volume trades.json and push to GitHub."""
+    try:
+        # Load existing from Railway volume (persists across redeploys)
         trades = []
-        if WEB_FEED_PATH.exists():
+        if WEB_FEED_VOLUME_PATH.exists():
+            try:
+                with open(WEB_FEED_VOLUME_PATH) as f:
+                    trades = json.load(f)
+            except Exception:
+                trades = []
+        elif WEB_FEED_PATH.exists():
+            # First run — seed from docs/trades.json if volume is empty
             try:
                 with open(WEB_FEED_PATH) as f:
                     trades = json.load(f)
+                log.info(f"  → Web feed: seeded {len(trades)} trades from docs/ to volume")
             except Exception:
                 trades = []
 
@@ -239,12 +271,12 @@ def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
 
         trades.append(entry)
 
-        # Write locally
-        WEB_FEED_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with open(WEB_FEED_PATH, "w") as f:
+        # Write to Railway volume — persists across redeploys
+        WEB_FEED_VOLUME_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(WEB_FEED_VOLUME_PATH, "w") as f:
             json.dump(trades, f, indent=2)
 
-        log.info(f"  → Web feed updated locally ({len(trades)} trades)")
+        log.info(f"  → Web feed updated on volume ({len(trades)} trades)")
 
         # Push trades.json to GitHub so website updates
         _push_to_github(trades)
