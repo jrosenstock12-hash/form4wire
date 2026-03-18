@@ -172,6 +172,11 @@ def parse_filing(title: str, content: str, company: dict, xml_content: str = "")
         if not data.get("ticker") and not data.get("insider_name"):
             print(f"[AI] Parse failed: no ticker or insider_name")
             return None
+        # If title is "See remarks" or empty, promote remarks to title for better scoring
+        title = data.get("insider_title", "")
+        remarks = data.get("insider_remarks", "")
+        if title.lower() in ("see remarks", "see footnote", "") and remarks:
+            data["insider_title"] = remarks[:100]
         return data
 
     except Exception as e:

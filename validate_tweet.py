@@ -163,6 +163,11 @@ def fetch_sec_filing(ticker, insider_name):
                 shares_before = max(0, shares_after - traded)
             break
 
+        # If officer title is "See remarks" or similar, use remarks as the effective title
+        if real_title.lower() in ("see remarks", "see footnote", ""):
+            if remarks:
+                real_title = remarks[:100]
+
         print(f"  Officer title: '{real_title}'")
         print(f"  Remarks:       '{remarks[:100]}'" if remarks else "  Remarks:       (none)")
         print(f"  Is officer:    {is_officer} | Is director: {is_director} | 10% owner: {is_ten_pct}")
