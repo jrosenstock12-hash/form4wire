@@ -278,6 +278,16 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         if not tweet_id:
             return False
 
+    # 14. Queue followups and save web feed FIRST — before cluster alert
+    # This ensures web feed is updated even if cluster alert fails or container restarts
+    add_to_followup_queue(trade, tweet_id=tweet_id)
+    log_daily_trade(trade, score)
+    trade["unusual_flag"] = unusual
+    trade["stock_52w_high"] = stock.get("52w_high", 0)
+    trade["stock_52w_low"] = stock.get("52w_low", 0)
+    trade["stock_price"] = stock.get("price", 0)
+    save_to_web_feed(trade, score, cluster_count)
+
     # Post cluster alert if triggered
     if cluster_data and not config.DRY_RUN:
         time.sleep(2)
@@ -288,15 +298,6 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         )
         if cluster_tweet:
             post_tweet(cluster_tweet, reply_to_id=tweet_id)
-
-    # 14. Queue followups (history already saved above)
-    add_to_followup_queue(trade, tweet_id=tweet_id)
-    log_daily_trade(trade, score)
-    trade["unusual_flag"] = unusual
-    trade["stock_52w_high"] = stock.get("52w_high", 0)
-    trade["stock_52w_low"] = stock.get("52w_low", 0)
-    trade["stock_price"] = stock.get("price", 0)
-    save_to_web_feed(trade, score, cluster_count)
 
     log.info(f"  → {'[DRY RUN] ' if config.DRY_RUN else ''}POSTED: ${ticker} | {trade.get('insider_name')} | Signal {score}/10")
     return True
