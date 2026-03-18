@@ -39,6 +39,11 @@ def save_seen(seen: set):
 
 # ── TRADE HISTORY ─────────────────────────────────────────────────────────────
 
+def normalize_name(name: str) -> str:
+    """Normalize insider name to Title Case for consistent history key matching."""
+    return " ".join(w.capitalize() for w in name.strip().split())
+
+
 def load_history() -> dict:
     return _load(TRADE_HISTORY_FILE)
 
@@ -46,7 +51,7 @@ def load_history() -> dict:
 def save_trade(trade: dict):
     history = load_history()
     ticker  = trade.get("ticker", "UNKNOWN")
-    insider = trade.get("insider_name", "Unknown")
+    insider = normalize_name(trade.get("insider_name", "Unknown"))
     key     = f"{ticker}:{insider}"
 
     if key not in history:
@@ -70,7 +75,7 @@ def save_trade(trade: dict):
 def get_insider_history(ticker: str, insider_name: str) -> dict:
     """Return history and derived signals for an insider."""
     history = load_history()
-    key     = f"{ticker}:{insider_name}"
+    key     = f"{ticker}:{normalize_name(insider_name)}"
     trades  = history.get(key, [])
 
     if not trades:

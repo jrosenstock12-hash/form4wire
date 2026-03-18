@@ -578,6 +578,7 @@ def build_tweet(
             f"{pos_line}"
             f"{high_line}"
             f"{cluster_line}"
+            f"{extra}"
             f"• {date_str}\n"
             f"\n"
             f"💡 Signal: {signal_score}/10\n"
