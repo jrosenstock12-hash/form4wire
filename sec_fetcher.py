@@ -50,46 +50,55 @@ def fetch_form4_feed() -> list[dict]:
             # Extract filing ID from the <id> tag
             filing_id = entry.findtext("atom:id", "", ns).strip()
 
-            # Extract title (contains company name and insider name)
+            # Extract title (contains form type + company/insider names)
             title = entry.findtext("atom:title", "", ns).strip()
+
+            # Filter to Form 4 only — skip 4/A amendments and other form types
+            # RSS title format: "4 - Company Name (CIK) (Issuer)" or "4 - Person Name (CIK) (Reporting)"
+            # Category term also identifies form type
+            category_el = entry.find("atom:category", ns)
+            form_type = category_el.get("term", "") if category_el is not None else ""
+            if form_type and form_type not in ("4", "4/A"):
+                continue
+            if not form_type and not title.startswith("4 "):
+                continue
 
             # Extract filing date
             filed_date = entry.findtext("atom:updated", "", ns).strip()
             if filed_date:
                 filed_date = filed_date[:10]  # Keep just YYYY-MM-DD
 
-            # Extract accession number and CIK from the filing URL
+            # Extract link URL
             link_el = entry.find("atom:link", ns)
             url = link_el.get("href", "") if link_el is not None else ""
 
-            # Extract CIK and accession from URL
-            # URL format: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=XXXXXX&type=4&...
-            # or: https://www.sec.gov/Archives/edgar/data/CIK/accession-index.htm
+            # Extract accession number from the filing ID or URL
+            # Atom id format: urn:tag:www.sec.gov,2008:accession-number:0001234567-26-001234
+            # or the URL contains the accession number
+            summary = entry.findtext("atom:summary", "", ns) or ""
+            acc_match = re.search(r'(\d{10}-\d{2}-\d{6})', filing_id + url + summary)
+            accession = acc_match.group(1) if acc_match else ""
+
+            # Extract CIK from URL
             cik = ""
-            accession = ""
-
-            # Try to get the actual filing index URL from the summary
-            summary = entry.findtext("atom:summary", "", ns)
-            acc_match = re.search(r'(\d{10}-\d{2}-\d{6})', summary + url + filing_id)
-            if acc_match:
-                accession = acc_match.group(1)
-                acc_clean = accession.replace("-", "")
-
             cik_match = re.search(r'CIK=(\d+)', url, re.IGNORECASE)
             if not cik_match:
                 cik_match = re.search(r'/data/(\d+)/', url)
             if cik_match:
                 cik = cik_match.group(1)
 
-            # Build filing index URL
+            # If we have both CIK and accession, build proper index URL
             if cik and accession:
                 acc_clean = accession.replace("-", "")
                 index_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_clean}/{accession}-index.htm"
             else:
                 index_url = url
 
-            # Use filing_id as unique key (accession number if available, else atom id)
+            # Use accession as unique ID if available, else filing_id
             unique_id = accession if accession else filing_id
+
+            if not unique_id:
+                continue
 
             filings.append({
                 "id":         unique_id,
@@ -104,7 +113,7 @@ def fetch_form4_feed() -> list[dict]:
             print(f"[SEC] Error parsing RSS entry: {e}")
             continue
 
-    print(f"[SEC] RSS feed: {len(filings)} filings fetched")
+    print(f"[SEC] RSS feed: {len(filings)} Form 4 filings fetched")
     return filings
 
 
