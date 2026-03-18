@@ -140,7 +140,43 @@ def check_stock(ticker, trade_price):
         return 0
 
 
-def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts=0, high_pts=0):
+def check_earnings(ticker):
+    sep = "=" * 60
+    print("")
+    print(sep)
+    print("EARNINGS CHECK: " + ticker)
+    print(sep)
+    try:
+        url = f"https://query1.finance.yahoo.com/v10/finance/quoteSummary/{ticker}?modules=calendarEvents"
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+        data = r.json()
+        events = data["quoteSummary"]["result"][0]["calendarEvents"]
+        dates = events.get("earnings", {}).get("earningsDate", [])
+        if not dates:
+            print("  No earnings date available -> +0")
+            return 0, ""
+        from datetime import datetime, timezone
+        ts = dates[0].get("raw", 0)
+        earn_dt = datetime.utcfromtimestamp(ts).replace(tzinfo=timezone.utc)
+        now = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        days = (earn_dt - now).days
+        earn_str = earn_dt.strftime("%b %d, %Y")
+        if days < 0:
+            print(f"  Earnings date {earn_str} already passed -> +0")
+            return 0, earn_str
+        print(f"  Next earnings: {earn_str} ({days} days away)")
+        if days <= 21:
+            print(f"  Within 21 days -> +1")
+            return 1, earn_str
+        else:
+            print(f"  More than 21 days away -> +0")
+            return 0, earn_str
+    except Exception as e:
+        print("  Could not fetch earnings data: " + str(e))
+        return 0, ""
+
+
+def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts=0, high_pts=0, earn_pts=0):
     sep = "=" * 60
     print("")
     print(sep)
@@ -180,7 +216,7 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
         unusual_pts, unusual_label = 1, str(days) + " days since last buy -> >=365 days (+1)"
     else:
         unusual_pts, unusual_label = 0, str(days) + " days since last buy -> <365 days (+0)"
-    raw = role_pts + val_pts + pos_pts + unusual_pts + cluster_pts + high_pts
+    raw = role_pts + val_pts + pos_pts + unusual_pts + cluster_pts + high_pts + earn_pts
     final = max(1, min(10, raw))
     print("  Title:    " + title)
     print("  " + "-"*41)
@@ -190,6 +226,7 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
     print("  History:  " + unusual_label)
     print("  Cluster:  +" + str(cluster_pts))
     print("  52W High: +" + str(high_pts))
+    print("  Earnings: +" + str(earn_pts))
     print("  " + "-"*41)
     print("  Raw total: " + str(raw) + " -> Final score: " + str(final) + "/10")
 
@@ -216,8 +253,9 @@ def main():
     days        = check_history(ticker, insider)
     cluster_pts = check_cluster(ticker)
     high_pts    = check_stock(ticker, price) if price else 0
+    earn_pts, _ = check_earnings(ticker)
     if title:
-        check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts)
+        check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts, earn_pts)
     print("")
     print("=" * 60)
     print("")

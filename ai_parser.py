@@ -261,7 +261,21 @@ def _role_header(title: str) -> str:
     return "DIRECTOR" if "director" in t else "INSIDER"
 
 
-def calculate_base_score(trade: dict, stock: dict, history: dict) -> tuple[int, dict]:
+def days_until_earnings(next_earnings: str) -> int:
+    """Return days until next earnings date, or 999 if unavailable/unparseable."""
+    if not next_earnings:
+        return 999
+    try:
+        from datetime import datetime, timezone
+        earn_dt = datetime.strptime(next_earnings, "%b %d, %Y").replace(tzinfo=timezone.utc)
+        now = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        days = (earn_dt - now).days
+        return days if days >= 0 else 999
+    except Exception:
+        return 999
+
+
+def calculate_base_score(trade: dict, stock: dict, history: dict, next_earnings: str = "") -> tuple[int, dict]:
     """
     Hedge-fund style weighted scoring model.
 
@@ -269,7 +283,7 @@ def calculate_base_score(trade: dict, stock: dict, history: dict) -> tuple[int, 
     VALUE:       >$1M +3 | $500K-$1M +2 | $100K-$500K +1
     POSITION %:  >50% +3 | 25-50% +2 | 10-25% +1
     CLUSTER:     3+ insiders +3 | 2 insiders +2 (7-day window)
-    CONTEXT:     Stock down >40% from 52W high +1 | No buys in 12mo +1
+    CONTEXT:     Stock down >40% from 52W high +1 | No buys in 12mo +1 | Earnings within 21 days +1
     Claude:      -1/0/+1 adjustment. Final clamped 1-10.
     """
     points    = 0
@@ -341,12 +355,19 @@ def calculate_base_score(trade: dict, stock: dict, history: dict) -> tuple[int, 
     else:
         breakdown["unusual"] = "+0"
 
+    earn_days = days_until_earnings(next_earnings)
+    if earn_days <= 21 and code == "P":
+        points += 1
+        breakdown["earnings"] = f"+1 (buying {earn_days} days before earnings — {next_earnings})"
+    else:
+        breakdown["earnings"] = "+0 (no earnings within 21 days)" if not next_earnings else f"+0 ({earn_days} days to earnings)"
+
     return points, breakdown
 
 
-def score_signal(trade: dict, stock: dict, history: dict) -> tuple[int, str]:
+def score_signal(trade: dict, stock: dict, history: dict, next_earnings: str = "") -> tuple[int, str]:
     """Pure rules-based score — no Claude API call needed."""
-    base_score, _ = calculate_base_score(trade, stock, history)
+    base_score, _ = calculate_base_score(trade, stock, history, next_earnings)
     return max(1, min(10, base_score)), ""
 
 
@@ -524,6 +545,9 @@ def build_tweet(
         extra += f"• 🔁 {consecutive_buys} consecutive buys\n"
     if short_interest > 0.15 and is_buy:
         extra += f"• ⚡ Short interest {short_interest*100:.0f}% — contrarian bet\n"
+    earn_days = days_until_earnings(next_earnings)
+    if earn_days <= 21 and is_buy:
+        extra += f"• ⚡ Buying {earn_days} days before earnings ({next_earnings})\n"
 
     # ── STRONG SIGNAL (score >= 9) ──────────────────────────────────────────
     if signal_score >= 9:
