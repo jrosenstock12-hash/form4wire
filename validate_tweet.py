@@ -5,9 +5,15 @@ Usage:
     railway run python3 validate_tweet.py TICKER "INSIDER NAME"
     railway run python3 validate_tweet.py TICKER "INSIDER NAME" --value 526000 --shares 18500 --price 28.41 --before 468277 --title "Chief Executive Officer"
 
+Notes:
+    --title is now optional. The validator automatically fetches the real title and remarks
+    from the SEC EDGAR filing and upgrades the role score if the filing reveals a higher role
+    (e.g. Director who is also Principal Executive Officer).
+    --before is also optional — shares_before will be pulled from the SEC filing if not provided.
+
 Examples:
-    railway run python3 validate_tweet.py SENS "Goodnow Timothy T"
-    railway run python3 validate_tweet.py MBX "Hawryluk P. Kent" --value 526000 --shares 18500 --price 28.41 --before 468277 --title "Chief Executive Officer"
+    railway run python3 validate_tweet.py GPGI "Knott Thomas R" --value 752000 --shares 44000 --price 17.08
+    railway run python3 validate_tweet.py MBX "Hawryluk P. Kent" --value 526000 --shares 18500 --price 28.41
 """
 
 import json
@@ -32,6 +38,184 @@ def months_between(date_str):
         return (datetime.now(timezone.utc) - d).days // 30
     except Exception:
         return 999
+
+
+SEC_HEADERS = {
+    "User-Agent": "Form4Wire support@form4wire.com",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "application/json,*/*",
+}
+
+def fetch_sec_filing(ticker, insider_name):
+    """
+    Look up the most recent Form 4 for this insider/ticker on SEC EDGAR.
+    Returns dict with real_title, remarks, shares_owned_before, shares_owned_after.
+    """
+    sep = "=" * 60
+    print("")
+    print(sep)
+    print("SEC FILING LOOKUP: " + ticker + " / " + insider_name)
+    print(sep)
+    try:
+        # Search SEC EDGAR for recent Form 4 filings
+        from datetime import datetime, timedelta
+        today = datetime.utcnow().date()
+        start = today - timedelta(days=14)
+        search_url = (
+            f"https://efts.sec.gov/LATEST/search-index?q=%22{insider_name.replace(' ', '+')}%22"
+            f"&forms=4&dateRange=custom&startdt={start}&enddt={today}"
+            f"&_source=file_date,display_names,adsh,ciks&from=0&size=10"
+        )
+        r = requests.get(search_url, headers=SEC_HEADERS, timeout=15)
+        r.raise_for_status()
+        hits = r.json().get("hits", {}).get("hits", [])
+
+        if not hits:
+            print("  No recent filings found on SEC EDGAR")
+            return {}
+
+        # Find the hit that matches our ticker
+        target_hit = None
+        for hit in hits:
+            names = hit.get("_source", {}).get("display_names", [])
+            names_str = " ".join(names).upper()
+            if ticker.upper() in names_str or insider_name.upper() in names_str:
+                target_hit = hit
+                break
+
+        if not target_hit:
+            target_hit = hits[0]  # Fall back to most recent
+
+        source    = target_hit.get("_source", {})
+        filing_id = target_hit.get("_id", "")
+        ciks      = source.get("ciks", [""])
+        cik       = ciks[0] if ciks else ""
+        accession = filing_id.split(":")[0] if ":" in filing_id else filing_id
+        acc_clean = accession.replace("-", "")
+        index_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_clean}/{accession}-index.htm"
+
+        print(f"  Found filing: {accession}")
+
+        # Fetch the index page to find XML
+        import re
+        resp = requests.get(index_url, headers=SEC_HEADERS, timeout=15)
+        resp.raise_for_status()
+        xml_matches = re.findall(r'href="(/Archives/edgar/data/[^"]+\.xml)"', resp.text)
+        raw_xml_url = None
+        for match in xml_matches:
+            if "xsl" not in match.lower():
+                raw_xml_url = "https://www.sec.gov" + match
+                break
+
+        if not raw_xml_url:
+            print("  Could not find XML in filing index")
+            return {}
+
+        import time as _time
+        _time.sleep(0.3)
+        xml_resp = requests.get(raw_xml_url, headers=SEC_HEADERS, timeout=15)
+        xml_resp.raise_for_status()
+        xml = xml_resp.text
+
+        # Parse the XML
+        import xml.etree.ElementTree as ET
+        root = ET.fromstring(xml)
+
+        # Extract officer title
+        real_title = ""
+        for rel in root.findall(".//reportingOwnerRelationship"):
+            title_el = rel.find("officerTitle")
+            if title_el is not None and title_el.text:
+                real_title = title_el.text.strip()
+                break
+
+        # Extract remarks
+        remarks = ""
+        remarks_el = root.find(".//remarks")
+        if remarks_el is not None and remarks_el.text:
+            remarks = remarks_el.text.strip()
+
+        # Extract relationship flags
+        is_officer = False
+        is_director = False
+        is_ten_pct = False
+        for rel in root.findall(".//reportingOwnerRelationship"):
+            if rel.find("isOfficer") is not None and rel.find("isOfficer").text == "1":
+                is_officer = True
+            if rel.find("isDirector") is not None and rel.find("isDirector").text == "1":
+                is_director = True
+            if rel.find("isTenPercentOwner") is not None and rel.find("isTenPercentOwner").text == "1":
+                is_ten_pct = True
+
+        # Extract shares owned before/after from first P transaction
+        shares_before = 0
+        shares_after = 0
+        for txn in root.findall(".//nonDerivativeTransaction"):
+            code_el = txn.find(".//transactionCoding/transactionCode")
+            if code_el is None or code_el.text.strip() != "P":
+                continue
+            owned_el = txn.find(".//sharesOwnedFollowingTransaction/value")
+            shares_el = txn.find(".//transactionShares/value")
+            if owned_el is not None and owned_el.text:
+                shares_after = int(float(owned_el.text.strip()))
+            if shares_el is not None and shares_el.text:
+                traded = int(float(shares_el.text.strip()))
+                shares_before = max(0, shares_after - traded)
+            break
+
+        print(f"  Officer title: '{real_title}'")
+        print(f"  Remarks:       '{remarks[:100]}'" if remarks else "  Remarks:       (none)")
+        print(f"  Is officer:    {is_officer} | Is director: {is_director} | 10% owner: {is_ten_pct}")
+        print(f"  Shares before: {shares_before:,} | Shares after: {shares_after:,}")
+
+        return {
+            "real_title":    real_title,
+            "remarks":       remarks,
+            "is_officer":    is_officer,
+            "is_director":   is_director,
+            "is_ten_pct":    is_ten_pct,
+            "shares_before": shares_before,
+            "shares_after":  shares_after,
+        }
+
+    except Exception as e:
+        print(f"  SEC lookup failed: {e}")
+        return {}
+
+
+def resolve_title(title_arg, sec_data):
+    """
+    Given a manually passed title and SEC filing data, return the best title to use for scoring.
+    Upgrades title if SEC remarks reveal a higher role.
+    """
+    real_title = sec_data.get("real_title", "")
+    remarks    = sec_data.get("remarks", "").lower()
+
+    # Build combined text to check
+    combined = (real_title + " " + remarks).lower()
+
+    # Check for CEO-level keywords in combined text
+    ceo_keywords = ["chief executive", "ceo", "principal executive", "chairman", "founder", "co-founder"]
+    cfo_keywords = ["chief financial", "cfo", "chief operating", "coo", "chief technology", "cto",
+                    "chief investment", "cio", "general counsel", "chief legal"]
+
+    if any(k in combined for k in ceo_keywords):
+        best = real_title if real_title else "Chief Executive Officer"
+        if best.lower() != title_arg.lower():
+            print(f"  ⬆️  Title upgraded: '{title_arg}' → '{best}' (from SEC filing)")
+        return best
+    elif any(k in combined for k in cfo_keywords):
+        best = real_title if real_title else title_arg
+        if best.lower() != title_arg.lower():
+            print(f"  ⬆️  Title upgraded: '{title_arg}' → '{best}' (from SEC filing)")
+        return best
+
+    # If real_title found and different, prefer it
+    if real_title and real_title.lower() != title_arg.lower():
+        print(f"  ℹ️  SEC title differs: '{title_arg}' vs '{real_title}' — using SEC title")
+        return real_title
+
+    return title_arg
 
 
 def check_history(ticker, insider_name):
@@ -359,6 +543,22 @@ def main():
     price       = get_arg("--price")
     before      = get_arg("--before")
     title       = get_str_arg("--title")
+
+    # Fetch real title and remarks from SEC filing
+    sec_data = fetch_sec_filing(ticker, insider)
+
+    # Use SEC shares_before if not manually provided
+    if not before and sec_data.get("shares_before"):
+        before = sec_data["shares_before"]
+        print(f"  → Using shares_before from SEC filing: {int(before):,}")
+
+    # Resolve best title from SEC data
+    if title:
+        title = resolve_title(title, sec_data)
+    elif sec_data.get("real_title"):
+        title = sec_data["real_title"]
+        print(f"  → Using title from SEC filing: '{title}'")
+
     days        = check_history(ticker, insider)
     cluster_pts = check_cluster(ticker)
     high_pts    = check_stock(ticker, price) if price else 0
