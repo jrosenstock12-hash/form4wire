@@ -5,6 +5,7 @@ sec_fetcher.py — Pulls and parses Form 4 filings from SEC EDGAR
 import re
 import time
 import requests
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
 HEADERS = {
@@ -13,107 +14,97 @@ HEADERS = {
     "Accept": "application/json,*/*",
 }
 
-# Feed URL is built dynamically using today's date
-def get_feed_url(offset=0):
-    from datetime import datetime, timedelta
-    today = datetime.utcnow().date()
-    # Look back 1 day — bot runs 24/7 so seen_filings.json handles dedup across restarts
-    start = today - timedelta(days=1)
-    return (
-        f"https://efts.sec.gov/LATEST/search-index?q=%22%22&forms=4"
-        f"&dateRange=custom&startdt={start}&enddt={today}"
-        f"&_source=file_date,period_ending,ciks,display_names,adsh"
-        f"&from={offset}&size=100"
-    )
+# SEC EDGAR real-time RSS feed for Form 4 filings
+# Returns the most recent 40 filings as they arrive — no pagination needed
+# count=40 is the maximum SEC allows per request
+RSS_URL = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=4&dateb=&owner=include&count=40&search_text=&output=atom"
 
 COMPANY_FACTS_URL = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
 
-# How many pages of 100 filings to fetch per run
-# 20 pages = up to 2,000 filings — comfortably covers ~940 Form 4s per day
-MAX_PAGES = 20
-
 
 def fetch_form4_feed() -> list[dict]:
-    """Fetch latest Form 4 entries from SEC EDGAR search API — paginated."""
-    all_hits = []
-    seen_ids = set()
-    total_available = 0
+    """
+    Fetch latest Form 4 filings from SEC EDGAR real-time RSS feed.
+    Returns up to 40 most recent filings — no pagination, no volume cap.
+    seen_filings.json handles dedup so we never process the same filing twice.
+    """
+    try:
+        resp = requests.get(RSS_URL, headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+    except Exception as e:
+        print(f"[SEC] RSS feed fetch error: {e}")
+        return []
 
-    for page in range(MAX_PAGES):
-        offset = page * 100
-        try:
-            resp = requests.get(get_feed_url(offset), headers=HEADERS, timeout=15)
-            resp.raise_for_status()
-            data = resp.json()
-        except Exception as e:
-            print(f"[SEC] Feed fetch error (page {page+1}): {e}")
-            break
-
-        hits = data.get("hits", {}).get("hits", [])
-
-        # Check total available on first page
-        if page == 0:
-            total = data.get("hits", {}).get("total", {})
-            total_available = total.get("value", 0) if isinstance(total, dict) else int(total or 0)
-            print(f"[SEC] Total filings available in date range: {total_available}")
-            print(f"[SEC] Fetching up to {MAX_PAGES * 100} (page {page+1}/{MAX_PAGES})...")
-
-        if not hits:
-            print(f"[SEC] No hits on page {page+1} — stopping pagination")
-            break
-
-        print(f"[SEC] Page {page+1}: got {len(hits)} filings (offset {offset})")
-        all_hits.extend(hits)
-
-        # Stop if we have everything available
-        if len(all_hits) >= total_available:
-            break
-
-        time.sleep(0.5)  # Be polite to SEC servers between pages
+    try:
+        # Parse Atom XML feed
+        root = ET.fromstring(resp.content)
+        ns = {"atom": "http://www.w3.org/2005/Atom"}
+        entries = root.findall("atom:entry", ns)
+    except Exception as e:
+        print(f"[SEC] RSS feed parse error: {e}")
+        return []
 
     filings = []
-    for hit in all_hits:
-        source    = hit.get("_source", {})
-        filing_id = hit.get("_id", "")
-        ciks      = source.get("ciks", [""])
-        cik       = ciks[0] if ciks else ""
-        names     = source.get("display_names", [""])
-        title     = " | ".join(names[:2]) if names else filing_id
-        updated    = source.get("period_ending", "")
-        # Try multiple field names for filed date
-        filed_date = (source.get("file_date") or
-                      source.get("filed") or
-                      source.get("filing_date") or
-                      source.get("period_of_report") or "")
-        accession  = filing_id.split(":")[0] if ":" in filing_id else filing_id
-        acc_clean  = accession.replace("-", "")
-        url        = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_clean}/{accession}-index.htm" if cik else ""
+    for entry in entries:
+        try:
+            # Extract filing ID from the <id> tag
+            filing_id = entry.findtext("atom:id", "", ns).strip()
 
-        # If filed_date still not found, extract from accession number
-        # Accession format: XXXXXXXXXX-YY-NNNNNN where YY = 2-digit year
-        # The date embedded is the filing date
-        if not filed_date and "-" in accession:
-            parts = accession.split("-")
-            if len(parts) == 3 and len(parts[1]) == 2:
-                # We only have YY, not full date — leave blank, show trade date only
-                filed_date = ""
+            # Extract title (contains company name and insider name)
+            title = entry.findtext("atom:title", "", ns).strip()
 
-        # Deduplicate across pages
-        if filing_id not in seen_ids:
-            seen_ids.add(filing_id)
+            # Extract filing date
+            filed_date = entry.findtext("atom:updated", "", ns).strip()
+            if filed_date:
+                filed_date = filed_date[:10]  # Keep just YYYY-MM-DD
+
+            # Extract accession number and CIK from the filing URL
+            link_el = entry.find("atom:link", ns)
+            url = link_el.get("href", "") if link_el is not None else ""
+
+            # Extract CIK and accession from URL
+            # URL format: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=XXXXXX&type=4&...
+            # or: https://www.sec.gov/Archives/edgar/data/CIK/accession-index.htm
+            cik = ""
+            accession = ""
+
+            # Try to get the actual filing index URL from the summary
+            summary = entry.findtext("atom:summary", "", ns)
+            acc_match = re.search(r'(\d{10}-\d{2}-\d{6})', summary + url + filing_id)
+            if acc_match:
+                accession = acc_match.group(1)
+                acc_clean = accession.replace("-", "")
+
+            cik_match = re.search(r'CIK=(\d+)', url, re.IGNORECASE)
+            if not cik_match:
+                cik_match = re.search(r'/data/(\d+)/', url)
+            if cik_match:
+                cik = cik_match.group(1)
+
+            # Build filing index URL
+            if cik and accession:
+                acc_clean = accession.replace("-", "")
+                index_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_clean}/{accession}-index.htm"
+            else:
+                index_url = url
+
+            # Use filing_id as unique key (accession number if available, else atom id)
+            unique_id = accession if accession else filing_id
+
             filings.append({
-                "id":         filing_id,
+                "id":         unique_id,
                 "title":      title,
-                "updated":    updated,
+                "updated":    filed_date,
                 "filed_date": filed_date,
-                "url":        url,
+                "url":        index_url,
                 "cik":        cik,
             })
 
-    # Sort newest-first so today's filings are always processed before older ones
-    filings.sort(key=lambda f: (f.get("filed_date") or f.get("updated") or ""), reverse=True)
+        except Exception as e:
+            print(f"[SEC] Error parsing RSS entry: {e}")
+            continue
 
-    print(f"[SEC] Fetched {len(filings)} unique filings across {MAX_PAGES} pages")
+    print(f"[SEC] RSS feed: {len(filings)} filings fetched")
     return filings
 
 
