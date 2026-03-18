@@ -17,8 +17,8 @@ HEADERS = {
 def get_feed_url(offset=0):
     from datetime import datetime, timedelta
     today = datetime.utcnow().date()
-    # Look back 5 days to catch any filings we may have missed
-    start = today - timedelta(days=2)
+    # Look back 1 day — bot runs 24/7 so seen_filings.json handles dedup across restarts
+    start = today - timedelta(days=1)
     return (
         f"https://efts.sec.gov/LATEST/search-index?q=%22%22&forms=4"
         f"&dateRange=custom&startdt={start}&enddt={today}"
@@ -29,8 +29,8 @@ def get_feed_url(offset=0):
 COMPANY_FACTS_URL = "https://data.sec.gov/submissions/CIK{cik:010d}.json"
 
 # How many pages of 100 filings to fetch per run
-# 4 pages = up to 400 filings, good coverage without hammering SEC
-MAX_PAGES = 12
+# 20 pages = up to 2,000 filings — comfortably covers ~940 Form 4s per day
+MAX_PAGES = 20
 
 
 def fetch_form4_feed() -> list[dict]:
