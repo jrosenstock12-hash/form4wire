@@ -468,19 +468,34 @@ def check_followups(ticker, insider_name, entry_price):
         print(f"  {days}-day: {status} | due {due_date} | reply_to={orig_id}{would_fire}")
 
 
-def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts=0, high_pts=0, earn_pts=0, streak_pts=0):
+def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts=0, high_pts=0, earn_pts=0, streak_pts=0, remarks=""):
     sep = "=" * 60
     print("")
     print(sep)
     print("SCORE VALIDATION: " + ticker)
     print(sep)
+    combined = (title + " " + remarks).lower()
     t = title.lower()
-    if any(x in t for x in ["executive vice", "senior vice", "vice president", "evp", "svp", " vp", "director", "board", "treasurer"]):
-        role_pts, role_label = 1, "VP/Director/Board (+1)"
-    elif any(x in t for x in ["chief executive", "ceo", "chairman", "founder"]) or ("president" in t and "vice" not in t):
-        role_pts, role_label = 3, "CEO/Chairman/Founder/President (+3)"
-    elif any(x in t for x in ["chief financial", "cfo", "chief operating", "coo", "chief tech", "cto", "general counsel"]):
+    # Role scoring — mirrors _role_score in ai_parser.py including remarks
+    ceo_terms = ["chief executive", "chairman", "founder", "co-founder", "principal executive"]
+    csuite_terms = ["chief financial", "chief operating", "general counsel", "chief legal",
+                    "chief technology", "chief revenue", "chief marketing", "chief information",
+                    "chief accounting", "chief medical", "chief scientific", "chief compliance",
+                    "chief human", "chief people", "chief strategy", "chief data", "chief investment"]
+    vp_terms = ["executive vice", "senior vice", "vice president", "evp", "svp", " vp",
+                "director", "board", "treasurer"]
+    if any(x in combined for x in ceo_terms):
+        src = " (from remarks)" if any(x in remarks.lower() for x in ceo_terms) and not any(x in t for x in ceo_terms) else ""
+        role_pts, role_label = 3, f"CEO/Chairman/Founder/President (+3){src}"
+    elif "president" in combined and "vice" not in combined:
+        role_pts, role_label = 3, "President (+3)"
+    elif any(x in combined for x in csuite_terms):
+        src = " (from remarks)" if any(x in remarks.lower() for x in csuite_terms) and not any(x in t for x in csuite_terms) else ""
+        role_pts, role_label = 2, f"C-Suite officer (+2){src}"
+    elif any(x in t for x in ["cfo", "coo", "cto", "cro", "cmo", "cio", "cao", "cco", "chro", "cso"]):
         role_pts, role_label = 2, "C-Suite officer (+2)"
+    elif any(x in t for x in vp_terms):
+        role_pts, role_label = 1, "VP/Director/Board (+1)"
     else:
         role_pts, role_label = 1, "Other insider (+1)"
     if total_value >= 1000000:
@@ -566,7 +581,8 @@ def main():
     streak_pts  = check_streak(ticker, insider)
     check_followups(ticker, insider, price)
     if title:
-        check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts, earn_pts, streak_pts)
+        remarks = sec_data.get("remarks", "")
+        check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts, earn_pts, streak_pts, remarks)
     print("")
     print("=" * 60)
     print("")

@@ -93,6 +93,7 @@ Extract ALL of the following fields. Return ONLY valid JSON, no markdown, no exp
 {{
   "insider_name": "",
   "insider_title": "",
+  "insider_remarks": "",
   "company_name": "",
   "ticker": "",
   "transaction_date": "",
@@ -116,6 +117,7 @@ Rules:
 - If shares_owned_before is missing, estimate: shares_owned_after + shares_traded (for sells) or shares_owned_after - shares_traded (for buys)
 - If ANY critical field (insider_name, shares_traded, transaction_code) is missing, set ticker to "SKIP"
 - For transaction_type, use the full human-readable description, not the code letter
+- For insider_remarks, extract the full text from the "Remarks" or "Explanation of Responses" section if present — this often contains the real job title (e.g. "Principal executive officer and Chief Investment Officer")
 """
 
 
@@ -215,23 +217,31 @@ Return ONLY a JSON object with no other text:
 """
 
 
-def _role_score(title: str) -> tuple[int, str]:
-    """Map insider title to role points under hedge-fund scoring model."""
+def _role_score(title: str, remarks: str = "") -> tuple[int, str]:
+    """Map insider title to role points under hedge-fund scoring model.
+    Falls back to remarks field if title alone is insufficient (e.g. Director who is also CEO).
+    """
+    # Combine title + remarks for a richer signal
+    combined = (title + " " + remarks).lower().strip()
     t = title.lower().strip()
-    if any(x in t for x in ["chief executive", "chairman", "founder", "co-founder"]):
-        return 3, "+3 (CEO/Chairman/Founder)"
+
+    # Check combined first for CEO-level keywords
+    if any(x in combined for x in ["chief executive", "chairman", "founder", "co-founder",
+                                     "principal executive"]):
+        return 3, "+3 (CEO/Chairman/Founder — from remarks)" if any(x in remarks.lower() for x in ["chief executive", "principal executive", "chairman", "founder"]) else "+3 (CEO/Chairman/Founder)"
     if t == "ceo" or t.startswith("ceo ") or t.endswith(" ceo"):
         return 3, "+3 (CEO)"
-    if "president" in t and "vice" not in t:
+    if "president" in combined and "vice" not in combined:
         return 3, "+3 (President)"
     csuite_terms = [
         "chief financial", "chief operating", "general counsel", "chief legal",
         "chief technology", "chief revenue", "chief marketing", "chief information",
         "chief accounting", "chief medical", "chief scientific", "chief compliance",
-        "chief human", "chief people", "chief strategy", "chief data",
+        "chief human", "chief people", "chief strategy", "chief data", "chief investment",
     ]
-    if any(x in t for x in csuite_terms):
-        return 2, "+2 (C-Suite officer)"
+    if any(x in combined for x in csuite_terms):
+        label = "+2 (C-Suite — from remarks)" if any(x in remarks.lower() for x in csuite_terms) and not any(x in t for x in csuite_terms) else "+2 (C-Suite officer)"
+        return 2, label
     if any(t == x or t.startswith(x + " ") or t.endswith(" " + x)
            for x in ["cfo", "coo", "cto", "cro", "cmo", "cio", "cao", "cco", "chro", "cso"]):
         return 2, "+2 (C-Suite officer)"
@@ -242,21 +252,23 @@ def _role_score(title: str) -> tuple[int, str]:
     return 1, "+1 (Other insider)"
 
 
-def _role_header(title: str) -> str:
+def _role_header(title: str, remarks: str = "") -> str:
     """Return short clean label for tweet header."""
+    combined = (title + " " + remarks).lower()
     t = title.lower()
-    role_pts, _ = _role_score(title)
+    role_pts, _ = _role_score(title, remarks)
     if role_pts == 3:
-        if any(x in t for x in ["chief executive", "ceo"]): return "CEO"
-        if "chairman" in t: return "CHAIRMAN"
-        if "founder" in t: return "FOUNDER"
-        if "president" in t: return "PRESIDENT"
+        if any(x in combined for x in ["chief executive", "ceo", "principal executive"]): return "CEO"
+        if "chairman" in combined: return "CHAIRMAN"
+        if "founder" in combined: return "FOUNDER"
+        if "president" in combined: return "PRESIDENT"
         return "EXEC"
     if role_pts == 2:
-        if any(x in t for x in ["chief financial", "cfo"]): return "CFO"
-        if any(x in t for x in ["chief operating", "coo"]): return "COO"
-        if any(x in t for x in ["chief technology", "cto"]): return "CTO"
-        if "general counsel" in t: return "GEN COUNSEL"
+        if any(x in combined for x in ["chief financial", "cfo"]): return "CFO"
+        if any(x in combined for x in ["chief operating", "coo"]): return "COO"
+        if any(x in combined for x in ["chief technology", "cto"]): return "CTO"
+        if any(x in combined for x in ["chief investment", "cio"]): return "CIO"
+        if "general counsel" in combined: return "GEN COUNSEL"
         return "OFFICER"
     return "DIRECTOR" if "director" in t else "INSIDER"
 
@@ -298,7 +310,7 @@ def calculate_base_score(trade: dict, stock: dict, history: dict, next_earnings:
     price     = stock.get("price", 0)
     high_52w  = stock.get("52w_high", 0)
 
-    role_pts, role_label = _role_score(title)
+    role_pts, role_label = _role_score(title, trade.get("insider_remarks", ""))
     points += role_pts
     breakdown["role"] = role_label
 
@@ -515,7 +527,8 @@ def build_tweet(
         return "LOW"
 
     # ── Role header ────────────────────────────────────────────────────────
-    rh = _role_header(title)
+    remarks = trade.get("insider_remarks", "")
+    rh = _role_header(title, remarks)
 
     # ── Score line (reasoning capped at 80 chars) ───────────────────────────
     # Strong signal format is longer so needs shorter reasoning
