@@ -123,21 +123,24 @@ Rules:
 
 def parse_filing(title: str, content: str, company: dict, xml_content: str = ""):  # -> Optional[dict]
     """Use Claude Haiku to extract structured data from a Form 4 filing."""
-    prompt = PARSE_PROMPT.format(
-        title=title,
-        company=json.dumps(company),
-        content=content[:5000],
-    )
-    try:
+
+    def _attempt_parse(content_limit: int):
+        prompt = PARSE_PROMPT.format(
+            title=title,
+            company=json.dumps(company),
+            content=content[:content_limit],
+        )
         msg = claude.messages.create(
             model=FAST_MODEL,
             max_tokens=1500,
             messages=[{"role": "user", "content": prompt}],
         )
         raw = msg.content[0].text.strip()
-
-        # Strip markdown fences if present
         raw = raw.replace("```json", "").replace("```", "").strip()
+        return raw
+
+    try:
+        raw = _attempt_parse(5000)
 
         # If Claude returned a list, take the first item
         if raw.startswith("["):
@@ -148,34 +151,48 @@ def parse_filing(title: str, content: str, company: dict, xml_content: str = "")
             else:
                 return None
         else:
-            # Fix common JSON issues — truncated strings
-            # Try to parse as-is first
             try:
                 data = json.loads(raw)
             except json.JSONDecodeError:
-                # Try to extract just the JSON object
                 match = re.search(r'\{.*\}', raw, re.DOTALL)
                 if match:
                     try:
                         data = json.loads(match.group())
                     except Exception:
+                        print(f"[AI] Parse failed: JSON decode error. Raw: {raw[:200]}")
                         return None
                 else:
+                    print(f"[AI] Parse failed: no JSON found. Raw: {raw[:200]}")
                     return None
 
         if not isinstance(data, dict):
-            print(f"[AI] Parse failed: response not a dict")
+            print(f"[AI] Parse failed: response not a dict. Raw: {raw[:200]}")
             return None
+
         if data.get("ticker") == "SKIP":
-            print(f"[AI] Parse returned SKIP")
-            return None
+            # Retry with smaller content window — may be an XML complexity issue
+            print(f"[AI] Parse returned SKIP — retrying with smaller content window")
+            try:
+                raw2 = _attempt_parse(2000)
+                data2 = json.loads(raw2.replace("```json","").replace("```","").strip())
+                if isinstance(data2, dict) and data2.get("ticker") != "SKIP" and (data2.get("ticker") or data2.get("insider_name")):
+                    data = data2
+                    print(f"[AI] Retry succeeded: {data2.get('ticker')} / {data2.get('insider_name')}")
+                else:
+                    print(f"[AI] Retry also returned SKIP — skipping filing")
+                    return None
+            except Exception as retry_err:
+                print(f"[AI] Retry failed: {retry_err}")
+                return None
+
         if not data.get("ticker") and not data.get("insider_name"):
-            print(f"[AI] Parse failed: no ticker or insider_name")
+            print(f"[AI] Parse failed: no ticker or insider_name. Raw: {raw[:200]}")
             return None
+
         # If title is "See remarks" or empty, promote remarks to title for better scoring
-        title = data.get("insider_title", "")
+        title_val = data.get("insider_title", "")
         remarks = data.get("insider_remarks", "")
-        if title.lower() in ("see remarks", "see footnote", "") and remarks:
+        if title_val.lower() in ("see remarks", "see footnote", "") and remarks:
             data["insider_title"] = remarks[:100]
         return data
 
