@@ -258,5 +258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-17T20:46:03.812679+00:00"
+  },
+  {
+    "ticker": "GPGI",
+    "company_name": "GPGI, Inc.",
+    "insider_name": "Knott Thomas R.",
+    "insider_title": "Principal executive officer and Chief Investment Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-17",
+    "filed_date": "2026-03-18",
+    "shares_traded": 44000,
+    "price_per_share": 17.08,
+    "total_value": 752000,
+    "total_value_fmt": "$752K",
+    "shares_owned_after": 44000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 36.2,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": true,
+    "posted_at": "2026-03-18T18:29:00+00:00"
   }
 ]
