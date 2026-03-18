@@ -476,9 +476,10 @@ def main():
                     elapsed = time.time() - last_post_time
                     if last_post_time > 0 and elapsed < config.MIN_SECONDS_BETWEEN_POSTS:
                         wait = int(config.MIN_SECONDS_BETWEEN_POSTS - elapsed)
-                        log.info(f"  → Cooldown active — {wait}s remaining, pausing filing loop")
+                        log.info(f"  → Cooldown active — {wait}s remaining, breaking filing loop")
                         seen.add(filing["id"])
-                        continue
+                        save_seen(seen)
+                        break
                     posted = process_filing(filing, last_post_time)
                     seen.add(filing["id"])
                     increment_daily_scan(1)
