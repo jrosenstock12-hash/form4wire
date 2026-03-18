@@ -59,7 +59,7 @@ def fetch_sec_filing(ticker, insider_name):
     try:
         # Search SEC EDGAR for recent Form 4 filings
         from datetime import datetime, timedelta
-        today = datetime.utcnow().date()
+        today = datetime.now(timezone.utc).date()
         start = today - timedelta(days=14)
         search_url = (
             f"https://efts.sec.gov/LATEST/search-index?q=%22{insider_name.replace(' ', '+')}%22"
@@ -346,7 +346,7 @@ def check_earnings(ticker):
             return 0, ""
         from datetime import datetime, timezone
         ts = dates[0].get("raw", 0)
-        earn_dt = datetime.utcfromtimestamp(ts).replace(tzinfo=timezone.utc)
+        earn_dt = datetime.fromtimestamp(ts, tz=timezone.utc)
         now = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
         days = (earn_dt - now).days
         earn_str = earn_dt.strftime("%b %d, %Y")
