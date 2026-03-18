@@ -512,7 +512,7 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
     else:
         val_pts, val_label = 0, "$" + str(round(total_value/1e3)) + "K -> under $100K (+0)"
     pos_pts, pos_label = 0, "No before-shares data (+0)"
-    if before_shares > 0 and shares > 0:
+    if before_shares >= 100 and shares > 0:
         pct = (shares / before_shares) * 100
         if pct > 50:
             pos_pts, pos_label = 3, "+" + str(round(pct)) + "% -> >50% (+3)"
