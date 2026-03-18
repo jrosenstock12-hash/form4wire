@@ -176,7 +176,55 @@ def check_earnings(ticker):
         return 0, ""
 
 
-def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts=0, high_pts=0, earn_pts=0):
+def check_streak(ticker, insider_name):
+    sep = "=" * 60
+    print("")
+    print(sep)
+    print("STREAK CHECK: " + ticker + " / " + insider_name)
+    print(sep)
+    history = load_history()
+    # normalize name to match storage key
+    norm = " ".join(w.capitalize() for w in insider_name.strip().split())
+    key = f"{ticker}:{norm}"
+    trades = history.get(key, [])
+    if not trades or not isinstance(trades, list):
+        print("  No history -> streak +0")
+        return 0
+    buys = sorted(
+        [t for t in trades if t.get("is_buy") and t.get("date")],
+        key=lambda x: x.get("date", ""),
+        reverse=True
+    )
+    if len(buys) < 2:
+        print("  Fewer than 2 buys in history -> streak +0")
+        return 0
+    consecutive = 0
+    prev_date_str = buys[0].get("date", "")
+    for t in buys[1:]:
+        try:
+            prev_dt = datetime.strptime(prev_date_str[:10], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            curr_dt = datetime.strptime(t["date"][:10], "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            gap_days = (prev_dt - curr_dt).days
+            if gap_days > 180:
+                break
+            consecutive += 1
+            prev_date_str = t["date"]
+        except Exception:
+            break
+    if consecutive >= 2:
+        print(f"  {consecutive} consecutive buys within 180 days -> +1")
+        for b in buys[:consecutive+1]:
+            print(f"    {b.get('date')} | ${b.get('total_value',0):,.0f}")
+        return 1
+    elif consecutive == 1:
+        print(f"  1 prior buy within 180 days (this would be 2nd consecutive) -> +1")
+        return 1
+    else:
+        print(f"  No consecutive buys within 180 days -> +0")
+        return 0
+
+
+def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts=0, high_pts=0, earn_pts=0, streak_pts=0):
     sep = "=" * 60
     print("")
     print(sep)
@@ -216,7 +264,7 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
         unusual_pts, unusual_label = 1, str(days) + " days since last buy -> >=365 days (+1)"
     else:
         unusual_pts, unusual_label = 0, str(days) + " days since last buy -> <365 days (+0)"
-    raw = role_pts + val_pts + pos_pts + unusual_pts + cluster_pts + high_pts + earn_pts
+    raw = role_pts + val_pts + pos_pts + unusual_pts + cluster_pts + high_pts + earn_pts + streak_pts
     final = max(1, min(10, raw))
     print("  Title:    " + title)
     print("  " + "-"*41)
@@ -227,6 +275,7 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
     print("  Cluster:  +" + str(cluster_pts))
     print("  52W High: +" + str(high_pts))
     print("  Earnings: +" + str(earn_pts))
+    print("  Streak:   +" + str(streak_pts))
     print("  " + "-"*41)
     print("  Raw total: " + str(raw) + " -> Final score: " + str(final) + "/10")
 
@@ -254,8 +303,9 @@ def main():
     cluster_pts = check_cluster(ticker)
     high_pts    = check_stock(ticker, price) if price else 0
     earn_pts, _ = check_earnings(ticker)
+    streak_pts  = check_streak(ticker, insider)
     if title:
-        check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts, earn_pts)
+        check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts, earn_pts, streak_pts)
     print("")
     print("=" * 60)
     print("")

@@ -98,12 +98,25 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
         except Exception:
             pass
 
-    # Consecutive buys streak
+    # Consecutive buys streak — only count if each buy is within 180 days of the previous
     consecutive = 0
+    prev_date_str = trades_sorted[0].get("date", "") if trades_sorted else ""
     for t in trades_sorted[1:]:   # Skip current trade (not yet saved)
-        if t.get("is_buy"):
+        if not t.get("is_buy"):
+            break
+        try:
+            prev_dt = datetime.fromisoformat(prev_date_str.replace("Z", "+00:00"))
+            curr_dt = datetime.fromisoformat(t["date"].replace("Z", "+00:00"))
+            if prev_dt.tzinfo is None:
+                prev_dt = prev_dt.replace(tzinfo=timezone.utc)
+            if curr_dt.tzinfo is None:
+                curr_dt = curr_dt.replace(tzinfo=timezone.utc)
+            gap_days = (prev_dt - curr_dt).days
+            if gap_days > 180:
+                break
             consecutive += 1
-        else:
+            prev_date_str = t["date"]
+        except Exception:
             break
 
     unusual = days_since >= 365
