@@ -60,6 +60,16 @@ SKIP_TRANSACTION_CODES = {
     "S",   # Open market sale — not tracking sells
     "J",   # Other acquisition — often derivative/synthetic
     "K",   # Equity swap or similar derivative
+    "C",   # Conversion of derivative — not an open market purchase (e.g. preferred → common)
+    "E",   # Expiration of short derivative position — no signal
+    "H",   # Expiration of long derivative position — no signal
+    "I",   # Discretionary transaction (broker-managed) — ambiguous, low signal
+    "L",   # Small acquisition under Rule 16a-6 — trivial, under $10K
+    "O",   # Exercise of out-of-money derivative — no cash outlay
+    "U",   # Disposition pursuant to tender offer — no signal
+    "W",   # Acquisition/disposition by will or inheritance — no signal
+    "X",   # Exercise of in-money derivative — similar to M, covered separately
+    "Z",   # Deposit/withdrawal from voting trust — no signal
 }
 
 # ── SIGNAL STRENGTH WEIGHTS ──────────────────────────────────────────────
