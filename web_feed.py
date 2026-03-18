@@ -68,7 +68,94 @@ def _role_header(title: str) -> str:
     return "INSIDER"
 
 
-def _push_to_github(trades: list):
+GITHUB_INDEX_FILE = "docs/index.html"
+GITHUB_INDEX_API  = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_INDEX_FILE}"
+INDEX_PATH        = Path(__file__).parent / "docs" / "index.html"
+
+
+def _build_seo_block(trades: list) -> str:
+    """Build a plain-text SEO div with all trade data for search engine crawling."""
+    lines = []
+    for t in reversed(trades):  # newest first
+        name    = t.get("insider_name", "")
+        ticker  = t.get("ticker", "")
+        company = t.get("company_name", ticker)
+        title   = t.get("insider_title", "")
+        role    = t.get("role_header", "Insider")
+        value   = t.get("total_value_fmt", "")
+        shares  = t.get("shares_traded", 0)
+        price   = t.get("price_per_share", 0)
+        tx_date = t.get("transaction_date", "")
+        score   = t.get("signal_score", 0)
+        lines.append(
+            f"{name} ({role}, {title}) bought {value} of {company} (${ticker}) — "
+            f"{shares:,} shares at ${price:.2f} on {tx_date}. Signal score: {score}/10. "
+            f"SEC Form 4 insider trading alert."
+        )
+    block = "\n".join(f"<p>{line}</p>" for line in lines)
+    return (
+        f'<div id="seo-content" style="position:absolute;left:-9999px;width:1px;'
+        f'height:1px;overflow:hidden;" aria-hidden="true">\n'
+        f'<h2>Recent SEC Form 4 Insider Trading Alerts</h2>\n'
+        f'{block}\n'
+        f'</div>'
+    )
+
+
+def _push_seo_index_to_github(trades: list):
+    """Regenerate the SEO div in index.html and push to GitHub."""
+    if not GITHUB_TOKEN:
+        return
+    try:
+        # Read current index.html from local file
+        if not INDEX_PATH.exists():
+            log.warning("  → SEO: index.html not found locally, skipping")
+            return
+
+        html = INDEX_PATH.read_text(encoding="utf-8")
+
+        # Replace the SEO div content
+        import re
+        new_seo = _build_seo_block(trades)
+        # Replace from <div id="seo-content" to the closing </div>
+        html = re.sub(
+            r'<div id="seo-content"[^>]*>.*?</div>',
+            new_seo,
+            html,
+            flags=re.DOTALL
+        )
+
+        # Write locally
+        INDEX_PATH.write_text(html, encoding="utf-8")
+
+        # Push to GitHub
+        encoded = base64.b64encode(html.encode("utf-8")).decode()
+        headers = {
+            "Authorization": f"token {GITHUB_TOKEN}",
+            "Accept": "application/vnd.github.v3+json",
+        }
+        r = requests.get(GITHUB_INDEX_API, headers=headers, timeout=10)
+        sha = r.json().get("sha", "") if r.status_code == 200 else ""
+
+        payload = {
+            "message": "Update SEO index",
+            "content": encoded,
+            "branch": "main",
+        }
+        if sha:
+            payload["sha"] = sha
+
+        r = requests.put(GITHUB_INDEX_API, headers=headers, json=payload, timeout=15)
+        if r.status_code in (200, 201):
+            log.info(f"  → SEO index pushed to GitHub ({len(trades)} trades indexed)")
+        else:
+            log.warning(f"  → SEO index push failed: {r.status_code} {r.text[:100]}")
+
+    except Exception as e:
+        log.warning(f"  → SEO index push error: {e}")
+
+
+
     """Push trades.json to GitHub so GitHub Pages serves the latest data."""
     if not GITHUB_TOKEN:
         log.warning("  → Web feed: GITHUB_TOKEN not set, skipping GitHub push")
@@ -158,8 +245,11 @@ def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
 
         log.info(f"  → Web feed updated locally ({len(trades)} trades)")
 
-        # Push to GitHub so website updates
+        # Push trades.json to GitHub so website updates
         _push_to_github(trades)
+
+        # Regenerate SEO index in index.html and push
+        _push_seo_index_to_github(trades)
 
     except Exception as e:
         log.warning(f"  → Web feed update failed: {e}")
