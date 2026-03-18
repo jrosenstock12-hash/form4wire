@@ -136,7 +136,7 @@ def load_followup_queue() -> list:
     return data if isinstance(data, list) else []
 
 
-def add_to_followup_queue(trade: dict):
+def add_to_followup_queue(trade: dict, tweet_id: str = ""):
     """Schedule 30/60/90-day followup posts for a trade."""
     queue = load_followup_queue()
     now   = datetime.now(timezone.utc)
@@ -144,18 +144,20 @@ def add_to_followup_queue(trade: dict):
     for days in FOLLOWUP_DAYS:
         followup_date = (now + timedelta(days=days)).isoformat()
         queue.append({
-            "due_date":    followup_date,
-            "days":        days,
-            "posted":      False,
-            "trade":       {
-                "ticker":          trade.get("ticker"),
-                "insider_name":    trade.get("insider_name"),
-                "insider_title":   trade.get("insider_title"),
+            "due_date":              followup_date,
+            "days":                  days,
+            "posted":                False,
+            "prior_followup_posted": False,
+            "original_tweet_id":     tweet_id,
+            "trade": {
+                "ticker":           trade.get("ticker"),
+                "insider_name":     trade.get("insider_name"),
+                "insider_title":    trade.get("insider_title"),
                 "transaction_date": trade.get("transaction_date"),
-                "price_per_share": trade.get("price_per_share"),
+                "price_per_share":  trade.get("price_per_share"),
                 "transaction_code": trade.get("transaction_code"),
-                "is_buy":          trade.get("transaction_code", "") in ("P", "M"),
-                "total_value":     trade.get("total_value"),
+                "is_buy":           trade.get("transaction_code", "") in ("P", "M"),
+                "total_value":      trade.get("total_value"),
             }
         })
 
@@ -187,6 +189,17 @@ def mark_followup_posted(followup: dict):
         if (item["trade"].get("ticker") == followup["trade"].get("ticker") and
                 item["days"] == followup["days"] and
                 item["trade"].get("transaction_date") == followup["trade"].get("transaction_date")):
+            item["posted"] = True
+    _save(FOLLOWUP_QUEUE_FILE, queue)
+
+
+def mark_all_followups_done(followup: dict):
+    """Mark all intervals for this trade as prior_followup_posted so only one fires."""
+    queue = load_followup_queue()
+    for item in queue:
+        if (item["trade"].get("ticker") == followup["trade"].get("ticker") and
+                item["trade"].get("transaction_date") == followup["trade"].get("transaction_date")):
+            item["prior_followup_posted"] = True
             item["posted"] = True
     _save(FOLLOWUP_QUEUE_FILE, queue)
 

@@ -224,6 +224,66 @@ def check_streak(ticker, insider_name):
         return 0
 
 
+def check_followups(ticker, insider_name, entry_price):
+    sep = "=" * 60
+    print("")
+    print(sep)
+    print("FOLLOWUP CHECK: " + ticker + " / " + insider_name)
+    print(sep)
+
+    FOLLOWUP_QUEUE_FILE = "data/followup_queue.json"
+    if not os.path.exists(FOLLOWUP_QUEUE_FILE):
+        print("  No followup queue file found")
+        return
+
+    with open(FOLLOWUP_QUEUE_FILE) as f:
+        queue = json.load(f)
+
+    norm = " ".join(w.capitalize() for w in insider_name.strip().split())
+    matches = [
+        item for item in queue
+        if item["trade"].get("ticker", "").upper() == ticker.upper()
+        and norm.lower() in (item["trade"].get("insider_name", "") or "").lower()
+    ]
+
+    if not matches:
+        print("  No followup queue entries found for this trade")
+        return
+
+    # Fetch current price
+    try:
+        url = f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}?interval=1d&range=1d"
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+        current_price = r.json()["chart"]["result"][0]["meta"].get("regularMarketPrice", 0)
+    except Exception:
+        current_price = 0
+
+    if entry_price and current_price:
+        change_pct = ((current_price - entry_price) / entry_price) * 100
+        print(f"  Entry: ${entry_price:.2f} → Current: ${current_price:.2f} ({change_pct:+.1f}%)")
+
+    for item in sorted(matches, key=lambda x: x.get("days", 0)):
+        days     = item.get("days", 0)
+        posted   = item.get("posted", False)
+        prior    = item.get("prior_followup_posted", False)
+        orig_id  = item.get("original_tweet_id", "none")
+        due_date = item.get("due_date", "")[:10]
+
+        status = "✅ POSTED" if posted else ("⏭ SKIPPED (prior posted)" if prior else "⏳ PENDING")
+
+        would_fire = ""
+        if entry_price and current_price and not posted and not prior:
+            change_pct = ((current_price - entry_price) / entry_price) * 100
+            if change_pct >= 10.0:
+                would_fire = f" → would POST (up {change_pct:+.1f}%)"
+            elif change_pct <= -20.0 and days == 90:
+                would_fire = f" → would POST loss tweet ({change_pct:+.1f}%)"
+            else:
+                would_fire = f" → would SKIP ({change_pct:+.1f}%, threshold not met)"
+
+        print(f"  {days}-day: {status} | due {due_date} | reply_to={orig_id}{would_fire}")
+
+
 def check_score(ticker, insider_name, total_value, shares, price, before_shares, title, days, cluster_pts=0, high_pts=0, earn_pts=0, streak_pts=0):
     sep = "=" * 60
     print("")
@@ -304,6 +364,7 @@ def main():
     high_pts    = check_stock(ticker, price) if price else 0
     earn_pts, _ = check_earnings(ticker)
     streak_pts  = check_streak(ticker, insider)
+    check_followups(ticker, insider, price)
     if title:
         check_score(ticker, insider, total_value, shares, price, before, title, days, cluster_pts, high_pts, earn_pts, streak_pts)
     print("")

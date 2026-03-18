@@ -24,7 +24,7 @@ from ai_parser    import (
 from data_store   import (
     load_seen, save_seen,
     save_trade, get_insider_history,
-    add_to_followup_queue, get_due_followups, mark_followup_posted,
+    add_to_followup_queue, get_due_followups, mark_followup_posted, mark_all_followups_done,
     record_trade_for_cluster,
     log_daily_trade, get_last_24h_trades, get_week_trades,
     increment_daily_scan, get_daily_scan_count,
@@ -290,7 +290,7 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
             post_tweet(cluster_tweet, reply_to_id=tweet_id)
 
     # 14. Queue followups (history already saved above)
-    add_to_followup_queue(trade)
+    add_to_followup_queue(trade, tweet_id=tweet_id)
     log_daily_trade(trade, score)
     trade["unusual_flag"] = unusual
     trade["stock_52w_high"] = stock.get("52w_high", 0)
@@ -307,28 +307,56 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
 def process_followups():
     due = get_due_followups()
     for item in due:
-        trade   = item["trade"]
-        days    = item["days"]
-        ticker  = trade.get("ticker", "")
+        trade    = item["trade"]
+        days     = item["days"]
+        ticker   = trade.get("ticker", "")
 
         if not ticker:
             mark_followup_posted(item)
             continue
 
-        stock = fetch_stock_price(ticker)
+        # Skip if a followup already posted for this trade at an earlier interval
+        if item.get("prior_followup_posted"):
+            mark_followup_posted(item)
+            log.info(f"  → FOLLOWUP skipped: prior followup already posted for ${ticker}")
+            continue
+
+        stock         = fetch_stock_price(ticker)
         current_price = stock.get("price", 0)
 
         if not current_price:
             mark_followup_posted(item)
             continue
 
-        tweet = generate_followup_tweet(trade, current_price, days)
-        if tweet:
-            post_tweet(tweet)
-            time.sleep(2)
+        entry_price = trade.get("price_per_share", 0)
+        if not entry_price:
+            mark_followup_posted(item)
+            continue
 
-        mark_followup_posted(item)
-        log.info(f"  → FOLLOWUP posted: ${ticker} ({days} days)")
+        change_pct = ((current_price - entry_price) / entry_price) * 100
+
+        # Determine whether to post
+        is_up_10   = change_pct >= 10.0
+        is_down_20 = change_pct <= -20.0 and days == 90
+
+        if not is_up_10 and not is_down_20:
+            mark_followup_posted(item)
+            log.info(f"  → FOLLOWUP skipped: ${ticker} {change_pct:+.1f}% — threshold not met at {days} days")
+            continue
+
+        tweet = generate_followup_tweet(trade, current_price, days, change_pct)
+        if tweet:
+            original_tweet_id = item.get("original_tweet_id")
+            if original_tweet_id and original_tweet_id != "dry_run":
+                post_tweet(tweet, reply_to_id=original_tweet_id)
+            else:
+                post_tweet(tweet)
+            time.sleep(2)
+            # Mark all intervals for this trade done — only one followup per trade
+            mark_all_followups_done(item)
+            log.info(f"  → FOLLOWUP posted: ${ticker} {change_pct:+.1f}% at {days} days")
+        else:
+            mark_followup_posted(item)
 
 
 # ── DIGEST SCHEDULER ─────────────────────────────────────────────────────────

@@ -713,51 +713,63 @@ Rules:
         return ""
 
 
-def generate_followup_tweet(original_trade: dict, current_price: float, days: int) -> str:
+def generate_followup_tweet(original_trade: dict, current_price: float, days: int, change_pct: float = None) -> str:
     """Generate a performance follow-up tweet."""
     ticker      = original_trade.get("ticker", "")
-    name        = original_trade.get("insider_name", "")
+    raw_name    = original_trade.get("insider_name", "")
+    name        = " ".join(w.capitalize() for w in raw_name.split())
     title_role  = original_trade.get("insider_title", "")
     entry_price = original_trade.get("price_per_share", 0)
-    direction   = "bought" if original_trade.get("is_buy") else "sold"
     trade_date  = original_trade.get("transaction_date", "")
+    total_value = original_trade.get("total_value", 0)
 
     if not entry_price or not current_price:
         return ""
 
-    change_pct = ((current_price - entry_price) / entry_price) * 100
-    change_emoji = "📈" if change_pct > 0 else "📉"
+    if change_pct is None:
+        change_pct = ((current_price - entry_price) / entry_price) * 100
 
-    prompt = f"""
-Write a brief follow-up tweet for @Form4Wire tracking a past insider trade.
+    rh = _role_header(title_role)
 
-Insider: {name} ({title_role})
-Company: ${ticker}
-They {direction} shares at ${entry_price:.2f} on {trade_date}
-Current price: ${current_price:.2f}
-Change: {change_pct:+.1f}% in {days} days
-
-Write a punchy, engaging follow-up tweet. If the trade was profitable, make it feel exciting.
-If it was a loss, keep it neutral/analytical. Include what the insider did and how it played out.
-
-Format:
-📊 {days}-DAY FOLLOWUP — ${ticker}
-[What happened]
-[Performance line]
-[Brief commentary]
-#InsiderTrading #{ticker}
-
-Under 280 chars.
-"""
+    # Format trade date nicely
     try:
-        msg = claude.messages.create(
-            model=FAST_MODEL,
-            max_tokens=200,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        return msg.content[0].text.strip()
+        from datetime import datetime
+        trade_date_fmt = datetime.strptime(trade_date, "%Y-%m-%d").strftime("%b %d")
     except Exception:
-        return ""
+        trade_date_fmt = trade_date
+
+    is_win  = change_pct >= 10.0
+    is_loss = change_pct <= -20.0
+
+    sign   = "+" if change_pct >= 0 else ""
+    arrow  = "📈" if change_pct >= 0 else "📉"
+    header = "📈" if is_win else "📉"
+
+    if is_win:
+        tweet = (
+            f"{header} {days}-DAY FOLLOWUP — ${ticker}\n"
+            f"\n"
+            f"{name} ({rh}) bought {format_value(total_value)} on {trade_date_fmt}\n"
+            f"• Entry: ${entry_price:.2f} → Now: ${current_price:.2f}\n"
+            f"• {sign}{change_pct:.1f}% in {days} days {arrow}\n"
+            f"\n"
+            f"#InsiderTrading #{ticker}"
+        )
+    else:
+        # 90-day loss post
+        tweet = (
+            f"{header} {days}-DAY FOLLOWUP — ${ticker}\n"
+            f"\n"
+            f"{name} ({rh}) bought {format_value(total_value)} on {trade_date_fmt}\n"
+            f"• Entry: ${entry_price:.2f} → Now: ${current_price:.2f}\n"
+            f"• {sign}{change_pct:.1f}% in {days} days {arrow}\n"
+            f"\n"
+            f"Not every signal plays out. We track them all.\n"
+            f"\n"
+            f"#InsiderTrading #{ticker}"
+        )
+
+    return tweet.strip()
 
 
 def generate_cluster_alert(ticker: str, company: str, trades: list[dict]) -> str:
