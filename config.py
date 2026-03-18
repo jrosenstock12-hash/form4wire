@@ -3,7 +3,7 @@ config.py — Central configuration for Form4Wire
 """
 
 # ── POLLING ──────────────────────────────────────────────────────────────────
-POLL_INTERVAL_SECONDS = 60       # Check SEC every 60 seconds
+POLL_INTERVAL_SECONDS = 30       # Check SEC every 60 seconds
 MIN_SECONDS_BETWEEN_POSTS = 900  # Minimum 15 minutes between tweets (X anti-spam)
 MAX_FILING_LAG_BDAYS      = 2    # Skip trades filed more than 2 business days after the trade date
 
