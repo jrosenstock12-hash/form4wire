@@ -538,5 +538,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-19T21:16:55.104229+00:00"
+  },
+  {
+    "ticker": "FCNCA",
+    "company_name": "FIRST CITIZENS BANCSHARES INC /DE/",
+    "insider_name": "HOLDING FRANK B JR",
+    "insider_title": "Chairman and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-19",
+    "filed_date": "2026-03-19",
+    "shares_traded": 98,
+    "price_per_share": 1550.0,
+    "total_value": 151900.0,
+    "total_value_fmt": "$152K",
+    "shares_owned_after": 35012,
+    "position_change_pct": 0.3,
+    "pct_from_52w_high": 29.7,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-19T21:19:04.490126+00:00"
   }
 ]
