@@ -17,6 +17,7 @@ Examples:
 """
 
 import json
+import re
 import requests
 import sys
 import os
@@ -497,7 +498,7 @@ def check_score(ticker, insider_name, total_value, shares, price, before_shares,
     elif any(x in combined for x in csuite_terms):
         src = " (from remarks)" if any(x in remarks.lower() for x in csuite_terms) and not any(x in t for x in csuite_terms) else ""
         role_pts, role_label = 2, f"C-Suite officer (+2){src}"
-    elif any(x in t for x in ["cfo", "coo", "cto", "cro", "cmo", "cio", "cao", "cco", "chro", "cso"]):
+    elif any(re.search(r'\b' + x + r'\b', t) for x in ["cfo", "coo", "cto", "cro", "cmo", "cio", "cao", "cco", "chro", "cso"]):
         role_pts, role_label = 2, "C-Suite officer (+2)"
     elif any(x in t for x in vp_terms):
         role_pts, role_label = 1, "VP/Director/Board (+1)"
