@@ -798,5 +798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-20T12:58:34.005120+00:00"
+  },
+  {
+    "ticker": "STIM",
+    "company_name": "Neuronetics, Inc.",
+    "insider_name": "Chernett Jorey",
+    "insider_title": "Ten Percent Owner",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-03-18",
+    "filed_date": "2026-03-20",
+    "shares_traded": 1057400,
+    "price_per_share": 1.3415,
+    "total_value": 1418490.0,
+    "total_value_fmt": "$1.4M",
+    "shares_owned_after": 8573804,
+    "position_change_pct": 14.1,
+    "pct_from_52w_high": 72.8,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-20T12:59:15.470378+00:00"
   }
 ]
