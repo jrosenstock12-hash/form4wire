@@ -447,7 +447,7 @@ def main():
         name    = t.get("name", "") or t.get("insider_name", "")
         if ticker:
             recently_posted.add(f"{ticker}:{name}".lower())
-            posted_today.add(f"{ticker}:{normalize_name(name)}")
+            posted_today.add(f"{ticker}:{' '.join(w.capitalize() for w in name.strip().split())}")
     if recently_posted:
         log.info(f"  Startup: {len(recently_posted)} ticker/insider combos posted in last 24h — will skip reposts")
 
