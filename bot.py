@@ -441,11 +441,13 @@ def main():
     # in the last 24 hours. Used to prevent reposts after Railway restarts.
     recent_trades = get_last_24h_trades()
     recently_posted = set()
+    posted_today = set()  # tracks ticker:insider combos posted THIS session
     for t in recent_trades:
         ticker  = t.get("ticker", "")
         name    = t.get("name", "") or t.get("insider_name", "")
         if ticker:
             recently_posted.add(f"{ticker}:{name}".lower())
+            posted_today.add(f"{ticker}:{normalize_name(name)}")
     if recently_posted:
         log.info(f"  Startup: {len(recently_posted)} ticker/insider combos posted in last 24h — will skip reposts")
 
