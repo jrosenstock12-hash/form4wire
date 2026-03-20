@@ -11,7 +11,7 @@ MAX_FILING_LAG_BDAYS      = 2    # Skip trades filed more than 2 business days a
 # Set to True until X API is approved — bot runs fully but doesn't post to X
 # Saves pending tweets to data/pending_tweets.txt for manual posting
 # Set to False once X API credentials are in .env to go fully live
-DRY_RUN = False
+DRY_RUN = True
 
 # Signal score thresholds — minimum score to post
 MIN_SCORE_BUY  = 5   # Buys need 5/10+ to post
