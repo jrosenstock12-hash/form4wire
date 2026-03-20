@@ -103,7 +103,7 @@ def check_analyst_divergence(trade: dict, stock: dict) -> str:
 
 # ── PROCESS A SINGLE FILING ───────────────────────────────────────────────────
 
-def process_filing(filing: dict, last_post_time: float = 0) -> bool:
+def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = None) -> bool:
     """
     Full pipeline for one Form 4 filing.
     Returns True if a tweet was posted.
@@ -146,6 +146,14 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
         trade["company_name"] = company["name"]
     # Always use filed_date from SEC feed (more reliable than Claude's parse)
     trade["filed_date"] = filing.get("filed_date", "")
+
+    # Dedup check — RSS feed returns both (Reporting) and (Issuer) entries for the same filing
+    ticker = trade.get("ticker", "")
+    insider = trade.get("insider_name", "")
+    combo_key = f"{ticker}:{' '.join(w.capitalize() for w in insider.strip().split())}"
+    if posted_today is not None and combo_key in posted_today:
+        log.info(f"  → SKIP: Already posted {combo_key} today — RSS duplicate (Reporting/Issuer)")
+        return False
 
     # 4. Classify tier
     tier   = classify_insider_tier(trade.get("insider_title", ""))
@@ -305,6 +313,11 @@ def process_filing(filing: dict, last_post_time: float = 0) -> bool:
             post_tweet(cluster_tweet, reply_to_id=tweet_id)
 
     log.info(f"  → {'[DRY RUN] ' if config.DRY_RUN else ''}POSTED: ${ticker} | {trade.get('insider_name')} | Signal {score}/10")
+
+    # Update posted_today to block RSS duplicate (Reporting/Issuer) entries
+    if posted_today is not None:
+        posted_today.add(combo_key)
+
     return True
 
 
