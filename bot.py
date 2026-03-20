@@ -402,13 +402,15 @@ def maybe_post_digests():
         trades = get_last_24h_trades()
         if trades:
             digest = generate_daily_digest(trades, total_scanned=get_daily_scan_count())
-            if digest:
+            if digest and digest.strip().startswith("📊 INSIDER DAILY DIGEST"):
                 if config.DRY_RUN:
                     print(f"\n📊 DAILY DIGEST READY TO POST:\n{digest}\n")
                     log.info("  → [DRY RUN] Daily digest saved for manual posting")
                 else:
                     post_tweet(digest)
                     log.info("  → Daily digest posted")
+            elif digest:
+                log.warning(f"  → Daily digest rejected — unexpected format: {digest[:100]}")
         last_daily_digest_date = now.date()
 
     # Weekly digest on configured day
@@ -417,10 +419,29 @@ def maybe_post_digests():
             now.date() != last_weekly_digest_date):
         trades = get_week_trades()
         if trades:
-            digest = generate_weekly_digest(trades)
-            if digest:
-                post_tweet(digest)
-                log.info("  → Weekly digest posted")
+            # Deduplicate by ticker:insider — keep highest score per combo
+            seen_combos = {}
+            for t in trades:
+                key = f"{t.get('ticker','')}:{t.get('name','') or t.get('insider_name','')}"
+                if key not in seen_combos or t.get('score', 0) > seen_combos[key].get('score', 0):
+                    seen_combos[key] = t
+            deduped_trades = list(seen_combos.values())
+            log.info(f"  → Weekly digest: {len(trades)} trades → {len(deduped_trades)} after dedup")
+
+            digest = generate_weekly_digest(deduped_trades)
+
+            # Only post if it matches expected format — never post Claude's error messages
+            if digest and digest.strip().startswith("📊 INSIDER WEEK IN REVIEW"):
+                if config.DRY_RUN:
+                    print(f"\n📊 WEEKLY DIGEST READY TO POST:\n{digest}\n")
+                    log.info("  → [DRY RUN] Weekly digest saved for manual posting")
+                else:
+                    post_tweet(digest)
+                    log.info("  → Weekly digest posted")
+            elif digest:
+                log.warning(f"  → Weekly digest rejected — unexpected format: {digest[:100]}")
+            else:
+                log.info("  → Weekly digest: no content generated")
         last_weekly_digest_date = now.date()
 
 

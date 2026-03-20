@@ -734,8 +734,10 @@ Write a weekly digest tweet using EXACTLY this format:
 Rules:
 - Top Buys: show up to 3 biggest buys by dollar value for the week, bullet points only
 - Top Signals: show up to 3 trades with score 8 or above only. If none scored 8+, omit this section entirely
-- No other lines, no sell section, no filing counts
+- No other lines, no sell section, no filing counts, no commentary
 - Keep entire tweet under 280 characters
+- CRITICAL: Your response must start with exactly "📊 INSIDER WEEK IN REVIEW" — no other text before it
+- CRITICAL: If the data looks like duplicates, still follow the format — just use the unique trades
 """
     try:
         msg = claude.messages.create(
