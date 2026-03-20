@@ -15,10 +15,6 @@ from email.mime.multipart import MIMEMultipart
 
 log = logging.getLogger(__name__)
 
-GMAIL_USER        = os.environ.get("GMAIL_USER", "")
-GMAIL_APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
-ALERT_EMAIL       = os.environ.get("ALERT_EMAIL", "")
-
 SEC_HEADERS = {
     "User-Agent": "Form4Wire support@form4wire.com",
     "Accept-Encoding": "gzip, deflate",
@@ -220,19 +216,24 @@ def _calculate_score(trade: dict, sec_data: dict, stock: dict, history: dict, ne
 # ── EMAIL SENDER ──────────────────────────────────────────────────────────────
 
 def _send_email(subject: str, body: str):
-    if not GMAIL_USER or not GMAIL_APP_PASSWORD or not ALERT_EMAIL:
+    # Read credentials at call time — not import time — so env var changes take effect
+    gmail_user         = os.environ.get("GMAIL_USER", "")
+    gmail_app_password = os.environ.get("GMAIL_APP_PASSWORD", "")
+    alert_email        = os.environ.get("ALERT_EMAIL", "")
+
+    if not gmail_user or not gmail_app_password or not alert_email:
         log.warning("[Validator] Email credentials not set — skipping email")
         return
     try:
         msg = MIMEMultipart("alternative")
         msg["Subject"] = subject
-        msg["From"]    = GMAIL_USER
-        msg["To"]      = ALERT_EMAIL
+        msg["From"]    = gmail_user
+        msg["To"]      = alert_email
         msg.attach(MIMEText(body, "plain"))
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(GMAIL_USER, GMAIL_APP_PASSWORD)
-            server.sendmail(GMAIL_USER, ALERT_EMAIL, msg.as_string())
+            server.login(gmail_user, gmail_app_password)
+            server.sendmail(gmail_user, alert_email, msg.as_string())
         log.info(f"[Validator] Email sent: {subject}")
     except Exception as e:
         log.warning(f"[Validator] Email send failed: {e}")
