@@ -243,62 +243,51 @@ def _send_email(subject: str, body: str):
 
 def validate_and_email(trade: dict, tweeted_score: int, stock: dict, history: dict, next_earnings: str = ""):
     """
-    Validate a posted tweet against SEC filing data and send an email report.
-    Called immediately after every successful post.
+    Send an immediate email notification after every post.
+    Basic info only — no SEC lookup — so it fires fast and reliably.
     """
-    ticker      = trade.get("ticker", "")
-    insider     = trade.get("insider_name", "")
-    title       = trade.get("insider_title", "")
-    total       = trade.get("total_value", 0)
-    shares      = trade.get("shares_traded", 0)
-    price       = trade.get("price_per_share", 0)
-    tx_date     = trade.get("transaction_date", "")
+    ticker   = trade.get("ticker", "")
+    insider  = trade.get("insider_name", "")
+    title    = trade.get("insider_title", "")
+    total    = trade.get("total_value", 0)
+    shares   = trade.get("shares_traded", 0)
+    price    = trade.get("price_per_share", 0)
+    tx_date  = trade.get("transaction_date", "")
+    code     = trade.get("transaction_code", "")
+    after    = trade.get("shares_owned_after", 0)
+    before   = trade.get("shares_owned_before", 0)
+    high     = stock.get("52w_high", 0)
+    cur_price = stock.get("price", 0)
+    unusual  = history.get("unusual", False)
+    consec   = history.get("consecutive_buys", 0)
+    cluster  = history.get("cluster_count", 0)
 
-    try:
-        # Fetch SEC filing for real title and shares_before
-        sec_data = _fetch_sec_filing(ticker, insider)
-        real_title = sec_data.get("real_title") or title
+    pct_high = round(((high - cur_price) / high) * 100, 1) if high and cur_price else 0
+    pos_pct  = round(((shares / before) * 100), 1) if before >= 100 else None
 
-        # Calculate expected score
-        calc_score, breakdown = _calculate_score(trade, sec_data, stock, history, next_earnings)
+    lines = [
+        f"✅ POSTED — {code} ${ticker}",
+        f"",
+        f"Insider:    {insider}",
+        f"Title:      {title}",
+        f"Value:      ${total:,.0f} ({shares:,} shares @ ${price:.2f})",
+        f"Trade date: {tx_date}",
+        f"",
+        f"Signal Score: {tweeted_score}/10",
+        f"",
+        f"CONTEXT:",
+        f"  Stock price:    ${cur_price:.2f}",
+        f"  52W High:       ${high:.2f} (−{pct_high}% from high)",
+        f"  Position chg:   {'+' + str(pos_pct) + '%' if pos_pct else 'N/A (no prior shares)'}",
+        f"  Shares after:   {after:,}",
+        f"  Unusual:        {'Yes' if unusual else 'No'}",
+        f"  Consecutive:    {consec} buys",
+        f"  Cluster:        {cluster} insiders",
+        f"",
+        f"Validate: railway run python3 validate_tweet.py {ticker} \"{insider}\" --value {int(total)} --shares {shares} --price {price}",
+    ]
 
-        # Compare scores
-        score_match = (calc_score == tweeted_score)
-        status = "✅ VERIFIED" if score_match else f"⚠️ MISMATCH (tweeted {tweeted_score}, calculated {calc_score})"
-
-        # Build email
-        lines = [
-            f"Tweet posted: {trade.get('transaction_code','')} — ${ticker}",
-            f"Insider: {insider}",
-            f"Title in filing: {real_title}",
-            f"Remarks: {sec_data.get('remarks', '(none)')}",
-            f"Value: ${total:,.0f} | Shares: {shares:,} @ ${price:.2f}",
-            f"Trade date: {tx_date}",
-            f"",
-            f"SCORE: Tweeted {tweeted_score}/10 | Calculated {calc_score}/10 — {status}",
-            f"",
-            f"BREAKDOWN:",
-        ]
-
-        for factor, (pts, label) in breakdown.items():
-            check = "✅" if pts > 0 else "➖"
-            lines.append(f"  {check} {factor}: {label}")
-
-        lines += [
-            f"",
-            f"SEC filing shares_before: {sec_data.get('shares_before', 'unknown'):,}" if sec_data else "",
-            f"Current stock price: ${stock.get('price', 0):.2f}",
-            f"52W High: ${stock.get('52w_high', 0):.2f}",
-        ]
-
-        body    = "\n".join(lines)
-        subject = f"{status[:2]} Form4Wire — {trade.get('transaction_code','')} ${ticker} — Score {tweeted_score}/10"
-
-        _send_email(subject, body)
-
-    except Exception as e:
-        log.warning(f"[Validator] Validation failed for {ticker}: {e}")
-        _send_email(
-            f"⚠️ Form4Wire — ${ticker} posted (validation error)",
-            f"Tweet posted for ${ticker} / {insider} but validation failed: {e}"
-        )
+    body    = "\n".join(lines)
+    subject = f"🟢 Form4Wire — {code} ${ticker} — Score {tweeted_score}/10"
+    _send_email(subject, body)
+    log.info(f"[Validator] Email fired for ${ticker}")
