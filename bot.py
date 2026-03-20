@@ -460,44 +460,43 @@ def main():
             filings = fetch_form4_feed()
             new     = [f for f in filings if f["id"] not in seen]
 
+            # Immediately mark ALL fetched filings as seen and save to volume
+            # This prevents reprocessing if the bot restarts mid-poll
+            for f in filings:
+                seen.add(f["id"])
+            save_seen(seen)
+
             if first_poll:
                 log.info(f"  First poll — {len(new)} new filings to process (volume persists seen_filings)")
                 first_poll = False
-                save_seen(seen)
 
             if new:
                 log.info(f"  {len(new)} new filing(s) found")
                 for filing in new:
-                    # Skip if this ticker was already posted in last 24h (restart dedup guard)
+                    # Skip if this ticker:insider was already posted in last 24h (restart dedup guard)
                     title_lower = filing.get("title", "").lower()
                     skip_repost = any(
-                        rp.split(":")[0] in title_lower
+                        rp.split(":")[0].lower() in title_lower
                         for rp in recently_posted
                         if rp.split(":")[0]
                     )
                     if skip_repost:
                         log.info(f"  → SKIP: Recently posted ticker found in filing — restart dedup")
-                        seen.add(filing["id"])
                         continue
                     # Check cooldown before processing
                     elapsed = time.time() - last_post_time
                     if last_post_time > 0 and elapsed < config.MIN_SECONDS_BETWEEN_POSTS:
                         wait = int(config.MIN_SECONDS_BETWEEN_POSTS - elapsed)
                         log.info(f"  → Cooldown active — {wait}s remaining, breaking filing loop")
-                        seen.add(filing["id"])
-                        save_seen(seen)
                         break
-                    posted = process_filing(filing, last_post_time)
-                    seen.add(filing["id"])
+                    posted = process_filing(filing, last_post_time, posted_today)
                     increment_daily_scan(1)
                     if posted:
                         last_post_time = time.time()
                         log.info(f"  → Next post allowed after {config.MIN_SECONDS_BETWEEN_POSTS//60} min cooldown")
                     time.sleep(1)
-                save_seen(seen)
             else:
                 log.info("  No new filings.")
-                save_seen(seen)
 
             # Check followups
             process_followups()
