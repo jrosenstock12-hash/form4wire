@@ -32,6 +32,7 @@ from data_store   import (
 from x_poster import post_tweet
 from web_feed import save_to_web_feed, seed_web_feed_volume
 from post_validator import validate_and_email
+import threading
 
 # ── LOGGING ──────────────────────────────────────────────────────────────────
 os.makedirs("logs", exist_ok=True)
@@ -297,9 +298,15 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
     trade["stock_price"] = stock.get("price", 0)
     save_to_web_feed(trade, score, cluster_count)
 
-    # 15. Validate tweet and send email report
+    # 15. Validate tweet and send email report — run in background thread
+    # so Railway restarts don't kill the SEC lookup mid-execution
     if not config.DRY_RUN:
-        validate_and_email(trade, score, stock, history, next_earn)
+        t = threading.Thread(
+            target=validate_and_email,
+            args=(trade, score, stock, history, next_earn),
+            daemon=True
+        )
+        t.start()
 
     # Post cluster alert if triggered
     if cluster_data and not config.DRY_RUN:
