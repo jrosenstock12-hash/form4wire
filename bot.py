@@ -387,8 +387,42 @@ def process_followups():
 
 # ── DIGEST SCHEDULER ─────────────────────────────────────────────────────────
 
+import os as _os
+_DATA_DIR_DIGEST = "/app/data" if _os.path.isdir("/app/data") else "data"
+DIGEST_STATE_FILE = f"{_DATA_DIR_DIGEST}/digest_state.json"
+
 last_daily_digest_date  = None
 last_weekly_digest_date = None
+
+
+def _load_digest_state():
+    """Load last digest dates from volume to survive restarts."""
+    global last_daily_digest_date, last_weekly_digest_date
+    try:
+        if _os.path.exists(DIGEST_STATE_FILE):
+            import json as _json
+            state = _json.loads(open(DIGEST_STATE_FILE).read())
+            from datetime import date as _date
+            if state.get("daily"):
+                last_daily_digest_date = _date.fromisoformat(state["daily"])
+            if state.get("weekly"):
+                last_weekly_digest_date = _date.fromisoformat(state["weekly"])
+            log.info(f"  → Digest state loaded: daily={last_daily_digest_date} weekly={last_weekly_digest_date}")
+    except Exception as e:
+        log.warning(f"  → Digest state load failed: {e}")
+
+
+def _save_digest_state():
+    """Persist digest dates to volume."""
+    try:
+        import json as _json
+        state = {
+            "daily":  last_daily_digest_date.isoformat() if last_daily_digest_date else None,
+            "weekly": last_weekly_digest_date.isoformat() if last_weekly_digest_date else None,
+        }
+        open(DIGEST_STATE_FILE, "w").write(_json.dumps(state))
+    except Exception as e:
+        log.warning(f"  → Digest state save failed: {e}")
 
 
 def maybe_post_digests():
@@ -412,6 +446,7 @@ def maybe_post_digests():
             elif digest:
                 log.warning(f"  → Daily digest rejected — unexpected format: {digest[:100]}")
         last_daily_digest_date = now.date()
+        _save_digest_state()
 
     # Weekly digest on configured day
     if (now.weekday() == config.WEEKLY_DIGEST_DAY and
@@ -443,6 +478,7 @@ def maybe_post_digests():
             else:
                 log.info("  → Weekly digest: no content generated")
         last_weekly_digest_date = now.date()
+        _save_digest_state()
 
 
 # ── MAIN LOOP ────────────────────────────────────────────────────────────────
@@ -460,6 +496,7 @@ def main():
     log.info("🚀 Form4Wire starting...")
     _seed_volume_data()
     seed_web_feed_volume()
+    _load_digest_state()
     if config.DRY_RUN:
         log.info("⚠️  DRY RUN MODE — tweets will NOT be posted to X")
         log.info("   Pending tweets saved to: data/pending_tweets.txt")
