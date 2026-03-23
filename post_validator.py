@@ -231,7 +231,9 @@ def _send_email(subject: str, body: str):
         msg["To"]      = alert_email
         msg.attach(MIMEText(body, "plain"))
 
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.ehlo()
+            server.starttls()
             server.login(gmail_user, gmail_app_password)
             server.sendmail(gmail_user, alert_email, msg.as_string())
         log.info(f"[Validator] Email sent: {subject}")
