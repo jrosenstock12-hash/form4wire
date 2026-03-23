@@ -1558,5 +1558,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-23T16:17:48.790450+00:00"
+  },
+  {
+    "ticker": "MSTR",
+    "company_name": "Strategy Inc",
+    "insider_name": "Le Phong",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-19",
+    "filed_date": "2026-03-23",
+    "shares_traded": 2509,
+    "price_per_share": 99.62,
+    "total_value": 249946.58,
+    "total_value_fmt": "$250K",
+    "shares_owned_after": 8009,
+    "position_change_pct": 45.6,
+    "pct_from_52w_high": 78.1,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-23T20:00:36.979949+00:00"
   }
 ]
