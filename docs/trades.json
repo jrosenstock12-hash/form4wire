@@ -1538,5 +1538,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-23T11:31:55.826686+00:00"
+  },
+  {
+    "ticker": "N/A",
+    "company_name": "Principal Private Credit Fund",
+    "insider_name": "Darrah Matthew",
+    "insider_title": "Portfolio Manager",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-03-20",
+    "filed_date": "2026-03-23",
+    "shares_traded": 11824,
+    "price_per_share": 10.36,
+    "total_value": 122500.0,
+    "total_value_fmt": "$122K",
+    "shares_owned_after": 22712,
+    "position_change_pct": 108.6,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-23T16:17:48.790450+00:00"
   }
 ]
