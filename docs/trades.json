@@ -1518,5 +1518,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-20T22:03:01.754059+00:00"
+  },
+  {
+    "ticker": "IBIO",
+    "company_name": "iBio, Inc.",
+    "insider_name": "Felipe Duran",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-03-19",
+    "filed_date": "2026-03-23",
+    "shares_traded": 24835,
+    "price_per_share": 2.0186,
+    "total_value": 50131.93,
+    "total_value_fmt": "$50K",
+    "shares_owned_after": 35974,
+    "position_change_pct": 223.0,
+    "pct_from_52w_high": 56.4,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-23T11:31:55.826686+00:00"
   }
 ]
