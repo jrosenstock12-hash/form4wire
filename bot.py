@@ -151,6 +151,12 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
     # Dedup check — RSS feed returns both (Reporting) and (Issuer) entries for the same filing
     ticker = trade.get("ticker", "")
     insider = trade.get("insider_name", "")
+
+    # Block invalid tickers — N/A, empty, ??? mean the parser couldn't find the symbol
+    if not ticker or ticker.upper() in ("N/A", "???", "NONE", "UNKNOWN"):
+        log.info(f"  → SKIP: Invalid ticker '{ticker}' — could not determine stock symbol")
+        return False
+
     combo_key = f"{ticker}:{' '.join(w.capitalize() for w in insider.strip().split())}"
     if posted_today is not None and combo_key in posted_today:
         log.info(f"  → SKIP: Already posted {combo_key} today — RSS duplicate (Reporting/Issuer)")
