@@ -1658,5 +1658,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-24T20:31:27.565140+00:00"
+  },
+  {
+    "ticker": "JAN",
+    "company_name": "Janus Living, Inc.",
+    "insider_name": "Brinker Scott M",
+    "insider_title": "PRESIDENT & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-23",
+    "filed_date": "2026-03-24",
+    "shares_traded": 100000,
+    "price_per_share": 20.0,
+    "total_value": 2000000.0,
+    "total_value_fmt": "$2.0M",
+    "shares_owned_after": 100000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 15.8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-24T21:14:00.496454+00:00"
   }
 ]
