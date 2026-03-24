@@ -519,6 +519,12 @@ def main():
     log.info(f"   Poll interval: {config.POLL_INTERVAL_SECONDS}s")
     log.info(f"   Min between posts: {config.MIN_SECONDS_BETWEEN_POSTS//60} min")
 
+    # One-time seed: restore trade history from repo if volume is empty
+    if not os.path.exists(config.TRADE_HISTORY_FILE) and os.path.exists("trade_history_seed.json"):
+        import shutil
+        shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
+        log.info("  → Restored trade history from seed file")
+
     seen = load_seen()
 
     # On startup, build a set of "ticker:insider" keys from trades posted
