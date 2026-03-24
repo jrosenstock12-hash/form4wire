@@ -1618,5 +1618,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-03-23T21:26:34.020194+00:00"
+  },
+  {
+    "ticker": "BCIC",
+    "company_name": "BCP Investment Corp",
+    "insider_name": "George Grunebaum",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-23",
+    "filed_date": "2026-03-24",
+    "shares_traded": 6800,
+    "price_per_share": 7.5399,
+    "total_value": 51271.32,
+    "total_value_fmt": "$51K",
+    "shares_owned_after": 14136,
+    "position_change_pct": 92.7,
+    "pct_from_52w_high": 49.0,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-24T19:13:15.431414+00:00"
   }
 ]
