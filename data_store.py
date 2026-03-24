@@ -12,6 +12,10 @@ from config import (
 )
 
 
+import logging as _logging
+_log = _logging.getLogger(__name__)
+
+
 def _load(path: str):  # -> Union[dict, list]
     if os.path.exists(path):
         try:
@@ -20,16 +24,24 @@ def _load(path: str):  # -> Union[dict, list]
             if content:
                 return json.loads(content)
             else:
-                log.warning(f"[DataStore] {path} is empty — treating as default")
+                _log.warning(f"[DataStore] {path} is empty — treating as default")
         except Exception as e:
-            log.warning(f"[DataStore] {path} is corrupt ({e}) — treating as default")
+            _log.warning(f"[DataStore] {path} is corrupt ({e}) — treating as default")
     return [] if "seen" in path else {}
 
 
 def _save(path: str, data):
+    """Atomic write — prevents file corruption if container is killed mid-write."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2, default=str)
+    tmp = path + ".tmp"
+    try:
+        with open(tmp, "w") as f:
+            json.dump(data, f, indent=2, default=str)
+        os.replace(tmp, path)  # atomic on Linux — never leaves a corrupt file
+    except Exception as e:
+        _log.warning(f"[DataStore] Failed to save {path}: {e}")
+        if os.path.exists(tmp):
+            os.remove(tmp)
 
 
 # ── SEEN FILINGS ─────────────────────────────────────────────────────────────
