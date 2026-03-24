@@ -287,6 +287,46 @@ def record_trade_for_cluster(trade: dict):  # -> Optional[dict]
     return None
 
 
+# ── DAILY BACKUP TO GITHUB ───────────────────────────────────────────────────
+
+def backup_history_to_github():
+    """Push trade_history.json to private backup repo once per day."""
+    import base64, requests as _requests
+    token = os.environ.get("GITHUB_BACKUP_TOKEN", "")
+    if not token:
+        _log.warning("[Backup] GITHUB_BACKUP_TOKEN not set — skipping backup")
+        return
+    if not os.path.exists(TRADE_HISTORY_FILE):
+        _log.warning("[Backup] trade_history.json not found — skipping backup")
+        return
+    try:
+        api_url = "https://api.github.com/repos/jrosenstock12-hash/form4wire-backup/contents/trade_history.json"
+        headers = {
+            "Authorization": f"token {token}",
+            "Accept": "application/vnd.github.v3+json",
+        }
+        content_bytes = open(TRADE_HISTORY_FILE, "rb").read()
+        encoded = base64.b64encode(content_bytes).decode()
+        # Get current SHA if file exists
+        r = _requests.get(api_url, headers=headers, timeout=15)
+        sha = r.json().get("sha", "") if r.status_code == 200 else ""
+        payload = {
+            "message": f"Daily backup {datetime.now(timezone.utc).strftime('%Y-%m-%d')}",
+            "content": encoded,
+            "branch": "main",
+        }
+        if sha:
+            payload["sha"] = sha
+        r = _requests.put(api_url, headers=headers, json=payload, timeout=30)
+        if r.status_code in (200, 201):
+            keys = len([k for k in json.loads(content_bytes) if not k.startswith("__")])
+            _log.info(f"[Backup] trade_history.json backed up to GitHub ({keys} insider keys)")
+        else:
+            _log.warning(f"[Backup] GitHub backup failed: {r.status_code} {r.text[:100]}")
+    except Exception as e:
+        _log.warning(f"[Backup] GitHub backup error: {e}")
+
+
 # ── DAILY TRADE LOG (for digest) ──────────────────────────────────────────────
 
 def log_daily_trade(trade: dict, signal_score: int):

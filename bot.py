@@ -453,6 +453,10 @@ def maybe_post_digests():
                 log.warning(f"  → Daily digest rejected — unexpected format: {digest[:100]}")
         last_daily_digest_date = now.date()
         _save_digest_state()
+        # Daily backup of trade history to private GitHub repo
+        from data_store import backup_history_to_github
+        import threading
+        threading.Thread(target=backup_history_to_github, daemon=True).start()
 
     # Weekly digest on configured day
     if (now.weekday() == config.WEEKLY_DIGEST_DAY and
