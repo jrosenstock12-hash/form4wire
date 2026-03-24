@@ -14,9 +14,15 @@ from config import (
 
 def _load(path: str):  # -> Union[dict, list]
     if os.path.exists(path):
-        with open(path) as f:
-            return json.load(f)
-    # Return appropriate default
+        try:
+            with open(path) as f:
+                content = f.read().strip()
+            if content:
+                return json.loads(content)
+            else:
+                log.warning(f"[DataStore] {path} is empty — treating as default")
+        except Exception as e:
+            log.warning(f"[DataStore] {path} is corrupt ({e}) — treating as default")
     return [] if "seen" in path else {}
 
 
