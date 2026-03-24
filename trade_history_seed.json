@@ -3255,6 +3255,30 @@
   ],
   "RCG:STAHL MURRAY": [
     {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1173.6,
+      "price_per_share": 3.26,
+      "shares": 360.0,
+      "shares_owned": 156734.0,
+      "title": "President/Co-Portfolio Manager",
+      "saved_at": "2026-03-24T18:45:11.859387+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1144.8,
+      "price_per_share": 3.18,
+      "shares": 360.0,
+      "shares_owned": 156374.0,
+      "title": "President/Co-Portfolio Manager",
+      "saved_at": "2026-03-24T18:53:52.760965+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-12",
       "code": "P",
       "is_buy": true,
@@ -3824,30 +3848,6 @@
       "shares_owned": 135134.0,
       "title": "President/Co-Portfolio Manager",
       "saved_at": "2026-03-14T07:35:26.070195+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-12-19",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 954.0,
-      "price_per_share": 2.65,
-      "shares": 360.0,
-      "shares_owned": 134774.0,
-      "title": "President/Co-Portfolio Manager",
-      "saved_at": "2026-03-14T07:38:41.342670+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-12-18",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 954.0,
-      "price_per_share": 2.65,
-      "shares": 360.0,
-      "shares_owned": 134414.0,
-      "title": "President/Co-Portfolio Manager",
-      "saved_at": "2026-03-14T07:42:41.865808+00:00",
       "source": "backfill"
     }
   ],
@@ -7851,6 +7851,54 @@
   ],
   "MNTR:Billingsley Chester": [
     {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 80.0,
+      "price_per_share": 0.08,
+      "shares": 1000.0,
+      "shares_owned": 3196296.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:46:49.712674+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 100.75,
+      "price_per_share": 0.0775,
+      "shares": 1300.0,
+      "shares_owned": 3195296.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:46:49.712629+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 58.730000000000004,
+      "price_per_share": 0.0839,
+      "shares": 700.0,
+      "shares_owned": 3193996.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:44:27.995215+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 74.97,
+      "price_per_share": 0.0833,
+      "shares": 900.0,
+      "shares_owned": 3193296.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:44:27.995113+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-13",
       "code": "P",
       "is_buy": true,
@@ -8394,50 +8442,6 @@
       "shares_owned": 3136296.0,
       "title": "Chief Executive Officer",
       "saved_at": "2026-03-14T10:13:59.842798+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-10-30",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 153.6,
-      "price_per_share": 0.1024,
-      "shares": 1500.0,
-      "shares_owned": 3134296.0,
-      "title": "Chief Executive Officer",
-      "saved_at": "2026-03-14T10:24:46.479878+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-10-29",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 51.4,
-      "price_per_share": 0.1028,
-      "shares": 500.0,
-      "shares_owned": 3131796.0,
-      "title": "Chief Executive Officer",
-      "saved_at": "2026-03-14T10:24:46.479710+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-10-27",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 156.3,
-      "price_per_share": 0.1042,
-      "shares": 1500.0,
-      "saved_at": "2026-03-09T23:54:29.271632+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-10-24",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 53.949999999999996,
-      "price_per_share": 0.1079,
-      "shares": 500.0,
-      "saved_at": "2026-03-09T23:54:29.271618+00:00",
       "source": "backfill"
     }
   ],
@@ -10776,6 +10780,30 @@
     }
   ],
   "HKHC:STAHL MURRAY": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1566.7600000000002,
+      "price_per_share": 34.06,
+      "shares": 46.0,
+      "shares_owned": 249194.0,
+      "title": "CEO and CIO",
+      "saved_at": "2026-03-24T18:48:52.184066+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 340.0,
+      "price_per_share": 34.0,
+      "shares": 10.0,
+      "shares_owned": 249148.0,
+      "title": "CEO and CIO",
+      "saved_at": "2026-03-24T18:52:04.325587+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-12-09",
       "code": "P",
@@ -16591,6 +16619,18 @@
   ],
   "YORW:Hand Joseph Thomas": [
     {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 473.25,
+      "price_per_share": 31.55,
+      "shares": 15.0,
+      "shares_owned": 39887.0776,
+      "title": "President &amp; CEO",
+      "saved_at": "2026-03-24T18:43:40.594486+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-01-16",
       "code": "P",
       "is_buy": true,
@@ -18456,6 +18496,18 @@
     }
   ],
   "KFS:Fitzgerald John Taylor Maloney": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2506.1400000000003,
+      "price_per_share": 10.71,
+      "shares": 234.0,
+      "shares_owned": 1460727.0,
+      "title": "President and CEO",
+      "saved_at": "2026-03-24T18:48:00.493631+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-02-27",
       "code": "P",
@@ -26499,6 +26551,18 @@
   ],
   "EMYB:Lobach David M Jr": [
     {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1964.9999999999998,
+      "price_per_share": 19.65,
+      "shares": 100.0,
+      "shares_owned": 372825.2475,
+      "title": "Chairman, President and CEO",
+      "saved_at": "2026-03-24T18:51:57.204592+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-08-22",
       "code": "P",
       "is_buy": true,
@@ -26662,6 +26726,18 @@
     }
   ],
   "CBKM:Lober Ralph J II": [
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 13322.609999999999,
+      "price_per_share": 25.97,
+      "shares": 513.0,
+      "shares_owned": 77254.739,
+      "title": "CEO &amp; President",
+      "saved_at": "2026-03-24T18:50:12.371190+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-13",
       "code": "P",
@@ -40271,6 +40347,18 @@
   ],
   "ENOV:Engert Oliver": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 23740.0,
+      "price_per_share": 23.74,
+      "shares": 1000.0,
+      "shares_owned": 48640.0,
+      "title": "Chief Administrative Officer",
+      "saved_at": "2026-03-24T18:49:16.280160+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-09",
       "code": "P",
       "is_buy": true,
@@ -41493,6 +41581,18 @@
   ],
   "N/A:Manufacturers Life Reinsurance Ltd": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 15999922.078503668,
+      "price_per_share": 16.0159,
+      "shares": 999002.3713,
+      "shares_owned": 30808540.845,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:02.197985+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-02-27",
       "code": "P",
       "is_buy": true,
@@ -42026,6 +42126,54 @@
     }
   ],
   "UUU:AULT MILTON C III": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 12700.0,
+      "price_per_share": 6.35,
+      "shares": 2000.0,
+      "shares_owned": 636839.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:28.605967+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1221.98,
+      "price_per_share": 6.1099,
+      "shares": 200.0,
+      "shares_owned": 1600.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:28.605789+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 57819.0,
+      "price_per_share": 5.7819,
+      "shares": 10000.0,
+      "shares_owned": 631632.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:57.210309+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 60849.0,
+      "price_per_share": 6.0849,
+      "shares": 10000.0,
+      "shares_owned": 621632.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:57.210222+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-09",
       "code": "P",
@@ -42577,42 +42725,6 @@
       "title": "",
       "saved_at": "2026-03-14T11:53:43.076621+00:00",
       "source": "backfill"
-    },
-    {
-      "date": "2025-07-29",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 1812.2952,
-      "price_per_share": 3.5122,
-      "shares": 516.0,
-      "shares_owned": 12393.0,
-      "title": "",
-      "saved_at": "2026-03-14T11:53:43.076485+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-06-04",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 15075.0,
-      "price_per_share": 3.015,
-      "shares": 5000.0,
-      "shares_owned": 8725.0,
-      "title": "",
-      "saved_at": "2026-03-14T17:01:45.337448+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-05-30",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 11968.5,
-      "price_per_share": 2.3937,
-      "shares": 5000.0,
-      "shares_owned": 5000.0,
-      "title": "",
-      "saved_at": "2026-03-14T17:37:05.671964+00:00",
-      "source": "backfill"
     }
   ],
   "AUBN:Conn Walton T Jr.": [
@@ -42982,6 +43094,30 @@
     }
   ],
   "TPL:HORIZON KINETICS ASSET MANAGEMENT LLC": [
+    {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 529.07,
+      "price_per_share": 529.07,
+      "shares": 1.0,
+      "shares_owned": 3467931.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:38.338486+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 525.47,
+      "price_per_share": 525.47,
+      "shares": 1.0,
+      "shares_owned": 3467927.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:51:44.385032+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-12",
       "code": "P",
@@ -43557,30 +43693,6 @@
       "title": "",
       "saved_at": "2026-03-14T07:34:01.354914+00:00",
       "source": "backfill"
-    },
-    {
-      "date": "2025-12-19",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 897.18,
-      "price_per_share": 897.18,
-      "shares": 1.0,
-      "shares_owned": 1162590.0,
-      "title": "",
-      "saved_at": "2026-03-14T07:40:40.578050+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-12-18",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 902.41,
-      "price_per_share": 902.41,
-      "shares": 1.0,
-      "shares_owned": 1162589.0,
-      "title": "",
-      "saved_at": "2026-03-14T07:44:01.286316+00:00",
-      "source": "backfill"
     }
   ],
   "PFBX:Stilwell Joseph": [
@@ -44132,6 +44244,30 @@
     }
   ],
   "AVO:Globalharvest Holdings Venture Ltd": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2098200.55,
+      "price_per_share": 11.87,
+      "shares": 176765.0,
+      "shares_owned": 9987882.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:10.360850+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 485702.91000000003,
+      "price_per_share": 11.99,
+      "shares": 40509.0,
+      "shares_owned": 9811117.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:10.360804+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-01-22",
       "code": "P",
@@ -44700,6 +44836,18 @@
     }
   ],
   "N/A:Manulife (Singapore) Pte. Ltd.": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1999990.2596127598,
+      "price_per_share": 16.0159,
+      "shares": 124875.2964,
+      "shares_owned": 10478748.487,
+      "title": "",
+      "saved_at": "2026-03-24T18:48:04.192922+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-02-27",
       "code": "P",
@@ -46847,6 +46995,18 @@
   ],
   "GF:Saba Capital Management, L.P.": [
     {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 41646.53,
+      "price_per_share": 10.19,
+      "shares": 4087.0,
+      "shares_owned": 2558825.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:51:08.766180+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-12",
       "code": "P",
       "is_buy": true,
@@ -47432,18 +47592,6 @@
       "shares_owned": 1744128.0,
       "title": "",
       "saved_at": "2026-03-14T20:01:54.198911+00:00",
-      "source": "backfill"
-    },
-    {
-      "date": "2025-04-29",
-      "code": "P",
-      "is_buy": true,
-      "total_value": 72099.66,
-      "price_per_share": 10.41,
-      "shares": 6926.0,
-      "shares_owned": 1741546.0,
-      "title": "",
-      "saved_at": "2026-03-14T20:01:54.198795+00:00",
       "source": "backfill"
     }
   ],
@@ -49435,6 +49583,18 @@
   ],
   "GAIA:Sutherland Paul Howard": [
     {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 6020.0,
+      "price_per_share": 3.01,
+      "shares": 2000.0,
+      "shares_owned": 306457.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:36.857459+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-10",
       "code": "P",
       "is_buy": true,
@@ -49658,6 +49818,30 @@
     }
   ],
   "SPRU:STEEL PARTNERS HOLDINGS L.P.": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 12662.3749,
+      "price_per_share": 4.2967,
+      "shares": 2947.0,
+      "shares_owned": 3259706.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:48.362987+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 63672.0,
+      "price_per_share": 4.2,
+      "shares": 15160.0,
+      "shares_owned": 3256759.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:48.362902+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-11",
       "code": "P",
@@ -50458,6 +50642,18 @@
     }
   ],
   "GABC:Ellspermann Susan J": [
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1999.99975956,
+      "price_per_share": 40.4814,
+      "shares": 49.4054,
+      "shares_owned": 11788.0597,
+      "title": "",
+      "saved_at": "2026-03-24T18:48:19.378259+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-01-15",
       "code": "P",
@@ -52036,6 +52232,18 @@
     }
   ],
   "NONE:Blackstone Holdings IV GP Management (Delaware) L.P.": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 49999999.99735,
+      "price_per_share": 26.15,
+      "shares": 1912045.889,
+      "shares_owned": 18628294.597,
+      "title": "",
+      "saved_at": "2026-03-24T18:51:58.944436+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-02-23",
       "code": "P",
@@ -57799,6 +58007,18 @@
   ],
   "CBKM:PADEN FRANK L": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 5654.698879,
+      "price_per_share": 25.99,
+      "shares": 217.5721,
+      "shares_owned": 12478.114,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:59.223531+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-12-16",
       "code": "P",
       "is_buy": true,
@@ -57900,6 +58120,18 @@
     }
   ],
   "BCIC:Schafer Patrick": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 19852.497,
+      "price_per_share": 7.4774,
+      "shares": 2655.0,
+      "shares_owned": 27265.0,
+      "title": "Chief Investment Officer",
+      "saved_at": "2026-03-24T18:45:16.683137+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-12-12",
       "code": "P",
@@ -58252,6 +58484,18 @@
     }
   ],
   "BUKS:Daly Joseph Patrick": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 3880.0,
+      "price_per_share": 3.88,
+      "shares": 1000.0,
+      "shares_owned": 4500000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:31.776732+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-01-02",
       "code": "P",
@@ -58740,6 +58984,30 @@
     }
   ],
   "AFCG:TANNENBAUM LEONARD M": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 156954.0,
+      "price_per_share": 2.59,
+      "shares": 60600.0,
+      "shares_owned": 6198589.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:14.059017+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 234654.0,
+      "price_per_share": 2.59,
+      "shares": 90600.0,
+      "shares_owned": 6137989.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:14.058893+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-10",
       "code": "P",
@@ -59670,6 +59938,18 @@
     }
   ],
   "NONE:Monte Mark David": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 806.06025,
+      "price_per_share": 10.05,
+      "shares": 80.205,
+      "shares_owned": 3037.9629,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:35.886311+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-02-23",
       "code": "P",
@@ -61600,6 +61880,18 @@
     }
   ],
   "AMRZ:Gross Mario": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 110780.0,
+      "price_per_share": 55.39,
+      "shares": 2000.0,
+      "shares_owned": 29747.0,
+      "title": "Chief Supply Chain Officer",
+      "saved_at": "2026-03-24T18:49:10.265670+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-08-13",
       "code": "P",
@@ -65386,6 +65678,18 @@
     }
   ],
   "N/A:Manulife (International) Ltd": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 4999978.12681784,
+      "price_per_share": 18.5153,
+      "shares": 270045.7528,
+      "shares_owned": 45474595.718,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:19.202419+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-12-31",
       "code": "P",
@@ -75571,6 +75875,18 @@
   ],
   "AWRE:STAFFORD JOHN S III": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 21445.12,
+      "price_per_share": 1.28,
+      "shares": 16754.0,
+      "shares_owned": 5121954.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:43:47.121596+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-03-12",
       "code": "P",
       "is_buy": true,
@@ -76320,6 +76636,18 @@
     }
   ],
   "BETR:Framework Ventures IV L.P.": [
+    {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 1184000.0,
+      "price_per_share": 29.6,
+      "shares": 40000.0,
+      "shares_owned": 952312.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:43.512794+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-13",
       "code": "P",
@@ -77117,6 +77445,30 @@
   ],
   "ACOG:Opaleye Management Inc.": [
     {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 11950.458,
+      "price_per_share": 5.707,
+      "shares": 2094.0,
+      "shares_owned": 2439918.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:03.324915+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 14263.268999999998,
+      "price_per_share": 5.749,
+      "shares": 2481.0,
+      "shares_owned": 2437824.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:03.324848+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-13",
       "code": "P",
       "is_buy": true,
@@ -77581,6 +77933,30 @@
   ],
   "ALTG:Mill Road Capital III, L.P.": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 22584.807,
+      "price_per_share": 5.9465,
+      "shares": 3798.0,
+      "shares_owned": 4373208.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:51:45.230322+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 354666.0598,
+      "price_per_share": 6.0979,
+      "shares": 58162.0,
+      "shares_owned": 4369410.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:51:45.230205+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-11",
       "code": "P",
       "is_buy": true,
@@ -77594,6 +77970,18 @@
     }
   ],
   "PETV:A.L. Sarroff Fund, LLC": [
+    {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 15662.44,
+      "price_per_share": 0.68,
+      "shares": 23033.0,
+      "shares_owned": 10201229.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:53:25.759193+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-13",
       "code": "P",
@@ -78498,6 +78886,30 @@
     }
   ],
   "VEEE:SWETS LARRY G JR": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 18000.0,
+      "price_per_share": 0.36,
+      "shares": 50000.0,
+      "shares_owned": 250000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:48:44.447738+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 19000.0,
+      "price_per_share": 0.38,
+      "shares": 50000.0,
+      "shares_owned": 200000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:48:44.447687+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-13",
       "code": "P",
@@ -80353,6 +80765,54 @@
   ],
   "LOGC:Bobbili Raja": [
     {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 249373.9,
+      "price_per_share": 8.5991,
+      "shares": 29000.0,
+      "shares_owned": 350000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:48:31.911830+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 244131.84840000002,
+      "price_per_share": 8.3404,
+      "shares": 29271.0,
+      "shares_owned": 321000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:26.544089+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 288927.12059999997,
+      "price_per_share": 8.2014,
+      "shares": 35229.0,
+      "shares_owned": 291729.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:26.544076+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 52000.0,
+      "price_per_share": 8.0,
+      "shares": 6500.0,
+      "shares_owned": 256500.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:26.544024+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-10",
       "code": "P",
       "is_buy": true,
@@ -80522,6 +80982,30 @@
     }
   ],
   "AHCO:CASHIN RICHARD M JR": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 4431699.91,
+      "price_per_share": 9.9121,
+      "shares": 447100.0,
+      "shares_owned": 16312698.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:41.492141+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 7227.615900000001,
+      "price_per_share": 9.9417,
+      "shares": 727.0,
+      "shares_owned": 15865598.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:50:41.492058+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-12",
       "code": "P",
@@ -81605,6 +82089,18 @@
   ],
   "DIN:PASQUALE DOUGLAS M": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 27750.0,
+      "price_per_share": 27.75,
+      "shares": 1000.0,
+      "shares_owned": 32468.92,
+      "title": "",
+      "saved_at": "2026-03-24T18:53:41.375555+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-12",
       "code": "P",
       "is_buy": true,
@@ -81876,6 +82372,18 @@
     }
   ],
   "TRIN:Brown Steve Louis": [
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 399857.75,
+      "price_per_share": 14.75,
+      "shares": 27109.0,
+      "shares_owned": 940745.0,
+      "title": "Executive Chairman",
+      "saved_at": "2026-03-24T18:50:26.081769+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-09",
       "code": "P",
@@ -82317,6 +82825,18 @@
   ],
   "LINE:Marchetti Kevin Patrick": [
     {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 498699.46,
+      "price_per_share": 37.4962,
+      "shares": 13300.0,
+      "shares_owned": 113690.0,
+      "title": "Co-Executive Chairman",
+      "saved_at": "2026-03-24T18:45:20.983768+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-09",
       "code": "P",
       "is_buy": true,
@@ -82469,6 +82989,18 @@
   ],
   "GRNT:Kettler Ronald Kyle": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 15510.0,
+      "price_per_share": 5.17,
+      "shares": 3000.0,
+      "shares_owned": 123276.0,
+      "title": "Chief Financial Officer",
+      "saved_at": "2026-03-24T18:46:32.609644+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-10",
       "code": "P",
       "is_buy": true,
@@ -82482,6 +83014,18 @@
     }
   ],
   "GRNT:Miller Matthew Reade": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 3388.7000000000003,
+      "price_per_share": 5.15,
+      "shares": 658.0,
+      "shares_owned": 1328839.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:14.678237+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-10",
       "code": "P",
@@ -84784,6 +85328,18 @@
     }
   ],
   "NBBK:CAMPANELLI JOSEPH P": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 50400.0,
+      "price_per_share": 20.16,
+      "shares": 2500.0,
+      "shares_owned": 396661.0,
+      "title": "President &amp; CEO",
+      "saved_at": "2026-03-24T18:43:59.132673+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-06",
       "code": "P",
@@ -88301,6 +88857,18 @@
   ],
   "THRY:Slater John": [
     {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 5320.0,
+      "price_per_share": 2.66,
+      "shares": 2000.0,
+      "shares_owned": 40370.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:22.923935+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-03-04",
       "code": "P",
       "is_buy": true,
@@ -88648,6 +89216,18 @@
     }
   ],
   "TRIN:Brown Kyle Steven": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 50017.6512,
+      "price_per_share": 14.16,
+      "shares": 3532.32,
+      "shares_owned": 620708.51,
+      "title": "CEO, President and CIO",
+      "saved_at": "2026-03-24T18:46:59.891369+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-03-02",
       "code": "P",
@@ -90226,6 +90806,18 @@
     }
   ],
   "CTEV:Kim Michael": [
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 247500.0,
+      "price_per_share": 16.5,
+      "shares": 15000.0,
+      "shares_owned": 182878.0,
+      "title": "EVP, Chief Digital Officer",
+      "saved_at": "2026-03-24T18:53:12.178383+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-02-27",
       "code": "P",
@@ -92376,6 +92968,18 @@
     }
   ],
   "VNO:TISCH DANIEL R": [
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 766500.0,
+      "price_per_share": 25.55,
+      "shares": 30000.0,
+      "shares_owned": 215000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:48:02.552732+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-02-24",
       "code": "P",
@@ -94762,6 +95366,18 @@
     }
   ],
   "N/A:Manufacturers Life Insurance Co (Bermuda Branch)": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 925934.42610418,
+      "price_per_share": 18.5153,
+      "shares": 50009.1506,
+      "shares_owned": 21146721.188,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:30.506088+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2026-02-17",
       "code": "P",
@@ -101133,6 +101749,18 @@
   ],
   "PCF:GOLDSTEIN PHILLIP": [
     {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 97761.3,
+      "price_per_share": 5.46,
+      "shares": 17905.0,
+      "shares_owned": 41353.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:36.572839+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-02-03",
       "code": "P",
       "is_buy": true,
@@ -106535,6 +107163,18 @@
   ],
   "GAM:Stark Eugene S": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 74850.0,
+      "price_per_share": 24.95,
+      "shares": 3000.0,
+      "shares_owned": 27000.0,
+      "title": "VP Administration/CCO/PFO",
+      "saved_at": "2026-03-24T18:44:14.571016+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2026-01-13",
       "code": "P",
       "is_buy": true,
@@ -110374,6 +111014,30 @@
     }
   ],
   "CMTV:Laforce David": [
+    {
+      "date": "2026-03-03",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 26850.0,
+      "price_per_share": 30.0,
+      "shares": 895.0,
+      "shares_owned": 9859.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:18.422291+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-02-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 4393.2,
+      "price_per_share": 31.38,
+      "shares": 140.0,
+      "shares_owned": 8964.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:18.422246+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-08-01",
       "code": "P",
@@ -114811,6 +115475,18 @@
   ],
   "FMBM:Willingham John A.": [
     {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2783.69,
+      "price_per_share": 30.59,
+      "shares": 91.0,
+      "shares_owned": 20941.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:19.818115+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-12-18",
       "code": "P",
       "is_buy": true,
@@ -115957,6 +116633,18 @@
   ],
   "SCND:MOORE JOHN A": [
     {
+      "date": "2026-02-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 650.0,
+      "price_per_share": 0.65,
+      "shares": 1000.0,
+      "shares_owned": 917871.0,
+      "title": "Chairman of the Board",
+      "saved_at": "2026-03-24T18:45:24.715438+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-12-17",
       "code": "P",
       "is_buy": true,
@@ -116576,6 +117264,18 @@
     }
   ],
   "EML:Scott Peggy": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 22269.52,
+      "price_per_share": 20.93,
+      "shares": 1064.0,
+      "shares_owned": 25086.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:53:14.398041+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-12-16",
       "code": "P",
@@ -118766,6 +119466,18 @@
     }
   ],
   "SI:Points Jeffrey S.": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 30000.0,
+      "price_per_share": 15.0,
+      "shares": 2000.0,
+      "shares_owned": 70785.0,
+      "title": "Chief Financial Officer",
+      "saved_at": "2026-03-24T18:48:06.972621+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-12-12",
       "code": "P",
@@ -123049,6 +123761,42 @@
   ],
   "MNR:McMullen William Wallace": [
     {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 43820.450000000004,
+      "price_per_share": 13.63,
+      "shares": 3215.0,
+      "shares_owned": 74859917.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:53.948822+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 35000.0,
+      "price_per_share": 14.0,
+      "shares": 2500.0,
+      "shares_owned": 74856702.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:53.948788+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 49980.0,
+      "price_per_share": 14.0,
+      "shares": 3570.0,
+      "shares_owned": 74854202.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:53.948629+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-12-09",
       "code": "P",
       "is_buy": true,
@@ -127272,6 +128020,18 @@
     }
   ],
   "AP:McBrayer Brett": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 50025.0,
+      "price_per_share": 6.67,
+      "shares": 7500.0,
+      "shares_owned": 585731.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:44:33.928058+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-12-01",
       "code": "P",
@@ -133843,6 +134603,30 @@
   ],
   "GCBC:Hada Tejraj S": [
     {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 87800.0,
+      "price_per_share": 21.95,
+      "shares": 4000.0,
+      "shares_owned": 35427.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:46.777201+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 43980.0,
+      "price_per_share": 21.99,
+      "shares": 2000.0,
+      "shares_owned": 31427.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:46.777113+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-11-18",
       "code": "P",
       "is_buy": true,
@@ -136288,6 +137072,18 @@
     }
   ],
   "WHF:Volpe John Paul": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 7180.0,
+      "price_per_share": 7.18,
+      "shares": 1000.0,
+      "shares_owned": 1000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:54.846779+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-11-12",
       "code": "P",
@@ -140391,6 +141187,18 @@
   ],
   "BW:Frymyer Cameron M": [
     {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 18966.6,
+      "price_per_share": 14.76,
+      "shares": 1285.0,
+      "shares_owned": 324143.0,
+      "title": "Chief Financial Officer",
+      "saved_at": "2026-03-24T18:52:41.448146+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-11-12",
       "code": "P",
       "is_buy": true,
@@ -141444,6 +142252,30 @@
     }
   ],
   "BBSI:Finn Mark Steven": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 13940.0,
+      "price_per_share": 27.88,
+      "shares": 500.0,
+      "shares_owned": 18943.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:00.911166+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 13962.5,
+      "price_per_share": 27.925,
+      "shares": 500.0,
+      "shares_owned": 18443.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:00.911114+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-11-10",
       "code": "P",
@@ -143123,6 +143955,18 @@
   ],
   "SENS:ROEDER DOUGLAS A": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 100275.00000000001,
+      "price_per_share": 5.73,
+      "shares": 17500.0,
+      "shares_owned": 119731.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:43:34.589079+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-11-07",
       "code": "P",
       "is_buy": true,
@@ -143912,6 +144756,30 @@
     }
   ],
   "XZO:Patel Paresh": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 32600.0,
+      "price_per_share": 16.3,
+      "shares": 2000.0,
+      "shares_owned": 1576013.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:48:09.301562+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 31360.0,
+      "price_per_share": 15.68,
+      "shares": 2000.0,
+      "shares_owned": 1574013.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:48:09.301483+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-11-06",
       "code": "P",
@@ -145768,6 +146636,18 @@
     }
   ],
   "OBT:Gilfeather Michael J": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 6249.9800000000005,
+      "price_per_share": 31.2499,
+      "shares": 200.0,
+      "shares_owned": 16400.0,
+      "title": "President and CEO",
+      "saved_at": "2026-03-24T18:45:14.995704+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-10-31",
       "code": "P",
@@ -150057,6 +150937,18 @@
   ],
   "MTN:Korch Angela A": [
     {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 25051.5,
+      "price_per_share": 131.85,
+      "shares": 190.0,
+      "shares_owned": 5539.0,
+      "title": "EVP &amp; Chief Financial Officer",
+      "saved_at": "2026-03-24T18:52:55.037318+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-10-07",
       "code": "P",
       "is_buy": true,
@@ -152360,6 +153252,42 @@
     }
   ],
   "CULP:CULP ROBERT GEORGE IV": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 9205.33,
+      "price_per_share": 3.13,
+      "shares": 2941.0,
+      "shares_owned": 123138.0,
+      "title": "President &amp; CEO",
+      "saved_at": "2026-03-24T18:52:42.658610+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 13852.08,
+      "price_per_share": 3.18,
+      "shares": 4356.0,
+      "shares_owned": 120197.0,
+      "title": "President &amp; CEO",
+      "saved_at": "2026-03-24T18:48:07.568739+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 13806.449999999999,
+      "price_per_share": 3.15,
+      "shares": 4383.0,
+      "shares_owned": 115841.0,
+      "title": "President &amp; CEO",
+      "saved_at": "2026-03-24T18:48:07.568677+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-09-22",
       "code": "P",
@@ -158056,6 +158984,18 @@
     }
   ],
   "LAC:BROWN MICHAEL JOHN": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 3780.1,
+      "price_per_share": 3.7801,
+      "shares": 1000.0,
+      "shares_owned": 7201.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:40.668186+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-09-05",
       "code": "P",
@@ -163925,6 +164865,18 @@
   ],
   "N/A:Darrah Matthew": [
     {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 122499.99664,
+      "price_per_share": 10.36,
+      "shares": 11824.324,
+      "shares_owned": 22712.572,
+      "title": "",
+      "saved_at": "2026-03-24T18:51:56.566192+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-08-18",
       "code": "P",
       "is_buy": true,
@@ -166920,6 +167872,18 @@
     }
   ],
   "ALKT:GENERAL ATLANTIC, L.P.": [
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 9165000.0,
+      "price_per_share": 18.33,
+      "shares": 500000.0,
+      "shares_owned": 15379451.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:52.841556+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-08-13",
       "code": "P",
@@ -170373,6 +171337,18 @@
   ],
   "SI:Buchholz Richard": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 14840.0,
+      "price_per_share": 14.84,
+      "shares": 1000.0,
+      "shares_owned": 13666.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:00.180894+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-08-01",
       "code": "P",
       "is_buy": true,
@@ -173445,6 +174421,18 @@
   ],
   "ABSI:Busch Andreas": [
     {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 229000.0,
+      "price_per_share": 2.29,
+      "shares": 100000.0,
+      "shares_owned": 421446.0,
+      "title": "Chief Innovation Officer",
+      "saved_at": "2026-03-24T18:52:46.417944+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-07-28",
       "code": "P",
       "is_buy": true,
@@ -176137,6 +177125,18 @@
   ],
   "OCSL:Gero Deborah Ann": [
     {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 21557.8,
+      "price_per_share": 10.7789,
+      "shares": 2000.0,
+      "shares_owned": 24411.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:22.372415+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-06-30",
       "code": "P",
       "is_buy": true,
@@ -176150,6 +177150,18 @@
     }
   ],
   "CCIF:Basmadjian Lauren Michelle": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 51520.0,
+      "price_per_share": 3.22,
+      "shares": 16000.0,
+      "shares_owned": 37448.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:50.833843+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-06-27",
       "code": "P",
@@ -177140,6 +178152,30 @@
     }
   ],
   "ACIC:DAVIS KERN MICHAEL": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2224.0,
+      "price_per_share": 11.12,
+      "shares": 200.0,
+      "shares_owned": 4526.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:52.318488+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2246.0,
+      "price_per_share": 11.23,
+      "shares": 200.0,
+      "shares_owned": 4326.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:52.318388+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-06-26",
       "code": "P",
@@ -178390,6 +179426,18 @@
     }
   ],
   "CIA:Stenberg Jon": [
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 48075.0,
+      "price_per_share": 4.8075,
+      "shares": 10000.0,
+      "shares_owned": 208930.0,
+      "title": "President &amp; CEO",
+      "saved_at": "2026-03-24T18:45:17.546678+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-06-17",
       "code": "P",
@@ -186798,6 +187846,18 @@
     }
   ],
   "WSBC:STEMLER KERRY M": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 15563.375,
+      "price_per_share": 32.765,
+      "shares": 475.0,
+      "shares_owned": 110090.643,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:08.582831+00:00",
+      "source": "backfill_gaps"
+    },
     {
       "date": "2025-05-22",
       "code": "P",
@@ -203941,6 +205001,18 @@
   ],
   "TCPC:Wolfe Patrick": [
     {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2554.9300000000003,
+      "price_per_share": 3.6499,
+      "shares": 700.0,
+      "shares_owned": 700.0,
+      "title": "Chief Operating Officer",
+      "saved_at": "2026-03-24T18:51:42.361552+00:00",
+      "source": "backfill_gaps"
+    },
+    {
       "date": "2025-03-14",
       "code": "P",
       "is_buy": true,
@@ -205010,6 +206082,700 @@
       "shares_owned": 8903838.0,
       "title": "",
       "saved_at": "2026-03-14T23:26:03.688724+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "PONO:Shindo Dustin M": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 160000.0,
+      "price_per_share": 1.0,
+      "shares": 160000.0,
+      "shares_owned": 160000.0,
+      "title": "CEO and Chairman",
+      "saved_at": "2026-03-24T18:43:55.620598+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "CRM:ALBER LAURA": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 95519.14,
+      "price_per_share": 194.54,
+      "shares": 491.0,
+      "shares_owned": 7450.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:43:58.569824+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "WD:SCHMALTZ DANA L": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 45780.0,
+      "price_per_share": 45.78,
+      "shares": 1000.0,
+      "shares_owned": 84325.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:43:59.984318+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "OSUR:McGrath Kenneth J": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 66029.9685,
+      "price_per_share": 2.9985,
+      "shares": 22021.0,
+      "shares_owned": 557262.0,
+      "title": "Chief Financial Officer",
+      "saved_at": "2026-03-24T18:44:17.825340+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "CSTM:Deslarzes Jean-Christophe": [
+    {
+      "date": "2026-03-02",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 41242.05,
+      "price_per_share": 24.77,
+      "shares": 1665.0,
+      "shares_owned": 40700.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:20.663943+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "REFLX:Tuten Matthew Richard": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 499975.99794000003,
+      "price_per_share": 10.41,
+      "shares": 48028.434,
+      "shares_owned": 48028.434,
+      "title": "",
+      "saved_at": "2026-03-24T18:44:31.374732+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "BCIC:Duka Alexander": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 14670.0,
+      "price_per_share": 7.335,
+      "shares": 2000.0,
+      "shares_owned": 3000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:16.408324+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "SUMA:Saloojee Naseem": [
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 3168750.0,
+      "price_per_share": 10.0,
+      "shares": 316875.0,
+      "shares_owned": 316875.0,
+      "title": "See Remarks",
+      "saved_at": "2026-03-24T18:45:26.862986+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "LGHL:HRT FINANCIAL LP": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 4534.200000000001,
+      "price_per_share": 1.1,
+      "shares": 4122.0,
+      "shares_owned": 23549.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:46.478230+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "REEMF:Synchron": [
+    {
+      "date": "2026-03-10",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2407160212532064.0,
+      "price_per_share": 24035774.4,
+      "shares": 100149060.0,
+      "shares_owned": 460889576.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:45:47.045186+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "NFBK:Fasanella David": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 98025.0,
+      "price_per_share": 13.07,
+      "shares": 7500.0,
+      "shares_owned": 11500.0,
+      "title": "EVP",
+      "saved_at": "2026-03-24T18:45:53.110523+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "TGEN:Deschenes Roger P.": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 22300.0,
+      "price_per_share": 2.23,
+      "shares": 10000.0,
+      "shares_owned": 52962.0,
+      "title": "CAO",
+      "saved_at": "2026-03-24T18:46:16.675613+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "HKHC:Nagelberg Allison": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 5094.0,
+      "price_per_share": 33.96,
+      "shares": 150.0,
+      "shares_owned": 400.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:32.064755+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "KGS:Darden Alexander Newsom": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 273750.0,
+      "price_per_share": 54.75,
+      "shares": 5000.0,
+      "shares_owned": 5000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:33.464268+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "LOAR:LEVY PAUL S": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 4867500.0,
+      "price_per_share": 64.9,
+      "shares": 75000.0,
+      "shares_owned": 8087580.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:46:53.599473+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "GCBC:Hogan Peter W.": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 66300.0,
+      "price_per_share": 22.1,
+      "shares": 3000.0,
+      "shares_owned": 75000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:12.142502+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "TTAM:Wilt Lawrence Hugh Jr.": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 298600.0,
+      "price_per_share": 14.93,
+      "shares": 20000.0,
+      "shares_owned": 20000.0,
+      "title": "Chief Financial Officer",
+      "saved_at": "2026-03-24T18:47:22.640758+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "EYPT:Duker Jay S.": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 19723.8,
+      "price_per_share": 13.1492,
+      "shares": 1500.0,
+      "shares_owned": 100665.0,
+      "title": "President and CEO",
+      "saved_at": "2026-03-24T18:47:28.578410+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "IBIO:Duran Felipe": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 50131.931000000004,
+      "price_per_share": 2.0186,
+      "shares": 24835.0,
+      "shares_owned": 35974.0,
+      "title": "Chief Financial Officer",
+      "saved_at": "2026-03-24T18:47:53.037729+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "TOUR:Chen Anqiang": [
+    {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 2030.0,
+      "price_per_share": 0.725,
+      "shares": 2800.0,
+      "shares_owned": 52700.0,
+      "title": "Financial Controller",
+      "saved_at": "2026-03-24T18:47:56.219455+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 12223.68,
+      "price_per_share": 0.7276,
+      "shares": 16800.0,
+      "shares_owned": 49900.0,
+      "title": "Financial Controller",
+      "saved_at": "2026-03-24T18:47:56.219435+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "KLTR:Yekutiel Ron": [
+    {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 49626.3975,
+      "price_per_share": 1.2261,
+      "shares": 40475.0,
+      "shares_owned": 15055748.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:47:56.516936+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 49629.579999999994,
+      "price_per_share": 1.1396,
+      "shares": 43550.0,
+      "shares_owned": 15015273.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:51:56.284889+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 49612.5,
+      "price_per_share": 1.125,
+      "shares": 44100.0,
+      "shares_owned": 14971723.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:50:37.055276+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "FLYX:Hopper Peter B.": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 58677.50000000001,
+      "price_per_share": 2.3471,
+      "shares": 25000.0,
+      "shares_owned": 125000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:56.805429+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-09",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 119235.0,
+      "price_per_share": 2.3847,
+      "shares": 50000.0,
+      "shares_owned": 100000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:56.805405+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-06",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 127120.00000000001,
+      "price_per_share": 2.5424,
+      "shares": 50000.0,
+      "shares_owned": 50000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:47:56.805353+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "TGEN:Rangesh Abinand": [
+    {
+      "date": "2026-03-20",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 6894.0,
+      "price_per_share": 2.298,
+      "shares": 3000.0,
+      "shares_owned": 67193.0,
+      "title": "Chief Executive Officer",
+      "saved_at": "2026-03-24T18:48:29.070269+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "IBIO:Brenner Martin": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 24918.72,
+      "price_per_share": 2.02,
+      "shares": 12336.0,
+      "shares_owned": 30652.0,
+      "title": "See Remarks",
+      "saved_at": "2026-03-24T18:48:32.171647+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "FMBM:Eberly Paul E.": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 50504.09,
+      "price_per_share": 30.59,
+      "shares": 1651.0,
+      "shares_owned": 9833.0,
+      "title": "EVP/Chief Lending Officer",
+      "saved_at": "2026-03-24T18:48:33.034982+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "HBIO:DENELSKY STEPHEN J": [
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 48700.0,
+      "price_per_share": 4.87,
+      "shares": 10000.0,
+      "shares_owned": 21000.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:48:42.513069+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "TGEN:Whiting John Kimball IV": [
+    {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 23800.0,
+      "price_per_share": 2.38,
+      "shares": 10000.0,
+      "shares_owned": 22612.0,
+      "title": "General Counsel &amp; Secretary",
+      "saved_at": "2026-03-24T18:49:02.889732+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "ARQ:EICHER CAROL S": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 151008.75,
+      "price_per_share": 1.9485,
+      "shares": 77500.0,
+      "shares_owned": 174010.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:07.869300+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "STRA:SILBERMAN ROBERT S": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 58028.759999999995,
+      "price_per_share": 80.82,
+      "shares": 718.0,
+      "shares_owned": 319870.0,
+      "title": "CHAIRMAN",
+      "saved_at": "2026-03-24T18:49:14.399211+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "CULP:Hunsberger Mary Elizabeth": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 11386.26,
+      "price_per_share": 3.06,
+      "shares": 3721.0,
+      "shares_owned": 18721.0,
+      "title": "Chief Operating Officer",
+      "saved_at": "2026-03-24T18:49:29.823018+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "SCM:Bilger Bruce R": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 170092.91999999998,
+      "price_per_share": 8.76,
+      "shares": 19417.0,
+      "shares_owned": 201982.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:49:40.040614+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "HFFG:McGarry Paul E": [
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 4400.0,
+      "price_per_share": 1.76,
+      "shares": 2500.0,
+      "shares_owned": 9700.0,
+      "title": "CFO",
+      "saved_at": "2026-03-24T18:49:42.029132+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "NSP:SARVADI PAUL J": [
+    {
+      "date": "2026-03-19",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 541897.87,
+      "price_per_share": 23.57,
+      "shares": 22991.0,
+      "shares_owned": 995903.0,
+      "title": "Chairman of the Board &amp; CEO",
+      "saved_at": "2026-03-24T18:51:14.168892+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-18",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 3715200.0,
+      "price_per_share": 23.22,
+      "shares": 160000.0,
+      "shares_owned": 972912.0,
+      "title": "Chairman of the Board &amp; CEO",
+      "saved_at": "2026-03-24T18:51:14.168884+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 337657.11000000004,
+      "price_per_share": 22.53,
+      "shares": 14987.0,
+      "shares_owned": 472670.0,
+      "title": "Chairman of the Board &amp; CEO",
+      "saved_at": "2026-03-24T18:51:14.168834+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "LNC:Charters Jennifer": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 9783.0,
+      "price_per_share": 32.61,
+      "shares": 300.0,
+      "shares_owned": 37796.0,
+      "title": "EVP, Chief Information Officer",
+      "saved_at": "2026-03-24T18:51:19.651330+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "VRTS:MORRIS W HOWARD": [
+    {
+      "date": "2026-03-12",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 246278.0,
+      "price_per_share": 129.62,
+      "shares": 1900.0,
+      "shares_owned": 4307.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:51:21.748376+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "KLTR:Levandov Richard": [
+    {
+      "date": "2026-03-23",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 48920.0,
+      "price_per_share": 1.223,
+      "shares": 40000.0,
+      "shares_owned": 489706.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:01.562769+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "HHH:Valane Joseph": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 81206.874,
+      "price_per_share": 64.4499,
+      "shares": 1260.0,
+      "shares_owned": 29209.0,
+      "title": "General Counsel &amp; Secretary",
+      "saved_at": "2026-03-24T18:52:02.874429+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "ALTG:Nair Sidhartha": [
+    {
+      "date": "2026-03-11",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 6370.0,
+      "price_per_share": 6.37,
+      "shares": 1000.0,
+      "shares_owned": 37806.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:03.186062+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-09",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 6750.0,
+      "price_per_share": 6.75,
+      "shares": 1000.0,
+      "shares_owned": 36806.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:03.186050+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-05",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 7000.0,
+      "price_per_share": 7.0,
+      "shares": 1000.0,
+      "shares_owned": 35806.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:03.186038+00:00",
+      "source": "backfill_gaps"
+    },
+    {
+      "date": "2026-03-03",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 7130.0,
+      "price_per_share": 7.13,
+      "shares": 1000.0,
+      "shares_owned": 34806.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:52:03.185987+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "GPGI:Schoen Kurt": [
+    {
+      "date": "2026-03-17",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 51000.0,
+      "price_per_share": 17.0,
+      "shares": 3000.0,
+      "shares_owned": 3000.0,
+      "title": "See remarks",
+      "saved_at": "2026-03-24T18:52:24.916527+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "SCM:Huskinson W. Todd": [
+    {
+      "date": "2026-03-13",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 50074.5,
+      "price_per_share": 8.785,
+      "shares": 5700.0,
+      "shares_owned": 54297.0,
+      "title": "CFO and CCO",
+      "saved_at": "2026-03-24T18:53:01.731151+00:00",
+      "source": "backfill_gaps"
+    }
+  ],
+  "SBSW:Maphai Thabane Vincent": [
+    {
+      "date": "2026-03-16",
+      "code": "P",
+      "is_buy": true,
+      "total_value": 160080.0,
+      "price_per_share": 13.34,
+      "shares": 12000.0,
+      "shares_owned": 140178.0,
+      "title": "",
+      "saved_at": "2026-03-24T18:53:12.724222+00:00",
       "source": "backfill_gaps"
     }
   ]
