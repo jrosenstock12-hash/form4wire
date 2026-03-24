@@ -520,20 +520,26 @@ def main():
     log.info(f"   Min between posts: {config.MIN_SECONDS_BETWEEN_POSTS//60} min")
 
     # One-time seed: restore trade history from repo if volume is missing or empty
+    import shutil as _shutil, json as _json
     if os.path.exists("trade_history_seed.json"):
         try:
-            existing = json.load(open(config.TRADE_HISTORY_FILE)) if os.path.exists(config.TRADE_HISTORY_FILE) else {}
+            existing = _json.load(open(config.TRADE_HISTORY_FILE)) if os.path.exists(config.TRADE_HISTORY_FILE) else {}
             real_keys = [k for k in existing if not k.startswith("__")]
             if len(real_keys) < 100:
-                import shutil
-                shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
+                _shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
                 log.info(f"  → Restored trade history from seed file (was {len(real_keys)} keys)")
             else:
                 log.info(f"  → Trade history intact: {len(real_keys)} keys, skipping seed")
         except Exception as e:
-            import shutil
-            shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
-            log.info(f"  → Restored trade history from seed file (error reading existing: {e})")
+            _shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
+            log.info(f"  → Restored trade history from seed file (error: {e})")
+    # Always log current trade history key count on startup
+    try:
+        _h = _json.load(open(config.TRADE_HISTORY_FILE)) if os.path.exists(config.TRADE_HISTORY_FILE) else {}
+        _real = [k for k in _h if not k.startswith("__")]
+        log.info(f"  → Trade history on volume: {len(_real)} insider keys")
+    except Exception as e:
+        log.info(f"  → Trade history check failed: {e}")
 
     seen = load_seen()
 
