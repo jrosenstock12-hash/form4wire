@@ -519,11 +519,21 @@ def main():
     log.info(f"   Poll interval: {config.POLL_INTERVAL_SECONDS}s")
     log.info(f"   Min between posts: {config.MIN_SECONDS_BETWEEN_POSTS//60} min")
 
-    # One-time seed: restore trade history from repo if volume is empty
-    if not os.path.exists(config.TRADE_HISTORY_FILE) and os.path.exists("trade_history_seed.json"):
-        import shutil
-        shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
-        log.info("  → Restored trade history from seed file")
+    # One-time seed: restore trade history from repo if volume is missing or empty
+    if os.path.exists("trade_history_seed.json"):
+        try:
+            existing = json.load(open(config.TRADE_HISTORY_FILE)) if os.path.exists(config.TRADE_HISTORY_FILE) else {}
+            real_keys = [k for k in existing if not k.startswith("__")]
+            if len(real_keys) < 100:
+                import shutil
+                shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
+                log.info(f"  → Restored trade history from seed file (was {len(real_keys)} keys)")
+            else:
+                log.info(f"  → Trade history intact: {len(real_keys)} keys, skipping seed")
+        except Exception as e:
+            import shutil
+            shutil.copy("trade_history_seed.json", config.TRADE_HISTORY_FILE)
+            log.info(f"  → Restored trade history from seed file (error reading existing: {e})")
 
     seen = load_seen()
 
