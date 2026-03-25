@@ -1718,5 +1718,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-25T20:01:49.863916+00:00"
+  },
+  {
+    "ticker": "GO",
+    "company_name": "Grocery Outlet Holding Corp.",
+    "insider_name": "Potter Jason J. N.",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-23",
+    "filed_date": "2026-03-25",
+    "shares_traded": 112808,
+    "price_per_share": 6.3575,
+    "total_value": 717174.28,
+    "total_value_fmt": "$717K",
+    "shares_owned_after": 687174,
+    "position_change_pct": 19.6,
+    "pct_from_52w_high": 65.9,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-25T20:17:17.727612+00:00"
   }
 ]
