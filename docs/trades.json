@@ -1778,5 +1778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-25T21:33:06.305663+00:00"
+  },
+  {
+    "ticker": "RPC",
+    "company_name": "Ridgepost Capital, Inc.",
+    "insider_name": "McCoy David M.",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-23",
+    "filed_date": "2026-03-25",
+    "shares_traded": 70000,
+    "price_per_share": 7.37,
+    "total_value": 515900.0,
+    "total_value_fmt": "$516K",
+    "shares_owned_after": 270068,
+    "position_change_pct": 35.0,
+    "pct_from_52w_high": 42.5,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-25T21:37:23.478899+00:00"
   }
 ]
