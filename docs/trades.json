@@ -1798,5 +1798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-25T21:37:23.478899+00:00"
+  },
+  {
+    "ticker": "SRZN",
+    "company_name": "Surrozen, Inc./DE",
+    "insider_name": "TCG Crossover GP III, LLC",
+    "insider_title": "Ten Percent Owner",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-03-23",
+    "filed_date": "2026-03-25",
+    "shares_traded": 121881,
+    "price_per_share": 24.7189,
+    "total_value": 3012767.84,
+    "total_value_fmt": "$3.0M",
+    "shares_owned_after": 736547,
+    "position_change_pct": 19.8,
+    "pct_from_52w_high": 13.6,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-26T00:03:38.093706+00:00"
   }
 ]
