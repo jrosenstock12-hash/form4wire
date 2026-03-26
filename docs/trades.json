@@ -1838,5 +1838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-26T12:29:37.520543+00:00"
+  },
+  {
+    "ticker": "EZRA",
+    "company_name": "Reliance Global Group, Inc.",
+    "insider_name": "Beyman Ezra",
+    "insider_title": "Chairman and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-26",
+    "filed_date": "2026-03-26",
+    "shares_traded": 300000,
+    "price_per_share": 0.1699,
+    "total_value": 50970.0,
+    "total_value_fmt": "$51K",
+    "shares_owned_after": 959299,
+    "position_change_pct": 45.5,
+    "pct_from_52w_high": 94.2,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-26T20:46:43.499108+00:00"
   }
 ]
