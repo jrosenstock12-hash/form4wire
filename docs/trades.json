@@ -1898,5 +1898,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-27T18:25:42.422814+00:00"
+  },
+  {
+    "ticker": "IAUX",
+    "company_name": "i-80 Gold Corp.",
+    "insider_name": "Young Richard Scott",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-25",
+    "filed_date": "2026-03-27",
+    "shares_traded": 1000000,
+    "price_per_share": 1.4,
+    "total_value": 1400000.0,
+    "total_value_fmt": "$1.4M",
+    "shares_owned_after": 4971000,
+    "position_change_pct": 25.2,
+    "pct_from_52w_high": 32.7,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-27T18:35:13.225734+00:00"
   }
 ]
