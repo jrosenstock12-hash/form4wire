@@ -1918,5 +1918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-27T18:35:13.225734+00:00"
+  },
+  {
+    "ticker": "KYN",
+    "company_name": "Kayne Anderson Energy Infrastructure Fund, Inc.",
+    "insider_name": "Baker James C",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-03-27",
+    "filed_date": "2026-03-27",
+    "shares_traded": 25000,
+    "price_per_share": 14.38,
+    "total_value": 359500.0,
+    "total_value_fmt": "$360K",
+    "shares_owned_after": 936040,
+    "position_change_pct": 2.7,
+    "pct_from_52w_high": 0.4,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-27T18:54:50.930343+00:00"
   }
 ]
