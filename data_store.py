@@ -248,6 +248,7 @@ def record_trade_for_cluster(trade: dict):  # -> Optional[dict]
         "code":    trade.get("transaction_code", ""),
         "value":   trade.get("total_value", 0),
         "date":    trade.get("transaction_date", ""),
+        "price":   round(trade.get("price_per_share", 0), 2),
         "saved_at": now.isoformat(),
     })
 
@@ -260,8 +261,16 @@ def record_trade_for_cluster(trade: dict):  # -> Optional[dict]
     _save(CLUSTER_TRACKER_FILE, clusters)
 
     # Check if cluster threshold met
+    # Dedup by (date, price) — same date + same price = same economic actor
+    # (handles fund/GP/individual triple-filings like SoftVest LP/GP/Oliver)
     recent = clusters[ticker]["trades"]
-    unique_insiders = len(set(t["insider"] for t in recent))
+    seen_combos = set()
+    unique_insiders = 0
+    for t in recent:
+        combo = (t.get("date", ""), round(float(t.get("price", 0)), 2))
+        if combo not in seen_combos:
+            seen_combos.add(combo)
+            unique_insiders += 1
 
     if unique_insiders >= CLUSTER_MIN_INSIDERS:
         # Check if we already alerted on this cluster recently (within 24h)
