@@ -25,11 +25,9 @@ MAX_TRADES_PER_KEY = 50
 SLEEP_PER_PAGE     = 0.5
 SLEEP_PER_FILING   = 0.15
 
-# ── Only these dates failed — fill them in ───────────────────────────────────
+# ── Date ranges to backfill ─────────────────────────────────────────────────
 GAP_DATES = [
-    ("2026-02-23", "2026-02-24"),
-    ("2025-09-06", "2025-09-07"),
-    ("2025-04-25", "2025-04-26"),
+    ("2026-03-15", "2026-03-24"),
 ]
 
 
@@ -200,7 +198,7 @@ def fetch_window(start_date, end_date):
 
 def main():
     print("=" * 60)
-    print("FORM4WIRE — GAP BACKFILL (3 FAILED DATE RANGES)")
+    print("FORM4WIRE — GAP BACKFILL (Mar 15-24 missing window)")
     print("=" * 60)
 
     history = load_history()
