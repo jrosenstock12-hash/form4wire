@@ -2198,5 +2198,25 @@
     "cluster_count": 1,
     "unusual_flag": false,
     "posted_at": "2026-03-30T19:56:05.211607+00:00"
+  },
+  {
+    "ticker": "HPP",
+    "company_name": "Hudson Pacific Properties, Inc.",
+    "insider_name": "T. Ritson Ferguson",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-30",
+    "filed_date": "2026-03-30",
+    "shares_traded": 16000,
+    "price_per_share": 5.97,
+    "total_value": 95520.0,
+    "total_value_fmt": "$96K",
+    "shares_owned_after": 18997,
+    "position_change_pct": 533.9,
+    "pct_from_52w_high": 72.3,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-30T22:04:11.523652+00:00"
   }
 ]
