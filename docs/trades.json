@@ -2178,5 +2178,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-30T19:38:21.058245+00:00"
+  },
+  {
+    "ticker": "NFJ",
+    "company_name": "Virtus Dividend, Interest & Premium Strategy Fund",
+    "insider_name": "Saba Capital Management, L.P.",
+    "insider_title": "10% Owner",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-03-26",
+    "filed_date": "2026-03-30",
+    "shares_traded": 160831,
+    "price_per_share": 12.4227,
+    "total_value": 1997955.96,
+    "total_value_fmt": "$2.0M",
+    "shares_owned_after": 10182692,
+    "position_change_pct": 1.6,
+    "pct_from_52w_high": 10.2,
+    "signal_score": 5,
+    "cluster_count": 1,
+    "unusual_flag": false,
+    "posted_at": "2026-03-30T19:56:05.211607+00:00"
   }
 ]
