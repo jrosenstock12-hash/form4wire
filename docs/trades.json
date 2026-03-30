@@ -2238,5 +2238,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-30T23:20:05.286900+00:00"
+  },
+  {
+    "ticker": "HTGC",
+    "company_name": "Hercules Capital, Inc.",
+    "insider_name": "Loo Wade",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-03-26",
+    "filed_date": "2026-03-30",
+    "shares_traded": 7317,
+    "price_per_share": 14.35,
+    "total_value": 104998.95,
+    "total_value_fmt": "$105K",
+    "shares_owned_after": 14050,
+    "position_change_pct": 108.7,
+    "pct_from_52w_high": 26.5,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-30T23:47:07.167700+00:00"
   }
 ]
