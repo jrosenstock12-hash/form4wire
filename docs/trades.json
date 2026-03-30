@@ -2058,5 +2058,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-03-27T23:41:56.212932+00:00"
+  },
+  {
+    "ticker": "IPX",
+    "company_name": "IPERIONX Ltd",
+    "insider_name": "Arima Anastasios",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-27",
+    "filed_date": "2026-03-30",
+    "shares_traded": 479800,
+    "price_per_share": 3.7372,
+    "total_value": 1793110.16,
+    "total_value_fmt": "$1.8M",
+    "shares_owned_after": 12800,
+    "position_change_pct": null,
+    "pct_from_52w_high": 93.8,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-30T12:39:06.764518+00:00"
   }
 ]
