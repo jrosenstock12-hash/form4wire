@@ -2118,5 +2118,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-03-30T13:09:47.147293+00:00"
+  },
+  {
+    "ticker": "IPX",
+    "company_name": "IPERIONX Ltd",
+    "insider_name": "Symonds Toby Edgcumbe",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-03-27",
+    "filed_date": "2026-03-30",
+    "shares_traded": 11000,
+    "price_per_share": 23.8684,
+    "total_value": 262552.4,
+    "total_value_fmt": "$263K",
+    "shares_owned_after": 11000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 60.3,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-30T13:25:15.696872+00:00"
   }
 ]
