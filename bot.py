@@ -172,6 +172,20 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
         log.info(f"  → SKIP: Transaction type {code} filtered")
         return False
 
+    # Skip pure 10% owners (funds, activists) — keep only if also officer or director
+    # Parses isOfficer/isDirector/isTenPercentOwner flags directly from XML
+    try:
+        import xml.etree.ElementTree as _ET
+        _root = _ET.fromstring(xml_content)
+        _is_officer  = any(el.text == "1" for el in _root.findall(".//isOfficer"))
+        _is_director = any(el.text == "1" for el in _root.findall(".//isDirector"))
+        _is_ten_pct  = any(el.text == "1" for el in _root.findall(".//isTenPercentOwner"))
+        if _is_ten_pct and not _is_officer and not _is_director:
+            log.info(f"  → SKIP: Pure 10% owner (fund/activist) — not an officer or director")
+            return False
+    except Exception:
+        pass  # If XML parse fails, fall through to normal processing
+
     # Skip derivatives — swaps, options not held, synthetic positions
     if trade.get("is_derivative", False):
         log.info(f"  → SKIP: Derivative transaction (is_derivative=True)")
