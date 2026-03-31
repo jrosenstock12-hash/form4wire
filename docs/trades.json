@@ -2298,5 +2298,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-31T10:43:12.008717+00:00"
+  },
+  {
+    "ticker": "IMNM",
+    "company_name": "Immunome Inc.",
+    "insider_name": "SIEGALL CLAY B",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-27",
+    "filed_date": "2026-03-31",
+    "shares_traded": 25450,
+    "price_per_share": 19.67,
+    "total_value": 500601.5,
+    "total_value_fmt": "$501K",
+    "shares_owned_after": 690704,
+    "position_change_pct": 3.8,
+    "pct_from_52w_high": 27.1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-31T11:12:20.345524+00:00"
   }
 ]
