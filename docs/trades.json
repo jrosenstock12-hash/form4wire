@@ -2258,5 +2258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-30T23:47:07.167700+00:00"
+  },
+  {
+    "ticker": "VERO",
+    "company_name": "Venus Concept Inc.",
+    "insider_name": "Madryn Health Partners (Cayman Master), LP",
+    "insider_title": "10% Owner",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-03-26",
+    "filed_date": "2026-03-30",
+    "shares_traded": 37537187,
+    "price_per_share": 0.04,
+    "total_value": 1500000.0,
+    "total_value_fmt": "$1.5M",
+    "shares_owned_after": 37547373,
+    "position_change_pct": 368517.4,
+    "pct_from_52w_high": 99.6,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-31T01:16:41.187149+00:00"
   }
 ]
