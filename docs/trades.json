@@ -2318,5 +2318,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-03-31T11:12:20.345524+00:00"
+  },
+  {
+    "ticker": "EPSN",
+    "company_name": "Epsilon Energy Ltd.",
+    "insider_name": "Stabell Jason",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-27",
+    "filed_date": "2026-03-31",
+    "shares_traded": 20000,
+    "price_per_share": 6.209,
+    "total_value": 124180.0,
+    "total_value_fmt": "$124K",
+    "shares_owned_after": 1061804,
+    "position_change_pct": 1.9,
+    "pct_from_52w_high": 26.0,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-03-31T20:34:16.398176+00:00"
   }
 ]
