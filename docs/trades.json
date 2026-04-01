@@ -2438,5 +2438,25 @@
     "cluster_count": 2,
     "unusual_flag": false,
     "posted_at": "2026-04-01T10:45:52.041979+00:00"
+  },
+  {
+    "ticker": "TNXP",
+    "company_name": "Tonix Pharmaceuticals Holding Corp.",
+    "insider_name": "LEDERMAN SETH",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-31",
+    "filed_date": "2026-04-01",
+    "shares_traded": 5000,
+    "price_per_share": 12.62,
+    "total_value": 63100.0,
+    "total_value_fmt": "$63K",
+    "shares_owned_after": 20001,
+    "position_change_pct": 33.3,
+    "pct_from_52w_high": 79.5,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-01T13:31:52.464336+00:00"
   }
 ]
