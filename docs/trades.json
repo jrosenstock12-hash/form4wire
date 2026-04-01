@@ -2518,5 +2518,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-04-01T17:28:08.454341+00:00"
+  },
+  {
+    "ticker": "POCI",
+    "company_name": "PRECISION OPTICS CORPORATION, INC.",
+    "insider_name": "COLL WAYNE M",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-03-30",
+    "filed_date": "2026-04-01",
+    "shares_traded": 20833,
+    "price_per_share": 3.6,
+    "total_value": 74998.8,
+    "total_value_fmt": "$75K",
+    "shares_owned_after": 35239,
+    "position_change_pct": 144.6,
+    "pct_from_52w_high": 39.4,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-01T20:17:55.106975+00:00"
   }
 ]
