@@ -2498,5 +2498,25 @@
     "cluster_count": 2,
     "unusual_flag": false,
     "posted_at": "2026-04-01T16:03:35.818607+00:00"
+  },
+  {
+    "ticker": "SBSW",
+    "company_name": "Sibanye Stillwater Ltd",
+    "insider_name": "Nkosi Themba George",
+    "insider_title": "Chief People & Culture Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-03-31",
+    "filed_date": "2026-04-01",
+    "shares_traded": 11865,
+    "price_per_share": 2.91,
+    "total_value": 34527.15,
+    "total_value_fmt": "$35K",
+    "shares_owned_after": 242248,
+    "position_change_pct": 5.2,
+    "pct_from_52w_high": 86.2,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-04-01T17:28:08.454341+00:00"
   }
 ]
