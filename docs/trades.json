@@ -2458,5 +2458,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-01T13:31:52.464336+00:00"
+  },
+  {
+    "ticker": "OTH",
+    "company_name": "OFF THE HOOK YS INC.",
+    "insider_name": "John Brian",
+    "insider_title": "CEO and Director",
+    "role_header": "CEO",
+    "transaction_date": "2026-03-31",
+    "filed_date": "2026-04-01",
+    "shares_traded": 53350,
+    "price_per_share": 2.059,
+    "total_value": 109847.65,
+    "total_value_fmt": "$110K",
+    "shares_owned_after": 1253350,
+    "position_change_pct": 4.4,
+    "pct_from_52w_high": 45.8,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-01T15:49:26.488482+00:00"
   }
 ]
