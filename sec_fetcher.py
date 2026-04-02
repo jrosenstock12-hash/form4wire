@@ -303,6 +303,23 @@ def parse_transactions_from_xml(xml: str) -> dict:
         owned_before = (total_owned_after - total_shares if dominant_code == "P"
                         else total_owned_after + total_shares)
 
+        # Check if ALL purchase rows are indirect (trust/fund/LLC — no direct personal buy)
+        all_indirect = all(r["bucket"].startswith("I|") for r in rows if r["code"] == "P")
+
+        # Check if issuer is a Foreign Private Issuer (non-US incorporation)
+        # FPIs use stateOfIncorporation values like "X2" (Canada), "X3" (UK), etc.
+        # US states are 2-letter codes (CA, NY, DE etc). Foreign = starts with X or is unknown non-US
+        state_el = root.find(".//issuerStateOrCountryDescription")
+        issuer_country = state_el.text.strip() if state_el is not None and state_el.text else ""
+        state_el2 = root.find(".//issuerStateOrCountry")
+        issuer_state_code = state_el2.text.strip() if state_el2 is not None and state_el2.text else ""
+        # Foreign private issuers have non-US state codes (X2=Canada, X3=UK, X4=Australia, etc.)
+        us_states = {"AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA",
+                     "KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ",
+                     "NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT",
+                     "VA","WA","WV","WI","WY","DC"}
+        is_foreign = bool(issuer_state_code) and issuer_state_code not in us_states
+
         result = {
             "transaction_code":    dominant_code,
             "shares_traded":       int(total_shares),
@@ -312,6 +329,9 @@ def parse_transactions_from_xml(xml: str) -> dict:
             "transaction_date_end": last_date if last_date != first_date else "",
             "shares_owned_after":  int(total_owned_after),
             "shares_owned_before": int(owned_before),
+            "all_indirect":        all_indirect,
+            "is_foreign":          is_foreign,
+            "issuer_country":      issuer_country,
         }
 
     except Exception as e:

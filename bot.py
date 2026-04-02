@@ -173,7 +173,7 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
         return False
 
     # Skip pure 10% owners (funds, activists) — keep only if also officer or director
-    # Parses isOfficer/isDirector/isTenPercentOwner flags directly from XML
+    # Also skip foreign private issuers and indirect-only purchases
     try:
         import xml.etree.ElementTree as _ET
         _root = _ET.fromstring(xml_content)
@@ -185,6 +185,16 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
             return False
     except Exception:
         pass  # If XML parse fails, fall through to normal processing
+
+    # Skip foreign private issuers — weaker signal, harder to verify
+    if xml_data.get("is_foreign"):
+        log.info(f"  → SKIP: Foreign private issuer ({xml_data.get('issuer_country', 'non-US')})")
+        return False
+
+    # Skip if all purchase rows are indirect (trust/family LLC/fund — no direct personal buy)
+    if xml_data.get("all_indirect") and code == "P":
+        log.info(f"  → SKIP: All purchases are indirect (trust/fund/LLC) — no direct personal buy")
+        return False
 
     # Skip derivatives — swaps, options not held, synthetic positions
     if trade.get("is_derivative", False):
