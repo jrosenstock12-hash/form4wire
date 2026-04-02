@@ -152,6 +152,11 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
     ticker = trade.get("ticker", "")
     insider = trade.get("insider_name", "")
 
+    # Strip exchange prefix if present (e.g. "NASDAQ:SVC" -> "SVC", "NYSE:IBM" -> "IBM")
+    if ticker and ":" in ticker:
+        ticker = ticker.split(":")[-1].strip()
+        trade["ticker"] = ticker
+
     # Block invalid tickers — N/A, empty, ??? mean the parser couldn't find the symbol
     if not ticker or ticker.upper() in ("N/A", "???", "NONE", "UNKNOWN"):
         log.info(f"  → SKIP: Invalid ticker '{ticker}' — could not determine stock symbol")
