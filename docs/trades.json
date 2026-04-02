@@ -2618,5 +2618,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-02T11:18:38.456843+00:00"
+  },
+  {
+    "ticker": "NASDAQ:SVC",
+    "company_name": "Service Properties Trust",
+    "insider_name": "Bilotto Christopher J.",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-02",
+    "filed_date": "2026-04-02",
+    "shares_traded": 100000,
+    "price_per_share": 1.2,
+    "total_value": 120000.0,
+    "total_value_fmt": "$120K",
+    "shares_owned_after": 298369,
+    "position_change_pct": 50.4,
+    "pct_from_52w_high": null,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-02T18:04:24.242012+00:00"
   }
 ]
