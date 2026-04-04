@@ -560,7 +560,9 @@ def build_tweet(
     pos_line = ""
     if before >= 100 and shares > 0 and is_buy:
         pct = (shares / before) * 100
-        if pct < 1:
+        if pct > 500:
+            pos_line = f"• New/major position\n"
+        elif pct < 1:
             pos_line = f"• Position +{pct:.2f}%\n"
         else:
             pos_line = f"• Position +{pct:.0f}%\n"
@@ -569,7 +571,7 @@ def build_tweet(
     high_line = ""
     if is_buy and stock.get("52w_high") and stock.get("price"):
         pct_from_high = (stock["52w_high"] - stock["price"]) / stock["52w_high"] * 100
-        if pct_from_high > 5:
+        if 5 < pct_from_high < 95:
             high_line = f"• Stock −{pct_from_high:.0f}% from 52W high\n"
 
     # ── Cluster line ────────────────────────────────────────────────────────
