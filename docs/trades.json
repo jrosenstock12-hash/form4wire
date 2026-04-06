@@ -2798,5 +2798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-06T20:09:55.673439+00:00"
+  },
+  {
+    "ticker": "GSBD",
+    "company_name": "Goldman Sachs BDC, Inc.",
+    "insider_name": "Evans Carlos E",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-02",
+    "filed_date": "2026-04-06",
+    "shares_traded": 50000,
+    "price_per_share": 9.0207,
+    "total_value": 451035.0,
+    "total_value_fmt": "$451K",
+    "shares_owned_after": 64446,
+    "position_change_pct": 346.1,
+    "pct_from_52w_high": 24.6,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-06T20:34:54.449757+00:00"
   }
 ]
