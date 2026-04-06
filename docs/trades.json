@@ -2818,5 +2818,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-06T20:34:54.449757+00:00"
+  },
+  {
+    "ticker": "LPCN",
+    "company_name": "Lipocine Inc.",
+    "insider_name": "Patel Mahesh V.",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-06",
+    "filed_date": "2026-04-06",
+    "shares_traded": 25000,
+    "price_per_share": 2.03,
+    "total_value": 50750.0,
+    "total_value_fmt": "$51K",
+    "shares_owned_after": 160679,
+    "position_change_pct": 18.4,
+    "pct_from_52w_high": 82.0,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-06T22:33:58.537093+00:00"
   }
 ]
