@@ -2778,5 +2778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-06T12:48:08.065552+00:00"
+  },
+  {
+    "ticker": "SCVL",
+    "company_name": "SHOE CARNIVAL INC",
+    "insider_name": "JACKSON W KERRY",
+    "insider_title": "EVP - CFO",
+    "role_header": "CFO",
+    "transaction_date": "2026-04-02",
+    "filed_date": "2026-04-06",
+    "shares_traded": 31000,
+    "price_per_share": 16.13,
+    "total_value": 500030.0,
+    "total_value_fmt": "$500K",
+    "shares_owned_after": 215529,
+    "position_change_pct": 16.8,
+    "pct_from_52w_high": 37.7,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-06T20:09:55.673439+00:00"
   }
 ]
