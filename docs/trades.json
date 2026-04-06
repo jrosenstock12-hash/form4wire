@@ -2838,5 +2838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-06T22:33:58.537093+00:00"
+  },
+  {
+    "ticker": "LPCN",
+    "company_name": "Lipocine Inc.",
+    "insider_name": "Higuchi John W.",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-06",
+    "filed_date": "2026-04-06",
+    "shares_traded": 123000,
+    "price_per_share": 2.05,
+    "total_value": 252150.0,
+    "total_value_fmt": "$252K",
+    "shares_owned_after": 163797,
+    "position_change_pct": 301.5,
+    "pct_from_52w_high": 81.8,
+    "signal_score": 8,
+    "cluster_count": 2,
+    "unusual_flag": false,
+    "posted_at": "2026-04-06T23:02:03.774920+00:00"
   }
 ]
