@@ -286,11 +286,24 @@ def record_trade_for_cluster(trade: dict):  # -> Optional[dict]
         clusters[ticker]["last_cluster_alert"] = now.isoformat()
         _save(CLUSTER_TRACKER_FILE, clusters)
 
+        # Deduplicate trades by insider name — consolidate multiple purchases
+        # by the same person into one entry (sum value, keep most recent date)
+        deduped = {}
+        for t in recent:
+            name = t.get("insider", "")
+            if name not in deduped:
+                deduped[name] = dict(t)
+            else:
+                deduped[name]["value"] = deduped[name].get("value", 0) + t.get("value", 0)
+                deduped[name]["date"] = max(deduped[name].get("date", ""), t.get("date", ""))
+        deduped_trades = list(deduped.values())
+        unique_people = len(deduped_trades)
+
         return {
             "ticker":  ticker,
             "company": company,
-            "trades":  recent,
-            "count":   unique_insiders,
+            "trades":  deduped_trades,
+            "count":   unique_people,
         }
 
     return None
