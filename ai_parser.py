@@ -821,15 +821,17 @@ Multiple insiders have traded recently:
 {json.dumps(trades, indent=2)[:2000]}
 
 Write an urgent, informative tweet about this cluster activity.
-Mention how many insiders, total value, whether they're buying or selling.
-This is a strong signal — make it feel important.
 
-Format:
-👥 CLUSTER ALERT — ${ticker}
-[Details]
-#InsiderTrading #{ticker} #ClusterBuy or #ClusterSell
+STRICT FORMAT RULES:
+- Header: 👥 CLUSTER ALERT — ${ticker}
+- Line 1: "[N] insiders BUYING $[total]K in [X] days:" (use total dollar value, not share price)
+- Then 1 bullet per insider: "• [Role] [Last Name]: $[value]K buy"
+  - Always show dollar value (e.g. $252K), never show price per share or price ranges
+  - If multiple purchases by same insider, sum them and show total
+- Last line: short punchy observation (1 line max)
+- Hashtags: #InsiderTrading #{ticker} #ClusterBuy
 
-Under 280 chars.
+Under 280 chars total.
 """
     try:
         msg = claude.messages.create(
