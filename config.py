@@ -16,7 +16,7 @@ DRY_RUN = False
 # Signal score thresholds — minimum score to post
 MIN_SCORE_BUY  = 5   # Buys need 5/10+ to post
 MIN_SCORE_SELL = 6   # Sells need 6/10+ to post (higher bar — selling is more common)
-DIGEST_HOUR_UTC       = 23       # Post daily digest at 11PM UTC (6PM ET)
+DIGEST_HOUR_UTC       = 0        # Post daily digest at midnight UTC (8PM EDT)
 WEEKLY_DIGEST_DAY     = 4        # Friday (0=Mon, 4=Fri)
 FOLLOWUP_DAYS         = [30, 60, 90]  # Days after trade to post performance followup
 
