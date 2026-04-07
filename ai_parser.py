@@ -681,13 +681,13 @@ Write a concise daily digest tweet using EXACTLY this format:
 📊 INSIDER DAILY DIGEST
 
 🟢 Top Buys:
-• [Insider/TICKER] — [$value]
-• [Insider/TICKER] — [$value]
-• [Insider/TICKER] — [$value]
+• [Insider/$TICKER] — [$value]
+• [Insider/$TICKER] — [$value]
+• [Insider/$TICKER] — [$value]
 
 🚨 Top Signals:
-• [TICKER] — [score]/10
-• [TICKER] — [score]/10
+• $[TICKER] — [score]/10
+• $[TICKER] — [score]/10
 
 #InsiderTrading #Stocks #Finance
 
@@ -723,13 +723,13 @@ Write a weekly digest tweet using EXACTLY this format:
 📊 INSIDER WEEK IN REVIEW
 
 🟢 Top Buys This Week:
-• [Insider/TICKER] — [$value]
-• [Insider/TICKER] — [$value]
-• [Insider/TICKER] — [$value]
+• [Insider/$TICKER] — [$value]
+• [Insider/$TICKER] — [$value]
+• [Insider/$TICKER] — [$value]
 
 🚨 Top Signals This Week:
-• [TICKER] — [score]/10
-• [TICKER] — [score]/10
+• $[TICKER] — [score]/10
+• $[TICKER] — [score]/10
 
 #InsiderTrading #Stocks #Finance
 
