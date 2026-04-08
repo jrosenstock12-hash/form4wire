@@ -2938,5 +2938,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-08T20:53:55.345522+00:00"
+  },
+  {
+    "ticker": "BETR",
+    "company_name": "Better Home & Finance Holding Co",
+    "insider_name": "Garg Vishal",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-08",
+    "filed_date": "2026-04-08",
+    "shares_traded": 10000,
+    "price_per_share": 35.0519,
+    "total_value": 350519.0,
+    "total_value_fmt": "$351K",
+    "shares_owned_after": 64877,
+    "position_change_pct": 18.2,
+    "pct_from_52w_high": 59.3,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-08T23:54:43.366796+00:00"
   }
 ]
