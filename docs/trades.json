@@ -2918,5 +2918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-08T20:28:55.494953+00:00"
+  },
+  {
+    "ticker": "GAM",
+    "company_name": "GENERAL AMERICAN INVESTORS CO INC",
+    "insider_name": "Priest Jeffrey W",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-08",
+    "filed_date": "2026-04-08",
+    "shares_traded": 5000,
+    "price_per_share": 24.685,
+    "total_value": 123425.0,
+    "total_value_fmt": "$123K",
+    "shares_owned_after": 40691,
+    "position_change_pct": 14.0,
+    "pct_from_52w_high": 61.3,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-08T20:53:55.345522+00:00"
   }
 ]
