@@ -2878,5 +2878,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-07T00:55:39.387851+00:00"
+  },
+  {
+    "ticker": "BOT",
+    "company_name": "RoboStrategy, Inc.",
+    "insider_name": "FP Strategies LLC",
+    "insider_title": "Investment Adviser",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-04-07",
+    "filed_date": "2026-04-08",
+    "shares_traded": 290000,
+    "price_per_share": 10.0,
+    "total_value": 2900000.0,
+    "total_value_fmt": "$2.9M",
+    "shares_owned_after": 390000,
+    "position_change_pct": 290.0,
+    "pct_from_52w_high": null,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-08T20:00:16.512289+00:00"
   }
 ]
