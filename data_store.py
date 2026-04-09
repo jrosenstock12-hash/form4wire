@@ -75,7 +75,7 @@ def save_trade(trade: dict):
     if key not in history:
         history[key] = []
 
-    history[key].append({
+    new_entry = {
         "date":            trade.get("transaction_date", ""),
         "code":            trade.get("transaction_code", ""),
         "is_buy":          trade.get("transaction_code", "") in ("P", "M"),
@@ -83,7 +83,15 @@ def save_trade(trade: dict):
         "price_per_share": trade.get("price_per_share", 0),
         "shares":          trade.get("shares_traded", 0),
         "saved_at":        datetime.now(timezone.utc).isoformat(),
-    })
+    }
+
+    # Deduplicate by date — don't add if same transaction date already exists
+    existing_dates = {e.get("date") for e in history[key]}
+    if new_entry["date"] and new_entry["date"] in existing_dates:
+        _save(TRADE_HISTORY_FILE, history)
+        return  # Already have this trade date, skip
+
+    history[key].append(new_entry)
 
     # Keep only last 50 trades per insider
     history[key] = history[key][-50:]
@@ -116,10 +124,12 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
         except Exception:
             pass
 
-    # Consecutive buys streak — only count if each buy is within 180 days of the previous
+    # Consecutive buys streak — only count if each buy is within 90 days of the previous
+    # Note: trades_sorted[0] is the current trade (already saved), so we start from [1:]
+    # consecutive = number of PRIOR buys within 90 days, not counting the current one
     consecutive = 0
     prev_date_str = trades_sorted[0].get("date", "") if trades_sorted else ""
-    for t in trades_sorted[1:]:   # Skip current trade (not yet saved)
+    for t in trades_sorted[1:]:
         if not t.get("is_buy"):
             break
         try:
@@ -130,7 +140,7 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
             if curr_dt.tzinfo is None:
                 curr_dt = curr_dt.replace(tzinfo=timezone.utc)
             gap_days = (prev_dt - curr_dt).days
-            if gap_days > 180:
+            if gap_days > 90:
                 break
             consecutive += 1
             prev_date_str = t["date"]
