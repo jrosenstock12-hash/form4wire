@@ -2998,5 +2998,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-09T18:43:54.345792+00:00"
+  },
+  {
+    "ticker": "BETR",
+    "company_name": "Better Home & Finance Holding Co",
+    "insider_name": "Talwar Harit",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-09",
+    "filed_date": "2026-04-09",
+    "shares_traded": 5000,
+    "price_per_share": 32.8863,
+    "total_value": 164431.5,
+    "total_value_fmt": "$164K",
+    "shares_owned_after": 36698,
+    "position_change_pct": 15.8,
+    "pct_from_52w_high": 61.8,
+    "signal_score": 7,
+    "cluster_count": 2,
+    "unusual_flag": false,
+    "posted_at": "2026-04-09T21:29:44.191851+00:00"
   }
 ]
