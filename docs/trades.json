@@ -2958,5 +2958,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-08T23:54:43.366796+00:00"
+  },
+  {
+    "ticker": "CGCT",
+    "company_name": "Cartesian Growth Corp III",
+    "insider_name": "Yu Peter",
+    "insider_title": "Chairman and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-06",
+    "filed_date": "2026-04-08",
+    "shares_traded": 300000,
+    "price_per_share": 10.3047,
+    "total_value": 3091400.0,
+    "total_value_fmt": "$3.1M",
+    "shares_owned_after": 1271000,
+    "position_change_pct": 30.9,
+    "pct_from_52w_high": 0.2,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-09T01:01:04.502091+00:00"
   }
 ]
