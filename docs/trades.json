@@ -3038,5 +3038,25 @@
     "cluster_count": 1,
     "unusual_flag": false,
     "posted_at": "2026-04-10T10:19:06.163045+00:00"
+  },
+  {
+    "ticker": "MKC",
+    "company_name": "MCCORMICK & CO INC",
+    "insider_name": "Hattersley Gavin",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-10",
+    "filed_date": "2026-04-13",
+    "shares_traded": 2000,
+    "price_per_share": 52.98,
+    "total_value": 105960.0,
+    "total_value_fmt": "$106K",
+    "shares_owned_after": 2906,
+    "position_change_pct": 220.8,
+    "pct_from_52w_high": 31.7,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-13T16:31:02.351677+00:00"
   }
 ]
