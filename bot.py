@@ -281,7 +281,9 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
     stock["short_interest"] = short_int
 
     # 10. Check cluster BEFORE scoring so cluster_count feeds into score
-    cluster_data  = record_trade_for_cluster(trade)
+    # Skip cluster recording if this is an RSS Reporting/Issuer duplicate
+    _already_in_cluster = (posted_today is not None and combo_key in posted_today)
+    cluster_data  = record_trade_for_cluster(trade) if not _already_in_cluster else None
     cluster_flag  = cluster_data is not None
     cluster_count = 0
     if cluster_data:

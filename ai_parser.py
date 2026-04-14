@@ -61,9 +61,16 @@ def cap_label(market_cap: float) -> str:
 
 def format_value(v: float) -> str:
     if v >= 1_000_000_000:
-        return f"${v/1_000_000_000:.1f}B"
+        return f"${v/1_000_000_000:.2f}B".rstrip('0').rstrip('.')  + "B" if False else f"${v/1_000_000_000:.1f}B"
     if v >= 1_000_000:
-        return f"${v/1_000_000:.1f}M"
+        m = v / 1_000_000
+        # Use 2 decimal places for values under $10M to avoid over-rounding (e.g. $1.06M not $1.1M)
+        # Use 1 decimal place for $10M+ (e.g. $12.3M)
+        if m < 10:
+            formatted = f"{m:.2f}".rstrip('0').rstrip('.')
+        else:
+            formatted = f"{m:.1f}"
+        return f"${formatted}M"
     if v >= 1_000:
         return f"${v/1_000:.0f}K"
     return f"${v:,.0f}"
