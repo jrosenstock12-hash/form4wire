@@ -3118,5 +3118,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-04-14T20:27:19.157419+00:00"
+  },
+  {
+    "ticker": "NKE",
+    "company_name": "NIKE, Inc.",
+    "insider_name": "Hill Elliott",
+    "insider_title": "PRESIDENT & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-13",
+    "filed_date": "2026-04-14",
+    "shares_traded": 23660,
+    "price_per_share": 42.265,
+    "total_value": 999999.83,
+    "total_value_fmt": "$1000K",
+    "shares_owned_after": 265247,
+    "position_change_pct": 9.8,
+    "pct_from_52w_high": 46.7,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-14T20:28:00.147233+00:00"
   }
 ]
