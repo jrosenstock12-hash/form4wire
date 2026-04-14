@@ -192,8 +192,24 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
         pass  # If XML parse fails, fall through to normal processing
 
     # Skip foreign private issuers — weaker signal, harder to verify
-    if xml_data.get("is_foreign"):
-        log.info(f"  → SKIP: Foreign private issuer ({xml_data.get('issuer_country', 'non-US')})")
+    # Check xml_data first, then fall back to parsing xml_content directly
+    is_foreign = xml_data.get("is_foreign")
+    if is_foreign is None and xml_content:
+        try:
+            import xml.etree.ElementTree as _ET2
+            _root2 = _ET2.fromstring(xml_content)
+            _state_el = _root2.find(".//issuerStateOrCountry")
+            _code = _state_el.text.strip() if _state_el is not None and _state_el.text else ""
+            _us_states = {"AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA",
+                         "KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ",
+                         "NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT",
+                         "VA","WA","WV","WI","WY","DC"}
+            is_foreign = bool(_code) and _code not in _us_states
+        except Exception:
+            is_foreign = False
+    if is_foreign:
+        _country = xml_data.get("issuer_country", "non-US")
+        log.info(f"  → SKIP: Foreign private issuer ({_country})")
         return False
 
     # Skip if all purchase rows are indirect (trust/family LLC/fund — no direct personal buy)

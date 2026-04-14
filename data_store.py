@@ -271,14 +271,22 @@ def record_trade_for_cluster(trade: dict):  # -> Optional[dict]
     _save(CLUSTER_TRACKER_FILE, clusters)
 
     # Check if cluster threshold met
-    # Dedup by (date, price) — same date + same price = same economic actor
-    # (handles fund/GP/individual triple-filings like SoftVest LP/GP/Oliver)
+    # Count unique insider NAMES — one person buying multiple times = 1 insider
+    # Also dedup by (date, price) to handle fund/GP/individual triple-filings
     recent = clusters[ticker]["trades"]
+    seen_names = set()
     seen_combos = set()
     unique_insiders = 0
     for t in recent:
+        name = t.get("insider", "").strip().lower()
         combo = (t.get("date", ""), round(float(t.get("price", 0)), 2))
-        if combo not in seen_combos:
+        # Count as new unique insider only if both name AND date+price are new
+        if name and name not in seen_names:
+            seen_names.add(name)
+            seen_combos.add(combo)
+            unique_insiders += 1
+        elif combo not in seen_combos and not name:
+            # Fallback for entries without name
             seen_combos.add(combo)
             unique_insiders += 1
 
