@@ -3138,5 +3138,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-14T20:28:00.147233+00:00"
+  },
+  {
+    "ticker": "CAG",
+    "company_name": "CONAGRA BRANDS INC.",
+    "insider_name": "Mulligan John J",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-14",
+    "filed_date": "2026-04-15",
+    "shares_traded": 17500,
+    "price_per_share": 14.3087,
+    "total_value": 250402.25,
+    "total_value_fmt": "$250K",
+    "shares_owned_after": 20728,
+    "position_change_pct": 542.1,
+    "pct_from_52w_high": 43.8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-15T21:29:09.430755+00:00"
   }
 ]
