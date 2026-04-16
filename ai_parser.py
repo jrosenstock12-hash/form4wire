@@ -550,18 +550,18 @@ def build_tweet(
 
     # Signal label — more meaningful than a raw number
     def signal_label(score: int) -> str:
-        if score >= 9: return "MAX CONVICTION"
-        if score >= 7: return "HIGH CONVICTION"
-        if score >= 5: return "MODERATE"
-        return "LOW"
+        if score >= 9: return "Max Conviction"
+        if score >= 8: return "Very High Conviction"
+        if score >= 7: return "High Conviction"
+        if score >= 6: return "Strong Signal"
+        return "Moderate Signal"
 
     # ── Role header ────────────────────────────────────────────────────────
     remarks = trade.get("insider_remarks", "")
     rh = _role_header(title, remarks)
 
-    # ── Score line (reasoning capped at 80 chars) ───────────────────────────
-    # Strong signal format is longer so needs shorter reasoning
-    score_line = f"💡 Signal: {signal_score}/10"
+    # ── Score line ──────────────────────────────────────────────────────────
+    score_line = f"💡 {signal_label(signal_score)}"
 
     # ── Position line ───────────────────────────────────────────────────────
     pos_line = ""
@@ -660,7 +660,7 @@ def build_tweet(
             f"{extra}"
             f"• {date_str}\n"
             f"\n"
-            f"💡 Signal: {signal_score}/10\n"
+            f"💡 {signal_label(signal_score)}\n"
             f"\n"
             f"#InsiderTrading #{ticker}"
         )
@@ -693,14 +693,15 @@ Write a concise daily digest tweet using EXACTLY this format:
 • [Insider/$TICKER] — [$value]
 
 🚨 Top Signals:
-• $[TICKER] — [score]/10
-• $[TICKER] — [score]/10
+• $[TICKER] — [conviction label]
+• $[TICKER] — [conviction label]
 
 #InsiderTrading #Stocks #Finance
 
 Rules:
 - Top Buys: show up to 3 biggest buys by dollar value, bullet points only
 - Top Signals: show up to 3 trades with score 8 or above only. If none scored 8+, omit this section entirely
+- For conviction labels use: score 9-10="Max Conviction", 8="Very High Conviction", 7="High Conviction", 6="Strong Signal"
 - No other lines, no sell section, no filing counts
 - Keep entire tweet under 280 characters
 """
@@ -735,8 +736,8 @@ Write a weekly digest tweet using EXACTLY this format:
 • [Insider/$TICKER] — [$value]
 
 🚨 Top Signals This Week:
-• $[TICKER] — [score]/10
-• $[TICKER] — [score]/10
+• $[TICKER] — [conviction label]
+• $[TICKER] — [conviction label]
 
 #InsiderTrading #Stocks #Finance
 
