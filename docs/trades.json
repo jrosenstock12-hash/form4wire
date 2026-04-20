@@ -3178,5 +3178,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-17T00:49:38.374306+00:00"
+  },
+  {
+    "ticker": "HOMB",
+    "company_name": "HOME BANCSHARES INC",
+    "insider_name": "ALLISON JOHN W",
+    "insider_title": "Chairman & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-17",
+    "filed_date": "2026-04-20",
+    "shares_traded": 100000,
+    "price_per_share": 26.9621,
+    "total_value": 2696210.0,
+    "total_value_fmt": "$2.7M",
+    "shares_owned_after": 5798926,
+    "position_change_pct": 1.8,
+    "pct_from_52w_high": 11.9,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-20T16:00:18.701072+00:00"
   }
 ]
