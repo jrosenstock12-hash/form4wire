@@ -3198,5 +3198,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-20T16:00:18.701072+00:00"
+  },
+  {
+    "ticker": "AVEX",
+    "company_name": "AEVEX Corp.",
+    "insider_name": "Raduenz Brian",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-16",
+    "filed_date": "2026-04-20",
+    "shares_traded": 50000,
+    "price_per_share": 20.0,
+    "total_value": 1000000.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 50000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 40.1,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-21T01:06:49.297723+00:00"
   }
 ]
