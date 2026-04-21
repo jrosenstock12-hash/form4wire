@@ -3218,5 +3218,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-21T01:06:49.297723+00:00"
+  },
+  {
+    "ticker": "BMI",
+    "company_name": "BADGER METER INC",
+    "insider_name": "Bockhorst Kenneth",
+    "insider_title": "Chairman, President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-21",
+    "filed_date": "2026-04-21",
+    "shares_traded": 2200,
+    "price_per_share": 117.5333,
+    "total_value": 258573.26,
+    "total_value_fmt": "$259K",
+    "shares_owned_after": 51676,
+    "position_change_pct": 4.4,
+    "pct_from_52w_high": 53.8,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-21T19:42:59.752588+00:00"
   }
 ]
