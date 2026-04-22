@@ -3238,5 +3238,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-21T19:42:59.752588+00:00"
+  },
+  {
+    "ticker": "BMI",
+    "company_name": "BADGER METER INC",
+    "insider_name": "Richard Htwe",
+    "insider_title": "VP-Global Operations",
+    "role_header": "VP",
+    "transaction_date": "2026-04-21",
+    "filed_date": "2026-04-22",
+    "shares_traded": 1700,
+    "price_per_share": 116.13,
+    "total_value": 197421.0,
+    "total_value_fmt": "$197K",
+    "shares_owned_after": 7603,
+    "position_change_pct": 28.8,
+    "pct_from_52w_high": 54.3,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-22T15:30:25.913064+00:00"
   }
 ]
