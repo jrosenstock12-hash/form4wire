@@ -592,6 +592,16 @@ def main():
     except Exception as e:
         log.info(f"  → Trade history check failed: {e}")
 
+    # One-time seed: restore followup queue from repo if volume is missing
+    if os.path.exists("followup_queue_seed.json") and not os.path.exists(config.FOLLOWUP_QUEUE_FILE):
+        try:
+            _shutil.copy("followup_queue_seed.json", config.FOLLOWUP_QUEUE_FILE)
+            _q = _json.load(open(config.FOLLOWUP_QUEUE_FILE))
+            _pending = len([i for i in _q if not i.get("posted")])
+            log.info(f"  → Restored followup queue from seed file ({_pending} pending followups)")
+        except Exception as e:
+            log.info(f"  → Followup queue seed failed: {e}")
+
     seen = load_seen()
 
     # On startup, build a set of "ticker:insider" keys from trades posted
