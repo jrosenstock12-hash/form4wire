@@ -3278,5 +3278,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-04-23T20:06:20.876787+00:00"
+  },
+  {
+    "ticker": "SMPL",
+    "company_name": "Simply Good Foods Co",
+    "insider_name": "KILTS JAMES M",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-23",
+    "filed_date": "2026-04-24",
+    "shares_traded": 80000,
+    "price_per_share": 12.3935,
+    "total_value": 991480.0,
+    "total_value_fmt": "$991K",
+    "shares_owned_after": 172854,
+    "position_change_pct": 86.2,
+    "pct_from_52w_high": 66.4,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-24T13:23:21.685921+00:00"
   }
 ]
