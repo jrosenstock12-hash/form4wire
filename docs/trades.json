@@ -3418,5 +3418,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-27T20:31:29.645560+00:00"
+  },
+  {
+    "ticker": "NBP",
+    "company_name": "NovaBridge Biosciences",
+    "insider_name": "Hagler Mark Arnold",
+    "insider_title": "Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-04-24",
+    "filed_date": "2026-04-28",
+    "shares_traded": 230000,
+    "price_per_share": 2.51,
+    "total_value": 577300.0,
+    "total_value_fmt": "$577K",
+    "shares_owned_after": 230000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 61.7,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-28T20:06:00.673027+00:00"
   }
 ]
