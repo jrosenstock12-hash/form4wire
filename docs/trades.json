@@ -3458,5 +3458,25 @@
     "cluster_count": 10,
     "unusual_flag": false,
     "posted_at": "2026-04-28T20:09:54.216078+00:00"
+  },
+  {
+    "ticker": "CHTR",
+    "company_name": "CHARTER COMMUNICATIONS, INC. /MO/",
+    "insider_name": "Winfrey Christopher L",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-28",
+    "filed_date": "2026-04-28",
+    "shares_traded": 6936,
+    "price_per_share": 172.2349,
+    "total_value": 1194621.27,
+    "total_value_fmt": "$1.2M",
+    "shares_owned_after": 77877,
+    "position_change_pct": 9.8,
+    "pct_from_52w_high": 59.7,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-28T20:20:16.701936+00:00"
   }
 ]
