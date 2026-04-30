@@ -3538,5 +3538,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-30T11:39:01.339969+00:00"
+  },
+  {
+    "ticker": "GEHC",
+    "company_name": "GE HealthCare Technologies Inc.",
+    "insider_name": "Frank R. Jimenez",
+    "insider_title": "GC & Corporate Secretary",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-04-30",
+    "shares_traded": 1750,
+    "price_per_share": 60.45,
+    "total_value": 105787.5,
+    "total_value_fmt": "$106K",
+    "shares_owned_after": 93932,
+    "position_change_pct": 1.9,
+    "pct_from_52w_high": 31.4,
+    "signal_score": 5,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-04-30T20:24:18.723201+00:00"
   }
 ]
