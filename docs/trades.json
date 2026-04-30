@@ -3498,5 +3498,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-29T20:18:36.697601+00:00"
+  },
+  {
+    "ticker": "IPX",
+    "company_name": "IPERIONX Ltd",
+    "insider_name": "Hannigan Todd",
+    "insider_title": "Executive Chairman",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-04-28",
+    "filed_date": "2026-04-29",
+    "shares_traded": 480000,
+    "price_per_share": 4.3287,
+    "total_value": 2077784.0,
+    "total_value_fmt": "$2.1M",
+    "shares_owned_after": 26108334,
+    "position_change_pct": 1.9,
+    "pct_from_52w_high": 92.8,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-04-30T01:51:51.191874+00:00"
   }
 ]
