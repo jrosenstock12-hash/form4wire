@@ -3598,5 +3598,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-01T20:09:50.811113+00:00"
+  },
+  {
+    "ticker": "PSUS",
+    "company_name": "Pershing Square USA, Ltd.",
+    "insider_name": "Gonnella Michael",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-05-01",
+    "shares_traded": 100000,
+    "price_per_share": 50.0,
+    "total_value": 5000000.0,
+    "total_value_fmt": "$5.0M",
+    "shares_owned_after": 100000,
+    "position_change_pct": null,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-01T20:29:33.629518+00:00"
   }
 ]
