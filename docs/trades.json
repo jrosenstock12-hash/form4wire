@@ -3578,5 +3578,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-04-30T21:23:16.225305+00:00"
+  },
+  {
+    "ticker": "SPGI",
+    "company_name": "S&P Global Inc.",
+    "insider_name": "CHEUNG MARTINA",
+    "insider_title": "CEO & President",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-29",
+    "filed_date": "2026-05-01",
+    "shares_traded": 2322,
+    "price_per_share": 429.93,
+    "total_value": 998297.46,
+    "total_value_fmt": "$998K",
+    "shares_owned_after": 27518,
+    "position_change_pct": 9.2,
+    "pct_from_52w_high": 23.8,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-01T20:09:50.811113+00:00"
   }
 ]
