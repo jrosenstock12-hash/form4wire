@@ -3658,5 +3658,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-04T10:07:05.472455+00:00"
+  },
+  {
+    "ticker": "SRAD",
+    "company_name": "Sportradar Group AG",
+    "insider_name": "KURTZ WILLIAM",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-05-04",
+    "shares_traded": 8000,
+    "price_per_share": 12.9732,
+    "total_value": 103785.6,
+    "total_value_fmt": "$104K",
+    "shares_owned_after": 30179,
+    "position_change_pct": 36.1,
+    "pct_from_52w_high": 59.2,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-04T11:26:26.547380+00:00"
   }
 ]
