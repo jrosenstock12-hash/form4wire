@@ -3798,5 +3798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-04T21:37:19.894671+00:00"
+  },
+  {
+    "ticker": "OPCH",
+    "company_name": "Option Care Health, Inc.",
+    "insider_name": "RADEMACHER JOHN CHARLES",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-04",
+    "filed_date": "2026-05-04",
+    "shares_traded": 12500,
+    "price_per_share": 21.1765,
+    "total_value": 264706.25,
+    "total_value_fmt": "$265K",
+    "shares_owned_after": 695152,
+    "position_change_pct": 1.8,
+    "pct_from_52w_high": 42.1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-04T21:42:17.917078+00:00"
   }
 ]
