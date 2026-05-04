@@ -3718,5 +3718,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-04T11:28:21.329161+00:00"
+  },
+  {
+    "ticker": "SRAD",
+    "company_name": "Sportradar Group AG",
+    "insider_name": "Koerl Carsten",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-05-04",
+    "shares_traded": 254100,
+    "price_per_share": 13.1557,
+    "total_value": 3342856.0,
+    "total_value_fmt": "$3.3M",
+    "shares_owned_after": 2278272,
+    "position_change_pct": 12.6,
+    "pct_from_52w_high": 58.6,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-04T20:08:57.420437+00:00"
   }
 ]
