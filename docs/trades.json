@@ -3758,5 +3758,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-05-04T20:22:33.955439+00:00"
+  },
+  {
+    "ticker": "ARE",
+    "company_name": "ALEXANDRIA REAL ESTATE EQUITIES, INC.",
+    "insider_name": "Thomas Gregory Calvin",
+    "insider_title": "EVP - CTO",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-05-04",
+    "shares_traded": 3500,
+    "price_per_share": 41.0,
+    "total_value": 143500.0,
+    "total_value_fmt": "$144K",
+    "shares_owned_after": 33024,
+    "position_change_pct": 11.9,
+    "pct_from_52w_high": 53.1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-04T20:35:06.967383+00:00"
   }
 ]
