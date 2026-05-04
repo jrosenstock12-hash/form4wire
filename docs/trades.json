@@ -3738,5 +3738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-04T20:08:57.420437+00:00"
+  },
+  {
+    "ticker": "SPGI",
+    "company_name": "S&P Global Inc.",
+    "insider_name": "Moritz Robert Edward Jr.",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-05-04",
+    "shares_traded": 1151,
+    "price_per_share": 434.03,
+    "total_value": 500000.82,
+    "total_value_fmt": "$500K",
+    "shares_owned_after": 1151,
+    "position_change_pct": null,
+    "pct_from_52w_high": 23.1,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-04T20:22:33.955439+00:00"
   }
 ]
