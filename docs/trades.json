@@ -3698,5 +3698,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-05-04T11:27:40.461493+00:00"
+  },
+  {
+    "ticker": "SRAD",
+    "company_name": "Sportradar Group AG",
+    "insider_name": "Walder Marc",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-05-04",
+    "shares_traded": 66000,
+    "price_per_share": 12.77,
+    "total_value": 842820.0,
+    "total_value_fmt": "$843K",
+    "shares_owned_after": 342563,
+    "position_change_pct": 23.9,
+    "pct_from_52w_high": 59.8,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-04T11:28:21.329161+00:00"
   }
 ]
