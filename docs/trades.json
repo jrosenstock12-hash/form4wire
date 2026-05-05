@@ -3838,5 +3838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-04T21:43:45.957686+00:00"
+  },
+  {
+    "ticker": "PSUS",
+    "company_name": "Pershing Square USA, Ltd.",
+    "insider_name": "Herring Bruce",
+    "insider_title": "Director, Trustee",
+    "role_header": "CTO",
+    "transaction_date": "2026-04-30",
+    "filed_date": "2026-05-04",
+    "shares_traded": 10000,
+    "price_per_share": 43.414,
+    "total_value": 434140.0,
+    "total_value_fmt": "$434K",
+    "shares_owned_after": 10000,
+    "position_change_pct": null,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 5,
+    "unusual_flag": false,
+    "posted_at": "2026-05-05T01:09:24.042513+00:00"
   }
 ]
