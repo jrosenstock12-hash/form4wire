@@ -3878,5 +3878,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-05T20:04:15.183197+00:00"
+  },
+  {
+    "ticker": "ARE",
+    "company_name": "ALEXANDRIA REAL ESTATE EQUITIES, INC.",
+    "insider_name": "MARCUS JOEL S",
+    "insider_title": "Executive Chairman",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-05-04",
+    "filed_date": "2026-05-05",
+    "shares_traded": 10000,
+    "price_per_share": 41.02,
+    "total_value": 410200.0,
+    "total_value_fmt": "$410K",
+    "shares_owned_after": 572724,
+    "position_change_pct": 1.8,
+    "pct_from_52w_high": 53.1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-05T20:33:43.898513+00:00"
   }
 ]
