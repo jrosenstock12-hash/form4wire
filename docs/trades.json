@@ -3898,5 +3898,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-05T20:33:43.898513+00:00"
+  },
+  {
+    "ticker": "BIP",
+    "company_name": "Brookfield Infrastructure Partners L.P.",
+    "insider_name": "Krant David Tyler",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-05-01",
+    "filed_date": "2026-05-05",
+    "shares_traded": 1150,
+    "price_per_share": 48.1,
+    "total_value": 55315.0,
+    "total_value_fmt": "$55K",
+    "shares_owned_after": 2150,
+    "position_change_pct": 115.0,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-05T21:36:11.538162+00:00"
   }
 ]
