@@ -3978,5 +3978,25 @@
     "cluster_count": 5,
     "unusual_flag": false,
     "posted_at": "2026-05-06T20:12:18.701800+00:00"
+  },
+  {
+    "ticker": "NSP",
+    "company_name": "INSPERITY, INC.",
+    "insider_name": "SARVADI PAUL J",
+    "insider_title": "Chairman of the Board & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-05",
+    "filed_date": "2026-05-06",
+    "shares_traded": 100000,
+    "price_per_share": 28.7324,
+    "total_value": 2873235.58,
+    "total_value_fmt": "$2.9M",
+    "shares_owned_after": 699670,
+    "position_change_pct": 16.7,
+    "pct_from_52w_high": 60.0,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-06T21:38:14.285970+00:00"
   }
 ]
