@@ -3938,5 +3938,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-06T11:51:34.346991+00:00"
+  },
+  {
+    "ticker": "PATK",
+    "company_name": "PATRICK INDUSTRIES INC",
+    "insider_name": "NEMETH ANDY L",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-05",
+    "filed_date": "2026-05-06",
+    "shares_traded": 10000,
+    "price_per_share": 88.0,
+    "total_value": 880000.0,
+    "total_value_fmt": "$880K",
+    "shares_owned_after": 287745,
+    "position_change_pct": 3.6,
+    "pct_from_52w_high": 39.6,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-06T11:56:09.081744+00:00"
   }
 ]
