@@ -3918,5 +3918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-05T21:36:11.538162+00:00"
+  },
+  {
+    "ticker": "PATK",
+    "company_name": "PATRICK INDUSTRIES INC",
+    "insider_name": "Roeder Charles R",
+    "insider_title": "President - RV",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-05-05",
+    "filed_date": "2026-05-06",
+    "shares_traded": 5750,
+    "price_per_share": 87.8293,
+    "total_value": 505018.48,
+    "total_value_fmt": "$505K",
+    "shares_owned_after": 42147,
+    "position_change_pct": 15.8,
+    "pct_from_52w_high": 39.7,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-06T11:51:34.346991+00:00"
   }
 ]
