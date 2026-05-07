@@ -4078,5 +4078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-07T20:47:14.240692+00:00"
+  },
+  {
+    "ticker": "OPCH",
+    "company_name": "Option Care Health, Inc.",
+    "insider_name": "SULLIVAN TIMOTHY P",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-07",
+    "filed_date": "2026-05-07",
+    "shares_traded": 24154,
+    "price_per_share": 20.6869,
+    "total_value": 499671.38,
+    "total_value_fmt": "$500K",
+    "shares_owned_after": 73383,
+    "position_change_pct": 49.1,
+    "pct_from_52w_high": 43.5,
+    "signal_score": 8,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-07T21:05:04.491503+00:00"
   }
 ]
