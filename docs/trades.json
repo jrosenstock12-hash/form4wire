@@ -3998,5 +3998,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-06T21:38:14.285970+00:00"
+  },
+  {
+    "ticker": "OGN",
+    "company_name": "Organon & Co.",
+    "insider_name": "Holzbaur Lynette",
+    "insider_title": "SVP and Corporate Controller",
+    "role_header": "SVP",
+    "transaction_date": "2026-05-06",
+    "filed_date": "2026-05-07",
+    "shares_traded": 26448,
+    "price_per_share": 13.3498,
+    "total_value": 353080.4,
+    "total_value_fmt": "$353K",
+    "shares_owned_after": 52850,
+    "position_change_pct": 100.2,
+    "pct_from_52w_high": 0.5,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-07T14:02:59.231729+00:00"
   }
 ]
