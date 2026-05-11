@@ -4298,5 +4298,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-11T23:01:37.950464+00:00"
+  },
+  {
+    "ticker": "NCLH",
+    "company_name": "Norwegian Cruise Line Holdings Ltd.",
+    "insider_name": "Kevin Allen Lansberry",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-07",
+    "filed_date": "2026-05-11",
+    "shares_traded": 11400,
+    "price_per_share": 17.28,
+    "total_value": 196992.0,
+    "total_value_fmt": "$197K",
+    "shares_owned_after": 20312,
+    "position_change_pct": 127.9,
+    "pct_from_52w_high": 35.9,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-11T23:25:32.272491+00:00"
   }
 ]
