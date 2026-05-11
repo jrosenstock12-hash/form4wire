@@ -4238,5 +4238,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-11T20:16:30.491401+00:00"
+  },
+  {
+    "ticker": "EVTC",
+    "company_name": "EVERTEC, Inc.",
+    "insider_name": "Rodriguez-Gonzalez Luis A",
+    "insider_title": "General Counsel & EVP",
+    "role_header": "GEN. COUNSEL",
+    "transaction_date": "2026-05-07",
+    "filed_date": "2026-05-11",
+    "shares_traded": 17000,
+    "price_per_share": 24.1044,
+    "total_value": 409774.8,
+    "total_value_fmt": "$410K",
+    "shares_owned_after": 80907,
+    "position_change_pct": 26.6,
+    "pct_from_52w_high": 37.2,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-11T21:16:06.143524+00:00"
   }
 ]
