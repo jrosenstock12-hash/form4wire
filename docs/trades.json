@@ -4218,5 +4218,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-11T20:01:59.641494+00:00"
+  },
+  {
+    "ticker": "TFIN",
+    "company_name": "Triumph Financial, Inc.",
+    "insider_name": "Ritterbusch Todd",
+    "insider_title": "President - TBK Bank, SSB",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-05-08",
+    "filed_date": "2026-05-11",
+    "shares_traded": 7000,
+    "price_per_share": 67.01,
+    "total_value": 469070.0,
+    "total_value_fmt": "$469K",
+    "shares_owned_after": 22804,
+    "position_change_pct": 44.3,
+    "pct_from_52w_high": 5.3,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-11T20:16:30.491401+00:00"
   }
 ]
