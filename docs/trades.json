@@ -4278,5 +4278,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-11T21:18:15.871845+00:00"
+  },
+  {
+    "ticker": "ATEC",
+    "company_name": "Alphatec Holdings, Inc.",
+    "insider_name": "Valentine Keith",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-07",
+    "filed_date": "2026-05-11",
+    "shares_traded": 135000,
+    "price_per_share": 7.3792,
+    "total_value": 996192.35,
+    "total_value_fmt": "$996K",
+    "shares_owned_after": 232271,
+    "position_change_pct": 138.8,
+    "pct_from_52w_high": 67.5,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-11T23:01:37.950464+00:00"
   }
 ]
