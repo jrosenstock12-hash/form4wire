@@ -162,6 +162,23 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
         log.info(f"  → SKIP: Invalid ticker '{ticker}' — could not determine stock symbol")
         return False
 
+    # Block SPAC units, warrants, and rights by ticker suffix
+    SPAC_SUFFIXES = ("-UN", "-U", "-WT", "-WS", "-RT")
+    if any(ticker.upper().endswith(sfx) for sfx in SPAC_SUFFIXES):
+        log.info(f"  → SKIP: SPAC/unit ticker '{ticker}'")
+        return False
+
+    # Block blank check companies (SPACs) by SIC code and company name
+    company_sic  = str(company.get("sic", ""))
+    company_name = (company.get("name", "") or trade.get("company_name", "")).lower()
+    SPAC_NAME_KEYWORDS = ("acquisition corp", "acquisition co", "blank check")
+    if company_sic == "6770":
+        log.info(f"  → SKIP: Blank check company (SIC 6770) '{ticker}'")
+        return False
+    if any(kw in company_name for kw in SPAC_NAME_KEYWORDS):
+        log.info(f"  → SKIP: SPAC company name '{ticker}' — {company.get('name', '')}")
+        return False
+
     combo_key = f"{ticker}:{' '.join(w.capitalize() for w in insider.strip().split())}"
     if posted_today is not None and combo_key in posted_today:
         log.info(f"  → SKIP: Already posted {combo_key} today — RSS duplicate (Reporting/Issuer)")
@@ -415,7 +432,7 @@ def process_followups():
         change_pct = ((current_price - entry_price) / entry_price) * 100
 
         # Determine whether to post
-        is_up_10   = change_pct >= 10.0
+        is_up_10   = change_pct >= 15.0
         is_down_20 = change_pct <= -20.0 and days == 90
 
         if not is_up_10 and not is_down_20:
@@ -423,13 +440,15 @@ def process_followups():
             log.info(f"  → FOLLOWUP skipped: ${ticker} {change_pct:+.1f}% — threshold not met at {days} days")
             continue
 
+        original_tweet_id = item.get("original_tweet_id")
+        if not original_tweet_id or original_tweet_id == "dry_run":
+            mark_followup_posted(item)
+            log.info(f"  → FOLLOWUP skipped: no original tweet ID for ${ticker}")
+            continue
+
         tweet = generate_followup_tweet(trade, current_price, days, change_pct)
         if tweet:
-            original_tweet_id = item.get("original_tweet_id")
-            if original_tweet_id and original_tweet_id != "dry_run":
-                post_tweet(tweet, reply_to_id=original_tweet_id)
-            else:
-                post_tweet(tweet)
+            post_tweet(tweet, reply_to_id=original_tweet_id)
             time.sleep(2)
             # Mark all intervals for this trade done — only one followup per trade
             mark_all_followups_done(item)
@@ -482,8 +501,9 @@ def maybe_post_digests():
     global last_daily_digest_date, last_weekly_digest_date
     now = datetime.now(timezone.utc)
 
-    # Daily digest at 6PM ET (23 UTC), Monday–Friday only
-    if (now.hour == config.DIGEST_HOUR_UTC and
+    # Daily digest at 8PM EDT (midnight UTC), Monday–Friday only
+    # Use >= so a late restart still catches up on the same day
+    if (now.hour >= config.DIGEST_HOUR_UTC and
             now.weekday() < 5 and
             now.date() != last_daily_digest_date):
         trades = get_last_24h_trades()
@@ -505,9 +525,9 @@ def maybe_post_digests():
         import threading
         threading.Thread(target=backup_history_to_github, daemon=True).start()
 
-    # Weekly digest on configured day
+    # Weekly digest on configured day — same catch-up logic
     if (now.weekday() == config.WEEKLY_DIGEST_DAY and
-            now.hour == config.DIGEST_HOUR_UTC and
+            now.hour >= config.DIGEST_HOUR_UTC and
             now.date() != last_weekly_digest_date):
         trades = get_week_trades()
         if trades:

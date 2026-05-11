@@ -237,8 +237,20 @@ def parse_transactions_from_xml(xml: str) -> dict:
         # Collect all non-derivative transactions with ownership bucket info
         # Real SEC XML: transactionCode is direct text under transactionCoding/transactionCode
         # All other values are wrapped in <value> child tags
+        NON_COMMON_KEYWORDS = (
+            "preferred", "warrant", "option", "note", "bond",
+            "debenture", "right", "unit", "depositary", "convertible",
+        )
+
         transactions = []
         for txn in root.findall(".//nonDerivativeTransaction"):
+            # Skip non-common-stock securities (preferred, warrants, notes, etc.)
+            title_el = txn.find(".//securityTitle/value")
+            if title_el is not None and title_el.text:
+                title_lower = title_el.text.strip().lower()
+                if any(kw in title_lower for kw in NON_COMMON_KEYWORDS):
+                    continue
+
             code_el     = txn.find(".//transactionCoding/transactionCode")
             shares_el   = txn.find(".//transactionShares/value")
             price_el    = txn.find(".//transactionPricePerShare/value")

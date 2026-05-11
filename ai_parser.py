@@ -704,6 +704,7 @@ Rules:
 - For conviction labels use: score 9-10="Max Conviction", 8="Very High Conviction", 7="High Conviction", 6="Strong Signal"
 - No other lines, no sell section, no filing counts
 - Keep entire tweet under 280 characters
+- CRITICAL: Your response must start with exactly "📊 INSIDER DAILY DIGEST" — no other text before it
 """
     try:
         msg = claude.messages.create(
@@ -832,9 +833,9 @@ Write an urgent, informative tweet about this cluster activity.
 
 STRICT FORMAT RULES:
 - Header: 👥 CLUSTER ALERT — ${ticker}
-- Line 1: "[N] insiders BUYING $[total]K in [X] days:" (use total dollar value, not share price)
-- Then 1 bullet per insider: "• [Role] [Last Name]: $[value]K buy"
-  - Always show dollar value (e.g. $252K), never show price per share or price ranges
+- Line 1: "[N] insiders BUYING $[total] in [X] days:" (use total dollar value, not share price)
+- Then 1 bullet per insider: "• [Role] [Last Name]: $[value] buy"
+  - Always show dollar value using M for millions (e.g. $5.0M, $10.0M) or K for thousands (e.g. $252K), never show price per share or price ranges
   - If multiple purchases by same insider, sum them and show total
 - Last line: short punchy observation (1 line max)
 - Hashtags: #InsiderTrading #{ticker} #ClusterBuy
