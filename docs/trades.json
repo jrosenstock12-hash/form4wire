@@ -4198,5 +4198,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-11T18:58:49.680130+00:00"
+  },
+  {
+    "ticker": "OLED",
+    "company_name": "UNIVERSAL DISPLAY CORP \\PA\\",
+    "insider_name": "ABRAMSON STEVEN V",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-07",
+    "filed_date": "2026-05-11",
+    "shares_traded": 11000,
+    "price_per_share": 93.4336,
+    "total_value": 1027770.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 296589,
+    "position_change_pct": 3.9,
+    "pct_from_52w_high": 42.1,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-11T20:01:59.641494+00:00"
   }
 ]
