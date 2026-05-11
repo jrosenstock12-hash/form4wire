@@ -4258,5 +4258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-11T21:16:06.143524+00:00"
+  },
+  {
+    "ticker": "EVTC",
+    "company_name": "EVERTEC, Inc.",
+    "insider_name": "Castrillo-Salgado Joaquin A.",
+    "insider_title": "Senior EVP & COO",
+    "role_header": "COO",
+    "transaction_date": "2026-05-08",
+    "filed_date": "2026-05-11",
+    "shares_traded": 20000,
+    "price_per_share": 22.7353,
+    "total_value": 454705.9,
+    "total_value_fmt": "$455K",
+    "shares_owned_after": 143987,
+    "position_change_pct": 16.1,
+    "pct_from_52w_high": 40.7,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-11T21:18:15.871845+00:00"
   }
 ]
