@@ -4618,5 +4618,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-12T21:33:57.231842+00:00"
+  },
+  {
+    "ticker": "XRN",
+    "company_name": "Chiron Real Estate Inc.",
+    "insider_name": "Holley Danica",
+    "insider_title": "COO",
+    "role_header": "COO",
+    "transaction_date": "2026-05-12",
+    "filed_date": "2026-05-12",
+    "shares_traded": 1490,
+    "price_per_share": 33.99,
+    "total_value": 50645.1,
+    "total_value_fmt": "$51K",
+    "shares_owned_after": 1590,
+    "position_change_pct": 1490.0,
+    "pct_from_52w_high": 12.1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T21:44:22.635407+00:00"
   }
 ]
