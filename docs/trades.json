@@ -4558,5 +4558,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-12T20:22:07.055583+00:00"
+  },
+  {
+    "ticker": "ETN",
+    "company_name": "Eaton Corp plc",
+    "insider_name": "Johnson Gerald",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-08",
+    "filed_date": "2026-05-12",
+    "shares_traded": 961,
+    "price_per_share": 406.0328,
+    "total_value": 390197.49,
+    "total_value_fmt": "$390K",
+    "shares_owned_after": 1629,
+    "position_change_pct": 143.9,
+    "pct_from_52w_high": 6.2,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T20:36:05.117275+00:00"
   }
 ]
