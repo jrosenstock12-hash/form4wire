@@ -4338,5 +4338,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-12T00:31:52.158152+00:00"
+  },
+  {
+    "ticker": "PLSE",
+    "company_name": "PULSE BIOSCIENCES, INC.",
+    "insider_name": "LAVIOLETTE PAUL A",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-11",
+    "filed_date": "2026-05-11",
+    "shares_traded": 15000,
+    "price_per_share": 19.69,
+    "total_value": 295350.0,
+    "total_value_fmt": "$295K",
+    "shares_owned_after": 15846,
+    "position_change_pct": 1773.0,
+    "pct_from_52w_high": 22.7,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T00:53:23.058421+00:00"
   }
 ]
