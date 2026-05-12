@@ -4478,5 +4478,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-05-12T20:08:36.557551+00:00"
+  },
+  {
+    "ticker": "HUBS",
+    "company_name": "HUBSPOT INC",
+    "insider_name": "Rangan Yamini",
+    "insider_title": "Chief Executive Officer & Pres",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-12",
+    "filed_date": "2026-05-12",
+    "shares_traded": 2750,
+    "price_per_share": 189.84,
+    "total_value": 522060.0,
+    "total_value_fmt": "$522K",
+    "shares_owned_after": 102982,
+    "position_change_pct": 2.7,
+    "pct_from_52w_high": 71.8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T20:11:56.261770+00:00"
   }
 ]
