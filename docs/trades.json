@@ -4398,5 +4398,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-05-12T01:38:33.986494+00:00"
+  },
+  {
+    "ticker": "CAI",
+    "company_name": "Caris Life Sciences, Inc.",
+    "insider_name": "Vacirca Jeff L",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-11",
+    "filed_date": "2026-05-12",
+    "shares_traded": 31050,
+    "price_per_share": 16.149,
+    "total_value": 501426.45,
+    "total_value_fmt": "$501K",
+    "shares_owned_after": 49671,
+    "position_change_pct": 166.7,
+    "pct_from_52w_high": 58.9,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T12:23:09.801740+00:00"
   }
 ]
