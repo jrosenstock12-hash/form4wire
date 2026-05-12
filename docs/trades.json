@@ -4538,5 +4538,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-05-12T20:16:32.870250+00:00"
+  },
+  {
+    "ticker": "LODE",
+    "company_name": "Comstock Inc.",
+    "insider_name": "DEGASPERIS CORRADO",
+    "insider_title": "CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-12",
+    "filed_date": "2026-05-12",
+    "shares_traded": 35000,
+    "price_per_share": 2.89,
+    "total_value": 101150.0,
+    "total_value_fmt": "$101K",
+    "shares_owned_after": 170818,
+    "position_change_pct": 25.8,
+    "pct_from_52w_high": 37.0,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T20:22:07.055583+00:00"
   }
 ]
