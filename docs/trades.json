@@ -4598,5 +4598,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-12T21:04:43.682412+00:00"
+  },
+  {
+    "ticker": "BOBS",
+    "company_name": "Bob's Discount Furniture, Inc.",
+    "insider_name": "BARTON WILLIAM G",
+    "insider_title": "Director and Officer",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-08",
+    "filed_date": "2026-05-12",
+    "shares_traded": 22350,
+    "price_per_share": 13.5476,
+    "total_value": 302788.0,
+    "total_value_fmt": "$303K",
+    "shares_owned_after": 22850,
+    "position_change_pct": 4470.0,
+    "pct_from_52w_high": 39.9,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T21:33:57.231842+00:00"
   }
 ]
