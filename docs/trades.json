@@ -4498,5 +4498,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-12T20:11:56.261770+00:00"
+  },
+  {
+    "ticker": "HUBS",
+    "company_name": "HUBSPOT INC",
+    "insider_name": "Shah Dharmesh",
+    "insider_title": "Chief Technology Officer",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-12",
+    "filed_date": "2026-05-12",
+    "shares_traded": 10000,
+    "price_per_share": 181.37,
+    "total_value": 1813700.0,
+    "total_value_fmt": "$1.8M",
+    "shares_owned_after": 1295400,
+    "position_change_pct": 0.8,
+    "pct_from_52w_high": 73.0,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T20:12:42.987881+00:00"
   }
 ]
