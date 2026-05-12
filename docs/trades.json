@@ -4358,5 +4358,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-12T00:53:23.058421+00:00"
+  },
+  {
+    "ticker": "DXC",
+    "company_name": "DXC Technology Co",
+    "insider_name": "FERNANDEZ RAUL J",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-11",
+    "filed_date": "2026-05-11",
+    "shares_traded": 28050,
+    "price_per_share": 8.895,
+    "total_value": 249512.43,
+    "total_value_fmt": "$250K",
+    "shares_owned_after": 844052,
+    "position_change_pct": 3.4,
+    "pct_from_52w_high": 47.5,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-12T01:15:31.014053+00:00"
   }
 ]
