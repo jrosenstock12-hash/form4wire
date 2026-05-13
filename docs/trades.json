@@ -4838,5 +4838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-13T21:12:45.570926+00:00"
+  },
+  {
+    "ticker": "TSLX",
+    "company_name": "Sixth Street Specialty Lending, Inc.",
+    "insider_name": "Bruck Ross Anthony",
+    "insider_title": "Vice President",
+    "role_header": "VP",
+    "transaction_date": "2026-05-11",
+    "filed_date": "2026-05-13",
+    "shares_traded": 8000,
+    "price_per_share": 17.76,
+    "total_value": 142080.0,
+    "total_value_fmt": "$142K",
+    "shares_owned_after": 18250,
+    "position_change_pct": 78.0,
+    "pct_from_52w_high": 29.2,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-13T21:34:56.598231+00:00"
   }
 ]
