@@ -4818,5 +4818,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-13T20:36:49.202952+00:00"
+  },
+  {
+    "ticker": "KINS",
+    "company_name": "KINGSTONE COMPANIES, INC.",
+    "insider_name": "Newgarden Thomas",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-12",
+    "filed_date": "2026-05-13",
+    "shares_traded": 30502,
+    "price_per_share": 14.4403,
+    "total_value": 440456.88,
+    "total_value_fmt": "$440K",
+    "shares_owned_after": 85366,
+    "position_change_pct": 55.6,
+    "pct_from_52w_high": 22.5,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-13T21:12:45.570926+00:00"
   }
 ]
