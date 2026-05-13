@@ -4678,5 +4678,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-13T12:45:54.628378+00:00"
+  },
+  {
+    "ticker": "MRP",
+    "company_name": "Millrose Properties, Inc.",
+    "insider_name": "Richman Darren",
+    "insider_title": "See Remarks",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-05-11",
+    "filed_date": "2026-05-13",
+    "shares_traded": 235000,
+    "price_per_share": 27.312,
+    "total_value": 6418320.0,
+    "total_value_fmt": "$6.4M",
+    "shares_owned_after": 500000,
+    "position_change_pct": 88.7,
+    "pct_from_52w_high": 23.1,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-13T14:04:19.019697+00:00"
   }
 ]
