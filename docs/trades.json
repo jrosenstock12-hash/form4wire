@@ -4758,5 +4758,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-13T20:11:12.267273+00:00"
+  },
+  {
+    "ticker": "APPN",
+    "company_name": "APPIAN CORP",
+    "insider_name": "Dorsey Mark",
+    "insider_title": "Chief Revenue Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-05-13",
+    "filed_date": "2026-05-13",
+    "shares_traded": 5227,
+    "price_per_share": 19.13,
+    "total_value": 99992.65,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 13993,
+    "position_change_pct": 59.6,
+    "pct_from_52w_high": 58.1,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-13T20:23:14.284481+00:00"
   }
 ]
