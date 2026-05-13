@@ -298,8 +298,12 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
     stock["short_interest"] = short_int
 
     # 10. Check cluster BEFORE scoring so cluster_count feeds into score
-    # Skip cluster recording if this is an RSS Reporting/Issuer duplicate
+    # Skip cluster recording if this is an RSS Reporting/Issuer duplicate.
+    # Mark combo_key seen NOW (not just on successful post) so Issuer RSS duplicates
+    # that fail the signal threshold don't re-add the same insider to the cluster.
     _already_in_cluster = (posted_today is not None and combo_key in posted_today)
+    if posted_today is not None:
+        posted_today.add(combo_key)
     cluster_data  = record_trade_for_cluster(trade) if not _already_in_cluster else None
     cluster_flag  = cluster_data is not None
     cluster_count = 0
@@ -390,10 +394,6 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
             post_tweet(cluster_tweet, reply_to_id=tweet_id)
 
     log.info(f"  → {'[DRY RUN] ' if config.DRY_RUN else ''}POSTED: ${ticker} | {trade.get('insider_name')} | Signal {score}/10")
-
-    # Update posted_today to block RSS duplicate (Reporting/Issuer) entries
-    if posted_today is not None:
-        posted_today.add(combo_key)
 
     return True
 
