@@ -4698,5 +4698,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-13T14:04:19.019697+00:00"
+  },
+  {
+    "ticker": "NCDL",
+    "company_name": "Nuveen Churchill Direct Lending Corp.",
+    "insider_name": "Hassen Marissa",
+    "insider_title": "Chief Accounting Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-05-12",
+    "filed_date": "2026-05-13",
+    "shares_traded": 3782,
+    "price_per_share": 13.21,
+    "total_value": 49960.22,
+    "total_value_fmt": "$50K",
+    "shares_owned_after": 9780,
+    "position_change_pct": 63.1,
+    "pct_from_52w_high": 22.8,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-13T14:33:29.197933+00:00"
   }
 ]
