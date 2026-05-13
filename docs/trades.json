@@ -4798,5 +4798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-13T20:34:52.020121+00:00"
+  },
+  {
+    "ticker": "ZTS",
+    "company_name": "Zoetis Inc.",
+    "insider_name": "DAMELIO FRANK A",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-13",
+    "filed_date": "2026-05-13",
+    "shares_traded": 6650,
+    "price_per_share": 75.39,
+    "total_value": 501343.5,
+    "total_value_fmt": "$501K",
+    "shares_owned_after": 21458,
+    "position_change_pct": 44.9,
+    "pct_from_52w_high": 55.7,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-13T20:36:49.202952+00:00"
   }
 ]
