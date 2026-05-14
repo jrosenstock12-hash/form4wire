@@ -4938,5 +4938,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-14T20:12:31.875162+00:00"
+  },
+  {
+    "ticker": "PLNT",
+    "company_name": "Planet Fitness, Inc.",
+    "insider_name": "Keating Colleen",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-12",
+    "filed_date": "2026-05-14",
+    "shares_traded": 5000,
+    "price_per_share": 49.54,
+    "total_value": 247700.0,
+    "total_value_fmt": "$248K",
+    "shares_owned_after": 141511,
+    "position_change_pct": 3.7,
+    "pct_from_52w_high": 56.4,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-14T20:52:53.304748+00:00"
   }
 ]
