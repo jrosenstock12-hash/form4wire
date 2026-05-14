@@ -4858,5 +4858,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-13T21:34:56.598231+00:00"
+  },
+  {
+    "ticker": "FCN",
+    "company_name": "FTI CONSULTING, INC",
+    "insider_name": "Steven H. Gunby",
+    "insider_title": "CEO, Chairman and President",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-13",
+    "filed_date": "2026-05-14",
+    "shares_traded": 10000,
+    "price_per_share": 144.1708,
+    "total_value": 1441707.8,
+    "total_value_fmt": "$1.4M",
+    "shares_owned_after": 326984,
+    "position_change_pct": 3.2,
+    "pct_from_52w_high": 22.9,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-14T11:30:16.391684+00:00"
   }
 ]
