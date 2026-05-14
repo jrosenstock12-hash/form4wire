@@ -4898,5 +4898,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-14T12:57:26.556451+00:00"
+  },
+  {
+    "ticker": "ACM",
+    "company_name": "AECOM",
+    "insider_name": "Rudd Troy",
+    "insider_title": "CHIEF EXECUTIVE OFFICER",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-14",
+    "filed_date": "2026-05-14",
+    "shares_traded": 4225,
+    "price_per_share": 71.02,
+    "total_value": 300059.5,
+    "total_value_fmt": "$300K",
+    "shares_owned_after": 142207,
+    "position_change_pct": 3.1,
+    "pct_from_52w_high": 47.1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-14T20:05:43.833406+00:00"
   }
 ]
