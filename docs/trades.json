@@ -5038,5 +5038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-15T11:01:30.015707+00:00"
+  },
+  {
+    "ticker": "ONON",
+    "company_name": "On Holding AG",
+    "insider_name": "Bernhard Olivier",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-05-14",
+    "filed_date": "2026-05-15",
+    "shares_traded": 60000,
+    "price_per_share": 36.635,
+    "total_value": 2198098.54,
+    "total_value_fmt": "$2.2M",
+    "shares_owned_after": 5163184,
+    "position_change_pct": 1.2,
+    "pct_from_52w_high": 39.6,
+    "signal_score": 7,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-15T13:01:15.076687+00:00"
   }
 ]
