@@ -5098,5 +5098,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-15T21:13:13.708494+00:00"
+  },
+  {
+    "ticker": "OI",
+    "company_name": "O-I Glass, Inc. /DE/",
+    "insider_name": "Restrepo Eduardo",
+    "insider_title": "SVP, Business Ops Americas",
+    "role_header": "SVP",
+    "transaction_date": "2026-05-14",
+    "filed_date": "2026-05-15",
+    "shares_traded": 3309,
+    "price_per_share": 8.985,
+    "total_value": 29731.36,
+    "total_value_fmt": "$30K",
+    "shares_owned_after": 94199,
+    "position_change_pct": 3.6,
+    "pct_from_52w_high": 47,
+    "signal_score": 5,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-15T21:20:19.600514+00:00"
   }
 ]
