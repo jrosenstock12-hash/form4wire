@@ -86,7 +86,7 @@ def check_analyst_divergence(trade: dict, stock: dict) -> str:
     More sophisticated version would pull analyst ratings via an API.
     """
     code  = trade.get("transaction_code", "")
-    price = stock.get("price", 0)
+    price = trade.get("price_per_share", 0) or stock.get("price", 0)
     low   = stock.get("52w_low", 0)
     high  = stock.get("52w_high", 0)
 

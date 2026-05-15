@@ -13,6 +13,8 @@ from datetime import datetime, timezone, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+from sec_fetcher import pct_down_from_52w_high
+
 log = logging.getLogger(__name__)
 
 SEC_HEADERS = {
@@ -152,7 +154,7 @@ def _calculate_score(trade: dict, sec_data: dict, stock: dict, history: dict, ne
     before   = sec_data.get("shares_before") or trade.get("shares_owned_before", 0)
     unusual  = history.get("unusual", True)
     cluster  = history.get("cluster_count", 0)
-    price    = stock.get("price", 0)
+    price    = trade.get("price_per_share", 0)
     high_52w = stock.get("52w_high", 0)
     consec   = history.get("consecutive_buys", 0)
 
@@ -179,10 +181,10 @@ def _calculate_score(trade: dict, sec_data: dict, stock: dict, history: dict, ne
     elif cluster >= 2: pts["Cluster"] = (2, f"{cluster} insiders → +2")
     else:              pts["Cluster"] = (0, "No cluster → +0")
 
-    if price and high_52w and code == "P":
-        pct_high = (high_52w - price) / high_52w
-        if pct_high > 0.40: pts["52W High"] = (1, f"−{pct_high*100:.0f}% from high → +1")
-        else:               pts["52W High"] = (0, f"−{pct_high*100:.0f}% from high → +0")
+    pct_int = pct_down_from_52w_high(price, high_52w) if code == "P" else None
+    if pct_int is not None:
+        if pct_int > 40: pts["52W High"] = (1, f"−{pct_int}% from high → +1")
+        else:            pts["52W High"] = (0, f"−{pct_int}% from high → +0")
     else:
         pts["52W High"] = (0, "+0")
 
@@ -264,7 +266,7 @@ def validate_and_email(trade: dict, tweeted_score: int, stock: dict, history: di
     consec   = history.get("consecutive_buys", 0)
     cluster  = history.get("cluster_count", 0)
 
-    pct_high = round(((high - cur_price) / high) * 100, 1) if high and cur_price else 0
+    pct_high = pct_down_from_52w_high(price, high) or 0
     pos_pct  = round(((shares / before) * 100), 1) if before >= 100 else None
 
     lines = [
@@ -279,7 +281,7 @@ def validate_and_email(trade: dict, tweeted_score: int, stock: dict, history: di
         f"",
         f"CONTEXT:",
         f"  Stock price:    ${cur_price:.2f}",
-        f"  52W High:       ${high:.2f} (−{pct_high}% from high)",
+        f"  52W High:       ${high:.2f} (−{pct_high}% from high, trade price ${price:.2f})",
         f"  Position chg:   {'+' + str(pos_pct) + '%' if pos_pct else 'N/A (no prior shares)'}",
         f"  Shares after:   {after:,}",
         f"  Unusual:        {'Yes' if unusual else 'No'}",

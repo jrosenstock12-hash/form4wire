@@ -165,6 +165,14 @@ def fetch_company_data(cik: str) -> dict:
         return {}
 
 
+def pct_down_from_52w_high(price: float, high_52w: float) -> int | None:
+    """Percent below Yahoo 52-week high. None if not below high. 22.4→22, 22.5→23."""
+    if not price or not high_52w or high_52w <= price:
+        return None
+    pct = (high_52w - price) / high_52w * 100
+    return int(pct + 0.5)  # round half up (not Python banker's round)
+
+
 def fetch_stock_price(ticker: str) -> dict:
     """Fetch current price, 52w high/low, market cap from Yahoo Finance."""
     if not ticker:
@@ -179,11 +187,13 @@ def fetch_stock_price(ticker: str) -> dict:
         closes = data["chart"]["result"][0]["indicators"]["quote"][0].get("close", [])
         closes = [c for c in closes if c is not None]
 
+        high = meta.get("fiftyTwoWeekHigh") or (max(closes) if closes else 0)
+        low  = meta.get("fiftyTwoWeekLow") or (min(closes) if closes else 0)
         return {
             "price":      meta.get("regularMarketPrice", 0),
             "market_cap": meta.get("marketCap", 0),
-            "52w_high":   max(closes) if closes else 0,
-            "52w_low":    min(closes) if closes else 0,
+            "52w_high":   high,
+            "52w_low":    low,
             "currency":   meta.get("currency", "USD"),
         }
     except Exception:

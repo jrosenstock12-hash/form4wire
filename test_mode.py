@@ -86,7 +86,7 @@ def meets_threshold(trade, tier, market_cap=0):
 
 def check_analyst_divergence(trade, stock):
     code  = trade.get("transaction_code", "")
-    price = stock.get("price", 0)
+    price = trade.get("price_per_share", 0) or stock.get("price", 0)
     high  = stock.get("52w_high", 0)
     low   = stock.get("52w_low", 0)
     if not price or not high or not low:

@@ -7,6 +7,7 @@ import re
 import json
 import anthropic
 from config import FAST_MODEL, ANALYSIS_MODEL
+from sec_fetcher import pct_down_from_52w_high
 
 claude = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
@@ -336,7 +337,7 @@ def calculate_base_score(trade: dict, stock: dict, history: dict, next_earnings:
     traded    = trade.get("shares_traded", 0)
     unusual   = history.get("unusual", False)
     cluster_n = history.get("cluster_count", 0)
-    price     = stock.get("price", 0)
+    price     = trade.get("price_per_share", 0)
     high_52w  = stock.get("52w_high", 0)
 
     role_pts, role_label = _role_score(title, trade.get("insider_remarks", ""))
@@ -380,13 +381,13 @@ def calculate_base_score(trade: dict, stock: dict, history: dict, next_earnings:
     else:
         breakdown["cluster"] = "+0 (no cluster)"
 
-    if price and high_52w and code == "P":
-        pct_from_high = (high_52w - price) / high_52w
-        if pct_from_high > 0.40:
+    pct_int = pct_down_from_52w_high(price, high_52w) if code == "P" else None
+    if pct_int is not None:
+        if pct_int > 40:
             points += 1
-            breakdown["52w_high"] = f"+1 (stock −{pct_from_high*100:.0f}% from 52W high)"
+            breakdown["52w_high"] = f"+1 (stock −{pct_int}% from 52W high)"
         else:
-            breakdown["52w_high"] = f"+0 (stock −{pct_from_high*100:.0f}% from 52W high)"
+            breakdown["52w_high"] = f"+0 (stock −{pct_int}% from 52W high)"
     else:
         breakdown["52w_high"] = "+0"
 
@@ -576,10 +577,10 @@ def build_tweet(
 
     # ── 52W high line ───────────────────────────────────────────────────────
     high_line = ""
-    if is_buy and stock.get("52w_high") and stock.get("price"):
-        pct_from_high = (stock["52w_high"] - stock["price"]) / stock["52w_high"] * 100
-        if 5 < pct_from_high < 95:
-            high_line = f"• Stock −{pct_from_high:.0f}% from 52W high\n"
+    if is_buy:
+        pct_from_high = pct_down_from_52w_high(price, stock.get("52w_high", 0))
+        if pct_from_high is not None and 5 < pct_from_high < 95:
+            high_line = f"• Stock −{pct_from_high}% from 52W high\n"
 
     # ── Cluster line ────────────────────────────────────────────────────────
     cluster_line = ""

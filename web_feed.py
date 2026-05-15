@@ -11,6 +11,8 @@ import requests
 from datetime import datetime, timezone
 from pathlib import Path
 
+from sec_fetcher import pct_down_from_52w_high
+
 log = logging.getLogger(__name__)
 
 # Primary storage on Railway volume — persists across redeploys
@@ -240,7 +242,7 @@ def save_to_web_feed(trade: dict, score: int, cluster_count: int = 0):
         # Calculate pct from 52w high
         price = trade.get("price_per_share", 0)
         high  = trade.get("stock_52w_high", 0) or trade.get("52w_high", 0)
-        pct_from_high = round(((high - price) / high) * 100, 1) if high and high > price else None
+        pct_from_high = pct_down_from_52w_high(price, high)
 
         # Calculate position change %
         before = trade.get("shares_owned_before", 0) or 0
