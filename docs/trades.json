@@ -5178,5 +5178,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-15T22:15:26.161910+00:00"
+  },
+  {
+    "ticker": "KBR",
+    "company_name": "KBR, INC.",
+    "insider_name": "Evans Shad E.",
+    "insider_title": "EVP & Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-05-13",
+    "filed_date": "2026-05-15",
+    "shares_traded": 8375,
+    "price_per_share": 30.6,
+    "total_value": 256275.0,
+    "total_value_fmt": "$256K",
+    "shares_owned_after": 43725,
+    "position_change_pct": 23.7,
+    "pct_from_52w_high": 46,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-16T00:07:03.861280+00:00"
   }
 ]
