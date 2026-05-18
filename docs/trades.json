@@ -5238,5 +5238,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-18T11:00:49.994034+00:00"
+  },
+  {
+    "ticker": "NIQ",
+    "company_name": "NIQ Global Intelligence plc",
+    "insider_name": "Peck James M",
+    "insider_title": "See Remarks",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-05-18",
+    "filed_date": "2026-05-18",
+    "shares_traded": 118625,
+    "price_per_share": 8.43,
+    "total_value": 1000008.75,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 424683,
+    "position_change_pct": 38.8,
+    "pct_from_52w_high": 59,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-18T18:02:56.156363+00:00"
   }
 ]
