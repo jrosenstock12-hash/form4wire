@@ -5218,5 +5218,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-16T00:08:16.884642+00:00"
+  },
+  {
+    "ticker": "ADC",
+    "company_name": "AGREE REALTY CORP",
+    "insider_name": "Agree Joey",
+    "insider_title": "PRESIDENT & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-14",
+    "filed_date": "2026-05-18",
+    "shares_traded": 13295,
+    "price_per_share": 75.41,
+    "total_value": 1002575.95,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 675105,
+    "position_change_pct": 2.0,
+    "pct_from_52w_high": 8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-18T11:00:49.994034+00:00"
   }
 ]
