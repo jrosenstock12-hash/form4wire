@@ -5378,5 +5378,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-05-19T01:24:10.859234+00:00"
+  },
+  {
+    "ticker": "GEL",
+    "company_name": "GENESIS ENERGY LP",
+    "insider_name": "Gaspard Garland G",
+    "insider_title": "Senior Vice President",
+    "role_header": "SVP",
+    "transaction_date": "2026-05-18",
+    "filed_date": "2026-05-19",
+    "shares_traded": 12340,
+    "price_per_share": 16.34,
+    "total_value": 201629.6,
+    "total_value_fmt": "$202K",
+    "shares_owned_after": 36881,
+    "position_change_pct": 50.3,
+    "pct_from_52w_high": 12,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-19T12:31:55.761446+00:00"
   }
 ]
