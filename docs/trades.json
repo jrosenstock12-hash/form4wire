@@ -5358,5 +5358,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-19T00:01:38.303253+00:00"
+  },
+  {
+    "ticker": "GSHD",
+    "company_name": "Goosehead Insurance, Inc.",
+    "insider_name": "Thornthwaite Martin Ellis",
+    "insider_title": "General Counsel",
+    "role_header": "GEN. COUNSEL",
+    "transaction_date": "2026-05-18",
+    "filed_date": "2026-05-18",
+    "shares_traded": 5000,
+    "price_per_share": 41.5,
+    "total_value": 207500.0,
+    "total_value_fmt": "$208K",
+    "shares_owned_after": 5000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 64,
+    "signal_score": 7,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-19T01:24:10.859234+00:00"
   }
 ]
