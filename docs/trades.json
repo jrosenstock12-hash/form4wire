@@ -5438,5 +5438,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-19T20:24:49.376659+00:00"
+  },
+  {
+    "ticker": "AEBI",
+    "company_name": "Aebi Schmidt Holding AG",
+    "insider_name": "Marco Portmann",
+    "insider_title": "Group Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-05-15",
+    "filed_date": "2026-05-19",
+    "shares_traded": 5000,
+    "price_per_share": 11.31,
+    "total_value": 56550.0,
+    "total_value_fmt": "$57K",
+    "shares_owned_after": 30000,
+    "position_change_pct": 20.0,
+    "pct_from_52w_high": 66,
+    "signal_score": 7,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-19T21:08:37.885087+00:00"
   }
 ]
