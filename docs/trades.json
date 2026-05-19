@@ -5338,5 +5338,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-18T20:58:08.124060+00:00"
+  },
+  {
+    "ticker": "VIDA",
+    "company_name": "VIDA Global Inc.",
+    "insider_name": "Pratt Lyle",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-15",
+    "filed_date": "2026-05-18",
+    "shares_traded": 312900,
+    "price_per_share": 3.8117,
+    "total_value": 1192674.54,
+    "total_value_fmt": "$1.2M",
+    "shares_owned_after": 238616,
+    "position_change_pct": null,
+    "pct_from_52w_high": 5,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-19T00:01:38.303253+00:00"
   }
 ]
