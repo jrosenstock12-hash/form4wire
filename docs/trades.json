@@ -5478,5 +5478,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-20T13:10:06.111686+00:00"
+  },
+  {
+    "ticker": "AMRZ",
+    "company_name": "Amrize Ltd",
+    "insider_name": "Jenisch Jan Philipp",
+    "insider_title": "Chairman & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-19",
+    "filed_date": "2026-05-20",
+    "shares_traded": 19001,
+    "price_per_share": 49.3896,
+    "total_value": 938451.23,
+    "total_value_fmt": "$938K",
+    "shares_owned_after": 2256000,
+    "position_change_pct": 0.8,
+    "pct_from_52w_high": 25,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-20T14:27:25.918710+00:00"
   }
 ]
