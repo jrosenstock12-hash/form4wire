@@ -448,11 +448,15 @@ def process_followups():
 
         tweet = generate_followup_tweet(trade, current_price, days, change_pct)
         if tweet:
-            post_tweet(tweet, reply_to_id=original_tweet_id)
+            followup_id = post_tweet(tweet, reply_to_id=original_tweet_id)
             time.sleep(2)
-            # Mark all intervals for this trade done — only one followup per trade
-            mark_all_followups_done(item)
-            log.info(f"  → FOLLOWUP posted: ${ticker} {change_pct:+.1f}% at {days} days")
+            if followup_id:
+                # Mark all intervals for this trade done — only one followup per trade
+                mark_all_followups_done(item)
+                log.info(f"  → FOLLOWUP posted: ${ticker} {change_pct:+.1f}% at {days} days")
+            else:
+                mark_followup_posted(item)
+                log.warning(f"  → FOLLOWUP failed to post: ${ticker} — original tweet {original_tweet_id} may have been deleted")
         else:
             mark_followup_posted(item)
 
