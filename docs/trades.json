@@ -5738,5 +5738,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-05-21T20:04:54.827920+00:00"
+  },
+  {
+    "ticker": "NCLH",
+    "company_name": "Norwegian Cruise Line Holdings Ltd.",
+    "insider_name": "COHEN JONATHAN Z",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-20",
+    "filed_date": "2026-05-21",
+    "shares_traded": 30000,
+    "price_per_share": 15.83,
+    "total_value": 474900.0,
+    "total_value_fmt": "$475K",
+    "shares_owned_after": 38912,
+    "position_change_pct": 336.6,
+    "pct_from_52w_high": 42,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-21T20:17:09.993453+00:00"
   }
 ]
