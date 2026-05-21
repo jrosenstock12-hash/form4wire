@@ -5778,5 +5778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-21T20:21:24.558283+00:00"
+  },
+  {
+    "ticker": "BSX",
+    "company_name": "BOSTON SCIENTIFIC CORP",
+    "insider_name": "Habiger David C",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-19",
+    "filed_date": "2026-05-21",
+    "shares_traded": 4450,
+    "price_per_share": 56.4265,
+    "total_value": 251098.09,
+    "total_value_fmt": "$251K",
+    "shares_owned_after": 13878,
+    "position_change_pct": 47.2,
+    "pct_from_52w_high": 48,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-21T21:21:30.370797+00:00"
   }
 ]
