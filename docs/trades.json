@@ -5618,5 +5618,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-21T01:03:57.866615+00:00"
+  },
+  {
+    "ticker": "SMWB",
+    "company_name": "SIMILARWEB LTD.",
+    "insider_name": "Beit-On Harel Moshe",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-20",
+    "filed_date": "2026-05-21",
+    "shares_traded": 75000,
+    "price_per_share": 3.89,
+    "total_value": 291750.0,
+    "total_value_fmt": "$292K",
+    "shares_owned_after": 10885778,
+    "position_change_pct": 0.7,
+    "pct_from_52w_high": 64,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-21T10:18:17.355010+00:00"
   }
 ]
