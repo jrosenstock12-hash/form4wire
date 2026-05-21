@@ -5798,5 +5798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-21T21:21:30.370797+00:00"
+  },
+  {
+    "ticker": "PDX",
+    "company_name": "PIMCO Dynamic Income Strategy Fund",
+    "insider_name": "SHARENOW GREG ELLIOT",
+    "insider_title": "SEE REMARKS",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-05-19",
+    "filed_date": "2026-05-21",
+    "shares_traded": 17819,
+    "price_per_share": 21.652,
+    "total_value": 385816.35,
+    "total_value_fmt": "$386K",
+    "shares_owned_after": 44104,
+    "position_change_pct": 67.8,
+    "pct_from_52w_high": 14,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-21T22:27:48.432999+00:00"
   }
 ]
