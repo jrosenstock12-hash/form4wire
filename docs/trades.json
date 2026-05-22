@@ -5838,5 +5838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-22T10:14:04.414857+00:00"
+  },
+  {
+    "ticker": "AMZE",
+    "company_name": "AMAZE HOLDINGS, INC.",
+    "insider_name": "Day Aaron",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-20",
+    "filed_date": "2026-05-22",
+    "shares_traded": 470000,
+    "price_per_share": 0.1352,
+    "total_value": 63544.0,
+    "total_value_fmt": "$64K",
+    "shares_owned_after": 1045315,
+    "position_change_pct": 81.7,
+    "pct_from_52w_high": 99,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-22T12:01:32.421179+00:00"
   }
 ]
