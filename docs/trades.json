@@ -5898,5 +5898,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-22T22:04:48.903858+00:00"
+  },
+  {
+    "ticker": "BRCB",
+    "company_name": "Black Rock Coffee Bar, Inc.",
+    "insider_name": "Geyer Clay Howard",
+    "insider_title": "Chief Operating Officer",
+    "role_header": "COO",
+    "transaction_date": "2026-05-21",
+    "filed_date": "2026-05-22",
+    "shares_traded": 46005,
+    "price_per_share": 6.517,
+    "total_value": 299816.3,
+    "total_value_fmt": "$300K",
+    "shares_owned_after": 58505,
+    "position_change_pct": 368.0,
+    "pct_from_52w_high": 79,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-23T01:42:42.745717+00:00"
   }
 ]
