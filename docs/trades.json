@@ -5918,5 +5918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-23T01:42:42.745717+00:00"
+  },
+  {
+    "ticker": "AMRZ",
+    "company_name": "Amrize Ltd",
+    "insider_name": "Forrest Nollaig",
+    "insider_title": "Chief Mktg & Corp Affairs Off",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-05-22",
+    "filed_date": "2026-05-26",
+    "shares_traded": 2000,
+    "price_per_share": 50.25,
+    "total_value": 100500.0,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 20139,
+    "position_change_pct": 11.0,
+    "pct_from_52w_high": 24,
+    "signal_score": 6,
+    "cluster_count": 4,
+    "unusual_flag": false,
+    "posted_at": "2026-05-26T17:48:29.046686+00:00"
   }
 ]
