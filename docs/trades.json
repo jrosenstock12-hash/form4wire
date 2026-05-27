@@ -6038,5 +6038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-27T12:01:14.716771+00:00"
+  },
+  {
+    "ticker": "ROCK",
+    "company_name": "GIBRALTAR INDUSTRIES, INC.",
+    "insider_name": "Bosway William T",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-26",
+    "filed_date": "2026-05-27",
+    "shares_traded": 19735,
+    "price_per_share": 37.4377,
+    "total_value": 738833.01,
+    "total_value_fmt": "$739K",
+    "shares_owned_after": 250320,
+    "position_change_pct": 8.6,
+    "pct_from_52w_high": 50,
+    "signal_score": 9,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-27T16:01:25.831140+00:00"
   }
 ]
