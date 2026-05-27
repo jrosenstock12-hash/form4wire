@@ -107,11 +107,21 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
     if not trades:
         return {"trades": [], "consecutive_buys": 0, "months_since_last": 999, "unusual": True}
 
-    # Sort by date
+    # Sort by date, then deduplicate by date — pre-dedup-fix duplicates in history
+    # would inflate the consecutive streak count (both RSS reporting+issuer entries
+    # were saved before the April 9 dedup fix)
     trades_sorted = sorted(trades, key=lambda x: x.get("date", ""), reverse=True)
+    seen_dates: set = set()
+    deduped = []
+    for t in trades_sorted:
+        d = t.get("date", "")
+        if d not in seen_dates:
+            deduped.append(t)
+            seen_dates.add(d)
+    trades_sorted = deduped
 
     # Months since last trade
-    last_date_str = trades_sorted[0].get("date", "")
+    last_date_str = trades_sorted[0].get("date", "") if trades_sorted else ""
     months_since  = 999
     days_since = 9999
     if last_date_str:

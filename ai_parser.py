@@ -400,7 +400,7 @@ def calculate_base_score(trade: dict, stock: dict, history: dict, next_earnings:
     consec = history.get("consecutive_buys", 0)
     if consec >= 2:
         points += 1
-        breakdown["streak"] = f"+1 ({consec} consecutive buys within 6 months)"
+        breakdown["streak"] = f"+1 ({consec + 1} consecutive buys, each within 90 days of previous)"
     else:
         breakdown["streak"] = "+0 (no consecutive buy streak)"
 
@@ -593,12 +593,15 @@ def build_tweet(
     extra = ""
     if unusual_flag:
         extra += "• First insider buy in 12+ months\n"
-    if consecutive_buys >= 4:
-        extra += f"• 🔁 {consecutive_buys} consecutive buys — aggressive accumulation\n"
-    elif consecutive_buys == 3:
+    streak = consecutive_buys + 1  # include the current buy in the count
+    if streak >= 5:
+        extra += f"• 🔁 {streak} consecutive buys — aggressive accumulation\n"
+    elif streak == 4:
+        extra += f"• 🔁 4th consecutive buy — strong accumulation\n"
+    elif streak == 3:
         extra += f"• 🔁 3rd consecutive buy — strong accumulation\n"
-    elif consecutive_buys == 2:
-        extra += f"• 🔁 2nd consecutive buy within 6 months\n"
+    elif streak == 2:
+        extra += f"• 🔁 2nd consecutive buy within 90 days\n"
     if short_interest > 0.15 and is_buy:
         extra += f"• ⚡ Short interest {short_interest*100:.0f}% — contrarian bet\n"
     earn_days = days_until_earnings(next_earnings)
