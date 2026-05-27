@@ -6098,5 +6098,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-27T19:30:16.519160+00:00"
+  },
+  {
+    "ticker": "SYY",
+    "company_name": "SYSCO CORP",
+    "insider_name": "Hinshaw John M",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-26",
+    "filed_date": "2026-05-27",
+    "shares_traded": 13304,
+    "price_per_share": 75.168,
+    "total_value": 1000035.07,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 40200,
+    "position_change_pct": 49.5,
+    "pct_from_52w_high": 18,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-27T20:40:12.783170+00:00"
   }
 ]
