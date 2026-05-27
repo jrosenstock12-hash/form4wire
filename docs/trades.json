@@ -5998,5 +5998,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-26T22:45:41.940665+00:00"
+  },
+  {
+    "ticker": "WHF",
+    "company_name": "WhiteHorse Finance, Inc.",
+    "insider_name": "Aronson Stuart D",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-22",
+    "filed_date": "2026-05-26",
+    "shares_traded": 32000,
+    "price_per_share": 6.5644,
+    "total_value": 210060.0,
+    "total_value_fmt": "$210K",
+    "shares_owned_after": 100000,
+    "position_change_pct": 47.1,
+    "pct_from_52w_high": 32,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-27T00:48:37.727050+00:00"
   }
 ]
