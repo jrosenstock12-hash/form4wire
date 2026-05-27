@@ -6118,5 +6118,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-27T20:40:12.783170+00:00"
+  },
+  {
+    "ticker": "DBD",
+    "company_name": "DIEBOLD NIXDORF, Inc",
+    "insider_name": "Marquez Octavio",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-26",
+    "filed_date": "2026-05-27",
+    "shares_traded": 1250,
+    "price_per_share": 79.4671,
+    "total_value": 99333.81,
+    "total_value_fmt": "$99K",
+    "shares_owned_after": 217507,
+    "position_change_pct": 0.6,
+    "pct_from_52w_high": 11,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-05-27T21:03:14.835656+00:00"
   }
 ]
