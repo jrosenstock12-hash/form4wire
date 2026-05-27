@@ -134,28 +134,30 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
         except Exception:
             pass
 
-    # Consecutive buys streak — only count if each buy is within 90 days of the previous
-    # Note: trades_sorted[0] is the current trade (already saved), so we start from [1:]
-    # consecutive = number of PRIOR buys within 90 days, not counting the current one
+    # Buys within 6-month window — count prior open-market buys within 180 days of
+    # the current transaction date. Anchored to the current trade, not today, so the
+    # count stays accurate even if the bot processes a filing days after the trade.
+    # trades_sorted[0] is the current trade (already saved); we count from [1:].
     consecutive = 0
-    prev_date_str = trades_sorted[0].get("date", "") if trades_sorted else ""
-    for t in trades_sorted[1:]:
-        if not t.get("is_buy"):
-            break
-        try:
-            prev_dt = datetime.fromisoformat(prev_date_str.replace("Z", "+00:00"))
-            curr_dt = datetime.fromisoformat(t["date"].replace("Z", "+00:00"))
-            if prev_dt.tzinfo is None:
-                prev_dt = prev_dt.replace(tzinfo=timezone.utc)
-            if curr_dt.tzinfo is None:
-                curr_dt = curr_dt.replace(tzinfo=timezone.utc)
-            gap_days = (prev_dt - curr_dt).days
-            if gap_days > 90:
-                break
-            consecutive += 1
-            prev_date_str = t["date"]
-        except Exception:
-            break
+    current_date_str = trades_sorted[0].get("date", "") if trades_sorted else ""
+    try:
+        current_dt = datetime.fromisoformat(current_date_str.replace("Z", "+00:00"))
+        if current_dt.tzinfo is None:
+            current_dt = current_dt.replace(tzinfo=timezone.utc)
+        cutoff_dt = current_dt - timedelta(days=180)
+        for t in trades_sorted[1:]:
+            if not t.get("is_buy"):
+                continue
+            try:
+                trade_dt = datetime.fromisoformat(t["date"].replace("Z", "+00:00"))
+                if trade_dt.tzinfo is None:
+                    trade_dt = trade_dt.replace(tzinfo=timezone.utc)
+                if trade_dt >= cutoff_dt:
+                    consecutive += 1
+            except Exception:
+                pass
+    except Exception:
+        pass
 
     unusual = days_since >= 365
 
