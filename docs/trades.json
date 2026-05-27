@@ -6018,5 +6018,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-27T00:48:37.727050+00:00"
+  },
+  {
+    "ticker": "VCIG",
+    "company_name": "VCI Global Ltd",
+    "insider_name": "HOO VOON HIM",
+    "insider_title": "CEO and Director",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-26",
+    "filed_date": "2026-05-27",
+    "shares_traded": 654135,
+    "price_per_share": 1.33,
+    "total_value": 869999.55,
+    "total_value_fmt": "$870K",
+    "shares_owned_after": 2225533,
+    "position_change_pct": 41.6,
+    "pct_from_52w_high": 100,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-27T12:01:14.716771+00:00"
   }
 ]
