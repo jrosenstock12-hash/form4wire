@@ -6298,5 +6298,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-28T20:25:18.215389+00:00"
+  },
+  {
+    "ticker": "TMCI",
+    "company_name": "TREACE MEDICAL CONCEPTS, INC.",
+    "insider_name": "Treace John T.",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-26",
+    "filed_date": "2026-05-28",
+    "shares_traded": 115520,
+    "price_per_share": 2.9483,
+    "total_value": 340588.69,
+    "total_value_fmt": "$341K",
+    "shares_owned_after": 7273833,
+    "position_change_pct": 1.6,
+    "pct_from_52w_high": 62,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-28T20:36:41.771289+00:00"
   }
 ]
