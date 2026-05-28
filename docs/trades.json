@@ -6158,5 +6158,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-27T22:43:29.143628+00:00"
+  },
+  {
+    "ticker": "NAKA",
+    "company_name": "Nakamoto Inc.",
+    "insider_name": "Bailey David F",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-26",
+    "filed_date": "2026-05-28",
+    "shares_traded": 136333,
+    "price_per_share": 5.0106,
+    "total_value": 683112.29,
+    "total_value_fmt": "$683K",
+    "shares_owned_after": 3120361,
+    "position_change_pct": 4.6,
+    "pct_from_52w_high": 99,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-28T11:00:39.975196+00:00"
   }
 ]
