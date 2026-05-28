@@ -6278,5 +6278,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-28T20:24:31.167616+00:00"
+  },
+  {
+    "ticker": "SCHW",
+    "company_name": "SCHWAB CHARLES CORP",
+    "insider_name": "Wurster Richard A",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-05-28",
+    "filed_date": "2026-05-28",
+    "shares_traded": 21959,
+    "price_per_share": 84.2257,
+    "total_value": 1849512.15,
+    "total_value_fmt": "$1.8M",
+    "shares_owned_after": 218409,
+    "position_change_pct": 11.2,
+    "pct_from_52w_high": 22,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-28T20:25:18.215389+00:00"
   }
 ]
