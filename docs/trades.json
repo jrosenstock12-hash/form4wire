@@ -6378,5 +6378,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-28T21:50:03.943034+00:00"
+  },
+  {
+    "ticker": "AUNA",
+    "company_name": "AUNA S.A.",
+    "insider_name": "Zamora Leon Jesus",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-05-26",
+    "filed_date": "2026-05-28",
+    "shares_traded": 32000,
+    "price_per_share": 4.2092,
+    "total_value": 134695.26,
+    "total_value_fmt": "$135K",
+    "shares_owned_after": 62710,
+    "position_change_pct": 104.2,
+    "pct_from_52w_high": 39,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-29T01:06:34.760872+00:00"
   }
 ]
