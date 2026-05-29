@@ -6458,5 +6458,25 @@
     "cluster_count": 4,
     "unusual_flag": false,
     "posted_at": "2026-05-29T20:17:41.027711+00:00"
+  },
+  {
+    "ticker": "CDNL",
+    "company_name": "Cardinal Infrastructure Group Inc.",
+    "insider_name": "Wood Benjamin",
+    "insider_title": "CHIEF OPERATING OFFICER",
+    "role_header": "COO",
+    "transaction_date": "2026-05-27",
+    "filed_date": "2026-05-29",
+    "shares_traded": 20000,
+    "price_per_share": 51.295,
+    "total_value": 1025900.01,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 20000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 19,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-05-29T21:17:28.310868+00:00"
   }
 ]
