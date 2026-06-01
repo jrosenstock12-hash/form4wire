@@ -571,6 +571,67 @@ def maybe_post_digests():
         _save_digest_state()
 
 
+# ── FOREIGN TICKER PURGE ─────────────────────────────────────────────────────
+
+def purge_foreign_tickers():
+    """
+    One-time startup cleanup: remove any non-USD tickers from trade history
+    and followup queue. Catches foreign ADS/ordinary-share stocks that slipped
+    through before the ADS exclusion check was added (e.g. BZUN, IPX).
+    Guarded by a flag so it only runs once per deployment.
+    """
+    import json as _json
+    history = _json.load(open(config.TRADE_HISTORY_FILE)) if os.path.exists(config.TRADE_HISTORY_FILE) else {}
+
+    if history.get("__foreign_purge_v1"):
+        return  # Already ran
+
+    real_keys = [k for k in history if not k.startswith("__")]
+    tickers = list({k.split(":")[0] for k in real_keys})
+    log.info(f"  [Purge] Checking {len(tickers)} tickers for non-USD currency...")
+
+    foreign_tickers = set()
+    for ticker in tickers:
+        try:
+            stock = fetch_stock_price(ticker)
+            currency = stock.get("currency", "USD")
+            if currency and currency.upper() != "USD":
+                foreign_tickers.add(ticker)
+                log.info(f"  [Purge] Foreign ticker detected: {ticker} ({currency})")
+        except Exception:
+            pass
+
+    if foreign_tickers:
+        # Remove from trade history
+        removed_history = 0
+        for k in list(history.keys()):
+            if k.startswith("__"):
+                continue
+            if k.split(":")[0] in foreign_tickers:
+                del history[k]
+                removed_history += 1
+
+        # Remove from followup queue
+        removed_queue = 0
+        if os.path.exists(config.FOLLOWUP_QUEUE_FILE):
+            queue = _json.load(open(config.FOLLOWUP_QUEUE_FILE))
+            before = len(queue)
+            queue = [item for item in queue
+                     if item.get("trade", {}).get("ticker") not in foreign_tickers]
+            removed_queue = before - len(queue)
+            from data_store import _save
+            _save(config.FOLLOWUP_QUEUE_FILE, queue)
+
+        log.info(f"  [Purge] Removed {removed_history} history keys and {removed_queue} followup entries "
+                 f"for foreign tickers: {sorted(foreign_tickers)}")
+    else:
+        log.info("  [Purge] No foreign tickers found in history")
+
+    history["__foreign_purge_v1"] = datetime.now(timezone.utc).isoformat()
+    from data_store import _save
+    _save(config.TRADE_HISTORY_FILE, history)
+
+
 # ── MAIN LOOP ────────────────────────────────────────────────────────────────
 
 def _seed_volume_data():
@@ -634,6 +695,9 @@ def main():
             log.info(f"  → Restored followup queue from seed file ({_pending} pending followups)")
         except Exception as e:
             log.info(f"  → Followup queue seed failed: {e}")
+
+    # One-time purge of foreign (non-USD) tickers from history and followup queue
+    purge_foreign_tickers()
 
     seen = load_seen()
 
