@@ -6498,5 +6498,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-01T11:53:42.279268+00:00"
+  },
+  {
+    "ticker": "L",
+    "company_name": "LOEWS CORP",
+    "insider_name": "Robusto Dino",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-05-29",
+    "filed_date": "2026-06-01",
+    "shares_traded": 5000,
+    "price_per_share": 104.74,
+    "total_value": 523700.0,
+    "total_value_fmt": "$524K",
+    "shares_owned_after": 10235,
+    "position_change_pct": 95.5,
+    "pct_from_52w_high": 9,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-01T12:59:51.992462+00:00"
   }
 ]
