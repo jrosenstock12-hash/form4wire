@@ -6478,5 +6478,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-05-29T21:17:28.310868+00:00"
+  },
+  {
+    "ticker": "BZUN",
+    "company_name": "Baozun Inc.",
+    "insider_name": "Wu Junhua",
+    "insider_title": "Chief Strategy Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-05-28",
+    "filed_date": "2026-06-01",
+    "shares_traded": 19500,
+    "price_per_share": 2.56,
+    "total_value": 49920.0,
+    "total_value_fmt": "$50K",
+    "shares_owned_after": 168270,
+    "position_change_pct": 13.1,
+    "pct_from_52w_high": 48,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-01T11:53:42.279268+00:00"
   }
 ]
