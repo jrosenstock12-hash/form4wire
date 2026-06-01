@@ -594,12 +594,17 @@ def build_tweet(
     if unusual_flag:
         extra += "• First insider buy in 12+ months\n"
     streak = consecutive_buys + 1  # include the current buy in the count
-    if streak >= 5:
-        extra += f"• 🔁 {streak} buys in 6 months — aggressive accumulation\n"
-    elif streak == 4:
-        extra += f"• 🔁 4 buys in 6 months — strong accumulation\n"
-    elif streak == 3:
-        extra += f"• 🔁 3 buys in 6 months — building position\n"
+    # Only show strong streak language when the score backs it up — a string of
+    # small buys that scores Moderate looks contradictory with "aggressive accumulation"
+    if signal_score >= 7:
+        if streak >= 5:
+            extra += f"• 🔁 {streak} buys in 6 months — aggressive accumulation\n"
+        elif streak == 4:
+            extra += f"• 🔁 4 buys in 6 months — strong accumulation\n"
+        elif streak == 3:
+            extra += f"• 🔁 3 buys in 6 months — building position\n"
+    elif streak >= 2:
+        extra += f"• 🔁 {streak} consecutive buys within 6 months\n"
     if short_interest > 0.15 and is_buy:
         extra += f"• ⚡ Short interest {short_interest*100:.0f}% — contrarian bet\n"
     earn_days = days_until_earnings(next_earnings)

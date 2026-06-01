@@ -349,11 +349,15 @@ def parse_transactions_from_xml(xml: str) -> dict:
             "ordinary shares" in (txn.findtext(".//securityTitle/value") or "").lower()
             for txn in root.findall(".//nonDerivativeTransaction")
         )
-        # Also catch ADS references in derivative table (e.g. Table II "American Depository Shares")
+        # Catch ADS references in either table — direct ADS purchases (e.g. Chinese NASDAQ stocks like
+        # BZUN) land in the non-derivative table; derivative-table ADS appear in issuers like IPX
+        _ADS_KEYWORDS = ("american depository", "depositary shares", "american depositary",
+                         "depositary receipts", "adr", " ads")
         has_ads = any(
             any(kw in (txn.findtext(".//securityTitle/value") or "").lower()
-                for kw in ("american depository", "depositary shares", "american depositary"))
-            for txn in root.findall(".//derivativeTransaction")
+                for kw in _ADS_KEYWORDS)
+            for txn in (root.findall(".//nonDerivativeTransaction") +
+                        root.findall(".//derivativeTransaction"))
         )
 
         result = {
