@@ -342,6 +342,20 @@ def parse_transactions_from_xml(xml: str) -> dict:
                      "VA","WA","WV","WI","WY","DC"}
         is_foreign = bool(issuer_state_code) and issuer_state_code not in us_states
 
+        # Detect foreign ordinary shares — dual-listed ADS issuers (e.g. Australian companies on NASDAQ)
+        # US companies use "Common Stock"; foreign companies use "Ordinary Shares"
+        # These slip past the issuerStateOrCountry check because they're NASDAQ-listed
+        has_ordinary_shares = any(
+            "ordinary shares" in (txn.findtext(".//securityTitle/value") or "").lower()
+            for txn in root.findall(".//nonDerivativeTransaction")
+        )
+        # Also catch ADS references in derivative table (e.g. Table II "American Depository Shares")
+        has_ads = any(
+            any(kw in (txn.findtext(".//securityTitle/value") or "").lower()
+                for kw in ("american depository", "depositary shares", "american depositary"))
+            for txn in root.findall(".//derivativeTransaction")
+        )
+
         result = {
             "transaction_code":    dominant_code,
             "shares_traded":       int(total_shares),
@@ -354,6 +368,8 @@ def parse_transactions_from_xml(xml: str) -> dict:
             "all_indirect":        all_indirect,
             "is_foreign":          is_foreign,
             "issuer_country":      issuer_country,
+            "has_ordinary_shares": has_ordinary_shares,
+            "has_ads":             has_ads,
         }
 
     except Exception as e:

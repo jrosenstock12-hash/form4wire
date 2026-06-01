@@ -229,6 +229,15 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
         log.info(f"  → SKIP: Foreign private issuer ({_country})")
         return False
 
+    # Skip foreign ordinary share issuers — catches dual-listed ADS companies (e.g. Australian stocks
+    # on NASDAQ) that pass the issuerStateOrCountry check. US companies say "Common Stock";
+    # foreign ADS issuers say "Ordinary Shares". Price comparisons break because the filed price
+    # is in a foreign currency for foreign-exchange shares, and the ADS/ordinary share 10:1 ratio
+    # causes followup return calculations to be wildly wrong.
+    if xml_data.get("has_ordinary_shares") or xml_data.get("has_ads"):
+        log.info(f"  → SKIP: Foreign ordinary shares / ADS issuer — price currency mismatch")
+        return False
+
     # Skip if all purchase rows are indirect (trust/family LLC/fund — no direct personal buy)
     if xml_data.get("all_indirect") and code == "P":
         log.info(f"  → SKIP: All purchases are indirect (trust/fund/LLC) — no direct personal buy")
