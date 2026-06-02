@@ -6638,5 +6638,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-02T21:25:15.488061+00:00"
+  },
+  {
+    "ticker": "RDN",
+    "company_name": "RADIAN GROUP INC",
+    "insider_name": "Weinbach Michael S",
+    "insider_title": "Chief Executive Officer- Elect",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-01",
+    "filed_date": "2026-06-02",
+    "shares_traded": 170000,
+    "price_per_share": 33.9311,
+    "total_value": 5768292.2,
+    "total_value_fmt": "$5.8M",
+    "shares_owned_after": 170000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 13,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-02T21:51:53.614524+00:00"
   }
 ]
