@@ -171,7 +171,11 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
     # Block blank check companies (SPACs) by SIC code and company name
     company_sic  = str(company.get("sic", ""))
     company_name = (company.get("name", "") or trade.get("company_name", "")).lower()
-    SPAC_NAME_KEYWORDS = ("acquisition corp", "acquisition co", "blank check")
+    SPAC_NAME_KEYWORDS = (
+        "acquisition corp", "acquisition co", "blank check",
+        "growth corp", "growth corporation",   # e.g. Cartesian Growth Corp III
+        "merger corp", "merger co",
+    )
     if company_sic == "6770":
         log.info(f"  → SKIP: Blank check company (SIC 6770) '{ticker}'")
         return False
@@ -632,6 +636,41 @@ def purge_foreign_tickers():
     _save(config.TRADE_HISTORY_FILE, history)
 
 
+def purge_spac_tickers():
+    """
+    One-time startup cleanup: remove known SPAC tickers that slipped through
+    the name filter before 'growth corp' / 'merger corp' keywords were added.
+    """
+    import json as _json
+    from data_store import _save
+
+    KNOWN_SPAC_TICKERS = {"CGCT"}  # extend if other SPACs are found
+
+    history = _json.load(open(config.TRADE_HISTORY_FILE)) if os.path.exists(config.TRADE_HISTORY_FILE) else {}
+    if history.get("__spac_purge_v1"):
+        return
+
+    removed_history = 0
+    for k in list(history.keys()):
+        if not k.startswith("__") and k.split(":")[0] in KNOWN_SPAC_TICKERS:
+            del history[k]
+            removed_history += 1
+
+    removed_queue = 0
+    if os.path.exists(config.FOLLOWUP_QUEUE_FILE):
+        queue = _json.load(open(config.FOLLOWUP_QUEUE_FILE))
+        before = len(queue)
+        queue = [item for item in queue
+                 if item.get("trade", {}).get("ticker") not in KNOWN_SPAC_TICKERS]
+        removed_queue = before - len(queue)
+        _save(config.FOLLOWUP_QUEUE_FILE, queue)
+
+    log.info(f"  [Purge] SPAC cleanup: removed {removed_history} history keys and {removed_queue} followup entries")
+    history["__spac_purge_v1"] = datetime.now(timezone.utc).isoformat()
+    _save(config.TRADE_HISTORY_FILE, history)
+
+
+
 # ── MAIN LOOP ────────────────────────────────────────────────────────────────
 
 def _seed_volume_data():
@@ -698,6 +737,7 @@ def main():
 
     # One-time purge of foreign (non-USD) tickers from history and followup queue
     purge_foreign_tickers()
+    purge_spac_tickers()
 
     seen = load_seen()
 
