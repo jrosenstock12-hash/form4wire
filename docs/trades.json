@@ -6678,5 +6678,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-02T22:57:34.269116+00:00"
+  },
+  {
+    "ticker": "ALHC",
+    "company_name": "Alignment Healthcare, Inc.",
+    "insider_name": "Kent Mark D.",
+    "insider_title": "President - MSO",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-06-02",
+    "filed_date": "2026-06-02",
+    "shares_traded": 14848,
+    "price_per_share": 13.31,
+    "total_value": 197626.88,
+    "total_value_fmt": "$198K",
+    "shares_owned_after": 14848,
+    "position_change_pct": null,
+    "pct_from_52w_high": 44,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-02T22:58:49.819288+00:00"
   }
 ]
