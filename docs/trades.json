@@ -6698,5 +6698,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-02T22:58:49.819288+00:00"
+  },
+  {
+    "ticker": "MBC",
+    "company_name": "MasterBrand, Inc.",
+    "insider_name": "Banyard R David",
+    "insider_title": "CEO & President",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-01",
+    "filed_date": "2026-06-02",
+    "shares_traded": 60000,
+    "price_per_share": 8.43,
+    "total_value": 505800.0,
+    "total_value_fmt": "$506K",
+    "shares_owned_after": 1831788,
+    "position_change_pct": 3.4,
+    "pct_from_52w_high": 41,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-02T23:11:12.363367+00:00"
   }
 ]
