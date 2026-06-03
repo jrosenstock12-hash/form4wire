@@ -6758,5 +6758,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-03T20:18:39.559253+00:00"
+  },
+  {
+    "ticker": "AMG",
+    "company_name": "AFFILIATED MANAGERS GROUP, INC.",
+    "insider_name": "FRANQUI ANNETTE",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-01",
+    "filed_date": "2026-06-03",
+    "shares_traded": 750,
+    "price_per_share": 304.88,
+    "total_value": 228660.0,
+    "total_value_fmt": "$229K",
+    "shares_owned_after": 1962,
+    "position_change_pct": 61.9,
+    "pct_from_52w_high": 9,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-03T21:00:40.924615+00:00"
   }
 ]
