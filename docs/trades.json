@@ -6738,5 +6738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-03T10:31:35.475942+00:00"
+  },
+  {
+    "ticker": "NCLH",
+    "company_name": "Norwegian Cruise Line Holdings Ltd.",
+    "insider_name": "PAGLIUCA STEPHEN G",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-01",
+    "filed_date": "2026-06-03",
+    "shares_traded": 1380000,
+    "price_per_share": 18.1104,
+    "total_value": 24992300.0,
+    "total_value_fmt": "$25.0M",
+    "shares_owned_after": 1388912,
+    "position_change_pct": 15484.7,
+    "pct_from_52w_high": 33,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-03T20:18:39.559253+00:00"
   }
 ]
