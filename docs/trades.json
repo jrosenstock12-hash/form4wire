@@ -6778,5 +6778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-03T21:00:40.924615+00:00"
+  },
+  {
+    "ticker": "PFX",
+    "company_name": "PhenixFIN Corp",
+    "insider_name": "Lorber David A",
+    "insider_title": "CHAIRMAN AND CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-01",
+    "filed_date": "2026-06-03",
+    "shares_traded": 8656,
+    "price_per_share": 45.0098,
+    "total_value": 389605.17,
+    "total_value_fmt": "$390K",
+    "shares_owned_after": 253854,
+    "position_change_pct": 3.5,
+    "pct_from_52w_high": 16,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-03T21:25:55.488838+00:00"
   }
 ]
