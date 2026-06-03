@@ -295,7 +295,27 @@ def parse_transactions_from_xml(xml: str) -> dict:
                 "bucket":      bucket,
             })
 
+        # Detect foreign stocks HERE — before the early-exit below.
+        # ADS transactions (e.g. BZUN "American Depositary Shares") get filtered out
+        # by NON_COMMON_KEYWORDS ("depositary"), so if we wait until after the early
+        # return we never see them. Scan ALL non-derivative rows unfiltered.
+        _ADS_KEYWORDS = ("american depository", "depositary shares", "american depositary",
+                         "depositary receipts", " ads")
+        has_ordinary_shares = any(
+            "ordinary shares" in (txn.findtext(".//securityTitle/value") or "").lower()
+            for txn in root.findall(".//nonDerivativeTransaction")
+        )
+        has_ads = any(
+            any(kw in (txn.findtext(".//securityTitle/value") or "").lower()
+                for kw in _ADS_KEYWORDS)
+            for txn in (root.findall(".//nonDerivativeTransaction") +
+                        root.findall(".//derivativeTransaction"))
+        )
+
         if not transactions:
+            # Still surface the foreign-stock flags even when no tradeable rows found
+            if has_ordinary_shares or has_ads:
+                return {"has_ordinary_shares": has_ordinary_shares, "has_ads": has_ads}
             return result
 
         # Find dominant transaction code (P for buy, S for sell)
@@ -341,24 +361,6 @@ def parse_transactions_from_xml(xml: str) -> dict:
                      "NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT",
                      "VA","WA","WV","WI","WY","DC"}
         is_foreign = bool(issuer_state_code) and issuer_state_code not in us_states
-
-        # Detect foreign ordinary shares — dual-listed ADS issuers (e.g. Australian companies on NASDAQ)
-        # US companies use "Common Stock"; foreign companies use "Ordinary Shares"
-        # These slip past the issuerStateOrCountry check because they're NASDAQ-listed
-        has_ordinary_shares = any(
-            "ordinary shares" in (txn.findtext(".//securityTitle/value") or "").lower()
-            for txn in root.findall(".//nonDerivativeTransaction")
-        )
-        # Catch ADS references in either table — direct ADS purchases (e.g. Chinese NASDAQ stocks like
-        # BZUN) land in the non-derivative table; derivative-table ADS appear in issuers like IPX
-        _ADS_KEYWORDS = ("american depository", "depositary shares", "american depositary",
-                         "depositary receipts", "adr", " ads")
-        has_ads = any(
-            any(kw in (txn.findtext(".//securityTitle/value") or "").lower()
-                for kw in _ADS_KEYWORDS)
-            for txn in (root.findall(".//nonDerivativeTransaction") +
-                        root.findall(".//derivativeTransaction"))
-        )
 
         result = {
             "transaction_code":    dominant_code,
