@@ -6978,5 +6978,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-04T20:50:34.394086+00:00"
+  },
+  {
+    "ticker": "LTC",
+    "company_name": "LTC PROPERTIES INC",
+    "insider_name": "BOITANO DAVID M",
+    "insider_title": "EVP & CIO",
+    "role_header": "EVP",
+    "transaction_date": "2026-06-04",
+    "filed_date": "2026-06-04",
+    "shares_traded": 10000,
+    "price_per_share": 34.77,
+    "total_value": 347700.0,
+    "total_value_fmt": "$348K",
+    "shares_owned_after": 46160,
+    "position_change_pct": 27.7,
+    "pct_from_52w_high": 15,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-04T23:01:26.290157+00:00"
   }
 ]
