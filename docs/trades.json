@@ -6818,5 +6818,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-04T01:23:33.747268+00:00"
+  },
+  {
+    "ticker": "RYAN",
+    "company_name": "RYAN SPECIALTY HOLDINGS, INC.",
+    "insider_name": "KATZ MARK STEPHEN",
+    "insider_title": "EVP & General Counsel",
+    "role_header": "GEN. COUNSEL",
+    "transaction_date": "2026-06-03",
+    "filed_date": "2026-06-04",
+    "shares_traded": 3215,
+    "price_per_share": 31.0694,
+    "total_value": 99888.12,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 4332,
+    "position_change_pct": 287.8,
+    "pct_from_52w_high": 56,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-04T12:04:59.772719+00:00"
   }
 ]
