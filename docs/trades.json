@@ -6918,5 +6918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-04T20:27:23.888673+00:00"
+  },
+  {
+    "ticker": "GLIBK",
+    "company_name": "Liberty Capital Corp/NV",
+    "insider_name": "DUNCAN RONALD A",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-03",
+    "filed_date": "2026-06-04",
+    "shares_traded": 67500,
+    "price_per_share": 21.0447,
+    "total_value": 1420516.5,
+    "total_value_fmt": "$1.4M",
+    "shares_owned_after": 205864,
+    "position_change_pct": 48.8,
+    "pct_from_52w_high": 49,
+    "signal_score": 9,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-04T20:38:02.066253+00:00"
   }
 ]
