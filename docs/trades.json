@@ -6858,5 +6858,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-04T13:28:44.733421+00:00"
+  },
+  {
+    "ticker": "STPEX",
+    "company_name": "StepStone Private Equity Strategies Fund",
+    "insider_name": "StepStone Group LP",
+    "insider_title": "Sub-Adviser",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-06-02",
+    "filed_date": "2026-06-04",
+    "shares_traded": 56823,
+    "price_per_share": 12.4,
+    "total_value": 704613.01,
+    "total_value_fmt": "$705K",
+    "shares_owned_after": 64842,
+    "position_change_pct": 708.7,
+    "pct_from_52w_high": null,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-04T20:03:16.355350+00:00"
   }
 ]
