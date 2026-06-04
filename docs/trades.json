@@ -6838,5 +6838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-04T12:04:59.772719+00:00"
+  },
+  {
+    "ticker": "NVRI",
+    "company_name": "Enviri II Corp",
+    "insider_name": "Hochman Russell C.",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-03",
+    "filed_date": "2026-06-04",
+    "shares_traded": 51519,
+    "price_per_share": 19.43,
+    "total_value": 1001014.17,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 144510,
+    "position_change_pct": 55.4,
+    "pct_from_52w_high": 9,
+    "signal_score": 9,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-04T13:28:44.733421+00:00"
   }
 ]
