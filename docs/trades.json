@@ -6798,5 +6798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-03T21:25:55.488838+00:00"
+  },
+  {
+    "ticker": "TXO",
+    "company_name": "TXO Partners, L.P.",
+    "insider_name": "SIMPSON BOB R",
+    "insider_title": "Director, Ten Percent Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-02",
+    "filed_date": "2026-06-03",
+    "shares_traded": 230847,
+    "price_per_share": 13.4131,
+    "total_value": 3096988.3657,
+    "total_value_fmt": "$3.1M",
+    "shares_owned_after": 8630847,
+    "position_change_pct": 2.7,
+    "pct_from_52w_high": 18,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-04T01:23:33.747268+00:00"
   }
 ]
