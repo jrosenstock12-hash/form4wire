@@ -138,6 +138,10 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
     # the current transaction date. Anchored to the current trade, not today, so the
     # count stays accurate even if the bot processes a filing days after the trade.
     # trades_sorted[0] is the current trade (already saved); we count from [1:].
+    #
+    # Dates within 7 days of each other are collapsed into one filing event.
+    # A Form 4 often covers several consecutive purchase days (e.g. Dec 15/16/17)
+    # filed once — each day is a separate history entry but represents one decision.
     consecutive = 0
     current_date_str = trades_sorted[0].get("date", "") if trades_sorted else ""
     try:
@@ -145,6 +149,9 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
         if current_dt.tzinfo is None:
             current_dt = current_dt.replace(tzinfo=timezone.utc)
         cutoff_dt = current_dt - timedelta(days=180)
+
+        # Collect qualifying buy dates then group into filing events
+        buy_dts = []
         for t in trades_sorted[1:]:
             if not t.get("is_buy"):
                 continue
@@ -153,9 +160,20 @@ def get_insider_history(ticker: str, insider_name: str) -> dict:
                 if trade_dt.tzinfo is None:
                     trade_dt = trade_dt.replace(tzinfo=timezone.utc)
                 if trade_dt >= cutoff_dt:
-                    consecutive += 1
+                    buy_dts.append(trade_dt)
             except Exception:
                 pass
+
+        # Sort ascending and collapse dates within 5 days into one filing event.
+        # 5 days catches a week of daily purchases filed together (Mon-Fri),
+        # but keeps two separate bursts like Dec 15-17 and Dec 22-24 as distinct events.
+        buy_dts.sort()
+        filing_events = []
+        for dt in buy_dts:
+            if not filing_events or (dt - filing_events[-1]).days > 5:
+                filing_events.append(dt)
+
+        consecutive = len(filing_events)
     except Exception:
         pass
 
