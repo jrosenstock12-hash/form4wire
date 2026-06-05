@@ -6998,5 +6998,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-04T23:01:26.290157+00:00"
+  },
+  {
+    "ticker": "BBDC",
+    "company_name": "Barings BDC, Inc.",
+    "insider_name": "McDonnell Thomas",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-03",
+    "filed_date": "2026-06-05",
+    "shares_traded": 10000,
+    "price_per_share": 8.27,
+    "total_value": 82700.0,
+    "total_value_fmt": "$83K",
+    "shares_owned_after": 26000,
+    "position_change_pct": 62.5,
+    "pct_from_52w_high": 17,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-05T16:57:10.884435+00:00"
   }
 ]
