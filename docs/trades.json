@@ -7038,5 +7038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-05T20:21:49.913285+00:00"
+  },
+  {
+    "ticker": "NVRI",
+    "company_name": "Enviri Corp",
+    "insider_name": "Minan Peter Francis",
+    "insider_title": "Executive Vice President & CFO",
+    "role_header": "CFO",
+    "transaction_date": "2026-06-05",
+    "filed_date": "2026-06-08",
+    "shares_traded": 8333,
+    "price_per_share": 19.25,
+    "total_value": 160410.25,
+    "total_value_fmt": "$160K",
+    "shares_owned_after": 16434,
+    "position_change_pct": 102.9,
+    "pct_from_52w_high": 10,
+    "signal_score": 9,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-06-08T20:45:59.607696+00:00"
   }
 ]
