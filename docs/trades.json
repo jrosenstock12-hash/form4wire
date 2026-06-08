@@ -7078,5 +7078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-08T21:46:45.177560+00:00"
+  },
+  {
+    "ticker": "INR",
+    "company_name": "INFINITY NATURAL RESOURCES, INC.",
+    "insider_name": "Quinn William J",
+    "insider_title": "Director, Ten Percent Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-05",
+    "filed_date": "2026-06-08",
+    "shares_traded": 44000,
+    "price_per_share": 13.1865,
+    "total_value": 580206.0,
+    "total_value_fmt": "$580K",
+    "shares_owned_after": 54503,
+    "position_change_pct": 418.9,
+    "pct_from_52w_high": 34,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-08T23:53:45.620583+00:00"
   }
 ]
