@@ -7118,5 +7118,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-09T20:31:33.831636+00:00"
+  },
+  {
+    "ticker": "STRR",
+    "company_name": "Star Equity Holdings, Inc.",
+    "insider_name": "Eberwein Jeffrey E.",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-05",
+    "filed_date": "2026-06-09",
+    "shares_traded": 16292,
+    "price_per_share": 11.4242,
+    "total_value": 186123.2,
+    "total_value_fmt": "$186K",
+    "shares_owned_after": 1103830,
+    "position_change_pct": 1.5,
+    "pct_from_52w_high": 5,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-09T20:50:58.184357+00:00"
   }
 ]
