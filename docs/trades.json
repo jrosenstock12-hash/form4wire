@@ -7158,5 +7158,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-09T21:30:44.174340+00:00"
+  },
+  {
+    "ticker": "HRZN",
+    "company_name": "Horizon Technology Finance Corp",
+    "insider_name": "Paul G. Seitz",
+    "insider_title": "Chief Investment Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-06-09",
+    "filed_date": "2026-06-10",
+    "shares_traded": 11477,
+    "price_per_share": 4.35,
+    "total_value": 49924.95,
+    "total_value_fmt": "$50K",
+    "shares_owned_after": 12242,
+    "position_change_pct": 1500.3,
+    "pct_from_52w_high": 49,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-10T20:26:53.586520+00:00"
   }
 ]
