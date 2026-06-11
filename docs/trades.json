@@ -7198,5 +7198,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-11T11:17:34.844393+00:00"
+  },
+  {
+    "ticker": "BRC",
+    "company_name": "BRADY CORP",
+    "insider_name": "Nargolwala Vineet A",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-10",
+    "filed_date": "2026-06-11",
+    "shares_traded": 13011,
+    "price_per_share": 76.86,
+    "total_value": 1000025.46,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 52709,
+    "position_change_pct": 32.8,
+    "pct_from_52w_high": 23,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-11T15:28:43.299038+00:00"
   }
 ]
