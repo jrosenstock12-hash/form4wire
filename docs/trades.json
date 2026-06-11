@@ -7278,5 +7278,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-11T22:12:34.871729+00:00"
+  },
+  {
+    "ticker": "STEP",
+    "company_name": "StepStone Group Inc.",
+    "insider_name": "McCabe Michael I",
+    "insider_title": "Head of Strategy",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-06-11",
+    "filed_date": "2026-06-11",
+    "shares_traded": 120000,
+    "price_per_share": 41.8506,
+    "total_value": 5022072.49,
+    "total_value_fmt": "$5.0M",
+    "shares_owned_after": 433178,
+    "position_change_pct": 38.3,
+    "pct_from_52w_high": 46,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-11T22:32:11.997372+00:00"
   }
 ]
