@@ -7318,5 +7318,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-12T10:21:22.412476+00:00"
+  },
+  {
+    "ticker": "SMMT",
+    "company_name": "Summit Therapeutics Inc.",
+    "insider_name": "DUGGAN ROBERT W",
+    "insider_title": "Co-Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-12",
+    "filed_date": "2026-06-12",
+    "shares_traded": 3810000,
+    "price_per_share": 13.12,
+    "total_value": 49987200.0,
+    "total_value_fmt": "$50.0M",
+    "shares_owned_after": 573883879,
+    "position_change_pct": 0.7,
+    "pct_from_52w_high": 58,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-12T16:29:31.560758+00:00"
   }
 ]
