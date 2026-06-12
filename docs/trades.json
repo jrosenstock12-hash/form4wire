@@ -7378,5 +7378,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-12T20:43:52.912903+00:00"
+  },
+  {
+    "ticker": "PICS",
+    "company_name": "PicS N.V.",
+    "insider_name": "Augusto Cazotto Andre",
+    "insider_title": "IR, Strategy and M&A Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-06-11",
+    "filed_date": "2026-06-12",
+    "shares_traded": 49500,
+    "price_per_share": 9.41,
+    "total_value": 465795.0,
+    "total_value_fmt": "$466K",
+    "shares_owned_after": 57700,
+    "position_change_pct": 603.7,
+    "pct_from_52w_high": 53,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-12T21:49:54.027560+00:00"
   }
 ]
