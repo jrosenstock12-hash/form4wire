@@ -7298,5 +7298,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-11T22:32:11.997372+00:00"
+  },
+  {
+    "ticker": "COSM",
+    "company_name": "Cosmos Health Inc.",
+    "insider_name": "Siokas Grigorios",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-10-05:00",
+    "filed_date": "2026-06-12",
+    "shares_traded": 701447,
+    "price_per_share": 0.2281,
+    "total_value": 160000.06,
+    "total_value_fmt": "$160K",
+    "shares_owned_after": 13263361,
+    "position_change_pct": 5.6,
+    "pct_from_52w_high": 83,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-12T10:21:22.412476+00:00"
   }
 ]
