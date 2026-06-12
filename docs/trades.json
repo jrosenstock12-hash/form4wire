@@ -7338,5 +7338,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-12T16:29:31.560758+00:00"
+  },
+  {
+    "ticker": "DBGI",
+    "company_name": "Digital Brands Group, Inc.",
+    "insider_name": "DAVIS JOHN HILBURN IV",
+    "insider_title": "CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-10",
+    "filed_date": "2026-06-12",
+    "shares_traded": 618333,
+    "price_per_share": 1.13,
+    "total_value": 698716.29,
+    "total_value_fmt": "$699K",
+    "shares_owned_after": 688461,
+    "position_change_pct": 881.7,
+    "pct_from_52w_high": 94,
+    "signal_score": 9,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-12T18:33:30.860043+00:00"
   }
 ]
