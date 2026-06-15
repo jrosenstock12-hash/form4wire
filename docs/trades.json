@@ -7498,5 +7498,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-15T20:36:00.793640+00:00"
+  },
+  {
+    "ticker": "GGB",
+    "company_name": "GERDAU S.A.",
+    "insider_name": "Da Cunha Gustavo Werneck",
+    "insider_title": "CEO and Board Member",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-12",
+    "filed_date": "2026-06-15",
+    "shares_traded": 165224,
+    "price_per_share": 4.73,
+    "total_value": 781509.52,
+    "total_value_fmt": "$782K",
+    "shares_owned_after": 165224,
+    "position_change_pct": null,
+    "pct_from_52w_high": 5,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-15T20:40:39.961528+00:00"
   }
 ]
