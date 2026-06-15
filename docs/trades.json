@@ -7398,5 +7398,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-12T21:49:54.027560+00:00"
+  },
+  {
+    "ticker": "GPGI",
+    "company_name": "GPGI, Inc.",
+    "insider_name": "Knott Thomas R.",
+    "insider_title": "See remarks",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-06-11",
+    "filed_date": "2026-06-15",
+    "shares_traded": 85250,
+    "price_per_share": 11.67,
+    "total_value": 994867.5,
+    "total_value_fmt": "$995K",
+    "shares_owned_after": 129250,
+    "position_change_pct": 193.8,
+    "pct_from_52w_high": 56,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-15T12:00:49.687889+00:00"
   }
 ]
