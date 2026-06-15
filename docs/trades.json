@@ -7458,5 +7458,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-15T20:11:48.027696+00:00"
+  },
+  {
+    "ticker": "HLNE",
+    "company_name": "Hamilton Lane INC",
+    "insider_name": "Rogers Hartley R.",
+    "insider_title": "Executive Co-Chairman",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-06-11",
+    "filed_date": "2026-06-15",
+    "shares_traded": 38290,
+    "price_per_share": 78.4889,
+    "total_value": 3005339.26,
+    "total_value_fmt": "$3.0M",
+    "shares_owned_after": 93756,
+    "position_change_pct": 69.0,
+    "pct_from_52w_high": 51,
+    "signal_score": 10,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-15T20:19:58.303246+00:00"
   }
 ]
