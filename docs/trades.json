@@ -7738,5 +7738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-16T20:16:35.181412+00:00"
+  },
+  {
+    "ticker": "ABTC",
+    "company_name": "American Bitcoin Corp.",
+    "insider_name": "Busch Richard",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-15",
+    "filed_date": "2026-06-16",
+    "shares_traded": 450000,
+    "price_per_share": 0.87,
+    "total_value": 391500.0,
+    "total_value_fmt": "$392K",
+    "shares_owned_after": 1848975,
+    "position_change_pct": 32.2,
+    "pct_from_52w_high": 94,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-16T20:22:26.530577+00:00"
   }
 ]
