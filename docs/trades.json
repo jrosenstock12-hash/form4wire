@@ -7798,5 +7798,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-06-16T21:07:40.290011+00:00"
+  },
+  {
+    "ticker": "KNOP",
+    "company_name": "KNOT Offshore Partners LP",
+    "insider_name": "Seglem Trygve",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-15",
+    "filed_date": "2026-06-16",
+    "shares_traded": 1250000,
+    "price_per_share": 20.0,
+    "total_value": 25000000.0,
+    "total_value_fmt": "$25.0M",
+    "shares_owned_after": 1458333,
+    "position_change_pct": 600.0,
+    "pct_from_52w_high": null,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-16T22:01:31.154051+00:00"
   }
 ]
