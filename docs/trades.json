@@ -7758,5 +7758,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-16T20:22:26.530577+00:00"
+  },
+  {
+    "ticker": "REI",
+    "company_name": "RING ENERGY, INC.",
+    "insider_name": "Johl Sundip Singh",
+    "insider_title": "EVP, Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-06-15",
+    "filed_date": "2026-06-16",
+    "shares_traded": 231000,
+    "price_per_share": 1.2071,
+    "total_value": 278840.1,
+    "total_value_fmt": "$279K",
+    "shares_owned_after": 548460,
+    "position_change_pct": 72.8,
+    "pct_from_52w_high": 40,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-16T20:46:17.717201+00:00"
   }
 ]
