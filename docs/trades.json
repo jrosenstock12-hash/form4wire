@@ -7938,5 +7938,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-17T20:59:35.654748+00:00"
+  },
+  {
+    "ticker": "CTNT",
+    "company_name": "CHEETAH NET SUPPLY CHAIN SERVICE INC.",
+    "insider_name": "Liu Huan",
+    "insider_title": "Chief Executive Officer, Interim Chief Financial Officer, Director, and Chairman of the Board of Directors",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-15",
+    "filed_date": "2026-06-17",
+    "shares_traded": 200000,
+    "price_per_share": 2.0,
+    "total_value": 400000.0,
+    "total_value_fmt": "$400K",
+    "shares_owned_after": 200877,
+    "position_change_pct": 22805.0,
+    "pct_from_52w_high": 100,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-17T22:06:53.835589+00:00"
   }
 ]
