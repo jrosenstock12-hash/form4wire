@@ -252,8 +252,9 @@ def parse_transactions_from_xml(xml: str) -> dict:
             "debenture", "right", "unit", "depositary", "convertible",
         )
 
+        all_non_deriv_txns = root.findall(".//nonDerivativeTransaction")
         transactions = []
-        for txn in root.findall(".//nonDerivativeTransaction"):
+        for txn in all_non_deriv_txns:
             # Skip non-common-stock securities (preferred, warrants, notes, etc.)
             title_el = txn.find(".//securityTitle/value")
             if title_el is not None and title_el.text:
@@ -313,9 +314,16 @@ def parse_transactions_from_xml(xml: str) -> dict:
         )
 
         if not transactions:
-            # Still surface the foreign-stock flags even when no tradeable rows found
-            if has_ordinary_shares or has_ads:
-                return {"has_ordinary_shares": has_ordinary_shares, "has_ads": has_ads}
+            # Surface flags even with no tradeable rows so bot.py can skip correctly.
+            # non_common_only = XML had transactions but ALL were filtered (preferred,
+            # warrants, notes, etc.) — do NOT fall back to Claude's parse in this case.
+            non_common_only = len(all_non_deriv_txns) > 0
+            if has_ordinary_shares or has_ads or non_common_only:
+                return {
+                    "has_ordinary_shares": has_ordinary_shares,
+                    "has_ads":             has_ads,
+                    "non_common_only":     non_common_only,
+                }
             return result
 
         # Find dominant transaction code (P for buy, S for sell)

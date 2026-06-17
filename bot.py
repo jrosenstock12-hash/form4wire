@@ -242,6 +242,14 @@ def process_filing(filing: dict, last_post_time: float = 0, posted_today: set = 
         log.info(f"  → SKIP: Foreign ordinary shares / ADS issuer — price currency mismatch")
         return False
 
+    # Skip filings where XML found transactions but ALL were non-common securities
+    # (preferred units, warrants, notes, etc.). Without this check the bot falls back
+    # to Claude's parse which doesn't know the security is non-common — e.g. KNOP
+    # "Series A Preferred Units" at $20 posted as a common unit buy vs $10 market price.
+    if xml_data.get("non_common_only"):
+        log.info(f"  → SKIP: Non-common security only (preferred/warrant/note) — no signal")
+        return False
+
     # Skip if all purchase rows are indirect (trust/family LLC/fund — no direct personal buy)
     if xml_data.get("all_indirect") and code == "P":
         log.info(f"  → SKIP: All purchases are indirect (trust/fund/LLC) — no direct personal buy")
