@@ -7978,5 +7978,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-22T12:34:15.252867+00:00"
+  },
+  {
+    "ticker": "AMPY",
+    "company_name": "Amplify Energy Corp.",
+    "insider_name": "FREW JAMES",
+    "insider_title": "President and Chief Financial Officer",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-06-23",
+    "filed_date": "2026-06-23",
+    "shares_traded": 25000,
+    "price_per_share": 3.95,
+    "total_value": 98750.0,
+    "total_value_fmt": "$99K",
+    "shares_owned_after": 216859,
+    "position_change_pct": 13.0,
+    "pct_from_52w_high": 42,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-23T20:38:39.786062+00:00"
   }
 ]
