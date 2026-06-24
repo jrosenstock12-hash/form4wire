@@ -8018,5 +8018,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-24T19:59:31.321855+00:00"
+  },
+  {
+    "ticker": "KMX",
+    "company_name": "CARMAX INC",
+    "insider_name": "Barr Keith",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-22",
+    "filed_date": "2026-06-24",
+    "shares_traded": 9400,
+    "price_per_share": 53.005,
+    "total_value": 498247.0,
+    "total_value_fmt": "$498K",
+    "shares_owned_after": 33375,
+    "position_change_pct": 39.2,
+    "pct_from_52w_high": 26,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-24T21:21:41.288185+00:00"
   }
 ]
