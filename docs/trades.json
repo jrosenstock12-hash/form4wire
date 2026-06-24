@@ -8058,5 +8058,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-24T22:10:02.295757+00:00"
+  },
+  {
+    "ticker": "BCDA",
+    "company_name": "BioCardia, Inc.",
+    "insider_name": "STERTZER SIMON H",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-22",
+    "filed_date": "2026-06-24",
+    "shares_traded": 109200,
+    "price_per_share": 0.9486,
+    "total_value": 103584.0,
+    "total_value_fmt": "$104K",
+    "shares_owned_after": 166338,
+    "position_change_pct": 191.1,
+    "pct_from_52w_high": 61,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-24T22:17:17.806391+00:00"
   }
 ]
