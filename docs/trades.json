@@ -8038,5 +8038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-24T21:21:41.288185+00:00"
+  },
+  {
+    "ticker": "BCIC",
+    "company_name": "BCP Investment Corp",
+    "insider_name": "Goldthorpe Edward J.",
+    "insider_title": "President, CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-22",
+    "filed_date": "2026-06-24",
+    "shares_traded": 13738,
+    "price_per_share": 7.16,
+    "total_value": 98364.08,
+    "total_value_fmt": "$98K",
+    "shares_owned_after": 99878,
+    "position_change_pct": 15.9,
+    "pct_from_52w_high": 47,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-24T22:10:02.295757+00:00"
   }
 ]
