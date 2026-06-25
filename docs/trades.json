@@ -8078,5 +8078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-24T22:17:17.806391+00:00"
+  },
+  {
+    "ticker": "LILA",
+    "company_name": "Liberty Latin America Ltd.",
+    "insider_name": "MALONE JOHN C",
+    "insider_title": "Director Emeritus",
+    "role_header": "CTO",
+    "transaction_date": "2026-06-22",
+    "filed_date": "2026-06-24",
+    "shares_traded": 2657931,
+    "price_per_share": 10.5089,
+    "total_value": 27932059.08,
+    "total_value_fmt": "$27.9M",
+    "shares_owned_after": 4588036,
+    "position_change_pct": 137.7,
+    "pct_from_52w_high": null,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-25T00:01:42.330074+00:00"
   }
 ]
