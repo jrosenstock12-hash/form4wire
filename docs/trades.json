@@ -8118,5 +8118,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-25T20:23:28.833575+00:00"
+  },
+  {
+    "ticker": "PSEC",
+    "company_name": "PROSPECT CAPITAL CORP",
+    "insider_name": "Barry John F",
+    "insider_title": "CHIEF EXECUTIVE OFFICER",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-23",
+    "filed_date": "2026-06-25",
+    "shares_traded": 1067648,
+    "price_per_share": 2.2742,
+    "total_value": 2428067.72,
+    "total_value_fmt": "$2.4M",
+    "shares_owned_after": 89213725,
+    "position_change_pct": 1.2,
+    "pct_from_52w_high": 35,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-25T21:00:25.382790+00:00"
   }
 ]
