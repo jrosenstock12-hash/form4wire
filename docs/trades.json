@@ -8198,5 +8198,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-06-26T20:46:44.969804+00:00"
+  },
+  {
+    "ticker": "NXST",
+    "company_name": "NEXSTAR MEDIA GROUP, INC.",
+    "insider_name": "SOOK PERRY A",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-06-26",
+    "filed_date": "2026-06-29",
+    "shares_traded": 12235,
+    "price_per_share": 162.2647,
+    "total_value": 1985308.6,
+    "total_value_fmt": "$2.0M",
+    "shares_owned_after": 899044,
+    "position_change_pct": 1.4,
+    "pct_from_52w_high": 36,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-06-29T17:55:49.883558+00:00"
   }
 ]
