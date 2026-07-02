@@ -8298,5 +8298,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-02T18:30:09.950889+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Bueno Julio Cesar",
+    "insider_title": "CLO and Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-07-01",
+    "filed_date": "2026-07-02",
+    "shares_traded": 110441,
+    "price_per_share": 18.1,
+    "total_value": 1998982.51,
+    "total_value_fmt": "$2.0M",
+    "shares_owned_after": 280194,
+    "position_change_pct": 65.1,
+    "pct_from_52w_high": null,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-02T19:39:38.657231+00:00"
   }
 ]
