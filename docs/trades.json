@@ -8358,5 +8358,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-09T23:01:28.911777+00:00"
+  },
+  {
+    "ticker": "WRAP",
+    "company_name": "WRAP TECHNOLOGIES, INC.",
+    "insider_name": "SHULMAN JOHN D",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-07-08",
+    "filed_date": "2026-07-09",
+    "shares_traded": 100000,
+    "price_per_share": 1.1,
+    "total_value": 110000.0,
+    "total_value_fmt": "$110K",
+    "shares_owned_after": 199037,
+    "position_change_pct": 101.0,
+    "pct_from_52w_high": 66,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-09T23:04:53.690929+00:00"
   }
 ]
