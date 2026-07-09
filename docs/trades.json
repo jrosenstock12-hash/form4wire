@@ -8338,5 +8338,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-09T00:20:13.312989+00:00"
+  },
+  {
+    "ticker": "UUUU",
+    "company_name": "ENERGY FUELS INC",
+    "insider_name": "Bhappu Ross R.",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-07-07",
+    "filed_date": "2026-07-09",
+    "shares_traded": 74000,
+    "price_per_share": 13.08,
+    "total_value": 967920.0,
+    "total_value_fmt": "$968K",
+    "shares_owned_after": 256583,
+    "position_change_pct": 40.5,
+    "pct_from_52w_high": 53,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-09T23:01:28.911777+00:00"
   }
 ]
