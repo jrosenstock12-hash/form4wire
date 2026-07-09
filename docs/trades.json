@@ -8318,5 +8318,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-02T19:39:38.657231+00:00"
+  },
+  {
+    "ticker": "AVO",
+    "company_name": "Mission Produce, Inc.",
+    "insider_name": "Globalharvest Holdings Venture Ltd",
+    "insider_title": "Ten Percent Owner",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-07-06",
+    "filed_date": "2026-07-08",
+    "shares_traded": 650415,
+    "price_per_share": 12.73,
+    "total_value": 8279782.95,
+    "total_value_fmt": "$8.3M",
+    "shares_owned_after": 11191352,
+    "position_change_pct": 6.2,
+    "pct_from_52w_high": 18,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-09T00:20:13.312989+00:00"
   }
 ]
