@@ -8438,5 +8438,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-14T00:34:30.269434+00:00"
+  },
+  {
+    "ticker": "NTSK",
+    "company_name": "Netskope Inc",
+    "insider_name": "ICONIQ Strategic Partners VIII Holdings, L.P.",
+    "insider_title": "",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-07-10",
+    "filed_date": "2026-07-14",
+    "shares_traded": 306399,
+    "price_per_share": 12.2902,
+    "total_value": 3765697.64,
+    "total_value_fmt": "$3.8M",
+    "shares_owned_after": 916690,
+    "position_change_pct": 50.2,
+    "pct_from_52w_high": 56,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-14T21:11:39.757561+00:00"
   }
 ]
