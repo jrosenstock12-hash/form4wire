@@ -8458,5 +8458,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-14T21:11:39.757561+00:00"
+  },
+  {
+    "ticker": "ECAT",
+    "company_name": "BlackRock ESG Capital Allocation Term Trust",
+    "insider_name": "Rieder Richard M",
+    "insider_title": "Portfolio Manager",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-07-13",
+    "filed_date": "2026-07-15",
+    "shares_traded": 35734,
+    "price_per_share": 15.8574,
+    "total_value": 566648.33,
+    "total_value_fmt": "$567K",
+    "shares_owned_after": 141464,
+    "position_change_pct": 33.8,
+    "pct_from_52w_high": 7,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-15T18:41:23.653294+00:00"
   }
 ]
