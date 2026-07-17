@@ -8518,5 +8518,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-17T15:13:52.405078+00:00"
+  },
+  {
+    "ticker": "ELV",
+    "company_name": "Elevance Health, Inc.",
+    "insider_name": "BOUDREAUX GAIL",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-07-17",
+    "filed_date": "2026-07-17",
+    "shares_traded": 2725,
+    "price_per_share": 367.7908,
+    "total_value": 1002230.05,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 171976,
+    "position_change_pct": 1.6,
+    "pct_from_52w_high": 16,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-17T17:51:43.890440+00:00"
   }
 ]
