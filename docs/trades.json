@@ -8558,5 +8558,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-17T20:48:52.897027+00:00"
+  },
+  {
+    "ticker": "CAG",
+    "company_name": "CONAGRA BRANDS INC.",
+    "insider_name": "Brase John P",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-07-17",
+    "filed_date": "2026-07-21",
+    "shares_traded": 35000,
+    "price_per_share": 14.5895,
+    "total_value": 510632.5,
+    "total_value_fmt": "$511K",
+    "shares_owned_after": 35000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 28,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-21T22:02:31.121074+00:00"
   }
 ]
