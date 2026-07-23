@@ -8698,5 +8698,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-23T22:26:46.065779+00:00"
+  },
+  {
+    "ticker": "BYRN",
+    "company_name": "Byrna Technologies Inc.",
+    "insider_name": "Hughes Herbert",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-07-22",
+    "filed_date": "2026-07-23",
+    "shares_traded": 21681,
+    "price_per_share": 3.4246,
+    "total_value": 74249.1,
+    "total_value_fmt": "$74K",
+    "shares_owned_after": 326454,
+    "position_change_pct": 7.1,
+    "pct_from_52w_high": 89,
+    "signal_score": 5,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-07-23T22:48:12.106623+00:00"
   }
 ]
