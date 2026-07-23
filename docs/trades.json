@@ -8638,5 +8638,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-23T01:24:30.366846+00:00"
+  },
+  {
+    "ticker": "RBKB",
+    "company_name": "Rhinebeck Bancorp, Inc.",
+    "insider_name": "Smith Matthew James",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-07-22",
+    "filed_date": "2026-07-23",
+    "shares_traded": 12425,
+    "price_per_share": 11.9991,
+    "total_value": 149088.5,
+    "total_value_fmt": "$149K",
+    "shares_owned_after": 36251,
+    "position_change_pct": 52.1,
+    "pct_from_52w_high": 7,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-23T20:22:19.320832+00:00"
   }
 ]
