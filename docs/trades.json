@@ -8618,5 +8618,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-07-23T01:23:11.364512+00:00"
+  },
+  {
+    "ticker": "CLBK",
+    "company_name": "Columbia Financial, Inc./MD/",
+    "insider_name": "WAINWRIGHT JIM HOBART",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-07-20",
+    "filed_date": "2026-07-22",
+    "shares_traded": 10000,
+    "price_per_share": 10.0,
+    "total_value": 100000.0,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 17055,
+    "position_change_pct": 141.7,
+    "pct_from_52w_high": 15,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-23T01:24:30.366846+00:00"
   }
 ]
