@@ -8738,5 +8738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-28T15:18:02.338838+00:00"
+  },
+  {
+    "ticker": "ACI",
+    "company_name": "Albertsons Companies, Inc.",
+    "insider_name": "Moriarty Thomas M",
+    "insider_title": "EVP, M&A and Corporate Affairs",
+    "role_header": "EVP",
+    "transaction_date": "2026-07-27",
+    "filed_date": "2026-07-28",
+    "shares_traded": 170500,
+    "price_per_share": 11.509,
+    "total_value": 1962284.5,
+    "total_value_fmt": "$2.0M",
+    "shares_owned_after": 308946,
+    "position_change_pct": 123.2,
+    "pct_from_52w_high": 43,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-28T23:30:40.019270+00:00"
   }
 ]
