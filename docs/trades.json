@@ -8758,5 +8758,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-28T23:30:40.019270+00:00"
+  },
+  {
+    "ticker": "OTLK",
+    "company_name": "Outlook Therapeutics, Inc.",
+    "insider_name": "Sukhtian Faisal Ghiath",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-07-29",
+    "filed_date": "2026-07-29",
+    "shares_traded": 95398,
+    "price_per_share": 1.0482,
+    "total_value": 99996.18,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 220972,
+    "position_change_pct": 76.0,
+    "pct_from_52w_high": 69,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-29T19:20:35.131477+00:00"
   }
 ]
