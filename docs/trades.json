@@ -8778,5 +8778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-29T19:20:35.131477+00:00"
+  },
+  {
+    "ticker": "ACI",
+    "company_name": "Albertsons Companies, Inc.",
+    "insider_name": "MORRIS SUSAN",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-07-28",
+    "filed_date": "2026-07-30",
+    "shares_traded": 39409,
+    "price_per_share": 11.4171,
+    "total_value": 449937.8,
+    "total_value_fmt": "$450K",
+    "shares_owned_after": 1092956,
+    "position_change_pct": 3.7,
+    "pct_from_52w_high": 43,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-30T12:33:30.068563+00:00"
   }
 ]
