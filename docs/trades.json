@@ -8818,5 +8818,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-30T15:10:13.188096+00:00"
+  },
+  {
+    "ticker": "LBRT",
+    "company_name": "Liberty Energy Inc.",
+    "insider_name": "Murti Arjun N",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-07-28",
+    "filed_date": "2026-07-30",
+    "shares_traded": 14053,
+    "price_per_share": 17.79,
+    "total_value": 250008.51,
+    "total_value_fmt": "$250K",
+    "shares_owned_after": 41620,
+    "position_change_pct": 51.0,
+    "pct_from_52w_high": 48,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-30T21:05:00.165584+00:00"
   }
 ]
