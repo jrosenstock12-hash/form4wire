@@ -8858,5 +8858,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-31T19:38:22.848319+00:00"
+  },
+  {
+    "ticker": "HCWB",
+    "company_name": "HCW Biologics Inc.",
+    "insider_name": "Wong Hing C",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-07-29",
+    "filed_date": "2026-07-31",
+    "shares_traded": 23210,
+    "price_per_share": 2.585,
+    "total_value": 59997.85,
+    "total_value_fmt": "$60K",
+    "shares_owned_after": 125845,
+    "position_change_pct": 22.6,
+    "pct_from_52w_high": 94,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-31T20:11:05.679754+00:00"
   }
 ]
