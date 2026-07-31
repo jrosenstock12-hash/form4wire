@@ -8878,5 +8878,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-31T20:11:05.679754+00:00"
+  },
+  {
+    "ticker": "XAIR",
+    "company_name": "Beyond Air, Inc.",
+    "insider_name": "Goodman Robert Scott",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-07-29",
+    "filed_date": "2026-07-31",
+    "shares_traded": 34722,
+    "price_per_share": 5.76,
+    "total_value": 199998.72,
+    "total_value_fmt": "$200K",
+    "shares_owned_after": 34822,
+    "position_change_pct": 34722.0,
+    "pct_from_52w_high": 94,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-31T22:56:22.784172+00:00"
   }
 ]
