@@ -8838,5 +8838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-07-30T21:05:00.165584+00:00"
+  },
+  {
+    "ticker": "BMI",
+    "company_name": "BADGER METER INC",
+    "insider_name": "Callahan Edward F.",
+    "insider_title": "VP-Engineering",
+    "role_header": "VP",
+    "transaction_date": "2026-07-30",
+    "filed_date": "2026-07-31",
+    "shares_traded": 751,
+    "price_per_share": 135.2489,
+    "total_value": 101571.92,
+    "total_value_fmt": "$102K",
+    "shares_owned_after": 1937,
+    "position_change_pct": 63.3,
+    "pct_from_52w_high": 34,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-07-31T19:38:22.848319+00:00"
   }
 ]
