@@ -8918,5 +8918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-03T20:21:59.190153+00:00"
+  },
+  {
+    "ticker": "ACI",
+    "company_name": "Albertsons Companies, Inc.",
+    "insider_name": "MCCOLLAM SHARON",
+    "insider_title": "President & CFO",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-07-31",
+    "filed_date": "2026-08-03",
+    "shares_traded": 9000,
+    "price_per_share": 11.48,
+    "total_value": 103320.0,
+    "total_value_fmt": "$103K",
+    "shares_owned_after": 567051,
+    "position_change_pct": 1.6,
+    "pct_from_52w_high": 43,
+    "signal_score": 8,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-03T21:51:19.951054+00:00"
   }
 ]
