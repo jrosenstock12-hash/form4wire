@@ -8998,5 +8998,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-08-04T20:26:11.847984+00:00"
+  },
+  {
+    "ticker": "JMKE",
+    "company_name": "Jersey Mike's Subs Inc.",
+    "insider_name": "Peterson Stacy",
+    "insider_title": "President and COO",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-07-31",
+    "filed_date": "2026-08-04",
+    "shares_traded": 15000,
+    "price_per_share": 23.0,
+    "total_value": 345000.0,
+    "total_value_fmt": "$345K",
+    "shares_owned_after": 15000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 8,
+    "signal_score": 7,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-04T20:34:22.659734+00:00"
   }
 ]
