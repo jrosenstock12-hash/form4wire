@@ -9078,5 +9078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-05T20:16:36.627094+00:00"
+  },
+  {
+    "ticker": "HLI",
+    "company_name": "HOULIHAN LOKEY, INC.",
+    "insider_name": "ALLEY J LINDSEY",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-08-03",
+    "filed_date": "2026-08-05",
+    "shares_traded": 4020,
+    "price_per_share": 124.52,
+    "total_value": 500570.4,
+    "total_value_fmt": "$501K",
+    "shares_owned_after": 4020,
+    "position_change_pct": null,
+    "pct_from_52w_high": 41,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-05T21:15:50.954199+00:00"
   }
 ]
