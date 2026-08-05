@@ -9018,5 +9018,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-08-04T20:34:22.659734+00:00"
+  },
+  {
+    "ticker": "CSGP",
+    "company_name": "COSTAR GROUP, INC.",
+    "insider_name": "FLORANCE ANDREW C",
+    "insider_title": "Founder and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-04",
+    "filed_date": "2026-08-05",
+    "shares_traded": 83300,
+    "price_per_share": 29.89,
+    "total_value": 2489837.0,
+    "total_value_fmt": "$2.5M",
+    "shares_owned_after": 1806165,
+    "position_change_pct": 4.8,
+    "pct_from_52w_high": 69,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-05T13:27:48.838030+00:00"
   }
 ]
