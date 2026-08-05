@@ -9058,5 +9058,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-05T20:04:55.243162+00:00"
+  },
+  {
+    "ticker": "BSX",
+    "company_name": "BOSTON SCIENTIFIC CORP",
+    "insider_name": "Mahoney Michael F",
+    "insider_title": "Chairman, President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-03",
+    "filed_date": "2026-08-05",
+    "shares_traded": 186240,
+    "price_per_share": 48.3323,
+    "total_value": 9001407.55,
+    "total_value_fmt": "$9.0M",
+    "shares_owned_after": 1590024,
+    "position_change_pct": 13.3,
+    "pct_from_52w_high": 56,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-05T20:16:36.627094+00:00"
   }
 ]
