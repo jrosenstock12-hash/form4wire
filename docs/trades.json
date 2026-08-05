@@ -9038,5 +9038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-05T13:27:48.838030+00:00"
+  },
+  {
+    "ticker": "PFE",
+    "company_name": "PFIZER INC",
+    "insider_name": "BLAYLOCK RONALD E",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-05",
+    "filed_date": "2026-08-05",
+    "shares_traded": 39231,
+    "price_per_share": 25.46,
+    "total_value": 998821.26,
+    "total_value_fmt": "$999K",
+    "shares_owned_after": 66938,
+    "position_change_pct": 141.6,
+    "pct_from_52w_high": 11,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-05T20:04:55.243162+00:00"
   }
 ]
