@@ -9118,5 +9118,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-06T10:07:58.981829+00:00"
+  },
+  {
+    "ticker": "BBBY",
+    "company_name": "BED BATH & BEYOND, INC.",
+    "insider_name": "LEMONIS MARCUS",
+    "insider_title": "EXECUTIVE CHAIRMAN & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-05",
+    "filed_date": "2026-08-06",
+    "shares_traded": 43382,
+    "price_per_share": 4.67,
+    "total_value": 202593.94,
+    "total_value_fmt": "$203K",
+    "shares_owned_after": 713138,
+    "position_change_pct": 6.5,
+    "pct_from_52w_high": 63,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-06T12:14:03.845470+00:00"
   }
 ]
