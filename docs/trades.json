@@ -9098,5 +9098,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-05T21:15:50.954199+00:00"
+  },
+  {
+    "ticker": "TM",
+    "company_name": "TOYOTA MOTOR CORP/",
+    "insider_name": "Kon Kenta",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-08-05",
+    "filed_date": "2026-08-06",
+    "shares_traded": 85000,
+    "price_per_share": 18.41,
+    "total_value": 1564850.0,
+    "total_value_fmt": "$1.6M",
+    "shares_owned_after": 148100,
+    "position_change_pct": 134.7,
+    "pct_from_52w_high": 93,
+    "signal_score": 10,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-06T10:07:58.981829+00:00"
   }
 ]
