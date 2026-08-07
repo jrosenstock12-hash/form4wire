@@ -9138,5 +9138,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-06T12:14:03.845470+00:00"
+  },
+  {
+    "ticker": "SCISX",
+    "company_name": "MA Specialty Credit Income Fund",
+    "insider_name": "MA Eagle II Holdings Fund",
+    "insider_title": "10% Owner",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-08-06",
+    "filed_date": "2026-08-07",
+    "shares_traded": 404694,
+    "price_per_share": 24.71,
+    "total_value": 10000000.01,
+    "total_value_fmt": "$10.0M",
+    "shares_owned_after": 3568254,
+    "position_change_pct": 12.8,
+    "pct_from_52w_high": 1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-07T19:54:03.360808+00:00"
   }
 ]
