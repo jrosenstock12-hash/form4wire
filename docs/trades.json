@@ -9238,5 +9238,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-07T23:36:19.509431+00:00"
+  },
+  {
+    "ticker": "PSN",
+    "company_name": "PARSONS CORP",
+    "insider_name": "Ball George L.",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-07",
+    "filed_date": "2026-08-10",
+    "shares_traded": 20000,
+    "price_per_share": 47.97,
+    "total_value": 959400.0,
+    "total_value_fmt": "$959K",
+    "shares_owned_after": 170383,
+    "position_change_pct": 13.3,
+    "pct_from_52w_high": 46,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-10T20:35:28.367473+00:00"
   }
 ]
