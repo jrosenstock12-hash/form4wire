@@ -9338,5 +9338,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-11T00:03:44.974049+00:00"
+  },
+  {
+    "ticker": "BCML",
+    "company_name": "BayCom Corp",
+    "insider_name": "Baron Christopher F",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-10",
+    "filed_date": "2026-08-11",
+    "shares_traded": 8250,
+    "price_per_share": 30.39,
+    "total_value": 250717.5,
+    "total_value_fmt": "$251K",
+    "shares_owned_after": 9247,
+    "position_change_pct": 827.5,
+    "pct_from_52w_high": 13,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-11T16:51:57.402373+00:00"
   }
 ]
