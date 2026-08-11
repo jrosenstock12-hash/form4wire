@@ -9358,5 +9358,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-11T16:51:57.402373+00:00"
+  },
+  {
+    "ticker": "CIA",
+    "company_name": "CITIZENS, INC.",
+    "insider_name": "Jon Stenberg",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-10",
+    "filed_date": "2026-08-11",
+    "shares_traded": 50000,
+    "price_per_share": 3.9926,
+    "total_value": 199630.0,
+    "total_value_fmt": "$200K",
+    "shares_owned_after": 377574,
+    "position_change_pct": 15.3,
+    "pct_from_52w_high": 39,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-11T19:50:40.778788+00:00"
   }
 ]
