@@ -9478,5 +9478,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-11T21:46:32.831552+00:00"
+  },
+  {
+    "ticker": "KMPR",
+    "company_name": "KEMPER Corp",
+    "insider_name": "Camden Bradley T",
+    "insider_title": "EVP and CFO",
+    "role_header": "CFO",
+    "transaction_date": "2026-08-11",
+    "filed_date": "2026-08-11",
+    "shares_traded": 1000,
+    "price_per_share": 26.34,
+    "total_value": 26340.0,
+    "total_value_fmt": "$26K",
+    "shares_owned_after": 51259,
+    "position_change_pct": 2.0,
+    "pct_from_52w_high": 52,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-11T22:05:16.712915+00:00"
   }
 ]
