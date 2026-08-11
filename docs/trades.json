@@ -9498,5 +9498,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-08-11T22:05:16.712915+00:00"
+  },
+  {
+    "ticker": "HPP",
+    "company_name": "Hudson Pacific Properties, Inc.",
+    "insider_name": "BORTZ JON E",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-11",
+    "filed_date": "2026-08-11",
+    "shares_traded": 25000,
+    "price_per_share": 13.4,
+    "total_value": 335000.0,
+    "total_value_fmt": "$335K",
+    "shares_owned_after": 35394,
+    "position_change_pct": 240.5,
+    "pct_from_52w_high": 38,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-11T22:43:30.757220+00:00"
   }
 ]
