@@ -9378,5 +9378,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-11T19:50:40.778788+00:00"
+  },
+  {
+    "ticker": "CC",
+    "company_name": "Chemours Co",
+    "insider_name": "Cowan Alister",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-07",
+    "filed_date": "2026-08-11",
+    "shares_traded": 13000,
+    "price_per_share": 15.62,
+    "total_value": 203060.0,
+    "total_value_fmt": "$203K",
+    "shares_owned_after": 56988,
+    "position_change_pct": 29.6,
+    "pct_from_52w_high": 46,
+    "signal_score": 8,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-11T20:11:14.661479+00:00"
   }
 ]
