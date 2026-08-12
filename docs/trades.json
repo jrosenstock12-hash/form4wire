@@ -9718,5 +9718,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-12T22:28:21.427052+00:00"
+  },
+  {
+    "ticker": "GLIBK",
+    "company_name": "Liberty Capital Corp/NV",
+    "insider_name": "MALONE JOHN C",
+    "insider_title": "Director, 10% Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-10",
+    "filed_date": "2026-08-12",
+    "shares_traded": 542232,
+    "price_per_share": 25.0031,
+    "total_value": 13557480.21,
+    "total_value_fmt": "$13.6M",
+    "shares_owned_after": 2558752,
+    "position_change_pct": 26.9,
+    "pct_from_52w_high": 39,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-12T22:30:51.581859+00:00"
   }
 ]
