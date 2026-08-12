@@ -9618,5 +9618,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-12T20:05:02.124423+00:00"
+  },
+  {
+    "ticker": "AME",
+    "company_name": "AMETEK INC/",
+    "insider_name": "Stanage Nick L",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-11",
+    "filed_date": "2026-08-12",
+    "shares_traded": 4000,
+    "price_per_share": 255.85,
+    "total_value": 1023400.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 4760,
+    "position_change_pct": 526.3,
+    "pct_from_52w_high": 2,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-12T20:07:38.564688+00:00"
   }
 ]
