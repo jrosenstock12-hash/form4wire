@@ -9678,5 +9678,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-12T20:30:48.944123+00:00"
+  },
+  {
+    "ticker": "VIA",
+    "company_name": "Via Transportation, Inc.",
+    "insider_name": "Dinur Arnon",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-10",
+    "filed_date": "2026-08-12",
+    "shares_traded": 44780,
+    "price_per_share": 22.3087,
+    "total_value": 998984.0,
+    "total_value_fmt": "$999K",
+    "shares_owned_after": 50214,
+    "position_change_pct": 824.1,
+    "pct_from_52w_high": 60,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-12T20:56:31.034045+00:00"
   }
 ]
