@@ -9638,5 +9638,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-12T20:07:38.564688+00:00"
+  },
+  {
+    "ticker": "BTMD",
+    "company_name": "biote Corp.",
+    "insider_name": "Beer Marc D",
+    "insider_title": "Executive Chairman",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-08-10",
+    "filed_date": "2026-08-12",
+    "shares_traded": 131950,
+    "price_per_share": 1.5324,
+    "total_value": 202203.5,
+    "total_value_fmt": "$202K",
+    "shares_owned_after": 239744,
+    "position_change_pct": 122.4,
+    "pct_from_52w_high": 58,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-12T20:26:27.865633+00:00"
   }
 ]
