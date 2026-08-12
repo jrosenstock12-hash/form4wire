@@ -9598,5 +9598,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-12T19:01:13.345080+00:00"
+  },
+  {
+    "ticker": "PFE",
+    "company_name": "PFIZER INC",
+    "insider_name": "BOURLA ALBERT",
+    "insider_title": "Chairman & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-12",
+    "filed_date": "2026-08-12",
+    "shares_traded": 38000,
+    "price_per_share": 26.34,
+    "total_value": 1000920.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 429173,
+    "position_change_pct": 9.7,
+    "pct_from_52w_high": 8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-12T20:05:02.124423+00:00"
   }
 ]
