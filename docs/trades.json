@@ -9738,5 +9738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-12T22:30:51.581859+00:00"
+  },
+  {
+    "ticker": "UA",
+    "company_name": "Under Armour, Inc.",
+    "insider_name": "Taleghani Reza",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-08-11",
+    "filed_date": "2026-08-12",
+    "shares_traded": 18656,
+    "price_per_share": 5.3699,
+    "total_value": 100180.85,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 87621,
+    "position_change_pct": 27.1,
+    "pct_from_52w_high": 32,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-13T01:04:55.890560+00:00"
   }
 ]
