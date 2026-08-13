@@ -9818,5 +9818,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-13T14:51:44.960883+00:00"
+  },
+  {
+    "ticker": "ELAN",
+    "company_name": "Elanco Animal Health Inc",
+    "insider_name": "Michael J. Harrington",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-12",
+    "filed_date": "2026-08-13",
+    "shares_traded": 5000,
+    "price_per_share": 21.82,
+    "total_value": 109100.0,
+    "total_value_fmt": "$109K",
+    "shares_owned_after": 131451,
+    "position_change_pct": 4.0,
+    "pct_from_52w_high": 22,
+    "signal_score": 5,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-13T20:29:55.926256+00:00"
   }
 ]
