@@ -9798,5 +9798,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-08-13T14:49:58.084316+00:00"
+  },
+  {
+    "ticker": "EMBC",
+    "company_name": "Embecta Corp.",
+    "insider_name": "Kurdikar Devdatt",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-12",
+    "filed_date": "2026-08-13",
+    "shares_traded": 30000,
+    "price_per_share": 4.6979,
+    "total_value": 140937.0,
+    "total_value_fmt": "$141K",
+    "shares_owned_after": 804918,
+    "position_change_pct": 3.9,
+    "pct_from_52w_high": 70,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-13T14:51:44.960883+00:00"
   }
 ]
