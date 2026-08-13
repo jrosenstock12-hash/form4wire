@@ -9918,5 +9918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-13T21:24:37.479880+00:00"
+  },
+  {
+    "ticker": "CODI",
+    "company_name": "Compass Diversified Holdings",
+    "insider_name": "Sawtelle Zachary T.",
+    "insider_title": "Other",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-08-12",
+    "filed_date": "2026-08-13",
+    "shares_traded": 32000,
+    "price_per_share": 12.0877,
+    "total_value": 386807.5,
+    "total_value_fmt": "$387K",
+    "shares_owned_after": 63588,
+    "position_change_pct": 101.3,
+    "pct_from_52w_high": 9,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-13T22:32:37.877180+00:00"
   }
 ]
