@@ -10038,5 +10038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-14T11:41:24.890617+00:00"
+  },
+  {
+    "ticker": "VVV",
+    "company_name": "VALVOLINE INC",
+    "insider_name": "Denny Jordan M.",
+    "insider_title": "Chief Accounting Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-08-12",
+    "filed_date": "2026-08-14",
+    "shares_traded": 1506,
+    "price_per_share": 33.2,
+    "total_value": 49999.2,
+    "total_value_fmt": "$50K",
+    "shares_owned_after": 4121,
+    "position_change_pct": 57.6,
+    "pct_from_52w_high": 20,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-14T12:40:52.384278+00:00"
   }
 ]
