@@ -10078,5 +10078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-14T17:45:03.954683+00:00"
+  },
+  {
+    "ticker": "CODI",
+    "company_name": "Compass Diversified Holdings",
+    "insider_name": "ENTERLINE LARRY L",
+    "insider_title": "Chairman of the Board of Directors of Compass Group Diversified Holdings LLC, Sponsor of the Trust",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-08-13",
+    "filed_date": "2026-08-14",
+    "shares_traded": 67114,
+    "price_per_share": 12.4176,
+    "total_value": 833394.81,
+    "total_value_fmt": "$833K",
+    "shares_owned_after": 100000,
+    "position_change_pct": 204.1,
+    "pct_from_52w_high": 6,
+    "signal_score": 10,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-14T20:25:00.928484+00:00"
   }
 ]
