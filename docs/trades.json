@@ -10198,5 +10198,25 @@
     "cluster_count": 4,
     "unusual_flag": false,
     "posted_at": "2026-08-17T20:12:14.167572+00:00"
+  },
+  {
+    "ticker": "KEEL",
+    "company_name": "Keel Infrastructure Corp.",
+    "insider_name": "WILSON LIAM DANIEL",
+    "insider_title": "Chief Operating Officer",
+    "role_header": "COO",
+    "transaction_date": "2026-08-17",
+    "filed_date": "2026-08-17",
+    "shares_traded": 26472,
+    "price_per_share": 3.78,
+    "total_value": 100064.16,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 70209,
+    "position_change_pct": 60.5,
+    "pct_from_52w_high": 49,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-17T21:05:59.357303+00:00"
   }
 ]
