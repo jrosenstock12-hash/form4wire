@@ -10178,5 +10178,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-17T20:01:22.322285+00:00"
+  },
+  {
+    "ticker": "CE",
+    "company_name": "Celanese Corp",
+    "insider_name": "Kyrish Chuck",
+    "insider_title": "SVP & CFO",
+    "role_header": "CFO",
+    "transaction_date": "2026-08-14",
+    "filed_date": "2026-08-17",
+    "shares_traded": 2300,
+    "price_per_share": 45.5209,
+    "total_value": 104698.12,
+    "total_value_fmt": "$105K",
+    "shares_owned_after": 29114,
+    "position_change_pct": 8.6,
+    "pct_from_52w_high": 36,
+    "signal_score": 6,
+    "cluster_count": 4,
+    "unusual_flag": false,
+    "posted_at": "2026-08-17T20:12:14.167572+00:00"
   }
 ]
