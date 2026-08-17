@@ -10158,5 +10158,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-15T00:17:36.485647+00:00"
+  },
+  {
+    "ticker": "HGBL",
+    "company_name": "Heritage Global Inc.",
+    "insider_name": "Dove Nicholas Kirk",
+    "insider_title": "President, Industrial Assets",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-08-17",
+    "filed_date": "2026-08-17",
+    "shares_traded": 60000,
+    "price_per_share": 1.099,
+    "total_value": 65940.0,
+    "total_value_fmt": "$66K",
+    "shares_owned_after": 186000,
+    "position_change_pct": 47.6,
+    "pct_from_52w_high": 44,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-17T20:01:22.322285+00:00"
   }
 ]
