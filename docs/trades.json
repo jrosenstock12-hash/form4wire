@@ -10258,5 +10258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-17T21:38:13.209339+00:00"
+  },
+  {
+    "ticker": "CDNL",
+    "company_name": "Cardinal Infrastructure Group Inc.",
+    "insider_name": "Lee Richard Melvin Jr.",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-14",
+    "filed_date": "2026-08-17",
+    "shares_traded": 34000,
+    "price_per_share": 36.8247,
+    "total_value": 1252040.0,
+    "total_value_fmt": "$1.3M",
+    "shares_owned_after": 68254,
+    "position_change_pct": 99.3,
+    "pct_from_52w_high": 62,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-17T21:41:20.975271+00:00"
   }
 ]
