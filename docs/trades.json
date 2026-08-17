@@ -10218,5 +10218,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-17T21:05:59.357303+00:00"
+  },
+  {
+    "ticker": "XRN",
+    "company_name": "Chiron Real Estate Inc.",
+    "insider_name": "Whitlock Matthew Fitzsimmons",
+    "insider_title": "Chief Investment Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-08-14",
+    "filed_date": "2026-08-17",
+    "shares_traded": 1000,
+    "price_per_share": 36.795,
+    "total_value": 36795.0,
+    "total_value_fmt": "$37K",
+    "shares_owned_after": 2000,
+    "position_change_pct": 100.0,
+    "pct_from_52w_high": 8,
+    "signal_score": 8,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-17T21:26:07.496546+00:00"
   }
 ]
