@@ -10318,5 +10318,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-18T01:55:13.700841+00:00"
+  },
+  {
+    "ticker": "REZI",
+    "company_name": "RESIDEO TECHNOLOGIES, INC.",
+    "insider_name": "Mehta Amit Ashvin",
+    "insider_title": "SVP, Strategy & Business Ops",
+    "role_header": "SVP",
+    "transaction_date": "2026-08-17",
+    "filed_date": "2026-08-18",
+    "shares_traded": 10928,
+    "price_per_share": 20.68,
+    "total_value": 225999.31,
+    "total_value_fmt": "$226K",
+    "shares_owned_after": 57362,
+    "position_change_pct": 23.5,
+    "pct_from_52w_high": 34,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-18T11:34:19.314218+00:00"
   }
 ]
