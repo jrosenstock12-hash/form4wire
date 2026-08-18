@@ -10358,5 +10358,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-18T21:00:53.619493+00:00"
+  },
+  {
+    "ticker": "CDNL",
+    "company_name": "Cardinal Infrastructure Group Inc.",
+    "insider_name": "Wimmer Richard Bennett",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-17",
+    "filed_date": "2026-08-18",
+    "shares_traded": 7500,
+    "price_per_share": 39.13,
+    "total_value": 293475.0,
+    "total_value_fmt": "$293K",
+    "shares_owned_after": 29349,
+    "position_change_pct": 34.3,
+    "pct_from_52w_high": 59,
+    "signal_score": 8,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-18T21:28:54.022593+00:00"
   }
 ]
