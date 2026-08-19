@@ -10438,5 +10438,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-19T20:37:55.943622+00:00"
+  },
+  {
+    "ticker": "LIEN",
+    "company_name": "Chicago Atlantic BDC, Inc.",
+    "insider_name": "Gordon Scott",
+    "insider_title": "Co-Chief Investment Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-08-17",
+    "filed_date": "2026-08-19",
+    "shares_traded": 44084,
+    "price_per_share": 9.5456,
+    "total_value": 420807.36,
+    "total_value_fmt": "$421K",
+    "shares_owned_after": 79108,
+    "position_change_pct": 125.9,
+    "pct_from_52w_high": 17,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-19T20:47:03.671603+00:00"
   }
 ]
