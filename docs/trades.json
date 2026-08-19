@@ -10458,5 +10458,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-19T20:47:03.671603+00:00"
+  },
+  {
+    "ticker": "REFI",
+    "company_name": "Chicago Atlantic Real Estate Finance, Inc.",
+    "insider_name": "Anthony Cappell",
+    "insider_title": "Co-Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-17",
+    "filed_date": "2026-08-19",
+    "shares_traded": 45000,
+    "price_per_share": 10.405,
+    "total_value": 468225.0,
+    "total_value_fmt": "$468K",
+    "shares_owned_after": 466706,
+    "position_change_pct": 10.7,
+    "pct_from_52w_high": 29,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-19T21:23:47.821186+00:00"
   }
 ]
