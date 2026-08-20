@@ -10478,5 +10478,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-19T21:23:47.821186+00:00"
+  },
+  {
+    "ticker": "LIEN",
+    "company_name": "Chicago Atlantic BDC, Inc.",
+    "insider_name": "Mazarakis John",
+    "insider_title": "Ten Percent Owner",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-08-17",
+    "filed_date": "2026-08-19",
+    "shares_traded": 60000,
+    "price_per_share": 9.44,
+    "total_value": 566400.0,
+    "total_value_fmt": "$566K",
+    "shares_owned_after": 60000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 17,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-08-20T01:57:21.821981+00:00"
   }
 ]
