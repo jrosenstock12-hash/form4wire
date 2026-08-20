@@ -10498,5 +10498,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-08-20T01:57:21.821981+00:00"
+  },
+  {
+    "ticker": "TSM",
+    "company_name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+    "insider_name": "Yuan Lipen",
+    "insider_title": "VP",
+    "role_header": "VP",
+    "transaction_date": "2026-08-18",
+    "filed_date": "2026-08-20",
+    "shares_traded": 2350,
+    "price_per_share": 74.0523,
+    "total_value": 174023.0,
+    "total_value_fmt": "$174K",
+    "shares_owned_after": 9000,
+    "position_change_pct": 35.3,
+    "pct_from_52w_high": 85,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-20T11:42:21.608326+00:00"
   }
 ]
