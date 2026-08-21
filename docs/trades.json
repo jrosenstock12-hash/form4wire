@@ -10738,5 +10738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-21T20:43:52.811211+00:00"
+  },
+  {
+    "ticker": "ALK",
+    "company_name": "ALASKA AIR GROUP, INC.",
+    "insider_name": "MINICUCCI BENITO",
+    "insider_title": "CEO AND PRESIDENT",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-20",
+    "filed_date": "2026-08-21",
+    "shares_traded": 25000,
+    "price_per_share": 40.0604,
+    "total_value": 1001510.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 256582,
+    "position_change_pct": 10.8,
+    "pct_from_52w_high": 39,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-21T21:03:17.269142+00:00"
   }
 ]
