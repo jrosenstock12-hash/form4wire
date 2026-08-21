@@ -10718,5 +10718,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-21T20:40:31.017083+00:00"
+  },
+  {
+    "ticker": "KEEL",
+    "company_name": "Keel Infrastructure Corp.",
+    "insider_name": "Gagnon Benjamin",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-21",
+    "filed_date": "2026-08-21",
+    "shares_traded": 38888,
+    "price_per_share": 3.33,
+    "total_value": 129497.04,
+    "total_value_fmt": "$129K",
+    "shares_owned_after": 1386624,
+    "position_change_pct": 2.9,
+    "pct_from_52w_high": 55,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-21T20:43:52.811211+00:00"
   }
 ]
