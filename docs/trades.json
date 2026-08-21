@@ -10638,5 +10638,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-21T00:43:53.462217+00:00"
+  },
+  {
+    "ticker": "INV",
+    "company_name": "Innventure, Inc.",
+    "insider_name": "Otworth Michael",
+    "insider_title": "Executive Chairman",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-08-20",
+    "filed_date": "2026-08-21",
+    "shares_traded": 231000,
+    "price_per_share": 1.5121,
+    "total_value": 349295.1,
+    "total_value_fmt": "$349K",
+    "shares_owned_after": 3781087,
+    "position_change_pct": 6.5,
+    "pct_from_52w_high": 81,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-21T13:18:15.678349+00:00"
   }
 ]
