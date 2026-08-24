@@ -10778,5 +10778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-21T22:21:46.601009+00:00"
+  },
+  {
+    "ticker": "PODD",
+    "company_name": "INSULET CORP",
+    "insider_name": "McEvoy Ashley",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-21",
+    "filed_date": "2026-08-24",
+    "shares_traded": 1100,
+    "price_per_share": 147.47,
+    "total_value": 162217.0,
+    "total_value_fmt": "$162K",
+    "shares_owned_after": 23731,
+    "position_change_pct": 4.9,
+    "pct_from_52w_high": 58,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-24T11:09:29.918333+00:00"
   }
 ]
