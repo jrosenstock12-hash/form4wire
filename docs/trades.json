@@ -11038,5 +11038,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-08-25T15:00:24.770279+00:00"
+  },
+  {
+    "ticker": "PAM",
+    "company_name": "Pampa Energy Inc.",
+    "insider_name": "Mindlin Marcos Marcelo",
+    "insider_title": "Director, Ten Percent Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-21",
+    "filed_date": "2026-08-25",
+    "shares_traded": 675000,
+    "price_per_share": 3.376,
+    "total_value": 2278800.0,
+    "total_value_fmt": "$2.3M",
+    "shares_owned_after": 22030592,
+    "position_change_pct": 3.2,
+    "pct_from_52w_high": 96,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-25T19:39:51.125972+00:00"
   }
 ]
