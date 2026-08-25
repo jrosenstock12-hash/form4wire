@@ -11078,5 +11078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-25T20:06:59.595618+00:00"
+  },
+  {
+    "ticker": "AMT",
+    "company_name": "AMERICAN TOWER CORP /MA/",
+    "insider_name": "Kalathur Rajesh",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-21",
+    "filed_date": "2026-08-25",
+    "shares_traded": 2829,
+    "price_per_share": 177.0,
+    "total_value": 500733.0,
+    "total_value_fmt": "$501K",
+    "shares_owned_after": 7765,
+    "position_change_pct": 57.3,
+    "pct_from_52w_high": 15,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-25T20:23:50.074962+00:00"
   }
 ]
