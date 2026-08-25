@@ -10958,5 +10958,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-24T22:02:35.218171+00:00"
+  },
+  {
+    "ticker": "PRE",
+    "company_name": "Prenetics Global Ltd",
+    "insider_name": "Yeung Danny Sheng Wu",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-20",
+    "filed_date": "2026-08-24",
+    "shares_traded": 24681,
+    "price_per_share": 20.3395,
+    "total_value": 501998.4,
+    "total_value_fmt": "$502K",
+    "shares_owned_after": 112416,
+    "position_change_pct": 28.1,
+    "pct_from_52w_high": 14,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-25T01:42:38.901322+00:00"
   }
 ]
