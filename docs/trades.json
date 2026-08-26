@@ -11118,5 +11118,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-25T21:06:08.498214+00:00"
+  },
+  {
+    "ticker": "TTMI",
+    "company_name": "TTM TECHNOLOGIES INC",
+    "insider_name": "Roks Edwin",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-25",
+    "filed_date": "2026-08-25",
+    "shares_traded": 10000,
+    "price_per_share": 111.77,
+    "total_value": 1117700.0,
+    "total_value_fmt": "$1.1M",
+    "shares_owned_after": 64814,
+    "position_change_pct": 18.2,
+    "pct_from_52w_high": 50,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-26T00:42:39.179142+00:00"
   }
 ]
