@@ -11258,5 +11258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-27T21:25:52.118741+00:00"
+  },
+  {
+    "ticker": "SGI",
+    "company_name": "SOMNIGROUP INTERNATIONAL INC.",
+    "insider_name": "THOMPSON SCOTT L",
+    "insider_title": "CEO & PRESIDENT",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-27",
+    "filed_date": "2026-08-27",
+    "shares_traded": 30000,
+    "price_per_share": 62.8438,
+    "total_value": 1885314.0,
+    "total_value_fmt": "$1.9M",
+    "shares_owned_after": 4123634,
+    "position_change_pct": 0.7,
+    "pct_from_52w_high": 36,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-27T22:07:23.063089+00:00"
   }
 ]
