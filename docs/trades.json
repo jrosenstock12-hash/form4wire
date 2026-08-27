@@ -11298,5 +11298,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-27T23:04:25.933637+00:00"
+  },
+  {
+    "ticker": "AMRC",
+    "company_name": "Ameresco, Inc.",
+    "insider_name": "Sakellaris George P",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-26",
+    "filed_date": "2026-08-27",
+    "shares_traded": 5000,
+    "price_per_share": 22.656,
+    "total_value": 113280.0,
+    "total_value_fmt": "$113K",
+    "shares_owned_after": 1010597,
+    "position_change_pct": 0.5,
+    "pct_from_52w_high": 50,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-27T23:52:40.930270+00:00"
   }
 ]
