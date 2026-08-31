@@ -11418,5 +11418,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-31T19:20:20.497184+00:00"
+  },
+  {
+    "ticker": "PETZ",
+    "company_name": "TDH Holdings, Inc.",
+    "insider_name": "Liu Dandan",
+    "insider_title": "CEO and Chair",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-27",
+    "filed_date": "2026-08-31",
+    "shares_traded": 2969692,
+    "price_per_share": 1.2,
+    "total_value": 3563630.4,
+    "total_value_fmt": "$3.6M",
+    "shares_owned_after": 5069389,
+    "position_change_pct": 141.4,
+    "pct_from_52w_high": 34,
+    "signal_score": 9,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-31T20:08:44.626308+00:00"
   }
 ]
