@@ -11478,5 +11478,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-31T21:02:10.298506+00:00"
+  },
+  {
+    "ticker": "FTCI",
+    "company_name": "FTC Solar, Inc.",
+    "insider_name": "SADASIVAM SHAKER",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-08-27",
+    "filed_date": "2026-08-31",
+    "shares_traded": 39583,
+    "price_per_share": 2.35,
+    "total_value": 93020.05,
+    "total_value_fmt": "$93K",
+    "shares_owned_after": 154381,
+    "position_change_pct": 34.5,
+    "pct_from_52w_high": 82,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-31T22:01:33.937837+00:00"
   }
 ]
