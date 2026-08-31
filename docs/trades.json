@@ -11498,5 +11498,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-08-31T22:01:33.937837+00:00"
+  },
+  {
+    "ticker": "PRTS",
+    "company_name": "CarParts.com, Inc.",
+    "insider_name": "Michael Huffaker",
+    "insider_title": "COO",
+    "role_header": "COO",
+    "transaction_date": "2026-08-27",
+    "filed_date": "2026-08-31",
+    "shares_traded": 12162,
+    "price_per_share": 7.0538,
+    "total_value": 85788.0,
+    "total_value_fmt": "$86K",
+    "shares_owned_after": 60102,
+    "position_change_pct": 25.4,
+    "pct_from_52w_high": 48,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-08-31T22:58:21.648019+00:00"
   }
 ]
