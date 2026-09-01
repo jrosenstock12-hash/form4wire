@@ -11538,5 +11538,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-01T12:10:19.801984+00:00"
+  },
+  {
+    "ticker": "CURI",
+    "company_name": "CuriosityStream Inc.",
+    "insider_name": "Stinchcomb Clinton Larry",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-28",
+    "filed_date": "2026-09-01",
+    "shares_traded": 20000,
+    "price_per_share": 2.603,
+    "total_value": 52060.0,
+    "total_value_fmt": "$52K",
+    "shares_owned_after": 3021260,
+    "position_change_pct": 0.7,
+    "pct_from_52w_high": 53,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-01T16:30:17.581063+00:00"
   }
 ]
