@@ -11578,5 +11578,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-01T20:32:07.286177+00:00"
+  },
+  {
+    "ticker": "ITT",
+    "company_name": "ITT INC.",
+    "insider_name": "Savi Luca",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-31",
+    "filed_date": "2026-09-01",
+    "shares_traded": 5019,
+    "price_per_share": 199.56,
+    "total_value": 1001591.64,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 267373,
+    "position_change_pct": 1.9,
+    "pct_from_52w_high": 13,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-01T20:40:01.613039+00:00"
   }
 ]
