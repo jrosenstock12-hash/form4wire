@@ -11698,5 +11698,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-02T18:52:26.335201+00:00"
+  },
+  {
+    "ticker": "CAVA",
+    "company_name": "CAVA GROUP, INC.",
+    "insider_name": "Thompson Douglas W.",
+    "insider_title": "Chief Operations Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-08-31",
+    "filed_date": "2026-09-02",
+    "shares_traded": 6500,
+    "price_per_share": 66.52,
+    "total_value": 432380.0,
+    "total_value_fmt": "$432K",
+    "shares_owned_after": 19371,
+    "position_change_pct": 50.5,
+    "pct_from_52w_high": 33,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-02T20:52:11.442206+00:00"
   }
 ]
