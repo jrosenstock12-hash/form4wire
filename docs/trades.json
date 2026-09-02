@@ -11638,5 +11638,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-01T21:08:35.243148+00:00"
+  },
+  {
+    "ticker": "QNRX",
+    "company_name": "Quoin Pharmaceuticals, Ltd.",
+    "insider_name": "Myers Michael",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-08-31",
+    "filed_date": "2026-09-01",
+    "shares_traded": 20490,
+    "price_per_share": 4.88,
+    "total_value": 99991.2,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 37713,
+    "position_change_pct": 119.0,
+    "pct_from_52w_high": 88,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-02T01:41:01.449977+00:00"
   }
 ]
