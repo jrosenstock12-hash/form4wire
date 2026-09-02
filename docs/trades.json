@@ -11718,5 +11718,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-02T20:52:11.442206+00:00"
+  },
+  {
+    "ticker": "PLSE",
+    "company_name": "PULSE BIOSCIENCES, INC.",
+    "insider_name": "Teplitsky Liane Rae",
+    "insider_title": "Chief Operating Officer",
+    "role_header": "COO",
+    "transaction_date": "2026-08-31",
+    "filed_date": "2026-09-02",
+    "shares_traded": 2025,
+    "price_per_share": 49.3685,
+    "total_value": 99971.15,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 4095,
+    "position_change_pct": 97.8,
+    "pct_from_52w_high": 9,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-02T23:40:31.284106+00:00"
   }
 ]
