@@ -11758,5 +11758,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-03T14:42:39.292784+00:00"
+  },
+  {
+    "ticker": "VSTS",
+    "company_name": "Vestis Corp",
+    "insider_name": "Barber James J.",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-02",
+    "filed_date": "2026-09-03",
+    "shares_traded": 84500,
+    "price_per_share": 12.3714,
+    "total_value": 1045383.3,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 867222,
+    "position_change_pct": 10.8,
+    "pct_from_52w_high": 27,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-03T20:22:49.126746+00:00"
   }
 ]
