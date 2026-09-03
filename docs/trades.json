@@ -11738,5 +11738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-02T23:40:31.284106+00:00"
+  },
+  {
+    "ticker": "OWLS",
+    "company_name": "OBOOK HOLDINGS INC.",
+    "insider_name": "WANG CHUN KAI",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-01",
+    "filed_date": "2026-09-03",
+    "shares_traded": 12358,
+    "price_per_share": 5.0191,
+    "total_value": 62025.49,
+    "total_value_fmt": "$62K",
+    "shares_owned_after": 3124808,
+    "position_change_pct": 0.4,
+    "pct_from_52w_high": 94,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-03T14:42:39.292784+00:00"
   }
 ]
