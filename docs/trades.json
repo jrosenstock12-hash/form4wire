@@ -11838,5 +11838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-04T20:02:16.855191+00:00"
+  },
+  {
+    "ticker": "EQPT",
+    "company_name": "EquipmentShare.com Inc",
+    "insider_name": "Schlacks William J.",
+    "insider_title": "Founder & President",
+    "role_header": "FOUNDER",
+    "transaction_date": "2026-09-02",
+    "filed_date": "2026-09-04",
+    "shares_traded": 10000,
+    "price_per_share": 17.79,
+    "total_value": 177900.0,
+    "total_value_fmt": "$178K",
+    "shares_owned_after": 70950,
+    "position_change_pct": 16.4,
+    "pct_from_52w_high": 50,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-04T20:12:50.048157+00:00"
   }
 ]
