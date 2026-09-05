@@ -11878,5 +11878,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-04T22:21:06.135159+00:00"
+  },
+  {
+    "ticker": "ENOV",
+    "company_name": "Enovis CORP",
+    "insider_name": "Engert Oliver",
+    "insider_title": "Chief Administrative Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-09-02",
+    "filed_date": "2026-09-04",
+    "shares_traded": 7598,
+    "price_per_share": 19.7382,
+    "total_value": 149970.96,
+    "total_value_fmt": "$150K",
+    "shares_owned_after": 61238,
+    "position_change_pct": 14.2,
+    "pct_from_52w_high": 42,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-05T01:01:32.939106+00:00"
   }
 ]
