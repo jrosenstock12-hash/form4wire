@@ -11918,5 +11918,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-08T11:03:04.062200+00:00"
+  },
+  {
+    "ticker": "TSN",
+    "company_name": "TYSON FOODS, INC.",
+    "insider_name": "Schomburger Jeffrey K",
+    "insider_title": "President & CEO Elect",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-04",
+    "filed_date": "2026-09-08",
+    "shares_traded": 19450,
+    "price_per_share": 51.497,
+    "total_value": 1001616.65,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 100129,
+    "position_change_pct": 24.1,
+    "pct_from_52w_high": 26,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-08T19:52:23.974092+00:00"
   }
 ]
