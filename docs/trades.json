@@ -11898,5 +11898,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-05T01:01:32.939106+00:00"
+  },
+  {
+    "ticker": "UBER",
+    "company_name": "Uber Technologies, Inc",
+    "insider_name": "Macdonald Andrew",
+    "insider_title": "See Remarks",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-04",
+    "filed_date": "2026-09-08",
+    "shares_traded": 70000,
+    "price_per_share": 75.8295,
+    "total_value": 5308063.68,
+    "total_value_fmt": "$5.3M",
+    "shares_owned_after": 426320,
+    "position_change_pct": 19.6,
+    "pct_from_52w_high": 26,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-08T11:03:04.062200+00:00"
   }
 ]
