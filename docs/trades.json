@@ -11998,5 +11998,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-09T20:19:57.961498+00:00"
+  },
+  {
+    "ticker": "DY",
+    "company_name": "DYCOM INDUSTRIES INC",
+    "insider_name": "Peyovich Daniel S",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-09",
+    "filed_date": "2026-09-09",
+    "shares_traded": 850,
+    "price_per_share": 296.76,
+    "total_value": 252246.0,
+    "total_value_fmt": "$252K",
+    "shares_owned_after": 61343,
+    "position_change_pct": 1.4,
+    "pct_from_52w_high": 48,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-09T21:13:08.266809+00:00"
   }
 ]
