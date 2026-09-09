@@ -11978,5 +11978,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-09T00:36:49.715395+00:00"
+  },
+  {
+    "ticker": "LUCK",
+    "company_name": "Lucky Strike Entertainment Corp",
+    "insider_name": "Shannon Thomas F.",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-09",
+    "filed_date": "2026-09-09",
+    "shares_traded": 30000,
+    "price_per_share": 5.86,
+    "total_value": 175800.0,
+    "total_value_fmt": "$176K",
+    "shares_owned_after": 3144000,
+    "position_change_pct": 1.0,
+    "pct_from_52w_high": 46,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-09T20:19:57.961498+00:00"
   }
 ]
