@@ -12018,5 +12018,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-09T21:13:08.266809+00:00"
+  },
+  {
+    "ticker": "AGPU",
+    "company_name": "Axe Compute Inc.",
+    "insider_name": "Zhu Theodore",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-08",
+    "filed_date": "2026-09-09",
+    "shares_traded": 8750,
+    "price_per_share": 11.2371,
+    "total_value": 98325.0,
+    "total_value_fmt": "$98K",
+    "shares_owned_after": 16314,
+    "position_change_pct": 115.7,
+    "pct_from_52w_high": 65,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-09T23:10:53.629313+00:00"
   }
 ]
