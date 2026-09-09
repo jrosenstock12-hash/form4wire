@@ -11958,5 +11958,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-08T20:13:10.053316+00:00"
+  },
+  {
+    "ticker": "AMR",
+    "company_name": "Alpha Metallurgical Resources, Inc.",
+    "insider_name": "Courtis Kenneth S.",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-08",
+    "filed_date": "2026-09-08",
+    "shares_traded": 10000,
+    "price_per_share": 225.8289,
+    "total_value": 2258288.94,
+    "total_value_fmt": "$2.3M",
+    "shares_owned_after": 1035394,
+    "position_change_pct": 1.0,
+    "pct_from_52w_high": 11,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-09T00:36:49.715395+00:00"
   }
 ]
