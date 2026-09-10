@@ -12078,5 +12078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-10T16:41:18.770339+00:00"
+  },
+  {
+    "ticker": "PNBK",
+    "company_name": "PATRIOT NATIONAL BANCORP INC",
+    "insider_name": "De Tomasi Mario",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-08",
+    "filed_date": "2026-09-10",
+    "shares_traded": 63000,
+    "price_per_share": 0.96,
+    "total_value": 60480.0,
+    "total_value_fmt": "$60K",
+    "shares_owned_after": 272941,
+    "position_change_pct": 30.0,
+    "pct_from_52w_high": 52,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-10T20:44:01.346814+00:00"
   }
 ]
