@@ -12098,5 +12098,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-10T20:44:01.346814+00:00"
+  },
+  {
+    "ticker": "CELH",
+    "company_name": "Celsius Holdings, Inc.",
+    "insider_name": "Fieldly John",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-10",
+    "filed_date": "2026-09-10",
+    "shares_traded": 18000,
+    "price_per_share": 27.4357,
+    "total_value": 493842.6,
+    "total_value_fmt": "$494K",
+    "shares_owned_after": 956063,
+    "position_change_pct": 1.9,
+    "pct_from_52w_high": 59,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-10T21:05:37.008169+00:00"
   }
 ]
