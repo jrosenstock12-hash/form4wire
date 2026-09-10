@@ -12058,5 +12058,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-10T11:31:39.761668+00:00"
+  },
+  {
+    "ticker": "UBER",
+    "company_name": "Uber Technologies, Inc",
+    "insider_name": "KHOSROWSHAHI DARA",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-10",
+    "filed_date": "2026-09-10",
+    "shares_traded": 141000,
+    "price_per_share": 70.9642,
+    "total_value": 10005952.2,
+    "total_value_fmt": "$10.0M",
+    "shares_owned_after": 1367100,
+    "position_change_pct": 11.5,
+    "pct_from_52w_high": 30,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-10T16:41:18.770339+00:00"
   }
 ]
