@@ -12038,5 +12038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-09T23:10:53.629313+00:00"
+  },
+  {
+    "ticker": "GRCE",
+    "company_name": "Grace Therapeutics, Inc.",
+    "insider_name": "Kohli Prashant",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-09",
+    "filed_date": "2026-09-10",
+    "shares_traded": 100000,
+    "price_per_share": 2.14,
+    "total_value": 214000.0,
+    "total_value_fmt": "$214K",
+    "shares_owned_after": 121357,
+    "position_change_pct": 468.2,
+    "pct_from_52w_high": 59,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-10T11:31:39.761668+00:00"
   }
 ]
