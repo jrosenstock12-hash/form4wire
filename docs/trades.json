@@ -12178,5 +12178,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-09-11T00:02:27.787040+00:00"
+  },
+  {
+    "ticker": "ATEC",
+    "company_name": "Alphatec Holdings, Inc.",
+    "insider_name": "Miles Patrick",
+    "insider_title": "CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-10",
+    "filed_date": "2026-09-10",
+    "shares_traded": 115000,
+    "price_per_share": 8.81,
+    "total_value": 1013150.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 5893551,
+    "position_change_pct": 2.0,
+    "pct_from_52w_high": 62,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-11T00:59:20.585118+00:00"
   }
 ]
