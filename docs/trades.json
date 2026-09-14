@@ -12258,5 +12258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-11T23:19:23.467929+00:00"
+  },
+  {
+    "ticker": "NTHI",
+    "company_name": "NEONC TECHNOLOGIES HOLDINGS, INC.",
+    "insider_name": "Heshmatpour Amir F",
+    "insider_title": "CEO, President",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-11",
+    "filed_date": "2026-09-14",
+    "shares_traded": 37000,
+    "price_per_share": 3.6654,
+    "total_value": 135619.8,
+    "total_value_fmt": "$136K",
+    "shares_owned_after": 3133000,
+    "position_change_pct": 1.2,
+    "pct_from_52w_high": 72,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-14T10:03:01.928185+00:00"
   }
 ]
