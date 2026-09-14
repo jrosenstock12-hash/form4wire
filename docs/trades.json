@@ -12318,5 +12318,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-14T20:01:41.366646+00:00"
+  },
+  {
+    "ticker": "SDHC",
+    "company_name": "Smith Douglas Homes Corp.",
+    "insider_name": "Bradbury Thomas L",
+    "insider_title": "Director, 10% Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-10",
+    "filed_date": "2026-09-14",
+    "shares_traded": 19360,
+    "price_per_share": 10.3059,
+    "total_value": 199522.22,
+    "total_value_fmt": "$200K",
+    "shares_owned_after": 78278,
+    "position_change_pct": 32.9,
+    "pct_from_52w_high": 56,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-14T20:06:42.424738+00:00"
   }
 ]
