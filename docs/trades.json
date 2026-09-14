@@ -12278,5 +12278,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-14T10:03:01.928185+00:00"
+  },
+  {
+    "ticker": "DOMH",
+    "company_name": "Dominari Holdings Inc.",
+    "insider_name": "Hayes Anthony",
+    "insider_title": "CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-10",
+    "filed_date": "2026-09-14",
+    "shares_traded": 100000,
+    "price_per_share": 2.0919,
+    "total_value": 209190.0,
+    "total_value_fmt": "$209K",
+    "shares_owned_after": 4600873,
+    "position_change_pct": 2.2,
+    "pct_from_52w_high": 75,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-14T12:00:44.774138+00:00"
   }
 ]
