@@ -12378,5 +12378,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-14T20:51:28.749974+00:00"
+  },
+  {
+    "ticker": "MAIA",
+    "company_name": "MAIA Biotechnology, Inc.",
+    "insider_name": "Vitoc Vlad",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-14",
+    "filed_date": "2026-09-15",
+    "shares_traded": 73000,
+    "price_per_share": 1.37,
+    "total_value": 100010.0,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 1049121,
+    "position_change_pct": 7.5,
+    "pct_from_52w_high": 57,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-15T10:34:03.684288+00:00"
   }
 ]
