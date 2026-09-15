@@ -12438,5 +12438,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-15T20:06:53.519253+00:00"
+  },
+  {
+    "ticker": "CELH",
+    "company_name": "Celsius Holdings, Inc.",
+    "insider_name": "DeSantis Damon",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-14",
+    "filed_date": "2026-09-15",
+    "shares_traded": 36000,
+    "price_per_share": 27.7833,
+    "total_value": 1000200.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 2728187,
+    "position_change_pct": 1.3,
+    "pct_from_52w_high": 58,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-15T20:20:42.584183+00:00"
   }
 ]
