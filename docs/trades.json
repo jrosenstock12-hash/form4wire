@@ -12398,5 +12398,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-15T10:34:03.684288+00:00"
+  },
+  {
+    "ticker": "RWT",
+    "company_name": "REDWOOD TRUST INC",
+    "insider_name": "Carillo Brooke",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-09-15",
+    "filed_date": "2026-09-15",
+    "shares_traded": 26065,
+    "price_per_share": 3.8457,
+    "total_value": 100238.17,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 140481,
+    "position_change_pct": 22.8,
+    "pct_from_52w_high": 45,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-15T17:17:10.566584+00:00"
   }
 ]
