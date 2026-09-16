@@ -12558,5 +12558,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-09-16T13:02:07.460748+00:00"
+  },
+  {
+    "ticker": "SBLK",
+    "company_name": "Star Bulk Carriers Corp.",
+    "insider_name": "Erhardt Koert",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-15",
+    "filed_date": "2026-09-16",
+    "shares_traded": 6000,
+    "price_per_share": 28.27,
+    "total_value": 169620.0,
+    "total_value_fmt": "$170K",
+    "shares_owned_after": 16080,
+    "position_change_pct": 59.5,
+    "pct_from_52w_high": 14,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-16T15:02:45.548562+00:00"
   }
 ]
