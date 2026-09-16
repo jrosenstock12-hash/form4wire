@@ -12538,5 +12538,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-16T00:48:35.030879+00:00"
+  },
+  {
+    "ticker": "CELH",
+    "company_name": "Celsius Holdings, Inc.",
+    "insider_name": "Kravitz Hal",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-15",
+    "filed_date": "2026-09-16",
+    "shares_traded": 12000,
+    "price_per_share": 28.0,
+    "total_value": 336000.0,
+    "total_value_fmt": "$336K",
+    "shares_owned_after": 239158,
+    "position_change_pct": 5.3,
+    "pct_from_52w_high": 58,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-09-16T13:02:07.460748+00:00"
   }
 ]
