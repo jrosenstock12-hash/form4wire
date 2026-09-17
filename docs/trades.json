@@ -12738,5 +12738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-17T21:03:25.106367+00:00"
+  },
+  {
+    "ticker": "XBP",
+    "company_name": "XBP Global Holdings, Inc.",
+    "insider_name": "Jonovic Andrej",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-15",
+    "filed_date": "2026-09-17",
+    "shares_traded": 31500,
+    "price_per_share": 2.83,
+    "total_value": 89145.0,
+    "total_value_fmt": "$89K",
+    "shares_owned_after": 244700,
+    "position_change_pct": 14.8,
+    "pct_from_52w_high": 78,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-17T22:44:52.774292+00:00"
   }
 ]
