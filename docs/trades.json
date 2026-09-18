@@ -12798,5 +12798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-18T11:53:43.723012+00:00"
+  },
+  {
+    "ticker": "KRMN",
+    "company_name": "Karman Holdings Inc.",
+    "insider_name": "Stinnett David",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-16",
+    "filed_date": "2026-09-18",
+    "shares_traded": 27000,
+    "price_per_share": 37.3203,
+    "total_value": 1007648.1,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 3530395,
+    "position_change_pct": 0.8,
+    "pct_from_52w_high": 68,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-18T12:31:13.119378+00:00"
   }
 ]
