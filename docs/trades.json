@@ -12818,5 +12818,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-18T12:31:13.119378+00:00"
+  },
+  {
+    "ticker": "THM",
+    "company_name": "INTERNATIONAL TOWER HILL MINES LTD",
+    "insider_name": "Wiens David Victor",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-16",
+    "filed_date": "2026-09-18",
+    "shares_traded": 83682,
+    "price_per_share": 2.39,
+    "total_value": 199999.98,
+    "total_value_fmt": "$200K",
+    "shares_owned_after": 684047,
+    "position_change_pct": 13.9,
+    "pct_from_52w_high": 35,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-18T21:35:17.004867+00:00"
   }
 ]
