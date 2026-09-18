@@ -12778,5 +12778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-18T01:30:34.571332+00:00"
+  },
+  {
+    "ticker": "TFC",
+    "company_name": "TRUIST FINANCIAL CORP",
+    "insider_name": "Lyons Michael P.",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-17",
+    "filed_date": "2026-09-18",
+    "shares_traded": 21000,
+    "price_per_share": 48.3608,
+    "total_value": 1015576.8,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 21000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 14,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-18T11:53:43.723012+00:00"
   }
 ]
