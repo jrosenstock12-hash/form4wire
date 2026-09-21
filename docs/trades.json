@@ -12938,5 +12938,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-09-21T20:26:34.629199+00:00"
+  },
+  {
+    "ticker": "RWT",
+    "company_name": "REDWOOD TRUST INC",
+    "insider_name": "Macomber Sasha G.",
+    "insider_title": "Chief Human Resource Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-09-21",
+    "filed_date": "2026-09-21",
+    "shares_traded": 4895,
+    "price_per_share": 4.0792,
+    "total_value": 19967.68,
+    "total_value_fmt": "$20K",
+    "shares_owned_after": 95298,
+    "position_change_pct": 5.4,
+    "pct_from_52w_high": 41,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-09-21T20:28:39.762861+00:00"
   }
 ]
