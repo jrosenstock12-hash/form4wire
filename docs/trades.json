@@ -12838,5 +12838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-18T21:35:17.004867+00:00"
+  },
+  {
+    "ticker": "EU",
+    "company_name": "enCore Energy Corp.",
+    "insider_name": "SHERIFF WILLIAM M",
+    "insider_title": "Executive Chairman",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-21",
+    "shares_traded": 125000,
+    "price_per_share": 0.81,
+    "total_value": 101250.0,
+    "total_value_fmt": "$101K",
+    "shares_owned_after": 1737169,
+    "position_change_pct": 7.8,
+    "pct_from_52w_high": 81,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-21T11:05:36.556171+00:00"
   }
 ]
