@@ -12898,5 +12898,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-21T20:19:32.739177+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "de Souza Cintia Scovine Barcelos",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-21",
+    "shares_traded": 60093,
+    "price_per_share": 17.98,
+    "total_value": 1080472.14,
+    "total_value_fmt": "$1.1M",
+    "shares_owned_after": 275197,
+    "position_change_pct": 27.9,
+    "pct_from_52w_high": null,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-21T20:21:29.892440+00:00"
   }
 ]
