@@ -12958,5 +12958,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-09-21T20:28:39.762861+00:00"
+  },
+  {
+    "ticker": "GME",
+    "company_name": "GameStop Corp.",
+    "insider_name": "Ryan Cohen",
+    "insider_title": "President, CEO and Chairman",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-21",
+    "filed_date": "2026-09-21",
+    "shares_traded": 1150680,
+    "price_per_share": 22.9375,
+    "total_value": 26393722.5,
+    "total_value_fmt": "$26.4M",
+    "shares_owned_after": 40498522,
+    "position_change_pct": 2.9,
+    "pct_from_52w_high": 18,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-21T21:04:47.622580+00:00"
   }
 ]
