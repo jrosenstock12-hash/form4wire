@@ -12878,5 +12878,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-21T15:12:58.127218+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Pedras Carlos Henrique Villela",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-21",
+    "shares_traded": 55850,
+    "price_per_share": 17.98,
+    "total_value": 1004183.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 163646,
+    "position_change_pct": 51.8,
+    "pct_from_52w_high": null,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-21T20:19:32.739177+00:00"
   }
 ]
