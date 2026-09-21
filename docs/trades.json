@@ -12978,5 +12978,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-21T21:04:47.622580+00:00"
+  },
+  {
+    "ticker": "CYBN",
+    "company_name": "CYBIN INC.",
+    "insider_name": "Halstead Michael",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-21",
+    "filed_date": "2026-09-21",
+    "shares_traded": 100000,
+    "price_per_share": 13.4705,
+    "total_value": 1347050.0,
+    "total_value_fmt": "$1.3M",
+    "shares_owned_after": 168568,
+    "position_change_pct": 145.8,
+    "pct_from_52w_high": null,
+    "signal_score": 9,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-21T21:08:45.940253+00:00"
   }
 ]
