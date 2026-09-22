@@ -13078,5 +13078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-22T14:12:00.135416+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Fernando Freiberger",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-22",
+    "shares_traded": 49550,
+    "price_per_share": 17.98,
+    "total_value": 890909.0,
+    "total_value_fmt": "$891K",
+    "shares_owned_after": 238935,
+    "position_change_pct": 26.2,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-22T14:16:09.329818+00:00"
   }
 ]
