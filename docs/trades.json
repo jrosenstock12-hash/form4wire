@@ -13018,5 +13018,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-21T22:19:37.689293+00:00"
+  },
+  {
+    "ticker": "VFF",
+    "company_name": "Village Farms International, Inc.",
+    "insider_name": "DEGIGLIO MICHAEL A",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-22",
+    "filed_date": "2026-09-22",
+    "shares_traded": 35000,
+    "price_per_share": 2.8931,
+    "total_value": 101258.5,
+    "total_value_fmt": "$101K",
+    "shares_owned_after": 9730775,
+    "position_change_pct": 0.4,
+    "pct_from_52w_high": 42,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-22T11:28:58.209492+00:00"
   }
 ]
