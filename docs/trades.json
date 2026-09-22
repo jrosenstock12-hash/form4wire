@@ -13138,5 +13138,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-22T14:46:08.176188+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Fernandes Oswaldo Tadeu",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-22",
+    "shares_traded": 79782,
+    "price_per_share": 17.98,
+    "total_value": 1434480.36,
+    "total_value_fmt": "$1.4M",
+    "shares_owned_after": 348575,
+    "position_change_pct": 29.7,
+    "pct_from_52w_high": null,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-22T14:51:39.563007+00:00"
   }
 ]
