@@ -13038,5 +13038,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-22T11:28:58.209492+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Marcilio Juliano Ribeiro",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-22",
+    "shares_traded": 60779,
+    "price_per_share": 17.98,
+    "total_value": 1092806.42,
+    "total_value_fmt": "$1.1M",
+    "shares_owned_after": 329067,
+    "position_change_pct": 22.7,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-22T13:07:47.555637+00:00"
   }
 ]
