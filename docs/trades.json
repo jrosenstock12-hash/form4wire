@@ -13118,5 +13118,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-22T14:20:12.394491+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Tescarolo Marcos Valerio",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-22",
+    "shares_traded": 57012,
+    "price_per_share": 17.98,
+    "total_value": 1025075.76,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 296836,
+    "position_change_pct": 23.8,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-22T14:46:08.176188+00:00"
   }
 ]
