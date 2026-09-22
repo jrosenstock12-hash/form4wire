@@ -13198,5 +13198,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-22T15:08:20.689640+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Favarao Vinicius Urias",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-18",
+    "filed_date": "2026-09-22",
+    "shares_traded": 60492,
+    "price_per_share": 17.98,
+    "total_value": 1087646.16,
+    "total_value_fmt": "$1.1M",
+    "shares_owned_after": 341683,
+    "position_change_pct": 21.5,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-22T15:18:18.154122+00:00"
   }
 ]
