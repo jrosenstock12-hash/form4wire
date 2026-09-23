@@ -13238,5 +13238,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-22T18:24:03.760824+00:00"
+  },
+  {
+    "ticker": "AIAI",
+    "company_name": "AIAI Holdings Corp",
+    "insider_name": "Affeldt Eric",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-22",
+    "filed_date": "2026-09-23",
+    "shares_traded": 42857,
+    "price_per_share": 3.5,
+    "total_value": 149999.5,
+    "total_value_fmt": "$150K",
+    "shares_owned_after": 47857,
+    "position_change_pct": 857.1,
+    "pct_from_52w_high": 82,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-23T21:49:51.573591+00:00"
   }
 ]
