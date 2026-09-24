@@ -13258,5 +13258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-23T21:49:51.573591+00:00"
+  },
+  {
+    "ticker": "DKS",
+    "company_name": "DICK'S SPORTING GOODS, INC.",
+    "insider_name": "Gupta Navdeep",
+    "insider_title": "EVP, Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-09-22",
+    "filed_date": "2026-09-24",
+    "shares_traded": 7707,
+    "price_per_share": 129.75,
+    "total_value": 999983.25,
+    "total_value_fmt": "$1000K",
+    "shares_owned_after": 86580,
+    "position_change_pct": 9.8,
+    "pct_from_52w_high": 47,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-24T20:23:42.326747+00:00"
   }
 ]
