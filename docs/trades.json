@@ -13398,5 +13398,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-28T21:04:04.813908+00:00"
+  },
+  {
+    "ticker": "AOMR",
+    "company_name": "Angel Oak Mortgage REIT, Inc.",
+    "insider_name": "Fierman Michael",
+    "insider_title": "Director, 10% Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-25",
+    "filed_date": "2026-09-28",
+    "shares_traded": 38726,
+    "price_per_share": 7.5017,
+    "total_value": 290510.83,
+    "total_value_fmt": "$291K",
+    "shares_owned_after": 105247,
+    "position_change_pct": 58.2,
+    "pct_from_52w_high": 22,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-28T21:25:08.641750+00:00"
   }
 ]
