@@ -13378,5 +13378,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-28T14:51:46.327540+00:00"
+  },
+  {
+    "ticker": "ATCH",
+    "company_name": "AtlasClear Holdings, Inc.",
+    "insider_name": "Hammond Thomas Jon",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-09-24",
+    "filed_date": "2026-09-28",
+    "shares_traded": 500000,
+    "price_per_share": 0.1996,
+    "total_value": 99800.0,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 500706,
+    "position_change_pct": 70821.5,
+    "pct_from_52w_high": 76,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-28T21:04:04.813908+00:00"
   }
 ]
