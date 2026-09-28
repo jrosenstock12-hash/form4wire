@@ -13358,5 +13358,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-28T10:06:35.635508+00:00"
+  },
+  {
+    "ticker": "FTHY",
+    "company_name": "FIRST TRUST HIGH YIELD OPPORTUNITIES 2027 TERM FUND",
+    "insider_name": "MCGAREL DAVID",
+    "insider_title": "Officer-Investment Adviser",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-25",
+    "filed_date": "2026-09-28",
+    "shares_traded": 10000,
+    "price_per_share": 12.9247,
+    "total_value": 129247.0,
+    "total_value_fmt": "$129K",
+    "shares_owned_after": 24000,
+    "position_change_pct": 71.4,
+    "pct_from_52w_high": 12,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-28T14:51:46.327540+00:00"
   }
 ]
