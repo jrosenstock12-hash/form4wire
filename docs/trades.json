@@ -13418,5 +13418,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-28T21:25:08.641750+00:00"
+  },
+  {
+    "ticker": "SWZ",
+    "company_name": "Total Return Securities Fund",
+    "insider_name": "Dakos Andrew",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-25",
+    "filed_date": "2026-09-29",
+    "shares_traded": 20000,
+    "price_per_share": 5.7907,
+    "total_value": 115813.51,
+    "total_value_fmt": "$116K",
+    "shares_owned_after": 60000,
+    "position_change_pct": 50.0,
+    "pct_from_52w_high": 8,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-29T20:06:14.196403+00:00"
   }
 ]
