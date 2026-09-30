@@ -13498,5 +13498,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-30T20:21:49.719366+00:00"
+  },
+  {
+    "ticker": "BBD",
+    "company_name": "BANK BRADESCO",
+    "insider_name": "Di Marcello Francesco",
+    "insider_title": "Executive Officer",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-09-28",
+    "filed_date": "2026-09-30",
+    "shares_traded": 57160,
+    "price_per_share": 17.6495,
+    "total_value": 1008843.6,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 113004,
+    "position_change_pct": 102.4,
+    "pct_from_52w_high": null,
+    "signal_score": 10,
+    "cluster_count": 24,
+    "unusual_flag": false,
+    "posted_at": "2026-09-30T20:43:05.421435+00:00"
   }
 ]
