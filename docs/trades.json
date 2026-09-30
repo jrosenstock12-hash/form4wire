@@ -13478,5 +13478,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-09-30T15:16:14.037256+00:00"
+  },
+  {
+    "ticker": "PMPEX",
+    "company_name": "Primark Meketa Private Equity Investments Fund",
+    "insider_name": "Peter Scott Woolley",
+    "insider_title": "CO-CEO of Sub Advisor",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-28",
+    "filed_date": "2026-09-30",
+    "shares_traded": 8600,
+    "price_per_share": 17.44,
+    "total_value": 149999.99,
+    "total_value_fmt": "$150K",
+    "shares_owned_after": 11972,
+    "position_change_pct": 255.1,
+    "pct_from_52w_high": 1,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-09-30T20:21:49.719366+00:00"
   }
 ]
