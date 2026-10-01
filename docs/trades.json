@@ -13538,5 +13538,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-01T00:31:30.352501+00:00"
+  },
+  {
+    "ticker": "GPUS",
+    "company_name": "Hyperscale Data, Inc.",
+    "insider_name": "AULT MILTON C III",
+    "insider_title": "Executive Chairman",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-09-29",
+    "filed_date": "2026-10-01",
+    "shares_traded": 10313474,
+    "price_per_share": 0.4898,
+    "total_value": 5051382.07,
+    "total_value_fmt": "$5.1M",
+    "shares_owned_after": 14888066,
+    "position_change_pct": 225.5,
+    "pct_from_52w_high": 87,
+    "signal_score": 10,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-01T10:30:26.570900+00:00"
   }
 ]
