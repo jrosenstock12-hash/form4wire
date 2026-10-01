@@ -13518,5 +13518,25 @@
     "cluster_count": 24,
     "unusual_flag": false,
     "posted_at": "2026-09-30T20:43:05.421435+00:00"
+  },
+  {
+    "ticker": "BPRE",
+    "company_name": "Bluerock Private Real Estate Fund",
+    "insider_name": "Ruddy Jordan B.",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-09-28",
+    "filed_date": "2026-09-30",
+    "shares_traded": 4780,
+    "price_per_share": 12.5446,
+    "total_value": 59963.28,
+    "total_value_fmt": "$60K",
+    "shares_owned_after": 16052,
+    "position_change_pct": 42.4,
+    "pct_from_52w_high": 31,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-01T00:31:30.352501+00:00"
   }
 ]
