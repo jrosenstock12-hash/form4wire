@@ -13638,5 +13638,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-10-01T20:59:30.838576+00:00"
+  },
+  {
+    "ticker": "PRHI",
+    "company_name": "Presurance Holdings, Inc.",
+    "insider_name": "RONEY BRIAN J",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-09-30",
+    "filed_date": "2026-10-01",
+    "shares_traded": 7500,
+    "price_per_share": 6.7497,
+    "total_value": 50622.75,
+    "total_value_fmt": "$51K",
+    "shares_owned_after": 80390,
+    "position_change_pct": 10.3,
+    "pct_from_52w_high": 66,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-01T21:38:29.657860+00:00"
   }
 ]
