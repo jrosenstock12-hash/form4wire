@@ -13698,5 +13698,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-10-02T00:56:27.162051+00:00"
+  },
+  {
+    "ticker": "ACCV",
+    "company_name": "Accelevation Holdings Corp.",
+    "insider_name": "Donahue Paul D",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-10-01",
+    "filed_date": "2026-10-05",
+    "shares_traded": 7000,
+    "price_per_share": 18.0,
+    "total_value": 126000.0,
+    "total_value_fmt": "$126K",
+    "shares_owned_after": 7000,
+    "position_change_pct": null,
+    "pct_from_52w_high": 1,
+    "signal_score": 5,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-10-06T01:28:32.912020+00:00"
   }
 ]
