@@ -13778,5 +13778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-06T20:33:10.644490+00:00"
+  },
+  {
+    "ticker": "PSUS",
+    "company_name": "Pershing Square USA, Ltd.",
+    "insider_name": "ISRAEL RYAN",
+    "insider_title": "Chief Investment Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-10-02",
+    "filed_date": "2026-10-06",
+    "shares_traded": 256613,
+    "price_per_share": 37.4697,
+    "total_value": 9615215.58,
+    "total_value_fmt": "$9.6M",
+    "shares_owned_after": 756613,
+    "position_change_pct": 51.3,
+    "pct_from_52w_high": 15,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-06T21:59:42.816808+00:00"
   }
 ]
