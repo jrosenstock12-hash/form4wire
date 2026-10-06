@@ -13738,5 +13738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-06T01:46:33.670350+00:00"
+  },
+  {
+    "ticker": "NXH",
+    "company_name": "NEIGHBORHOOD INTELLIGENCE, INC.",
+    "insider_name": "LEMONIS MARCUS",
+    "insider_title": "EXECUTIVE CHAIRMAN & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-10-06",
+    "filed_date": "2026-10-06",
+    "shares_traded": 362319,
+    "price_per_share": 2.76,
+    "total_value": 1000000.44,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 1076860,
+    "position_change_pct": 50.7,
+    "pct_from_52w_high": 77,
+    "signal_score": 10,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-06T20:04:08.609420+00:00"
   }
 ]
