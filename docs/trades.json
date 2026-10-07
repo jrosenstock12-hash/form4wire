@@ -13798,5 +13798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-06T21:59:42.816808+00:00"
+  },
+  {
+    "ticker": "AGMB",
+    "company_name": "AgomAb Therapeutics NV",
+    "insider_name": "Knotnerus Tim Jasper",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-10-05",
+    "filed_date": "2026-10-07",
+    "shares_traded": 11000,
+    "price_per_share": 8.58,
+    "total_value": 94380.0,
+    "total_value_fmt": "$94K",
+    "shares_owned_after": 21823,
+    "position_change_pct": 101.6,
+    "pct_from_52w_high": 52,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-07T12:07:16.405328+00:00"
   }
 ]
