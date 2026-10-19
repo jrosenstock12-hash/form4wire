@@ -13998,5 +13998,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-16T23:18:17.657753+00:00"
+  },
+  {
+    "ticker": "APLD",
+    "company_name": "Applied Digital Corp.",
+    "insider_name": "Zhang Jason Gechen",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-10-16",
+    "filed_date": "2026-10-19",
+    "shares_traded": 300000,
+    "price_per_share": 18.86,
+    "total_value": 5658000.0,
+    "total_value_fmt": "$5.7M",
+    "shares_owned_after": 2839227,
+    "position_change_pct": 11.8,
+    "pct_from_52w_high": 63,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-19T11:07:17.929931+00:00"
   }
 ]
