@@ -14058,5 +14058,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-21T11:31:40.848848+00:00"
+  },
+  {
+    "ticker": "CLM",
+    "company_name": "Cornerstone Strategic Investment Fund, Inc.",
+    "insider_name": "Joshua G. Bradshaw",
+    "insider_title": "Vice Chairman and President",
+    "role_header": "CHAIRMAN",
+    "transaction_date": "2026-10-20",
+    "filed_date": "2026-10-21",
+    "shares_traded": 16000,
+    "price_per_share": 6.08,
+    "total_value": 97280.0,
+    "total_value_fmt": "$97K",
+    "shares_owned_after": 20356,
+    "position_change_pct": 367.3,
+    "pct_from_52w_high": 29,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-21T21:01:16.633372+00:00"
   }
 ]
