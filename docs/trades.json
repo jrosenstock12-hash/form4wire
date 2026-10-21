@@ -14078,5 +14078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-21T21:01:16.633372+00:00"
+  },
+  {
+    "ticker": "RAPP",
+    "company_name": "Rapport Therapeutics, Inc.",
+    "insider_name": "Ignelzi Troy A.",
+    "insider_title": "Chief Financial Officer",
+    "role_header": "CFO",
+    "transaction_date": "2026-10-21",
+    "filed_date": "2026-10-21",
+    "shares_traded": 5500,
+    "price_per_share": 26.1,
+    "total_value": 143550.0,
+    "total_value_fmt": "$144K",
+    "shares_owned_after": 15500,
+    "position_change_pct": 55.0,
+    "pct_from_52w_high": 51,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-21T21:47:58.744490+00:00"
   }
 ]
