@@ -14138,5 +14138,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-22T12:15:20.208599+00:00"
+  },
+  {
+    "ticker": "[NONE]",
+    "company_name": "VISTA CREDIT STRATEGIC LENDING CORP.",
+    "insider_name": "GALLIGAN GREGORY T",
+    "insider_title": "CEO and President",
+    "role_header": "CEO",
+    "transaction_date": "2026-10-21",
+    "filed_date": "2026-10-23",
+    "shares_traded": 5143,
+    "price_per_share": 19.4415,
+    "total_value": 100000.15,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 43446,
+    "position_change_pct": 13.4,
+    "pct_from_52w_high": null,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-23T15:56:00.489486+00:00"
   }
 ]
