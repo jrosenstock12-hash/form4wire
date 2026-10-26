@@ -14218,5 +14218,25 @@
     "cluster_count": 3,
     "unusual_flag": false,
     "posted_at": "2026-10-23T21:14:23.732521+00:00"
+  },
+  {
+    "ticker": "THRM",
+    "company_name": "Gentherm Inc",
+    "insider_name": "Presley William T.",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-10-23",
+    "filed_date": "2026-10-26",
+    "shares_traded": 5000,
+    "price_per_share": 26.0,
+    "total_value": 130000.0,
+    "total_value_fmt": "$130K",
+    "shares_owned_after": 183314,
+    "position_change_pct": 2.8,
+    "pct_from_52w_high": 46,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-26T21:35:21.375719+00:00"
   }
 ]
