@@ -14238,5 +14238,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-26T21:35:21.375719+00:00"
+  },
+  {
+    "ticker": "THRM",
+    "company_name": "Gentherm Inc",
+    "insider_name": "MASCARENAS PAUL ANTHONY",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-10-23",
+    "filed_date": "2026-10-26",
+    "shares_traded": 20000,
+    "price_per_share": 26.63,
+    "total_value": 532600.0,
+    "total_value_fmt": "$533K",
+    "shares_owned_after": 22677,
+    "position_change_pct": 747.1,
+    "pct_from_52w_high": 45,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-26T21:46:46.963066+00:00"
   }
 ]
