@@ -14418,5 +14418,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-10-29T20:16:42.930739+00:00"
+  },
+  {
+    "ticker": "DINO",
+    "company_name": "HF Sinclair Corp",
+    "insider_name": "MYERS FRANKLIN",
+    "insider_title": "CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-10-29",
+    "filed_date": "2026-10-29",
+    "shares_traded": 10000,
+    "price_per_share": 110.8,
+    "total_value": 1108000.0,
+    "total_value_fmt": "$1.1M",
+    "shares_owned_after": 207723,
+    "position_change_pct": 5.1,
+    "pct_from_52w_high": 14,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-10-29T21:26:03.130232+00:00"
   }
 ]
