@@ -14458,5 +14458,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-02T12:55:19.832706+00:00"
+  },
+  {
+    "ticker": "JBLU",
+    "company_name": "JETBLUE AIRWAYS CORP",
+    "insider_name": "BONEPARTH PETER",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-10-29",
+    "filed_date": "2026-11-02",
+    "shares_traded": 100000,
+    "price_per_share": 3.0,
+    "total_value": 300000.0,
+    "total_value_fmt": "$300K",
+    "shares_owned_after": 232492,
+    "position_change_pct": 75.5,
+    "pct_from_52w_high": 55,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-02T22:22:57.257774+00:00"
   }
 ]
