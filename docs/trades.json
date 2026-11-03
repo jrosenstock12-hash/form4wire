@@ -14558,5 +14558,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-03T16:44:33.182518+00:00"
+  },
+  {
+    "ticker": "LKQ",
+    "company_name": "LKQ CORP",
+    "insider_name": "Powell Michael Scott",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-02",
+    "filed_date": "2026-11-03",
+    "shares_traded": 10000,
+    "price_per_share": 19.15,
+    "total_value": 191500.0,
+    "total_value_fmt": "$192K",
+    "shares_owned_after": 20998,
+    "position_change_pct": 90.9,
+    "pct_from_52w_high": 48,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-03T21:31:56.356182+00:00"
   }
 ]
