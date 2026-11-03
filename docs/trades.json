@@ -14498,5 +14498,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-02T23:28:19.902617+00:00"
+  },
+  {
+    "ticker": "ASPE",
+    "company_name": "Aspen Neuroscience, Inc.",
+    "insider_name": "BERNS PAUL L",
+    "insider_title": "",
+    "role_header": "INSIDER",
+    "transaction_date": "2026-11-02",
+    "filed_date": "2026-11-02",
+    "shares_traded": 1200000,
+    "price_per_share": 15.0,
+    "total_value": 18000000.0,
+    "total_value_fmt": "$18.0M",
+    "shares_owned_after": 1200000,
+    "position_change_pct": null,
+    "pct_from_52w_high": null,
+    "signal_score": 7,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-11-03T02:47:32.145371+00:00"
   }
 ]
