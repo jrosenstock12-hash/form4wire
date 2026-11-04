@@ -14618,5 +14618,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-04T21:13:59.700993+00:00"
+  },
+  {
+    "ticker": "JBLU",
+    "company_name": "JETBLUE AIRWAYS CORP",
+    "insider_name": "Mittal Nik",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-03",
+    "filed_date": "2026-11-04",
+    "shares_traded": 100000,
+    "price_per_share": 3.2384,
+    "total_value": 323843.5,
+    "total_value_fmt": "$324K",
+    "shares_owned_after": 238537,
+    "position_change_pct": 72.2,
+    "pct_from_52w_high": 51,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-04T21:57:43.934089+00:00"
   }
 ]
