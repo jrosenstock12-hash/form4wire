@@ -14678,5 +14678,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-05T14:21:05.146925+00:00"
+  },
+  {
+    "ticker": "TTMI",
+    "company_name": "TTM TECHNOLOGIES INC",
+    "insider_name": "Ali Wajid",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-05",
+    "filed_date": "2026-11-05",
+    "shares_traded": 10000,
+    "price_per_share": 63.1541,
+    "total_value": 631541.0,
+    "total_value_fmt": "$632K",
+    "shares_owned_after": 45835,
+    "position_change_pct": 27.9,
+    "pct_from_52w_high": 72,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-05T19:00:22.802053+00:00"
   }
 ]
