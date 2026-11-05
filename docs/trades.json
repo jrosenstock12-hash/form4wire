@@ -14718,5 +14718,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-05T21:16:26.170654+00:00"
+  },
+  {
+    "ticker": "LBRT",
+    "company_name": "Liberty Energy Inc.",
+    "insider_name": "Gusek Ron",
+    "insider_title": "CEO and President",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-03",
+    "filed_date": "2026-11-05",
+    "shares_traded": 25000,
+    "price_per_share": 15.0934,
+    "total_value": 377335.0,
+    "total_value_fmt": "$377K",
+    "shares_owned_after": 1068702,
+    "position_change_pct": 2.4,
+    "pct_from_52w_high": 56,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-05T22:25:35.484024+00:00"
   }
 ]
