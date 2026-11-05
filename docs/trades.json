@@ -14738,5 +14738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-05T22:25:35.484024+00:00"
+  },
+  {
+    "ticker": "BXMT",
+    "company_name": "BLACKSTONE MORTGAGE TRUST, INC.",
+    "insider_name": "Johnson Timothy Steven",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-04",
+    "filed_date": "2026-11-05",
+    "shares_traded": 90000,
+    "price_per_share": 11.5039,
+    "total_value": 1035351.0,
+    "total_value_fmt": "$1.0M",
+    "shares_owned_after": 617900,
+    "position_change_pct": 17.0,
+    "pct_from_52w_high": 44,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-05T22:43:53.910499+00:00"
   }
 ]
