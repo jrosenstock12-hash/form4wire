@@ -14758,5 +14758,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-05T22:43:53.910499+00:00"
+  },
+  {
+    "ticker": "FLOC",
+    "company_name": "Flowco Holdings Inc.",
+    "insider_name": "Fairbanks Jonathan B.",
+    "insider_title": "Director, Ten Percent Owner",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-04",
+    "filed_date": "2026-11-05",
+    "shares_traded": 15140,
+    "price_per_share": 19.3477,
+    "total_value": 292924.18,
+    "total_value_fmt": "$293K",
+    "shares_owned_after": 30765,
+    "position_change_pct": 96.9,
+    "pct_from_52w_high": 32,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-06T01:30:44.530994+00:00"
   }
 ]
