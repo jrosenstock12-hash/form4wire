@@ -14778,5 +14778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-06T01:30:44.530994+00:00"
+  },
+  {
+    "ticker": "AGMB",
+    "company_name": "AgomAb Therapeutics NV",
+    "insider_name": "Epstein David R",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-05",
+    "filed_date": "2026-11-06",
+    "shares_traded": 15000,
+    "price_per_share": 6.9,
+    "total_value": 103500.0,
+    "total_value_fmt": "$104K",
+    "shares_owned_after": 40000,
+    "position_change_pct": 60.0,
+    "pct_from_52w_high": 61,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-06T11:39:48.149168+00:00"
   }
 ]
