@@ -14838,5 +14838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-06T14:49:10.445934+00:00"
+  },
+  {
+    "ticker": "KMT",
+    "company_name": "KENNAMETAL INC",
+    "insider_name": "Chowbey Sanjay",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-05",
+    "filed_date": "2026-11-06",
+    "shares_traded": 7000,
+    "price_per_share": 23.624,
+    "total_value": 165368.0,
+    "total_value_fmt": "$165K",
+    "shares_owned_after": 280957,
+    "position_change_pct": 2.6,
+    "pct_from_52w_high": 46,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-06T17:58:24.902431+00:00"
   }
 ]
