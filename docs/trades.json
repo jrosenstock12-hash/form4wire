@@ -14958,5 +14958,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-09T12:42:26.619380+00:00"
+  },
+  {
+    "ticker": "EAF",
+    "company_name": "GRAFTECH INTERNATIONAL LTD",
+    "insider_name": "Shivaram Sachin M",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-09",
+    "filed_date": "2026-11-09",
+    "shares_traded": 5000,
+    "price_per_share": 10.0,
+    "total_value": 50000.0,
+    "total_value_fmt": "$50K",
+    "shares_owned_after": 10000,
+    "position_change_pct": 100.0,
+    "pct_from_52w_high": 49,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-09T19:30:30.811097+00:00"
   }
 ]
