@@ -14998,5 +14998,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-09T20:54:58.155360+00:00"
+  },
+  {
+    "ticker": "AN",
+    "company_name": "AUTONATION, INC.",
+    "insider_name": "Szlosek Thomas A",
+    "insider_title": "EVP & CFO",
+    "role_header": "CFO",
+    "transaction_date": "2026-11-05",
+    "filed_date": "2026-11-09",
+    "shares_traded": 1081,
+    "price_per_share": 184.8288,
+    "total_value": 199799.88,
+    "total_value_fmt": "$200K",
+    "shares_owned_after": 21166,
+    "position_change_pct": 5.4,
+    "pct_from_52w_high": 22,
+    "signal_score": 6,
+    "cluster_count": 3,
+    "unusual_flag": false,
+    "posted_at": "2026-11-09T21:10:20.104360+00:00"
   }
 ]
