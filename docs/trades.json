@@ -14978,5 +14978,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-09T19:30:30.811097+00:00"
+  },
+  {
+    "ticker": "CMCO",
+    "company_name": "COLUMBUS MCKINNON CORP",
+    "insider_name": "Wilson David J.",
+    "insider_title": "President & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-05",
+    "filed_date": "2026-11-09",
+    "shares_traded": 32631,
+    "price_per_share": 16.8965,
+    "total_value": 551349.34,
+    "total_value_fmt": "$551K",
+    "shares_owned_after": 300632,
+    "position_change_pct": 12.2,
+    "pct_from_52w_high": 31,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-09T20:54:58.155360+00:00"
   }
 ]
