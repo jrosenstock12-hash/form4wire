@@ -15138,5 +15138,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-10T21:42:54.388123+00:00"
+  },
+  {
+    "ticker": "DTI",
+    "company_name": "Drilling Tools International Corp",
+    "insider_name": "Prejean Robert Wayne",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-09",
+    "filed_date": "2026-11-10",
+    "shares_traded": 100000,
+    "price_per_share": 1.643,
+    "total_value": 164300.0,
+    "total_value_fmt": "$164K",
+    "shares_owned_after": 591076,
+    "position_change_pct": 20.4,
+    "pct_from_52w_high": 65,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-10T22:07:35.367559+00:00"
   }
 ]
