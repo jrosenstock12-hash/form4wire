@@ -15158,5 +15158,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-10T22:07:35.367559+00:00"
+  },
+  {
+    "ticker": "WW",
+    "company_name": "WW INTERNATIONAL, INC.",
+    "insider_name": "BYE STEPHEN J",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-10",
+    "filed_date": "2026-11-10",
+    "shares_traded": 12500,
+    "price_per_share": 11.01,
+    "total_value": 137625.0,
+    "total_value_fmt": "$138K",
+    "shares_owned_after": 12500,
+    "position_change_pct": null,
+    "pct_from_52w_high": 69,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-10T22:57:21.122506+00:00"
   }
 ]
