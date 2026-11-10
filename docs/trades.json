@@ -15098,5 +15098,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-10T21:16:54.412798+00:00"
+  },
+  {
+    "ticker": "UPBD",
+    "company_name": "UPBOUND GROUP, INC.",
+    "insider_name": "Young Scott A.",
+    "insider_title": "EVP, Chief Operating Officer",
+    "role_header": "COO",
+    "transaction_date": "2026-11-09",
+    "filed_date": "2026-11-10",
+    "shares_traded": 6015,
+    "price_per_share": 24.95,
+    "total_value": 150074.25,
+    "total_value_fmt": "$150K",
+    "shares_owned_after": 6015,
+    "position_change_pct": null,
+    "pct_from_52w_high": 1,
+    "signal_score": 6,
+    "cluster_count": 4,
+    "unusual_flag": false,
+    "posted_at": "2026-11-10T21:31:13.142215+00:00"
   }
 ]
