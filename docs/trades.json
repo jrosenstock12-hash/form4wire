@@ -15078,5 +15078,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-10T21:02:15.372255+00:00"
+  },
+  {
+    "ticker": "SPXC",
+    "company_name": "SPX Technologies, Inc.",
+    "insider_name": "Deck Brian A",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-06",
+    "filed_date": "2026-11-10",
+    "shares_traded": 1000,
+    "price_per_share": 140.75,
+    "total_value": 140750.0,
+    "total_value_fmt": "$141K",
+    "shares_owned_after": 4742,
+    "position_change_pct": 26.7,
+    "pct_from_52w_high": 44,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-10T21:16:54.412798+00:00"
   }
 ]
