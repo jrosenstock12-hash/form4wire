@@ -15258,5 +15258,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-12T12:07:26.015906+00:00"
+  },
+  {
+    "ticker": "HOS",
+    "company_name": "HORNBECK OFFSHORE SERVICES, INC.",
+    "insider_name": "HORNBECK TODD M",
+    "insider_title": "PRESIDENT & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-10",
+    "filed_date": "2026-11-12",
+    "shares_traded": 280865,
+    "price_per_share": 5.3407,
+    "total_value": 1500009.14,
+    "total_value_fmt": "$1.5M",
+    "shares_owned_after": 5950513,
+    "position_change_pct": 5.0,
+    "pct_from_52w_high": 52,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-12T13:02:50.511608+00:00"
   }
 ]
