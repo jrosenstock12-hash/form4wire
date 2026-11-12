@@ -15218,5 +15218,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-12T11:42:11.110952+00:00"
+  },
+  {
+    "ticker": "TH",
+    "company_name": "Target Hospitality Corp.",
+    "insider_name": "Archer James Bradley",
+    "insider_title": "Director and CEO and President",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-11",
+    "filed_date": "2026-11-12",
+    "shares_traded": 27500,
+    "price_per_share": 11.37,
+    "total_value": 312675.0,
+    "total_value_fmt": "$313K",
+    "shares_owned_after": 1872941,
+    "position_change_pct": 1.5,
+    "pct_from_52w_high": 48,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-12T11:44:23.433314+00:00"
   }
 ]
