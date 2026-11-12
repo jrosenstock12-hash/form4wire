@@ -15378,5 +15378,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-12T23:17:13.859707+00:00"
+  },
+  {
+    "ticker": "EQPT",
+    "company_name": "EquipmentShare.com Inc",
+    "insider_name": "Schlacks Jabbok",
+    "insider_title": "Founder & CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-11",
+    "filed_date": "2026-11-12",
+    "shares_traded": 16212,
+    "price_per_share": 15.42,
+    "total_value": 249989.04,
+    "total_value_fmt": "$250K",
+    "shares_owned_after": 141212,
+    "position_change_pct": 13.0,
+    "pct_from_52w_high": 57,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-12T23:35:11.800462+00:00"
   }
 ]
