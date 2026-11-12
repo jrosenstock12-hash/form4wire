@@ -15338,5 +15338,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-12T22:13:33.796322+00:00"
+  },
+  {
+    "ticker": "MTDR",
+    "company_name": "Matador Resources Co",
+    "insider_name": "Foran Joseph Wm",
+    "insider_title": "Chairman and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-10",
+    "filed_date": "2026-11-12",
+    "shares_traded": 2500,
+    "price_per_share": 49.29,
+    "total_value": 123225.0,
+    "total_value_fmt": "$123K",
+    "shares_owned_after": 12272,
+    "position_change_pct": 25.6,
+    "pct_from_52w_high": 26,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-12T23:08:33.986420+00:00"
   }
 ]
