@@ -15318,5 +15318,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-12T22:11:36.446526+00:00"
+  },
+  {
+    "ticker": "URG",
+    "company_name": "UR-ENERGY INC",
+    "insider_name": "Walle Jade",
+    "insider_title": "VICE PRESIDENT FINANCE",
+    "role_header": "VP",
+    "transaction_date": "2026-11-11",
+    "filed_date": "2026-11-12",
+    "shares_traded": 164178,
+    "price_per_share": 0.67,
+    "total_value": 109999.26,
+    "total_value_fmt": "$110K",
+    "shares_owned_after": 588215,
+    "position_change_pct": 38.7,
+    "pct_from_52w_high": 69,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-12T22:13:33.796322+00:00"
   }
 ]
