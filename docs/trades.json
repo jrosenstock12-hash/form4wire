@@ -15398,5 +15398,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-12T23:35:11.800462+00:00"
+  },
+  {
+    "ticker": "HPP",
+    "company_name": "Hudson Pacific Properties, Inc.",
+    "insider_name": "COLEMAN VICTOR J",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-10",
+    "filed_date": "2026-11-12",
+    "shares_traded": 20000,
+    "price_per_share": 9.1,
+    "total_value": 182000.0,
+    "total_value_fmt": "$182K",
+    "shares_owned_after": 121663,
+    "position_change_pct": 19.7,
+    "pct_from_52w_high": 47,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-13T01:44:17.529378+00:00"
   }
 ]
