@@ -15418,5 +15418,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-13T01:44:17.529378+00:00"
+  },
+  {
+    "ticker": "CATX",
+    "company_name": "Perspective Therapeutics, Inc.",
+    "insider_name": "Puhlmann Markus",
+    "insider_title": "Chief Medical Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-11-11",
+    "filed_date": "2026-11-13",
+    "shares_traded": 41000,
+    "price_per_share": 0.8425,
+    "total_value": 34544.5,
+    "total_value_fmt": "$35K",
+    "shares_owned_after": 178542,
+    "position_change_pct": 29.8,
+    "pct_from_52w_high": 86,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-13T13:31:19.210258+00:00"
   }
 ]
