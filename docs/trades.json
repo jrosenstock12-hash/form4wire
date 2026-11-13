@@ -15478,5 +15478,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-13T21:15:29.425166+00:00"
+  },
+  {
+    "ticker": "FF",
+    "company_name": "FutureFuel Corp.",
+    "insider_name": "Bedell Donald C.",
+    "insider_title": "Director",
+    "role_header": "CTO",
+    "transaction_date": "2026-11-12",
+    "filed_date": "2026-11-13",
+    "shares_traded": 40000,
+    "price_per_share": 2.83,
+    "total_value": 113200.0,
+    "total_value_fmt": "$113K",
+    "shares_owned_after": 50000,
+    "position_change_pct": 400.0,
+    "pct_from_52w_high": 60,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-13T21:17:08.921414+00:00"
   }
 ]
