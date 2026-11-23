@@ -15578,5 +15578,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-23T21:13:35.848240+00:00"
+  },
+  {
+    "ticker": "CCAP",
+    "company_name": "Crescent Capital BDC, Inc.",
+    "insider_name": "Barrios Erik G",
+    "insider_title": "Chief Compliance Officer",
+    "role_header": "C-SUITE",
+    "transaction_date": "2026-11-23",
+    "filed_date": "2026-11-23",
+    "shares_traded": 2500,
+    "price_per_share": 9.91,
+    "total_value": 24775.0,
+    "total_value_fmt": "$25K",
+    "shares_owned_after": 5052,
+    "position_change_pct": 98.0,
+    "pct_from_52w_high": 35,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-23T21:15:34.862161+00:00"
   }
 ]
