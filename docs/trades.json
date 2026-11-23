@@ -15558,5 +15558,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-23T20:31:55.072992+00:00"
+  },
+  {
+    "ticker": "CCAP",
+    "company_name": "Crescent Capital BDC, Inc.",
+    "insider_name": "Chung Henry",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-11-20",
+    "filed_date": "2026-11-23",
+    "shares_traded": 9000,
+    "price_per_share": 9.82,
+    "total_value": 88380.0,
+    "total_value_fmt": "$88K",
+    "shares_owned_after": 33884,
+    "position_change_pct": 36.2,
+    "pct_from_52w_high": 35,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-23T21:13:35.848240+00:00"
   }
 ]
