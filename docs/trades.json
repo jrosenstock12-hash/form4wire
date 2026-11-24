@@ -15738,5 +15738,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-24T21:04:45.656267+00:00"
+  },
+  {
+    "ticker": "SNEX",
+    "company_name": "StoneX Group Inc.",
+    "insider_name": "Charles M. Lyon",
+    "insider_title": "President",
+    "role_header": "PRESIDENT",
+    "transaction_date": "2026-11-23",
+    "filed_date": "2026-11-24",
+    "shares_traded": 10418,
+    "price_per_share": 38.56,
+    "total_value": 401718.08,
+    "total_value_fmt": "$402K",
+    "shares_owned_after": 334660,
+    "position_change_pct": 3.2,
+    "pct_from_52w_high": 59,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-24T21:31:46.996746+00:00"
   }
 ]
