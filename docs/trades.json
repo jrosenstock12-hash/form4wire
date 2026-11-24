@@ -15698,5 +15698,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-24T11:08:04.546877+00:00"
+  },
+  {
+    "ticker": "ALDX",
+    "company_name": "Aldeyra Therapeutics, Inc.",
+    "insider_name": "Brady Todd C",
+    "insider_title": "President and CEO",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-20",
+    "filed_date": "2026-11-24",
+    "shares_traded": 300000,
+    "price_per_share": 0.8102,
+    "total_value": 243060.0,
+    "total_value_fmt": "$243K",
+    "shares_owned_after": 2021298,
+    "position_change_pct": 17.4,
+    "pct_from_52w_high": 86,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-24T11:59:59.906639+00:00"
   }
 ]
