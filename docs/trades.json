@@ -15658,5 +15658,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-23T21:41:49.192979+00:00"
+  },
+  {
+    "ticker": "RMIX",
+    "company_name": "Suncrete, Inc.",
+    "insider_name": "Edgar Randall W.",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-19",
+    "filed_date": "2026-11-23",
+    "shares_traded": 15732,
+    "price_per_share": 6.36,
+    "total_value": 100055.52,
+    "total_value_fmt": "$100K",
+    "shares_owned_after": 15732,
+    "position_change_pct": null,
+    "pct_from_52w_high": 75,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-24T01:00:43.652032+00:00"
   }
 ]
