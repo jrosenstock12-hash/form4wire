@@ -15758,5 +15758,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-24T21:31:46.996746+00:00"
+  },
+  {
+    "ticker": "CTSO",
+    "company_name": "Cytosorbents Corp",
+    "insider_name": "Phillip P. Chan",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-20",
+    "filed_date": "2026-11-24",
+    "shares_traded": 68533,
+    "price_per_share": 5.18,
+    "total_value": 355000.94,
+    "total_value_fmt": "$355K",
+    "shares_owned_after": 169529,
+    "position_change_pct": 67.9,
+    "pct_from_52w_high": 70,
+    "signal_score": 8,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-24T23:11:35.566152+00:00"
   }
 ]
