@@ -15678,5 +15678,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-24T01:00:43.652032+00:00"
+  },
+  {
+    "ticker": "XGPU",
+    "company_name": "Reliance Global Group, Inc.",
+    "insider_name": "Korman Judah",
+    "insider_title": "Chief Operating Officer",
+    "role_header": "COO",
+    "transaction_date": "2026-11-20",
+    "filed_date": "2026-11-24",
+    "shares_traded": 51737,
+    "price_per_share": 2.6,
+    "total_value": 134516.2,
+    "total_value_fmt": "$135K",
+    "shares_owned_after": 62957,
+    "position_change_pct": 461.1,
+    "pct_from_52w_high": 92,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-24T11:08:04.546877+00:00"
   }
 ]
