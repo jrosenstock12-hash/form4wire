@@ -15798,5 +15798,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-25T11:31:00.840082+00:00"
+  },
+  {
+    "ticker": "KDK",
+    "company_name": "Kodiak AI, Inc.",
+    "insider_name": "Burnette Donald L.",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-24",
+    "filed_date": "2026-11-25",
+    "shares_traded": 2000000,
+    "price_per_share": 1.1067,
+    "total_value": 2213400.0,
+    "total_value_fmt": "$2.2M",
+    "shares_owned_after": 29083818,
+    "position_change_pct": 7.4,
+    "pct_from_52w_high": 90,
+    "signal_score": 7,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-25T13:30:49.289281+00:00"
   }
 ]
