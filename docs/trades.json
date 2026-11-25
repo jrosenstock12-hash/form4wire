@@ -15838,5 +15838,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-25T19:05:04.881828+00:00"
+  },
+  {
+    "ticker": "AVEX",
+    "company_name": "AEVEX Corp.",
+    "insider_name": "Wells Charles Roger IV",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-23",
+    "filed_date": "2026-11-25",
+    "shares_traded": 10614,
+    "price_per_share": 11.77,
+    "total_value": 124926.78,
+    "total_value_fmt": "$125K",
+    "shares_owned_after": 104614,
+    "position_change_pct": 11.3,
+    "pct_from_52w_high": 72,
+    "signal_score": 6,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-25T21:16:13.837281+00:00"
   }
 ]
