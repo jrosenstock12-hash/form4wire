@@ -15778,5 +15778,25 @@
     "cluster_count": 0,
     "unusual_flag": false,
     "posted_at": "2026-11-24T23:11:35.566152+00:00"
+  },
+  {
+    "ticker": "MX",
+    "company_name": "MAGNACHIP SEMICONDUCTOR Corp",
+    "insider_name": "LEE CHAE",
+    "insider_title": "Chief Executive Officer",
+    "role_header": "CEO",
+    "transaction_date": "2026-11-24",
+    "filed_date": "2026-11-25",
+    "shares_traded": 40000,
+    "price_per_share": 2.1591,
+    "total_value": 86366.0,
+    "total_value_fmt": "$86K",
+    "shares_owned_after": 588750,
+    "position_change_pct": 7.3,
+    "pct_from_52w_high": 78,
+    "signal_score": 5,
+    "cluster_count": 0,
+    "unusual_flag": false,
+    "posted_at": "2026-11-25T11:31:00.840082+00:00"
   }
 ]
